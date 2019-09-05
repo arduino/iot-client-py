@@ -49,7 +49,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
     :param password: Password for HTTP basic authentication
     """
 
-    def __init__(self, host="http://api-dev.arduino.cc",
+    def __init__(self, host="http://api-dev.arduino.cc/iot",
                  api_key={}, api_key_prefix={},
                  username="", password=""):
         """Constructor
@@ -283,7 +283,7 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         """
         return [
             {
-                'url': "http://api-dev.arduino.cc",
+                'url': "http://api-dev.arduino.cc/iot",
                 'description': "No description provided",
             }
         ]
