@@ -1,6 +1,6 @@
 # iot_api_client.ThingsV1Api
 
-All URIs are relative to *http://api-dev.arduino.cc*
+All URIs are relative to *http://api-dev.arduino.cc/iot*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -35,8 +35,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 create_things_v1_payload = iot_api_client.CreateThingsV1Payload() # CreateThingsV1Payload | ThingPayload describes a thing
@@ -100,8 +100,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
@@ -165,8 +165,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
@@ -226,8 +226,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
@@ -288,8 +288,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
@@ -353,8 +353,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 across_user_ids = False # bool | If true, returns all the things (optional) (default to False)
@@ -418,8 +418,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
@@ -483,8 +483,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
@@ -551,8 +551,8 @@ configuration = iot_api_client.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc
-configuration.host = "http://api-dev.arduino.cc"
+# Defining host is optional and default to http://api-dev.arduino.cc/iot
+configuration.host = "http://api-dev.arduino.cc/iot"
 # Create an instance of the API class
 api_instance = iot_api_client.ThingsV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
