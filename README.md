@@ -64,3 +64,5 @@ try:
 except iot.ApiException as e:
     print("Got an exception: {}".format(e))
 ```
+
+For a working example, see [the example folder](./example) in this repo.
