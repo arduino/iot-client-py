@@ -35,7 +35,7 @@ class Error(object):
         'detail': 'str',
         'id': 'str',
         'meta': 'dict(str, object)',
-        'status': 'str'
+        'status': 'int'
     }
 
     attribute_map = {
@@ -163,10 +163,10 @@ class Error(object):
     def status(self):
         """Gets the status of this Error.  # noqa: E501
 
-        the HTTP status code applicable to this problem, expressed as a string value.  # noqa: E501
+        the HTTP status code applicable to this problem  # noqa: E501
 
         :return: The status of this Error.  # noqa: E501
-        :rtype: str
+        :rtype: int
         """
         return self._status
 
@@ -174,10 +174,10 @@ class Error(object):
     def status(self, status):
         """Sets the status of this Error.
 
-        the HTTP status code applicable to this problem, expressed as a string value.  # noqa: E501
+        the HTTP status code applicable to this problem  # noqa: E501
 
         :param status: The status of this Error.  # noqa: E501
-        :type: str
+        :type: int
         """
 
         self._status = status

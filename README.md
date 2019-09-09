@@ -47,8 +47,9 @@ print(token.get("access_token"))
 Once you get a token, you can create an instance of the iot-api client:
 
 ```python
-import iot_api_client
+import iot_api_client as iot
 from iot_api_client.rest import ApiException
+from iot_api_client.configuration import Configuration
 
 # configure and instance the API client
 client_config = Configuration(host="http://api-dev.arduino.cc/iot")
@@ -61,7 +62,7 @@ devices_api = iot.DevicesV2Api(client)
 try:
     resp = devices_api.devices_v2_list()
     print(resp)
-except iot.ApiException as e:
+except ApiException as e:
     print("Got an exception: {}".format(e))
 ```
 
