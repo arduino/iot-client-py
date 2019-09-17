@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**properties_v1_create**](PropertiesV1Api.md#properties_v1_create) | **PUT** /v1/things/{id}/properties | create properties_v1
 [**properties_v1_delete**](PropertiesV1Api.md#properties_v1_delete) | **DELETE** /v1/things/{id}/properties/{pid} | delete properties_v1
 [**properties_v1_list**](PropertiesV1Api.md#properties_v1_list) | **GET** /v1/things/{id}/properties | list properties_v1
-[**properties_v1_publish**](PropertiesV1Api.md#properties_v1_publish) | **PUT** /v1/things/{id}/properties/{pid}/publish | publish properties_v1
+[**properties_v1_send**](PropertiesV1Api.md#properties_v1_send) | **PUT** /v1/things/{id}/properties/{pid}/send | send properties_v1
 [**properties_v1_show**](PropertiesV1Api.md#properties_v1_show) | **GET** /v1/things/{id}/properties/{pid} | show properties_v1
 [**properties_v1_update**](PropertiesV1Api.md#properties_v1_update) | **POST** /v1/things/{id}/properties/{pid} | update properties_v1
 
@@ -206,12 +206,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **properties_v1_publish**
-> properties_v1_publish(id, pid, property_value)
+# **properties_v1_send**
+> properties_v1_send(id, pid, property_string_value)
 
-publish properties_v1
+send properties_v1
 
-Publish a property value to MQTT
+Publish a property value to MQTT, as string
 
 ### Example
 
@@ -232,13 +232,13 @@ configuration.host = "http://api-dev.arduino.cc/iot"
 api_instance = iot_api_client.PropertiesV1Api(iot_api_client.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 pid = 'pid_example' # str | The id of the property
-property_value = iot_api_client.PropertyValue() # PropertyValue | PropertyValuePayload describes a property value
+property_string_value = iot_api_client.PropertyStringValue() # PropertyStringValue | PropertyStringValuePayload describes a property value
 
 try:
-    # publish properties_v1
-    api_instance.properties_v1_publish(id, pid, property_value)
+    # send properties_v1
+    api_instance.properties_v1_send(id, pid, property_string_value)
 except ApiException as e:
-    print("Exception when calling PropertiesV1Api->properties_v1_publish: %s\n" % e)
+    print("Exception when calling PropertiesV1Api->properties_v1_send: %s\n" % e)
 ```
 
 ### Parameters
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
- **property_value** | [**PropertyValue**](PropertyValue.md)| PropertyValuePayload describes a property value | 
+ **property_string_value** | [**PropertyStringValue**](PropertyStringValue.md)| PropertyStringValuePayload describes a property value | 
 
 ### Return type
 
