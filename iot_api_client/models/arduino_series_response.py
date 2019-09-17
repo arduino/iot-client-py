@@ -31,52 +31,87 @@ class ArduinoSeriesResponse(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'count_values': 'int',
         'from_date': 'datetime',
         'interval': 'int',
+        'message': 'str',
         'query': 'str',
         'resp_version': 'int',
-        'series': 'list[BatchQueryResponseSeriesMediaV1]',
+        'series_limit': 'int',
         'status': 'str',
         'times': 'list[datetime]',
         'to_date': 'datetime',
-        'values': 'list[list[float]]'
+        'values': 'list[float]'
     }
 
     attribute_map = {
+        'count_values': 'count_values',
         'from_date': 'from_date',
         'interval': 'interval',
+        'message': 'message',
         'query': 'query',
         'resp_version': 'resp_version',
-        'series': 'series',
+        'series_limit': 'series_limit',
         'status': 'status',
         'times': 'times',
         'to_date': 'to_date',
         'values': 'values'
     }
 
-    def __init__(self, from_date=None, interval=None, query=None, resp_version=None, series=None, status=None, times=None, to_date=None, values=None):  # noqa: E501
+    def __init__(self, count_values=None, from_date=None, interval=None, message='', query=None, resp_version=None, series_limit=None, status=None, times=None, to_date=None, values=None):  # noqa: E501
         """ArduinoSeriesResponse - a model defined in OpenAPI"""  # noqa: E501
 
+        self._count_values = None
         self._from_date = None
         self._interval = None
+        self._message = None
         self._query = None
         self._resp_version = None
-        self._series = None
+        self._series_limit = None
         self._status = None
         self._times = None
         self._to_date = None
         self._values = None
         self.discriminator = None
 
+        self.count_values = count_values
         self.from_date = from_date
         self.interval = interval
+        if message is not None:
+            self.message = message
         self.query = query
         self.resp_version = resp_version
-        self.series = series
+        if series_limit is not None:
+            self.series_limit = series_limit
         self.status = status
         self.times = times
         self.to_date = to_date
         self.values = values
+
+    @property
+    def count_values(self):
+        """Gets the count_values of this ArduinoSeriesResponse.  # noqa: E501
+
+        Total number of values in the array 'values'  # noqa: E501
+
+        :return: The count_values of this ArduinoSeriesResponse.  # noqa: E501
+        :rtype: int
+        """
+        return self._count_values
+
+    @count_values.setter
+    def count_values(self, count_values):
+        """Sets the count_values of this ArduinoSeriesResponse.
+
+        Total number of values in the array 'values'  # noqa: E501
+
+        :param count_values: The count_values of this ArduinoSeriesResponse.  # noqa: E501
+        :type: int
+        """
+        if count_values is None:
+            raise ValueError("Invalid value for `count_values`, must not be `None`")  # noqa: E501
+
+        self._count_values = count_values
 
     @property
     def from_date(self):
@@ -129,6 +164,29 @@ class ArduinoSeriesResponse(object):
         self._interval = interval
 
     @property
+    def message(self):
+        """Gets the message of this ArduinoSeriesResponse.  # noqa: E501
+
+        If the response is different than 'ok'  # noqa: E501
+
+        :return: The message of this ArduinoSeriesResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this ArduinoSeriesResponse.
+
+        If the response is different than 'ok'  # noqa: E501
+
+        :param message: The message of this ArduinoSeriesResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
+
+    @property
     def query(self):
         """Gets the query of this ArduinoSeriesResponse.  # noqa: E501
 
@@ -179,29 +237,27 @@ class ArduinoSeriesResponse(object):
         self._resp_version = resp_version
 
     @property
-    def series(self):
-        """Gets the series of this ArduinoSeriesResponse.  # noqa: E501
+    def series_limit(self):
+        """Gets the series_limit of this ArduinoSeriesResponse.  # noqa: E501
 
-        Series information  # noqa: E501
+        Max of values  # noqa: E501
 
-        :return: The series of this ArduinoSeriesResponse.  # noqa: E501
-        :rtype: list[BatchQueryResponseSeriesMediaV1]
+        :return: The series_limit of this ArduinoSeriesResponse.  # noqa: E501
+        :rtype: int
         """
-        return self._series
+        return self._series_limit
 
-    @series.setter
-    def series(self, series):
-        """Sets the series of this ArduinoSeriesResponse.
+    @series_limit.setter
+    def series_limit(self, series_limit):
+        """Sets the series_limit of this ArduinoSeriesResponse.
 
-        Series information  # noqa: E501
+        Max of values  # noqa: E501
 
-        :param series: The series of this ArduinoSeriesResponse.  # noqa: E501
-        :type: list[BatchQueryResponseSeriesMediaV1]
+        :param series_limit: The series_limit of this ArduinoSeriesResponse.  # noqa: E501
+        :type: int
         """
-        if series is None:
-            raise ValueError("Invalid value for `series`, must not be `None`")  # noqa: E501
 
-        self._series = series
+        self._series_limit = series_limit
 
     @property
     def status(self):
@@ -285,7 +341,7 @@ class ArduinoSeriesResponse(object):
         Values in Float  # noqa: E501
 
         :return: The values of this ArduinoSeriesResponse.  # noqa: E501
-        :rtype: list[list[float]]
+        :rtype: list[float]
         """
         return self._values
 
@@ -296,7 +352,7 @@ class ArduinoSeriesResponse(object):
         Values in Float  # noqa: E501
 
         :param values: The values of this ArduinoSeriesResponse.  # noqa: E501
-        :type: list[list[float]]
+        :type: list[float]
         """
         if values is None:
             raise ValueError("Invalid value for `values`, must not be `None`")  # noqa: E501

@@ -34,7 +34,6 @@ from iot_api_client.models.batch_query_raw_requests_media_v1 import BatchQueryRa
 from iot_api_client.models.batch_query_raw_response_series_media_v1 import BatchQueryRawResponseSeriesMediaV1
 from iot_api_client.models.batch_query_request_media_v1 import BatchQueryRequestMediaV1
 from iot_api_client.models.batch_query_requests_media_v1 import BatchQueryRequestsMediaV1
-from iot_api_client.models.batch_query_response_series_media_v1 import BatchQueryResponseSeriesMediaV1
 from iot_api_client.models.create_devices_v2_payload import CreateDevicesV2Payload
 from iot_api_client.models.create_things_v1_payload import CreateThingsV1Payload
 from iot_api_client.models.devicev2 import Devicev2
@@ -42,6 +41,6 @@ from iot_api_client.models.error import Error
 from iot_api_client.models.model_property import ModelProperty
 from iot_api_client.models.properties_value import PropertiesValue
 from iot_api_client.models.properties_values import PropertiesValues
-from iot_api_client.models.property_value import PropertyValue
+from iot_api_client.models.property_string_value import PropertyStringValue
 from iot_api_client.models.thing import Thing
 from iot_api_client.models.thing_sketch import ThingSketch

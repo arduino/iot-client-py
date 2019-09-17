@@ -388,19 +388,19 @@ class PropertiesV1Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def properties_v1_publish(self, id, pid, property_value, **kwargs):  # noqa: E501
-        """publish properties_v1  # noqa: E501
+    def properties_v1_send(self, id, pid, property_string_value, **kwargs):  # noqa: E501
+        """send properties_v1  # noqa: E501
 
-        Publish a property value to MQTT  # noqa: E501
+        Publish a property value to MQTT, as string  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.properties_v1_publish(id, pid, property_value, async_req=True)
+        >>> thread = api.properties_v1_send(id, pid, property_string_value, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param str pid: The id of the property (required)
-        :param PropertyValue property_value: PropertyValuePayload describes a property value (required)
+        :param PropertyStringValue property_string_value: PropertyStringValuePayload describes a property value (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -413,21 +413,21 @@ class PropertiesV1Api(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.properties_v1_publish_with_http_info(id, pid, property_value, **kwargs)  # noqa: E501
+        return self.properties_v1_send_with_http_info(id, pid, property_string_value, **kwargs)  # noqa: E501
 
-    def properties_v1_publish_with_http_info(self, id, pid, property_value, **kwargs):  # noqa: E501
-        """publish properties_v1  # noqa: E501
+    def properties_v1_send_with_http_info(self, id, pid, property_string_value, **kwargs):  # noqa: E501
+        """send properties_v1  # noqa: E501
 
-        Publish a property value to MQTT  # noqa: E501
+        Publish a property value to MQTT, as string  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.properties_v1_publish_with_http_info(id, pid, property_value, async_req=True)
+        >>> thread = api.properties_v1_send_with_http_info(id, pid, property_string_value, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param str pid: The id of the property (required)
-        :param PropertyValue property_value: PropertyValuePayload describes a property value (required)
+        :param PropertyStringValue property_string_value: PropertyStringValuePayload describes a property value (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -444,7 +444,7 @@ class PropertiesV1Api(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'pid', 'property_value']  # noqa: E501
+        all_params = ['id', 'pid', 'property_string_value']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -454,22 +454,22 @@ class PropertiesV1Api(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method properties_v1_publish" % key
+                    " to method properties_v1_send" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if ('id' not in local_var_params or
                 local_var_params['id'] is None):
-            raise ApiValueError("Missing the required parameter `id` when calling `properties_v1_publish`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `properties_v1_send`")  # noqa: E501
         # verify the required parameter 'pid' is set
         if ('pid' not in local_var_params or
                 local_var_params['pid'] is None):
-            raise ApiValueError("Missing the required parameter `pid` when calling `properties_v1_publish`")  # noqa: E501
-        # verify the required parameter 'property_value' is set
-        if ('property_value' not in local_var_params or
-                local_var_params['property_value'] is None):
-            raise ApiValueError("Missing the required parameter `property_value` when calling `properties_v1_publish`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pid` when calling `properties_v1_send`")  # noqa: E501
+        # verify the required parameter 'property_string_value' is set
+        if ('property_string_value' not in local_var_params or
+                local_var_params['property_string_value'] is None):
+            raise ApiValueError("Missing the required parameter `property_string_value` when calling `properties_v1_send`")  # noqa: E501
 
         collection_formats = {}
 
@@ -487,8 +487,8 @@ class PropertiesV1Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'property_value' in local_var_params:
-            body_params = local_var_params['property_value']
+        if 'property_string_value' in local_var_params:
+            body_params = local_var_params['property_string_value']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/vnd.goa.error+json', 'text/plain'])  # noqa: E501
@@ -501,7 +501,7 @@ class PropertiesV1Api(object):
         auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
-            '/v1/things/{id}/properties/{pid}/publish', 'PUT',
+            '/v1/things/{id}/properties/{pid}/send', 'PUT',
             path_params,
             query_params,
             header_params,
