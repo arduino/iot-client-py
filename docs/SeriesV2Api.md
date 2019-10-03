@@ -1,6 +1,6 @@
-# iot_api_client.SeriesV2Api
+# arduino_iot_rest.SeriesV2Api
 
-All URIs are relative to *http://api-dev.arduino.cc/iot*
+All URIs are relative to *http://api2.arduino.cc/iot*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,18 +22,18 @@ Returns the batch of time-series data
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.SeriesV2Api(iot_api_client.ApiClient(configuration))
-batch_query_requests_media_v1 = iot_api_client.BatchQueryRequestsMediaV1() # BatchQueryRequestsMediaV1 | 
+api_instance = arduino_iot_rest.SeriesV2Api(arduino_iot_rest.ApiClient(configuration))
+batch_query_requests_media_v1 = arduino_iot_rest.BatchQueryRequestsMediaV1() # BatchQueryRequestsMediaV1 | 
 
 try:
     # batch_query series_v2
@@ -86,18 +86,18 @@ Returns the batch of time-series data raw
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.SeriesV2Api(iot_api_client.ApiClient(configuration))
-batch_query_raw_requests_media_v1 = iot_api_client.BatchQueryRawRequestsMediaV1() # BatchQueryRawRequestsMediaV1 | 
+api_instance = arduino_iot_rest.SeriesV2Api(arduino_iot_rest.ApiClient(configuration))
+batch_query_raw_requests_media_v1 = arduino_iot_rest.BatchQueryRawRequestsMediaV1() # BatchQueryRawRequestsMediaV1 | 
 
 try:
     # batch_query_raw series_v2
@@ -150,18 +150,18 @@ Returns the batch of time-series data raw
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.SeriesV2Api(iot_api_client.ApiClient(configuration))
-batch_last_value_requests_media_v1 = iot_api_client.BatchLastValueRequestsMediaV1() # BatchLastValueRequestsMediaV1 | 
+api_instance = arduino_iot_rest.SeriesV2Api(arduino_iot_rest.ApiClient(configuration))
+batch_last_value_requests_media_v1 = arduino_iot_rest.BatchLastValueRequestsMediaV1() # BatchLastValueRequestsMediaV1 | 
 
 try:
     # batch_query_raw_last_value series_v2
