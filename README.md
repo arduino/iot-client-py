@@ -31,14 +31,14 @@ from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 
 oauth_client = BackendApplicationClient(client_id=YOUR_CLIENT_ID)
-token_url = "https://login.oniudra.cc/oauth/token"
+token_url = "https://login.arduino.cc/oauth/token"
 
 oauth = OAuth2Session(client=oauth_client)
 token = oauth.fetch_token(
     token_url=token_url,
     client_id=YOUR_CLIENT_ID,
     client_secret=YOUR_CLIENT_SECRET,
-    audience="https://api.arduino.cc",
+    audience="https://api2.arduino.cc/iot",
 )
 
 print(token.get("access_token"))
@@ -52,7 +52,7 @@ from iot_api_client.rest import ApiException
 from iot_api_client.configuration import Configuration
 
 # configure and instance the API client
-client_config = Configuration(host="http://api-dev.arduino.cc/iot")
+client_config = Configuration(host="http://api2.arduino.cc/iot")
 client_config.access_token = YOUR_ACCESS_TOKEN
 client = iot.ApiClient(client_config)
 

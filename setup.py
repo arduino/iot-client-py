@@ -12,8 +12,8 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "iot_api"
-VERSION = "0.0.1"
+NAME = "arduino-iot-client"
+VERSION = "1.0.0-beta1"
 # To install the library, run the following
 #
 # python setup.py install

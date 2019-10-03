@@ -1,6 +1,6 @@
-# iot_api_client.PropertiesV2Api
+# arduino_iot_rest.PropertiesV2Api
 
-All URIs are relative to *http://api-dev.arduino.cc/iot*
+All URIs are relative to *http://api2.arduino.cc/iot*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,19 +25,19 @@ Creates a new property associated to a thing
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.PropertiesV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.PropertiesV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
-model_property = iot_api_client.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
+model_property = arduino_iot_rest.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
 
 try:
     # create properties_v2
@@ -90,17 +90,17 @@ Removes a property associated to a thing
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.PropertiesV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.PropertiesV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 pid = 'pid_example' # str | The id of the property
 force = False # bool | If true, hard delete the property (optional) (default to False)
@@ -155,17 +155,17 @@ Returns the list of properties associated to the thing
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.PropertiesV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.PropertiesV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 show_deleted = False # bool | If true, shows the soft deleted properties (optional) (default to False)
 
@@ -219,20 +219,20 @@ Publish a property value to MQTT
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.PropertiesV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.PropertiesV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 pid = 'pid_example' # str | The id of the property
-property_value = iot_api_client.PropertyValue() # PropertyValue | PropertyValuePayload describes a property value
+property_value = arduino_iot_rest.PropertyValue() # PropertyValue | PropertyValuePayload describes a property value
 
 try:
     # publish properties_v2
@@ -285,17 +285,17 @@ Returns the property requested by the user
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.PropertiesV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.PropertiesV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 pid = 'pid_example' # str | The id of the property
 show_deleted = False # bool | If true, shows the soft deleted properties (optional) (default to False)
@@ -351,20 +351,20 @@ Updates a property associated to a thing
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.PropertiesV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.PropertiesV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 pid = 'pid_example' # str | The id of the property
-model_property = iot_api_client.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
+model_property = arduino_iot_rest.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
 
 try:
     # update properties_v2

@@ -1,6 +1,6 @@
-# iot_api_client.ThingsV2Api
+# arduino_iot_rest.ThingsV2Api
 
-All URIs are relative to *http://api-dev.arduino.cc/iot*
+All URIs are relative to *http://api2.arduino.cc/iot*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,18 +27,18 @@ Creates a new thing associated to the user
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
-create_things_v2_payload = iot_api_client.CreateThingsV2Payload() # CreateThingsV2Payload | ThingPayload describes a thing
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
+create_things_v2_payload = arduino_iot_rest.CreateThingsV2Payload() # CreateThingsV2Payload | ThingPayload describes a thing
 force = False # bool | If true, detach device from the other thing, and attach to this thing (optional) (default to False)
 
 try:
@@ -92,19 +92,19 @@ Creates a new sketch thing associated to the thing
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
-thing_sketch = iot_api_client.ThingSketch() # ThingSketch | ThingSketchPayload describes a sketch of a thing
+thing_sketch = arduino_iot_rest.ThingSketch() # ThingSketch | ThingSketchPayload describes a sketch of a thing
 
 try:
     # createSketch things_v2
@@ -157,17 +157,17 @@ Removes a thing associated to the user
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 force = False # bool | If true, hard delete the thing (optional) (default to False)
 
@@ -218,17 +218,17 @@ deleteSketch things_v2
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 
 try:
@@ -280,17 +280,17 @@ Returns the list of things associated to the user
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
 across_user_ids = False # bool | If true, returns all the things (optional) (default to False)
 device_id = 'device_id_example' # str | The id of the device you want to filter (optional)
 show_deleted = False # bool | If true, shows the soft deleted things (optional) (default to False)
@@ -345,17 +345,17 @@ Returns the thing requested by the user
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 show_deleted = False # bool | If true, shows the soft deleted thing (optional) (default to False)
 
@@ -410,19 +410,19 @@ Updates a thing associated to the user
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
-thing = iot_api_client.Thing() # Thing | ThingPayload describes a thing
+thing = arduino_iot_rest.Thing() # Thing | ThingPayload describes a thing
 force = False # bool | If true, detach device from the other thing, and attach to this thing (optional) (default to False)
 
 try:
@@ -478,17 +478,17 @@ Update an existing thing sketch
 ```python
 from __future__ import print_function
 import time
-import iot_api_client
-from iot_api_client.rest import ApiException
+import arduino_iot_rest
+from arduino_iot_rest.rest import ApiException
 from pprint import pprint
-configuration = iot_api_client.Configuration()
+configuration = arduino_iot_rest.Configuration()
 # Configure OAuth2 access token for authorization: oauth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# Defining host is optional and default to http://api-dev.arduino.cc/iot
-configuration.host = "http://api-dev.arduino.cc/iot"
+# Defining host is optional and default to http://api2.arduino.cc/iot
+configuration.host = "http://api2.arduino.cc/iot"
 # Create an instance of the API class
-api_instance = iot_api_client.ThingsV2Api(iot_api_client.ApiClient(configuration))
+api_instance = arduino_iot_rest.ThingsV2Api(arduino_iot_rest.ApiClient(configuration))
 id = 'id_example' # str | The id of the thing
 sketch_id = 'sketch_id_example' # str | The id of the sketch
 
