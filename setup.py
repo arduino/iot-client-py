@@ -13,7 +13,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "arduino-iot-client"
-VERSION = "1.0.0-beta2"
+VERSION = "1.0.0-beta3"
 # To install the library, run the following
 #
 # python setup.py install
