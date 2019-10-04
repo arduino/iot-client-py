@@ -10,7 +10,7 @@ You can install the package directly from Github (you may need to run `pip` with
 `sudo`):
 
 ```sh
-pip install git+https://github.com/Arduino/iot-api-client-py.git
+pip install arduino-iot-api
 ```
 
 ## Getting Started
