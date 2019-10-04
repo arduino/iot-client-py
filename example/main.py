@@ -11,7 +11,7 @@ CLIENT_SECRET = ""  # get a valid one from your Arduino Create account
 if __name__ == "__main__":
     # Setup the OAuth2 session that'll be used to request the server an access token
     oauth_client = BackendApplicationClient(client_id=CLIENT_ID)
-    token_url = "https://login.oniudra.cc/oauth/token"
+    token_url = "https://login.arduino.cc/oauth/token"
     oauth = OAuth2Session(client=oauth_client)
 
     # This will fire an actual HTTP call to the server to exchange client_id and
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         token_url=token_url,
         client_id=CLIENT_ID,
         client_secret=CLIENT_SECRET,
-        audience="https://api.arduino.cc",
+        audience="https://api2.arduino.cc/iot",
     )
 
     # If we get here we got the token, print its expiration time
@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     # Now we setup the iot-api Python client, first of all create a
     # configuration object. The access token goes in the config object.
-    client_config = iot.Configuration(host="http://api-dev.arduino.cc/iot")
+    client_config = iot.Configuration(host="http://api2.arduino.cc/iot")
     client_config.debug = True
     client_config.access_token = token.get("access_token")
 
