@@ -60,5 +60,10 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
+# Ipython Notebook
 .ipynb_checkpoints
+
+# OpenAPI generated things we don't want
+arduino_iot_rest/docs/
+arduino_iot_rest/test/
+arduino_iot_rest_README.md
