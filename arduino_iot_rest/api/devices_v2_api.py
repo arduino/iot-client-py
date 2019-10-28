@@ -103,8 +103,8 @@ class DevicesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'create_devices_v2_payload' is set
-        if ('create_devices_v2_payload' not in local_var_params or
-                local_var_params['create_devices_v2_payload'] is None):
+        if self.api_client.client_side_validation and ('create_devices_v2_payload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_devices_v2_payload'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `create_devices_v2_payload` when calling `devices_v2_create`")  # noqa: E501
 
         collection_formats = {}
@@ -215,8 +215,8 @@ class DevicesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `devices_v2_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -321,8 +321,8 @@ class DevicesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `devices_v2_get_properties`")  # noqa: E501
 
         collection_formats = {}
@@ -332,7 +332,7 @@ class DevicesV2Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
-        if 'show_deleted' in local_var_params:
+        if 'show_deleted' in local_var_params and local_var_params['show_deleted'] is not None:  # noqa: E501
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
 
         header_params = {}
@@ -436,7 +436,7 @@ class DevicesV2Api(object):
         path_params = {}
 
         query_params = []
-        if 'across_user_ids' in local_var_params:
+        if 'across_user_ids' in local_var_params and local_var_params['across_user_ids'] is not None:  # noqa: E501
             query_params.append(('across_user_ids', local_var_params['across_user_ids']))  # noqa: E501
 
         header_params = {}
@@ -535,8 +535,8 @@ class DevicesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `devices_v2_show`")  # noqa: E501
 
         collection_formats = {}
@@ -649,12 +649,12 @@ class DevicesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `devices_v2_timeseries`")  # noqa: E501
         # verify the required parameter 'pid' is set
-        if ('pid' not in local_var_params or
-                local_var_params['pid'] is None):
+        if self.api_client.client_side_validation and ('pid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `pid` when calling `devices_v2_timeseries`")  # noqa: E501
 
         collection_formats = {}
@@ -666,9 +666,9 @@ class DevicesV2Api(object):
             path_params['pid'] = local_var_params['pid']  # noqa: E501
 
         query_params = []
-        if 'limit' in local_var_params:
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'start' in local_var_params:
+        if 'start' in local_var_params and local_var_params['start'] is not None:  # noqa: E501
             query_params.append(('start', local_var_params['start']))  # noqa: E501
 
         header_params = {}
@@ -769,12 +769,12 @@ class DevicesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `devices_v2_update`")  # noqa: E501
         # verify the required parameter 'devicev2' is set
-        if ('devicev2' not in local_var_params or
-                local_var_params['devicev2'] is None):
+        if self.api_client.client_side_validation and ('devicev2' not in local_var_params or  # noqa: E501
+                                                        local_var_params['devicev2'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `devicev2` when calling `devices_v2_update`")  # noqa: E501
 
         collection_formats = {}
@@ -889,12 +889,12 @@ class DevicesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `devices_v2_update_properties`")  # noqa: E501
         # verify the required parameter 'properties_values' is set
-        if ('properties_values' not in local_var_params or
-                local_var_params['properties_values'] is None):
+        if self.api_client.client_side_validation and ('properties_values' not in local_var_params or  # noqa: E501
+                                                        local_var_params['properties_values'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `properties_values` when calling `devices_v2_update_properties`")  # noqa: E501
 
         collection_formats = {}

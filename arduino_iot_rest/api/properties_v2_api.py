@@ -105,12 +105,12 @@ class PropertiesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `properties_v2_create`")  # noqa: E501
         # verify the required parameter 'model_property' is set
-        if ('model_property' not in local_var_params or
-                local_var_params['model_property'] is None):
+        if self.api_client.client_side_validation and ('model_property' not in local_var_params or  # noqa: E501
+                                                        local_var_params['model_property'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `model_property` when calling `properties_v2_create`")  # noqa: E501
 
         collection_formats = {}
@@ -227,12 +227,12 @@ class PropertiesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `properties_v2_delete`")  # noqa: E501
         # verify the required parameter 'pid' is set
-        if ('pid' not in local_var_params or
-                local_var_params['pid'] is None):
+        if self.api_client.client_side_validation and ('pid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `pid` when calling `properties_v2_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -244,7 +244,7 @@ class PropertiesV2Api(object):
             path_params['pid'] = local_var_params['pid']  # noqa: E501
 
         query_params = []
-        if 'force' in local_var_params:
+        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
             query_params.append(('force', local_var_params['force']))  # noqa: E501
 
         header_params = {}
@@ -345,8 +345,8 @@ class PropertiesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `properties_v2_list`")  # noqa: E501
 
         collection_formats = {}
@@ -356,7 +356,7 @@ class PropertiesV2Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
-        if 'show_deleted' in local_var_params:
+        if 'show_deleted' in local_var_params and local_var_params['show_deleted'] is not None:  # noqa: E501
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
 
         header_params = {}
@@ -459,16 +459,16 @@ class PropertiesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `properties_v2_publish`")  # noqa: E501
         # verify the required parameter 'pid' is set
-        if ('pid' not in local_var_params or
-                local_var_params['pid'] is None):
+        if self.api_client.client_side_validation and ('pid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `pid` when calling `properties_v2_publish`")  # noqa: E501
         # verify the required parameter 'property_value' is set
-        if ('property_value' not in local_var_params or
-                local_var_params['property_value'] is None):
+        if self.api_client.client_side_validation and ('property_value' not in local_var_params or  # noqa: E501
+                                                        local_var_params['property_value'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `property_value` when calling `properties_v2_publish`")  # noqa: E501
 
         collection_formats = {}
@@ -587,12 +587,12 @@ class PropertiesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `properties_v2_show`")  # noqa: E501
         # verify the required parameter 'pid' is set
-        if ('pid' not in local_var_params or
-                local_var_params['pid'] is None):
+        if self.api_client.client_side_validation and ('pid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `pid` when calling `properties_v2_show`")  # noqa: E501
 
         collection_formats = {}
@@ -604,7 +604,7 @@ class PropertiesV2Api(object):
             path_params['pid'] = local_var_params['pid']  # noqa: E501
 
         query_params = []
-        if 'show_deleted' in local_var_params:
+        if 'show_deleted' in local_var_params and local_var_params['show_deleted'] is not None:  # noqa: E501
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
 
         header_params = {}
@@ -707,16 +707,16 @@ class PropertiesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `properties_v2_update`")  # noqa: E501
         # verify the required parameter 'pid' is set
-        if ('pid' not in local_var_params or
-                local_var_params['pid'] is None):
+        if self.api_client.client_side_validation and ('pid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `pid` when calling `properties_v2_update`")  # noqa: E501
         # verify the required parameter 'model_property' is set
-        if ('model_property' not in local_var_params or
-                local_var_params['model_property'] is None):
+        if self.api_client.client_side_validation and ('model_property' not in local_var_params or  # noqa: E501
+                                                        local_var_params['model_property'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `model_property` when calling `properties_v2_update`")  # noqa: E501
 
         collection_formats = {}
