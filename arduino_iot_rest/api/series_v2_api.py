@@ -103,8 +103,8 @@ class SeriesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'batch_query_requests_media_v1' is set
-        if ('batch_query_requests_media_v1' not in local_var_params or
-                local_var_params['batch_query_requests_media_v1'] is None):
+        if self.api_client.client_side_validation and ('batch_query_requests_media_v1' not in local_var_params or  # noqa: E501
+                                                        local_var_params['batch_query_requests_media_v1'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `batch_query_requests_media_v1` when calling `series_v2_batch_query`")  # noqa: E501
 
         collection_formats = {}
@@ -215,8 +215,8 @@ class SeriesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'batch_query_raw_requests_media_v1' is set
-        if ('batch_query_raw_requests_media_v1' not in local_var_params or
-                local_var_params['batch_query_raw_requests_media_v1'] is None):
+        if self.api_client.client_side_validation and ('batch_query_raw_requests_media_v1' not in local_var_params or  # noqa: E501
+                                                        local_var_params['batch_query_raw_requests_media_v1'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `batch_query_raw_requests_media_v1` when calling `series_v2_batch_query_raw`")  # noqa: E501
 
         collection_formats = {}
@@ -327,8 +327,8 @@ class SeriesV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'batch_last_value_requests_media_v1' is set
-        if ('batch_last_value_requests_media_v1' not in local_var_params or
-                local_var_params['batch_last_value_requests_media_v1'] is None):
+        if self.api_client.client_side_validation and ('batch_last_value_requests_media_v1' not in local_var_params or  # noqa: E501
+                                                        local_var_params['batch_last_value_requests_media_v1'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `batch_last_value_requests_media_v1` when calling `series_v2_batch_query_raw_last_value`")  # noqa: E501
 
         collection_formats = {}

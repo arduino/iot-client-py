@@ -105,8 +105,8 @@ class ThingsV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'create_things_v2_payload' is set
-        if ('create_things_v2_payload' not in local_var_params or
-                local_var_params['create_things_v2_payload'] is None):
+        if self.api_client.client_side_validation and ('create_things_v2_payload' not in local_var_params or  # noqa: E501
+                                                        local_var_params['create_things_v2_payload'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `create_things_v2_payload` when calling `things_v2_create`")  # noqa: E501
 
         collection_formats = {}
@@ -114,7 +114,7 @@ class ThingsV2Api(object):
         path_params = {}
 
         query_params = []
-        if 'force' in local_var_params:
+        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
             query_params.append(('force', local_var_params['force']))  # noqa: E501
 
         header_params = {}
@@ -221,12 +221,12 @@ class ThingsV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `things_v2_create_sketch`")  # noqa: E501
         # verify the required parameter 'thing_sketch' is set
-        if ('thing_sketch' not in local_var_params or
-                local_var_params['thing_sketch'] is None):
+        if self.api_client.client_side_validation and ('thing_sketch' not in local_var_params or  # noqa: E501
+                                                        local_var_params['thing_sketch'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `thing_sketch` when calling `things_v2_create_sketch`")  # noqa: E501
 
         collection_formats = {}
@@ -341,8 +341,8 @@ class ThingsV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `things_v2_delete`")  # noqa: E501
 
         collection_formats = {}
@@ -352,7 +352,7 @@ class ThingsV2Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
-        if 'force' in local_var_params:
+        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
             query_params.append(('force', local_var_params['force']))  # noqa: E501
 
         header_params = {}
@@ -445,8 +445,8 @@ class ThingsV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `things_v2_delete_sketch`")  # noqa: E501
 
         collection_formats = {}
@@ -562,11 +562,11 @@ class ThingsV2Api(object):
         path_params = {}
 
         query_params = []
-        if 'across_user_ids' in local_var_params:
+        if 'across_user_ids' in local_var_params and local_var_params['across_user_ids'] is not None:  # noqa: E501
             query_params.append(('across_user_ids', local_var_params['across_user_ids']))  # noqa: E501
-        if 'device_id' in local_var_params:
+        if 'device_id' in local_var_params and local_var_params['device_id'] is not None:  # noqa: E501
             query_params.append(('device_id', local_var_params['device_id']))  # noqa: E501
-        if 'show_deleted' in local_var_params:
+        if 'show_deleted' in local_var_params and local_var_params['show_deleted'] is not None:  # noqa: E501
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
 
         header_params = {}
@@ -667,8 +667,8 @@ class ThingsV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `things_v2_show`")  # noqa: E501
 
         collection_formats = {}
@@ -678,7 +678,7 @@ class ThingsV2Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
-        if 'show_deleted' in local_var_params:
+        if 'show_deleted' in local_var_params and local_var_params['show_deleted'] is not None:  # noqa: E501
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
 
         header_params = {}
@@ -781,12 +781,12 @@ class ThingsV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `things_v2_update`")  # noqa: E501
         # verify the required parameter 'thing' is set
-        if ('thing' not in local_var_params or
-                local_var_params['thing'] is None):
+        if self.api_client.client_side_validation and ('thing' not in local_var_params or  # noqa: E501
+                                                        local_var_params['thing'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `thing` when calling `things_v2_update`")  # noqa: E501
 
         collection_formats = {}
@@ -796,7 +796,7 @@ class ThingsV2Api(object):
             path_params['id'] = local_var_params['id']  # noqa: E501
 
         query_params = []
-        if 'force' in local_var_params:
+        if 'force' in local_var_params and local_var_params['force'] is not None:  # noqa: E501
             query_params.append(('force', local_var_params['force']))  # noqa: E501
 
         header_params = {}
@@ -903,12 +903,12 @@ class ThingsV2Api(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
-        if ('id' not in local_var_params or
-                local_var_params['id'] is None):
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `things_v2_update_sketch`")  # noqa: E501
         # verify the required parameter 'sketch_id' is set
-        if ('sketch_id' not in local_var_params or
-                local_var_params['sketch_id'] is None):
+        if self.api_client.client_side_validation and ('sketch_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sketch_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `sketch_id` when calling `things_v2_update_sketch`")  # noqa: E501
 
         collection_formats = {}
