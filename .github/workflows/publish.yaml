@@ -21,7 +21,8 @@ jobs:
 
       - name: Build package
         run: |
-          pip install -U setuptools wheel
+          pip install -r requirements.txt
+          pip install -U wheel
           python setup.py bdist_wheel
 
       - name: Upload packate to PyPI
