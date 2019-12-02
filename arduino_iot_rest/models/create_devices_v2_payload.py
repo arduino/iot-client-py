@@ -33,6 +33,7 @@ class CreateDevicesV2Payload(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'fqbn': 'str',
         'id': 'str',
         'name': 'str',
         'serial': 'str',
@@ -41,6 +42,7 @@ class CreateDevicesV2Payload(object):
     }
 
     attribute_map = {
+        'fqbn': 'fqbn',
         'id': 'id',
         'name': 'name',
         'serial': 'serial',
@@ -48,12 +50,13 @@ class CreateDevicesV2Payload(object):
         'user_id': 'user_id'
     }
 
-    def __init__(self, id=None, name=None, serial=None, type=None, user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, fqbn=None, id=None, name=None, serial=None, type=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """CreateDevicesV2Payload - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._fqbn = None
         self._id = None
         self._name = None
         self._serial = None
@@ -61,6 +64,8 @@ class CreateDevicesV2Payload(object):
         self._user_id = None
         self.discriminator = None
 
+        if fqbn is not None:
+            self.fqbn = fqbn
         if id is not None:
             self.id = id
         if name is not None:
@@ -70,6 +75,29 @@ class CreateDevicesV2Payload(object):
         self.type = type
         if user_id is not None:
             self.user_id = user_id
+
+    @property
+    def fqbn(self):
+        """Gets the fqbn of this CreateDevicesV2Payload.  # noqa: E501
+
+        The fully qualified board name  # noqa: E501
+
+        :return: The fqbn of this CreateDevicesV2Payload.  # noqa: E501
+        :rtype: str
+        """
+        return self._fqbn
+
+    @fqbn.setter
+    def fqbn(self, fqbn):
+        """Sets the fqbn of this CreateDevicesV2Payload.
+
+        The fully qualified board name  # noqa: E501
+
+        :param fqbn: The fqbn of this CreateDevicesV2Payload.  # noqa: E501
+        :type: str
+        """
+
+        self._fqbn = fqbn
 
     @property
     def id(self):
@@ -174,12 +202,12 @@ class CreateDevicesV2Payload(object):
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                type is not None and len(type) > 64):
-            raise ValueError("Invalid value for `type`, length must be less than or equal to `64`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                type is not None and not re.search(r'[a-zA-Z0-9_.@-]+', type)):  # noqa: E501
-            raise ValueError(r"Invalid value for `type`, must be a follow pattern or equal to `/[a-zA-Z0-9_.@-]+/`")  # noqa: E501
+        allowed_values = ["mkrwifi1010", "mkr1000", "nano_33_iot", "mkrgsm1400", "mkrwan1310", "mkrwan1300", "mkrnb1500", "lora-device", "login_and_secretkey_wifi"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
+                .format(type, allowed_values)
+            )
 
         self._type = type
 

@@ -127,7 +127,7 @@ class ThingsV2Api(object):
             body_params = local_var_params['create_things_v2_payload']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -247,7 +247,7 @@ class ThingsV2Api(object):
             body_params = local_var_params['thing_sketch']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -465,7 +465,7 @@ class ThingsV2Api(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.thing+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -498,7 +498,9 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the things
         :param str device_id: The id of the device you want to filter
+        :param list[str] ids: Filter only the desired things
         :param bool show_deleted: If true, shows the soft deleted things
+        :param bool show_properties: If true, returns things with their properties, and last values
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -525,7 +527,9 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the things
         :param str device_id: The id of the device you want to filter
+        :param list[str] ids: Filter only the desired things
         :param bool show_deleted: If true, shows the soft deleted things
+        :param bool show_properties: If true, returns things with their properties, and last values
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -542,7 +546,7 @@ class ThingsV2Api(object):
 
         local_var_params = locals()
 
-        all_params = ['across_user_ids', 'device_id', 'show_deleted']  # noqa: E501
+        all_params = ['across_user_ids', 'device_id', 'ids', 'show_deleted', 'show_properties']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -566,8 +570,13 @@ class ThingsV2Api(object):
             query_params.append(('across_user_ids', local_var_params['across_user_ids']))  # noqa: E501
         if 'device_id' in local_var_params and local_var_params['device_id'] is not None:  # noqa: E501
             query_params.append(('device_id', local_var_params['device_id']))  # noqa: E501
+        if 'ids' in local_var_params and local_var_params['ids'] is not None:  # noqa: E501
+            query_params.append(('ids', local_var_params['ids']))  # noqa: E501
+            collection_formats['ids'] = 'multi'  # noqa: E501
         if 'show_deleted' in local_var_params and local_var_params['show_deleted'] is not None:  # noqa: E501
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
+        if 'show_properties' in local_var_params and local_var_params['show_properties'] is not None:  # noqa: E501
+            query_params.append(('show_properties', local_var_params['show_properties']))  # noqa: E501
 
         header_params = {}
 
@@ -577,7 +586,7 @@ class ThingsV2Api(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.thing+json; type=collection'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -689,7 +698,7 @@ class ThingsV2Api(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -809,7 +818,7 @@ class ThingsV2Api(object):
             body_params = local_var_params['thing']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -846,6 +855,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param str sketch_id: The id of the sketch (required)
+        :param UpdateSketch update_sketch:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -872,6 +882,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param str sketch_id: The id of the sketch (required)
+        :param UpdateSketch update_sketch:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -888,7 +899,7 @@ class ThingsV2Api(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'sketch_id']  # noqa: E501
+        all_params = ['id', 'sketch_id', 'update_sketch']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -927,9 +938,15 @@ class ThingsV2Api(object):
         local_var_files = {}
 
         body_params = None
+        if 'update_sketch' in local_var_params:
+            body_params = local_var_params['update_sketch']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.thing+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501

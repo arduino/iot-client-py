@@ -123,7 +123,7 @@ class SeriesV2Api(object):
             body_params = local_var_params['batch_query_requests_media_v1']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.series.batch+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -235,7 +235,7 @@ class SeriesV2Api(object):
             body_params = local_var_params['batch_query_raw_requests_media_v1']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.series.raw.batch+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -347,7 +347,7 @@ class SeriesV2Api(object):
             body_params = local_var_params['batch_last_value_requests_media_v1']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.series.raw.batch.lastvalue+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
