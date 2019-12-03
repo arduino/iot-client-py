@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.0.1"
+__version__ = "1.1.0"
 
 # import apis into sdk package
 from arduino_iot_rest.api.devices_v2_api import DevicesV2Api
@@ -32,6 +32,8 @@ from arduino_iot_rest.exceptions import ApiKeyError
 from arduino_iot_rest.exceptions import ApiException
 # import models into sdk package
 from arduino_iot_rest.models.arduino_devicev2 import ArduinoDevicev2
+from arduino_iot_rest.models.arduino_devicev2_event_properties import ArduinoDevicev2EventProperties
+from arduino_iot_rest.models.arduino_devicev2_simple_properties import ArduinoDevicev2SimpleProperties
 from arduino_iot_rest.models.arduino_devicev2_webhook import ArduinoDevicev2Webhook
 from arduino_iot_rest.models.arduino_devicev2properties import ArduinoDevicev2properties
 from arduino_iot_rest.models.arduino_devicev2propertyvalue import ArduinoDevicev2propertyvalue
@@ -64,4 +66,5 @@ from arduino_iot_rest.models.properties_values import PropertiesValues
 from arduino_iot_rest.models.property_value import PropertyValue
 from arduino_iot_rest.models.thing import Thing
 from arduino_iot_rest.models.thing_sketch import ThingSketch
+from arduino_iot_rest.models.update_sketch import UpdateSketch
 

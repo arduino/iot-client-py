@@ -131,7 +131,7 @@ class PropertiesV2Api(object):
             body_params = local_var_params['model_property']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.property+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -255,7 +255,7 @@ class PropertiesV2Api(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.goa.error+json', 'text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -367,7 +367,7 @@ class PropertiesV2Api(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.property+json; type=collection', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -491,7 +491,7 @@ class PropertiesV2Api(object):
             body_params = local_var_params['property_value']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.goa.error+json', 'text/plain'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -615,7 +615,7 @@ class PropertiesV2Api(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.property+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['oauth2']  # noqa: E501
@@ -739,7 +739,7 @@ class PropertiesV2Api(object):
             body_params = local_var_params['model_property']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/vnd.arduino.property+json', 'application/vnd.goa.error+json'])  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501

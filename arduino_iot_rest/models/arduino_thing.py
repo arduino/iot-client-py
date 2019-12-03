@@ -40,7 +40,7 @@ class ArduinoThing(object):
         'id': 'str',
         'name': 'str',
         'properties': 'list[ArduinoProperty]',
-        'properties_count': 'float',
+        'properties_count': 'int',
         'sketch_id': 'str',
         'updated_at': 'datetime',
         'user_id': 'str',
@@ -282,7 +282,7 @@ class ArduinoThing(object):
         The number of properties of the thing  # noqa: E501
 
         :return: The properties_count of this ArduinoThing.  # noqa: E501
-        :rtype: float
+        :rtype: int
         """
         return self._properties_count
 
@@ -293,7 +293,7 @@ class ArduinoThing(object):
         The number of properties of the thing  # noqa: E501
 
         :param properties_count: The properties_count of this ArduinoThing.  # noqa: E501
-        :type: float
+        :type: int
         """
 
         self._properties_count = properties_count
