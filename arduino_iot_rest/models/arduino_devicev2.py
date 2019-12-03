@@ -34,6 +34,8 @@ class ArduinoDevicev2(object):
     """
     openapi_types = {
         'created_at': 'datetime',
+        'events': 'list[ArduinoDevicev2SimpleProperties]',
+        'fqbn': 'str',
         'href': 'str',
         'id': 'str',
         'metadata': 'dict(str, object)',
@@ -46,6 +48,8 @@ class ArduinoDevicev2(object):
 
     attribute_map = {
         'created_at': 'created_at',
+        'events': 'events',
+        'fqbn': 'fqbn',
         'href': 'href',
         'id': 'id',
         'metadata': 'metadata',
@@ -56,13 +60,15 @@ class ArduinoDevicev2(object):
         'webhooks': 'webhooks'
     }
 
-    def __init__(self, created_at=None, href=None, id=None, metadata=None, name=None, serial=None, type=None, user_id=None, webhooks=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, metadata=None, name=None, serial=None, type=None, user_id=None, webhooks=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoDevicev2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._created_at = None
+        self._events = None
+        self._fqbn = None
         self._href = None
         self._id = None
         self._metadata = None
@@ -75,6 +81,10 @@ class ArduinoDevicev2(object):
 
         if created_at is not None:
             self.created_at = created_at
+        if events is not None:
+            self.events = events
+        if fqbn is not None:
+            self.fqbn = fqbn
         self.href = href
         self.id = id
         if metadata is not None:
@@ -108,6 +118,52 @@ class ArduinoDevicev2(object):
         """
 
         self._created_at = created_at
+
+    @property
+    def events(self):
+        """Gets the events of this ArduinoDevicev2.  # noqa: E501
+
+        ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view)  # noqa: E501
+
+        :return: The events of this ArduinoDevicev2.  # noqa: E501
+        :rtype: list[ArduinoDevicev2SimpleProperties]
+        """
+        return self._events
+
+    @events.setter
+    def events(self, events):
+        """Sets the events of this ArduinoDevicev2.
+
+        ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view)  # noqa: E501
+
+        :param events: The events of this ArduinoDevicev2.  # noqa: E501
+        :type: list[ArduinoDevicev2SimpleProperties]
+        """
+
+        self._events = events
+
+    @property
+    def fqbn(self):
+        """Gets the fqbn of this ArduinoDevicev2.  # noqa: E501
+
+        The fully qualified board name  # noqa: E501
+
+        :return: The fqbn of this ArduinoDevicev2.  # noqa: E501
+        :rtype: str
+        """
+        return self._fqbn
+
+    @fqbn.setter
+    def fqbn(self, fqbn):
+        """Sets the fqbn of this ArduinoDevicev2.
+
+        The fully qualified board name  # noqa: E501
+
+        :param fqbn: The fqbn of this ArduinoDevicev2.  # noqa: E501
+        :type: str
+        """
+
+        self._fqbn = fqbn
 
     @property
     def href(self):
