@@ -11,7 +11,7 @@ CLIENT_SECRET = ""  # get a valid one from your Arduino Create account
 if __name__ == "__main__":
     # Setup the OAuth2 session that'll be used to request the server an access token
     oauth_client = BackendApplicationClient(client_id=CLIENT_ID)
-    token_url = "https://login.arduino.cc/oauth/token"
+    token_url = "https://api2.arduino.cc/iot/v1/clients/token"
     oauth = OAuth2Session(client=oauth_client)
 
     # This will fire an actual HTTP call to the server to exchange client_id and

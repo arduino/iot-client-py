@@ -31,7 +31,7 @@ from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 
 oauth_client = BackendApplicationClient(client_id=YOUR_CLIENT_ID)
-token_url = "https://login.arduino.cc/oauth/token"
+token_url = "https://api2.arduino.cc/iot/v1/clients/token"
 
 oauth = OAuth2Session(client=oauth_client)
 token = oauth.fetch_token(
