@@ -20,6 +20,7 @@ if __name__ == "__main__":
         token_url=token_url,
         client_id=CLIENT_ID,
         client_secret=CLIENT_SECRET,
+        include_client_id=True,
         audience="https://api2.arduino.cc/iot",
     )
 
