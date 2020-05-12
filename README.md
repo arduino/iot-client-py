@@ -38,6 +38,7 @@ token = oauth.fetch_token(
     token_url=token_url,
     client_id=YOUR_CLIENT_ID,
     client_secret=YOUR_CLIENT_SECRET,
+    include_client_id=True,
     audience="https://api2.arduino.cc/iot",
 )
 
@@ -52,7 +53,7 @@ from iot_api_client.rest import ApiException
 from iot_api_client.configuration import Configuration
 
 # configure and instance the API client
-client_config = Configuration(host="https://api2.arduino.cc/iot")
+client_config = Configuration(host="http://api2.arduino.cc/iot")
 client_config.access_token = YOUR_ACCESS_TOKEN
 client = iot.ApiClient(client_config)
 
