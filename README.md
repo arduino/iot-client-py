@@ -53,7 +53,7 @@ from iot_api_client.rest import ApiException
 from iot_api_client.configuration import Configuration
 
 # configure and instance the API client
-client_config = Configuration(host="http://api2.arduino.cc/iot")
+client_config = Configuration(host="https://api2.arduino.cc/iot")
 client_config.access_token = YOUR_ACCESS_TOKEN
 client = iot.ApiClient(client_config)
 
@@ -67,4 +67,4 @@ except ApiException as e:
     print("Got an exception: {}".format(e))
 ```
 
-For a working example, see [the example folder](./example) in this repo.
+For a working example, see [the example folder](https://github.com/arduino/iot-client-py/tree/master/example/main.py) in this repo.
