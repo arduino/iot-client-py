@@ -67,3 +67,7 @@ target/
 arduino_iot_rest/docs/
 arduino_iot_rest/test/
 arduino_iot_rest_README.md
+
+# IDEs Metadata\
+.idea
+example/.idea
