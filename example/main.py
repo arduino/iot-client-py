@@ -1,11 +1,13 @@
+import os
+
 import iot_api_client as iot
 
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 
 
-CLIENT_ID = ""  # get a valid one from your Arduino Create account
-CLIENT_SECRET = ""  # get a valid one from your Arduino Create account
+CLIENT_ID = os.getenv("CLIENT_ID")  # get a valid one from your Arduino Create account
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")  # get a valid one from your Arduino Create account
 
 
 if __name__ == "__main__":
