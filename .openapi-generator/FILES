@@ -154,4 +154,3 @@ arduino_iot_rest/test/test_thing_sketch.py
 arduino_iot_rest/test/test_things_v2_api.py
 arduino_iot_rest/test/test_update_sketch.py
 arduino_iot_rest_README.md
-
