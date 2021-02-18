@@ -9,13 +9,13 @@ from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 
 # paste within the brackets the Client ID obtained from Arduino IoT Cloud 
-CLIENT_ID = os.getenv("") 
+CLIENT_ID = ""
 
 # paste within the brackets the Secret ID obtained from Arduino IoT Cloud 
-CLIENT_SECRET = os.getenv("") 
+CLIENT_SECRET = ""
 
 # paste within the brackets the Client ID obtained from Arduino IoT Cloud 
-YOUR_ACCESS_TOKEN = os.getenv("")
+YOUR_ACCESS_TOKEN = ""
 
 if __name__ == "__main__":
     # Setup the OAuth2 session that'll be used to request the server an access token
