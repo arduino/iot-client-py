@@ -1,5 +1,5 @@
 # Base repository: https://github.com/arduino/iot-client-py
-# This script generates the token needed for access to the Arduino IoT Cloud
+# This script generates the token needed to access to the Arduino IoT Cloud
 
 
 
