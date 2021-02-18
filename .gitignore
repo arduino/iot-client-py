@@ -71,3 +71,4 @@ arduino_iot_rest_README.md
 # IDEs Metadata\
 .idea
 example/.idea
+.DS_Store
