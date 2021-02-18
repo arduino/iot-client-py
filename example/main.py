@@ -1,3 +1,6 @@
+# Base repo: https://github.com/arduino/iot-client-py
+# Before running this code, be sure to have generated the Token using token_request.py
+
 import os
 
 import iot_api_client as iot
@@ -5,10 +8,14 @@ import iot_api_client as iot
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 
+# paste within the brackets the Client ID obtained from Arduino IoT Cloud 
+CLIENT_ID = "" 
 
-CLIENT_ID = os.getenv("CLIENT_ID")  # get a valid one from your Arduino Create account
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")  # get a valid one from your Arduino Create account
+# paste within the brackets the Secret ID obtained from Arduino IoT Cloud 
+CLIENT_SECRET = "" 
 
+# paste within the brackets the Client ID obtained from Arduino IoT Cloud 
+YOUR_ACCESS_TOKEN = ""
 
 if __name__ == "__main__":
     # Setup the OAuth2 session that'll be used to request the server an access token
