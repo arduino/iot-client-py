@@ -91,7 +91,7 @@ class DevicesV2PassApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'check_devices_v2_pass_payload'
         ]
         all_params.extend(
@@ -332,7 +332,7 @@ class DevicesV2PassApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'suggested_password'
         ]
         all_params.extend(
@@ -451,7 +451,7 @@ class DevicesV2PassApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'devicev2_pass'
         ]
         all_params.extend(

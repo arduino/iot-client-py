@@ -325,8 +325,8 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'limit',
+            'id'
+            'limit'
             'start'
         ]
         all_params.extend(
@@ -447,7 +447,7 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'show_deleted'
         ]
         all_params.extend(
@@ -529,7 +529,7 @@ class DevicesV2Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[ArduinoDevicev2]
+        :return: ArduinoDevicev2Collection
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -556,7 +556,7 @@ class DevicesV2Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[ArduinoDevicev2], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(ArduinoDevicev2Collection, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -613,7 +613,7 @@ class DevicesV2Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ArduinoDevicev2]',  # noqa: E501
+            response_type='ArduinoDevicev2Collection',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -794,9 +794,9 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'pid',
-            'limit',
+            'id'
+            'pid'
+            'limit'
             'start'
         ]
         all_params.extend(
@@ -923,7 +923,7 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'devicev2'
         ]
         all_params.extend(
@@ -1050,7 +1050,7 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'properties_values'
         ]
         all_params.extend(

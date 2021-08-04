@@ -91,7 +91,7 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'create_things_v2_payload',
+            'create_things_v2_payload'
             'force'
         ]
         all_params.extend(
@@ -214,7 +214,7 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'thing_sketch'
         ]
         all_params.extend(
@@ -341,7 +341,7 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'force'
         ]
         all_params.extend(
@@ -529,7 +529,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the things
         :param str device_id: The id of the device you want to filter
-        :param list[str] ids: Filter only the desired things
+        :param [str] ids: Filter only the desired things
         :param bool show_deleted: If true, shows the soft deleted things
         :param bool show_properties: If true, returns things with their properties, and last values
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -539,7 +539,7 @@ class ThingsV2Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[ArduinoThing]
+        :return: ArduinoThingCollection
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -558,7 +558,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the things
         :param str device_id: The id of the device you want to filter
-        :param list[str] ids: Filter only the desired things
+        :param [str] ids: Filter only the desired things
         :param bool show_deleted: If true, shows the soft deleted things
         :param bool show_properties: If true, returns things with their properties, and last values
         :param _return_http_data_only: response data without head status code
@@ -570,7 +570,7 @@ class ThingsV2Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[ArduinoThing], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(ArduinoThingCollection, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -578,10 +578,10 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'across_user_ids',
-            'device_id',
-            'ids',
-            'show_deleted',
+            'across_user_ids'
+            'device_id'
+            'ids'
+            'show_deleted'
             'show_properties'
         ]
         all_params.extend(
@@ -613,7 +613,6 @@ class ThingsV2Api(object):
             query_params.append(('device_id', local_var_params['device_id']))  # noqa: E501
         if 'ids' in local_var_params and local_var_params['ids'] is not None:  # noqa: E501
             query_params.append(('ids', local_var_params['ids']))  # noqa: E501
-            collection_formats['ids'] = 'multi'  # noqa: E501
         if 'show_deleted' in local_var_params and local_var_params['show_deleted'] is not None:  # noqa: E501
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
         if 'show_properties' in local_var_params and local_var_params['show_properties'] is not None:  # noqa: E501
@@ -640,7 +639,7 @@ class ThingsV2Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ArduinoThing]',  # noqa: E501
+            response_type='ArduinoThingCollection',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -703,7 +702,7 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'show_deleted'
         ]
         all_params.extend(
@@ -824,8 +823,8 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'thing',
+            'id'
+            'thing'
             'force'
         ]
         all_params.extend(
@@ -956,8 +955,8 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'sketch_id',
+            'id'
+            'sketch_id'
             'update_sketch'
         ]
         all_params.extend(

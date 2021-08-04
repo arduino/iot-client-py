@@ -1,7 +1,6 @@
 # coding: utf-8
 
 # flake8: noqa
-
 """
     Arduino IoT Cloud API
 
@@ -14,25 +13,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.3.5"
-
-# import apis into sdk package
-from arduino_iot_rest.api.devices_v2_api import DevicesV2Api
-from arduino_iot_rest.api.devices_v2_certs_api import DevicesV2CertsApi
-from arduino_iot_rest.api.devices_v2_pass_api import DevicesV2PassApi
-from arduino_iot_rest.api.properties_v2_api import PropertiesV2Api
-from arduino_iot_rest.api.series_v2_api import SeriesV2Api
-from arduino_iot_rest.api.things_v2_api import ThingsV2Api
-
-# import ApiClient
-from arduino_iot_rest.api_client import ApiClient
-from arduino_iot_rest.configuration import Configuration
-from arduino_iot_rest.exceptions import OpenApiException
-from arduino_iot_rest.exceptions import ApiTypeError
-from arduino_iot_rest.exceptions import ApiValueError
-from arduino_iot_rest.exceptions import ApiKeyError
-from arduino_iot_rest.exceptions import ApiException
-# import models into sdk package
+# import models into model package
 from arduino_iot_rest.model.arduino_compressedv2 import ArduinoCompressedv2
 from arduino_iot_rest.model.arduino_devicev2 import ArduinoDevicev2
 from arduino_iot_rest.model.arduino_devicev2_cert import ArduinoDevicev2Cert
@@ -83,4 +64,3 @@ from arduino_iot_rest.model.property_value import PropertyValue
 from arduino_iot_rest.model.thing import Thing
 from arduino_iot_rest.model.thing_sketch import ThingSketch
 from arduino_iot_rest.model.update_sketch import UpdateSketch
-

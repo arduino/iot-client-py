@@ -91,7 +91,7 @@ class PropertiesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'model_property'
         ]
         all_params.extend(
@@ -220,8 +220,8 @@ class PropertiesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'pid',
+            'id'
+            'pid'
             'force'
         ]
         all_params.extend(
@@ -310,7 +310,7 @@ class PropertiesV2Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[ArduinoProperty]
+        :return: ArduinoPropertyCollection
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -338,7 +338,7 @@ class PropertiesV2Api(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[ArduinoProperty], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(ArduinoPropertyCollection, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -346,7 +346,7 @@ class PropertiesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
+            'id'
             'show_deleted'
         ]
         all_params.extend(
@@ -402,7 +402,7 @@ class PropertiesV2Api(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[ArduinoProperty]',  # noqa: E501
+            response_type='ArduinoPropertyCollection',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -467,8 +467,8 @@ class PropertiesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'pid',
+            'id'
+            'pid'
             'property_value'
         ]
         all_params.extend(
@@ -603,8 +603,8 @@ class PropertiesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'pid',
+            'id'
+            'pid'
             'show_deleted'
         ]
         all_params.extend(
@@ -731,8 +731,8 @@ class PropertiesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id',
-            'pid',
+            'id'
+            'pid'
             'model_property'
         ]
         all_params.extend(
