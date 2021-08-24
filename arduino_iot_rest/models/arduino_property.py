@@ -106,7 +106,8 @@ class ArduinoProperty(object):
             self.deleted_at = deleted_at
         self.href = href
         self.id = id
-        self.last_value = last_value
+        if last_value is not None:
+            self.last_value = last_value
         if max_value is not None:
             self.max_value = max_value
         if min_value is not None:

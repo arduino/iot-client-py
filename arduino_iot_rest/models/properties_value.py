@@ -135,6 +135,8 @@ class PropertiesValue(object):
         :param value: The value of this PropertiesValue.  # noqa: E501
         :type: object
         """
+        if self.local_vars_configuration.client_side_validation and value is None:  # noqa: E501
+            raise ValueError("Invalid value for `value`, must not be `None`")  # noqa: E501
 
         self._value = value
 

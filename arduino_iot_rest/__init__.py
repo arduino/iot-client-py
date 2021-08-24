@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.3.3"
+__version__ = "1.3.5"
 
 # import apis into sdk package
 from arduino_iot_rest.api.devices_v2_api import DevicesV2Api
