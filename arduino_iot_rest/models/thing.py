@@ -36,6 +36,7 @@ class Thing(object):
         'device_id': 'str',
         'id': 'str',
         'name': 'str',
+        'properties': 'list[ModelProperty]',
         'webhook_active': 'bool',
         'webhook_uri': 'str'
     }
@@ -44,11 +45,12 @@ class Thing(object):
         'device_id': 'device_id',
         'id': 'id',
         'name': 'name',
+        'properties': 'properties',
         'webhook_active': 'webhook_active',
         'webhook_uri': 'webhook_uri'
     }
 
-    def __init__(self, device_id=None, id=None, name=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, device_id=None, id=None, name=None, properties=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
         """Thing - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class Thing(object):
         self._device_id = None
         self._id = None
         self._name = None
+        self._properties = None
         self._webhook_active = None
         self._webhook_uri = None
         self.discriminator = None
@@ -67,6 +70,8 @@ class Thing(object):
             self.id = id
         if name is not None:
             self.name = name
+        if properties is not None:
+            self.properties = properties
         if webhook_active is not None:
             self.webhook_active = webhook_active
         if webhook_uri is not None:
@@ -142,10 +147,33 @@ class Thing(object):
                 name is not None and len(name) > 64):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `64`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                name is not None and not re.search(r'[a-zA-Z0-9_.@-]+', name)):  # noqa: E501
-            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/[a-zA-Z0-9_.@-]+/`")  # noqa: E501
+                name is not None and not re.search(r'^[a-zA-Z0-9_.@ -]+$', name)):  # noqa: E501
+            raise ValueError(r"Invalid value for `name`, must be a follow pattern or equal to `/^[a-zA-Z0-9_.@ -]+$/`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def properties(self):
+        """Gets the properties of this Thing.  # noqa: E501
+
+        The properties of the thing  # noqa: E501
+
+        :return: The properties of this Thing.  # noqa: E501
+        :rtype: list[ModelProperty]
+        """
+        return self._properties
+
+    @properties.setter
+    def properties(self, properties):
+        """Sets the properties of this Thing.
+
+        The properties of the thing  # noqa: E501
+
+        :param properties: The properties of this Thing.  # noqa: E501
+        :type: list[ModelProperty]
+        """
+
+        self._properties = properties
 
     @property
     def webhook_active(self):

@@ -35,6 +35,7 @@ from arduino_iot_rest.models.arduino_series_raw_last_value_response import Ardui
 from arduino_iot_rest.models.arduino_series_raw_response import ArduinoSeriesRawResponse
 from arduino_iot_rest.models.arduino_series_response import ArduinoSeriesResponse
 from arduino_iot_rest.models.arduino_thing import ArduinoThing
+from arduino_iot_rest.models.arduino_timeseriesmedia import ArduinoTimeseriesmedia
 from arduino_iot_rest.models.batch_last_value_requests_media_v1 import BatchLastValueRequestsMediaV1
 from arduino_iot_rest.models.batch_query_raw_last_value_request_media_v1 import BatchQueryRawLastValueRequestMediaV1
 from arduino_iot_rest.models.batch_query_raw_request_media_v1 import BatchQueryRawRequestMediaV1
@@ -45,7 +46,6 @@ from arduino_iot_rest.models.batch_query_requests_media_v1 import BatchQueryRequ
 from arduino_iot_rest.models.check_devices_v2_pass_payload import CheckDevicesV2PassPayload
 from arduino_iot_rest.models.create_devices_v2_certs_payload import CreateDevicesV2CertsPayload
 from arduino_iot_rest.models.create_devices_v2_payload import CreateDevicesV2Payload
-from arduino_iot_rest.models.create_things_v2_payload import CreateThingsV2Payload
 from arduino_iot_rest.models.devicev2 import Devicev2
 from arduino_iot_rest.models.devicev2_cert import Devicev2Cert
 from arduino_iot_rest.models.devicev2_pass import Devicev2Pass
@@ -56,4 +56,5 @@ from arduino_iot_rest.models.properties_values import PropertiesValues
 from arduino_iot_rest.models.property_value import PropertyValue
 from arduino_iot_rest.models.thing import Thing
 from arduino_iot_rest.models.thing_sketch import ThingSketch
+from arduino_iot_rest.models.timeseries_data_point import TimeseriesDataPoint
 from arduino_iot_rest.models.update_sketch import UpdateSketch
