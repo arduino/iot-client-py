@@ -38,13 +38,20 @@ class ArduinoDevicev2(object):
         'fqbn': 'str',
         'href': 'str',
         'id': 'str',
+        'label': 'str',
         'last_activity_at': 'datetime',
+        'latest_wifi_fw_version': 'str',
         'metadata': 'dict(str, object)',
         'name': 'str',
+        'ota_available': 'bool',
+        'ota_compatible': 'bool',
+        'required_wifi_fw_version': 'str',
         'serial': 'str',
+        'thing': 'ArduinoThing',
         'type': 'str',
         'user_id': 'str',
-        'webhooks': 'list[ArduinoDevicev2Webhook]'
+        'webhooks': 'list[ArduinoDevicev2Webhook]',
+        'wifi_fw_version': 'str'
     }
 
     attribute_map = {
@@ -53,16 +60,23 @@ class ArduinoDevicev2(object):
         'fqbn': 'fqbn',
         'href': 'href',
         'id': 'id',
+        'label': 'label',
         'last_activity_at': 'last_activity_at',
+        'latest_wifi_fw_version': 'latest_wifi_fw_version',
         'metadata': 'metadata',
         'name': 'name',
+        'ota_available': 'ota_available',
+        'ota_compatible': 'ota_compatible',
+        'required_wifi_fw_version': 'required_wifi_fw_version',
         'serial': 'serial',
+        'thing': 'thing',
         'type': 'type',
         'user_id': 'user_id',
-        'webhooks': 'webhooks'
+        'webhooks': 'webhooks',
+        'wifi_fw_version': 'wifi_fw_version'
     }
 
-    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, last_activity_at=None, metadata=None, name=None, serial=None, type=None, user_id=None, webhooks=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, label=None, last_activity_at=None, latest_wifi_fw_version=None, metadata=None, name=None, ota_available=None, ota_compatible=None, required_wifi_fw_version=None, serial=None, thing=None, type=None, user_id=None, webhooks=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoDevicev2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,13 +87,20 @@ class ArduinoDevicev2(object):
         self._fqbn = None
         self._href = None
         self._id = None
+        self._label = None
         self._last_activity_at = None
+        self._latest_wifi_fw_version = None
         self._metadata = None
         self._name = None
+        self._ota_available = None
+        self._ota_compatible = None
+        self._required_wifi_fw_version = None
         self._serial = None
+        self._thing = None
         self._type = None
         self._user_id = None
         self._webhooks = None
+        self._wifi_fw_version = None
         self.discriminator = None
 
         if created_at is not None:
@@ -90,16 +111,29 @@ class ArduinoDevicev2(object):
             self.fqbn = fqbn
         self.href = href
         self.id = id
+        self.label = label
         if last_activity_at is not None:
             self.last_activity_at = last_activity_at
+        if latest_wifi_fw_version is not None:
+            self.latest_wifi_fw_version = latest_wifi_fw_version
         if metadata is not None:
             self.metadata = metadata
         self.name = name
+        if ota_available is not None:
+            self.ota_available = ota_available
+        if ota_compatible is not None:
+            self.ota_compatible = ota_compatible
+        if required_wifi_fw_version is not None:
+            self.required_wifi_fw_version = required_wifi_fw_version
         self.serial = serial
+        if thing is not None:
+            self.thing = thing
         self.type = type
         self.user_id = user_id
         if webhooks is not None:
             self.webhooks = webhooks
+        if wifi_fw_version is not None:
+            self.wifi_fw_version = wifi_fw_version
 
     @property
     def created_at(self):
@@ -221,6 +255,31 @@ class ArduinoDevicev2(object):
         self._id = id
 
     @property
+    def label(self):
+        """Gets the label of this ArduinoDevicev2.  # noqa: E501
+
+        The label of the device  # noqa: E501
+
+        :return: The label of this ArduinoDevicev2.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this ArduinoDevicev2.
+
+        The label of the device  # noqa: E501
+
+        :param label: The label of this ArduinoDevicev2.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and label is None:  # noqa: E501
+            raise ValueError("Invalid value for `label`, must not be `None`")  # noqa: E501
+
+        self._label = label
+
+    @property
     def last_activity_at(self):
         """Gets the last_activity_at of this ArduinoDevicev2.  # noqa: E501
 
@@ -242,6 +301,29 @@ class ArduinoDevicev2(object):
         """
 
         self._last_activity_at = last_activity_at
+
+    @property
+    def latest_wifi_fw_version(self):
+        """Gets the latest_wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+
+        The latest version of the NINA/WIFI101 firmware available for this device  # noqa: E501
+
+        :return: The latest_wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+        :rtype: str
+        """
+        return self._latest_wifi_fw_version
+
+    @latest_wifi_fw_version.setter
+    def latest_wifi_fw_version(self, latest_wifi_fw_version):
+        """Sets the latest_wifi_fw_version of this ArduinoDevicev2.
+
+        The latest version of the NINA/WIFI101 firmware available for this device  # noqa: E501
+
+        :param latest_wifi_fw_version: The latest_wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+        :type: str
+        """
+
+        self._latest_wifi_fw_version = latest_wifi_fw_version
 
     @property
     def metadata(self):
@@ -292,6 +374,75 @@ class ArduinoDevicev2(object):
         self._name = name
 
     @property
+    def ota_available(self):
+        """Gets the ota_available of this ArduinoDevicev2.  # noqa: E501
+
+        True if the device type is ready to receive OTA updated  # noqa: E501
+
+        :return: The ota_available of this ArduinoDevicev2.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ota_available
+
+    @ota_available.setter
+    def ota_available(self, ota_available):
+        """Sets the ota_available of this ArduinoDevicev2.
+
+        True if the device type is ready to receive OTA updated  # noqa: E501
+
+        :param ota_available: The ota_available of this ArduinoDevicev2.  # noqa: E501
+        :type: bool
+        """
+
+        self._ota_available = ota_available
+
+    @property
+    def ota_compatible(self):
+        """Gets the ota_compatible of this ArduinoDevicev2.  # noqa: E501
+
+        True if the device type is OTA compatible  # noqa: E501
+
+        :return: The ota_compatible of this ArduinoDevicev2.  # noqa: E501
+        :rtype: bool
+        """
+        return self._ota_compatible
+
+    @ota_compatible.setter
+    def ota_compatible(self, ota_compatible):
+        """Sets the ota_compatible of this ArduinoDevicev2.
+
+        True if the device type is OTA compatible  # noqa: E501
+
+        :param ota_compatible: The ota_compatible of this ArduinoDevicev2.  # noqa: E501
+        :type: bool
+        """
+
+        self._ota_compatible = ota_compatible
+
+    @property
+    def required_wifi_fw_version(self):
+        """Gets the required_wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+
+        The required version of the NINA/WIFI101 firmware needed by IoT Cloud  # noqa: E501
+
+        :return: The required_wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+        :rtype: str
+        """
+        return self._required_wifi_fw_version
+
+    @required_wifi_fw_version.setter
+    def required_wifi_fw_version(self, required_wifi_fw_version):
+        """Sets the required_wifi_fw_version of this ArduinoDevicev2.
+
+        The required version of the NINA/WIFI101 firmware needed by IoT Cloud  # noqa: E501
+
+        :param required_wifi_fw_version: The required_wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+        :type: str
+        """
+
+        self._required_wifi_fw_version = required_wifi_fw_version
+
+    @property
     def serial(self):
         """Gets the serial of this ArduinoDevicev2.  # noqa: E501
 
@@ -315,6 +466,27 @@ class ArduinoDevicev2(object):
             raise ValueError("Invalid value for `serial`, must not be `None`")  # noqa: E501
 
         self._serial = serial
+
+    @property
+    def thing(self):
+        """Gets the thing of this ArduinoDevicev2.  # noqa: E501
+
+
+        :return: The thing of this ArduinoDevicev2.  # noqa: E501
+        :rtype: ArduinoThing
+        """
+        return self._thing
+
+    @thing.setter
+    def thing(self, thing):
+        """Sets the thing of this ArduinoDevicev2.
+
+
+        :param thing: The thing of this ArduinoDevicev2.  # noqa: E501
+        :type: ArduinoThing
+        """
+
+        self._thing = thing
 
     @property
     def type(self):
@@ -388,6 +560,29 @@ class ArduinoDevicev2(object):
         """
 
         self._webhooks = webhooks
+
+    @property
+    def wifi_fw_version(self):
+        """Gets the wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+
+        The version of the NINA/WIFI101 firmware running on the device  # noqa: E501
+
+        :return: The wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+        :rtype: str
+        """
+        return self._wifi_fw_version
+
+    @wifi_fw_version.setter
+    def wifi_fw_version(self, wifi_fw_version):
+        """Sets the wifi_fw_version of this ArduinoDevicev2.
+
+        The version of the NINA/WIFI101 firmware running on the device  # noqa: E501
+
+        :param wifi_fw_version: The wifi_fw_version of this ArduinoDevicev2.  # noqa: E501
+        :type: str
+        """
+
+        self._wifi_fw_version = wifi_fw_version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

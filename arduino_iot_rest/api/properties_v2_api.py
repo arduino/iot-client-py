@@ -674,6 +674,151 @@ class PropertiesV2Api(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def properties_v2_timeseries(self, id, pid, **kwargs):  # noqa: E501
+        """timeseries properties_v2  # noqa: E501
+
+        Get numerical property's historic data binned on a specified time interval (note: the total number of data points should NOT be greater than 1000 otherwise the result could be truncated)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.properties_v2_timeseries(id, pid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str id: The id of the thing (required)
+        :param str pid: ID of a numerical property (required)
+        :param bool desc: Whether data's ordering (by time) should be descending
+        :param str _from: Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+        :param int interval: Binning interval in seconds (ex. 15mins are 15*60)
+        :param str to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: ArduinoTimeseriesmedia
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.properties_v2_timeseries_with_http_info(id, pid, **kwargs)  # noqa: E501
+
+    def properties_v2_timeseries_with_http_info(self, id, pid, **kwargs):  # noqa: E501
+        """timeseries properties_v2  # noqa: E501
+
+        Get numerical property's historic data binned on a specified time interval (note: the total number of data points should NOT be greater than 1000 otherwise the result could be truncated)  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.properties_v2_timeseries_with_http_info(id, pid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str id: The id of the thing (required)
+        :param str pid: ID of a numerical property (required)
+        :param bool desc: Whether data's ordering (by time) should be descending
+        :param str _from: Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+        :param int interval: Binning interval in seconds (ex. 15mins are 15*60)
+        :param str to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(ArduinoTimeseriesmedia, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = [
+            'id',
+            'pid',
+            'desc',
+            '_from',
+            'interval',
+            'to'
+        ]
+        all_params.extend(
+            [
+                'async_req',
+                '_return_http_data_only',
+                '_preload_content',
+                '_request_timeout'
+            ]
+        )
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method properties_v2_timeseries" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'id' is set
+        if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `properties_v2_timeseries`")  # noqa: E501
+        # verify the required parameter 'pid' is set
+        if self.api_client.client_side_validation and ('pid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['pid'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `pid` when calling `properties_v2_timeseries`")  # noqa: E501
+
+        if self.api_client.client_side_validation and 'interval' in local_var_params and local_var_params['interval'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `interval` when calling `properties_v2_timeseries`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'id' in local_var_params:
+            path_params['id'] = local_var_params['id']  # noqa: E501
+        if 'pid' in local_var_params:
+            path_params['pid'] = local_var_params['pid']  # noqa: E501
+
+        query_params = []
+        if 'desc' in local_var_params and local_var_params['desc'] is not None:  # noqa: E501
+            query_params.append(('desc', local_var_params['desc']))  # noqa: E501
+        if '_from' in local_var_params and local_var_params['_from'] is not None:  # noqa: E501
+            query_params.append(('from', local_var_params['_from']))  # noqa: E501
+        if 'interval' in local_var_params and local_var_params['interval'] is not None:  # noqa: E501
+            query_params.append(('interval', local_var_params['interval']))  # noqa: E501
+        if 'to' in local_var_params and local_var_params['to'] is not None:  # noqa: E501
+            query_params.append(('to', local_var_params['to']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['oauth2']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/v2/things/{id}/properties/{pid}/timeseries', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='ArduinoTimeseriesmedia',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def properties_v2_update(self, id, pid, model_property, **kwargs):  # noqa: E501
         """update properties_v2  # noqa: E501
 

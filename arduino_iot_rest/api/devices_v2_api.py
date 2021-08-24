@@ -522,6 +522,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the devices
+        :param str serial: Filter by device serial number
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -547,6 +548,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the devices
+        :param str serial: Filter by device serial number
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -564,7 +566,8 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'across_user_ids'
+            'across_user_ids',
+            'serial'
         ]
         all_params.extend(
             [
@@ -591,6 +594,8 @@ class DevicesV2Api(object):
         query_params = []
         if 'across_user_ids' in local_var_params and local_var_params['across_user_ids'] is not None:  # noqa: E501
             query_params.append(('across_user_ids', local_var_params['across_user_ids']))  # noqa: E501
+        if 'serial' in local_var_params and local_var_params['serial'] is not None:  # noqa: E501
+            query_params.append(('serial', local_var_params['serial']))  # noqa: E501
 
         header_params = {}
 

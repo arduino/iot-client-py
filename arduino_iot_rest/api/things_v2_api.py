@@ -36,17 +36,17 @@ class ThingsV2Api(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def things_v2_create(self, create_things_v2_payload, **kwargs):  # noqa: E501
+    def things_v2_create(self, thing, **kwargs):  # noqa: E501
         """create things_v2  # noqa: E501
 
         Creates a new thing associated to the user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.things_v2_create(create_things_v2_payload, async_req=True)
+        >>> thread = api.things_v2_create(thing, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateThingsV2Payload create_things_v2_payload: ThingPayload describes a thing (required)
+        :param Thing thing: ThingPayload describes a thing (required)
         :param bool force: If true, detach device from the other thing, and attach to this thing
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -60,19 +60,19 @@ class ThingsV2Api(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.things_v2_create_with_http_info(create_things_v2_payload, **kwargs)  # noqa: E501
+        return self.things_v2_create_with_http_info(thing, **kwargs)  # noqa: E501
 
-    def things_v2_create_with_http_info(self, create_things_v2_payload, **kwargs):  # noqa: E501
+    def things_v2_create_with_http_info(self, thing, **kwargs):  # noqa: E501
         """create things_v2  # noqa: E501
 
         Creates a new thing associated to the user  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.things_v2_create_with_http_info(create_things_v2_payload, async_req=True)
+        >>> thread = api.things_v2_create_with_http_info(thing, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateThingsV2Payload create_things_v2_payload: ThingPayload describes a thing (required)
+        :param Thing thing: ThingPayload describes a thing (required)
         :param bool force: If true, detach device from the other thing, and attach to this thing
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -91,7 +91,7 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'create_things_v2_payload',
+            'thing',
             'force'
         ]
         all_params.extend(
@@ -111,10 +111,10 @@ class ThingsV2Api(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'create_things_v2_payload' is set
-        if self.api_client.client_side_validation and ('create_things_v2_payload' not in local_var_params or  # noqa: E501
-                                                        local_var_params['create_things_v2_payload'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `create_things_v2_payload` when calling `things_v2_create`")  # noqa: E501
+        # verify the required parameter 'thing' is set
+        if self.api_client.client_side_validation and ('thing' not in local_var_params or  # noqa: E501
+                                                        local_var_params['thing'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `thing` when calling `things_v2_create`")  # noqa: E501
 
         collection_formats = {}
 
@@ -130,8 +130,8 @@ class ThingsV2Api(object):
         local_var_files = {}
 
         body_params = None
-        if 'create_things_v2_payload' in local_var_params:
-            body_params = local_var_params['create_things_v2_payload']
+        if 'thing' in local_var_params:
+            body_params = local_var_params['thing']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

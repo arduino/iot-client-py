@@ -37,7 +37,8 @@ class CreateDevicesV2Payload(object):
         'name': 'str',
         'serial': 'str',
         'type': 'str',
-        'user_id': 'str'
+        'user_id': 'str',
+        'wifi_fw_version': 'str'
     }
 
     attribute_map = {
@@ -45,10 +46,11 @@ class CreateDevicesV2Payload(object):
         'name': 'name',
         'serial': 'serial',
         'type': 'type',
-        'user_id': 'user_id'
+        'user_id': 'user_id',
+        'wifi_fw_version': 'wifi_fw_version'
     }
 
-    def __init__(self, fqbn=None, name=None, serial=None, type=None, user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, fqbn=None, name=None, serial=None, type=None, user_id=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
         """CreateDevicesV2Payload - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class CreateDevicesV2Payload(object):
         self._serial = None
         self._type = None
         self._user_id = None
+        self._wifi_fw_version = None
         self.discriminator = None
 
         if fqbn is not None:
@@ -70,6 +73,8 @@ class CreateDevicesV2Payload(object):
         self.type = type
         if user_id is not None:
             self.user_id = user_id
+        if wifi_fw_version is not None:
+            self.wifi_fw_version = wifi_fw_version
 
     @property
     def fqbn(self):
@@ -174,7 +179,7 @@ class CreateDevicesV2Payload(object):
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["mkrwifi1010", "mkr1000", "nano_33_iot", "mkrgsm1400", "mkrwan1310", "mkrwan1300", "mkrnb1500", "lora-device", "login_and_secretkey_wifi"]  # noqa: E501
+        allowed_values = ["mkrwifi1010", "mkr1000", "nano_33_iot", "mkrgsm1400", "mkrwan1310", "mkrwan1300", "mkrnb1500", "lora-device", "login_and_secretkey_wifi", "envie_m7", "nanorp2040connect"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
@@ -205,6 +210,35 @@ class CreateDevicesV2Payload(object):
         """
 
         self._user_id = user_id
+
+    @property
+    def wifi_fw_version(self):
+        """Gets the wifi_fw_version of this CreateDevicesV2Payload.  # noqa: E501
+
+        The version of the NINA/WIFI101 firmware running on the device  # noqa: E501
+
+        :return: The wifi_fw_version of this CreateDevicesV2Payload.  # noqa: E501
+        :rtype: str
+        """
+        return self._wifi_fw_version
+
+    @wifi_fw_version.setter
+    def wifi_fw_version(self, wifi_fw_version):
+        """Sets the wifi_fw_version of this CreateDevicesV2Payload.
+
+        The version of the NINA/WIFI101 firmware running on the device  # noqa: E501
+
+        :param wifi_fw_version: The wifi_fw_version of this CreateDevicesV2Payload.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                wifi_fw_version is not None and len(wifi_fw_version) > 10):
+            raise ValueError("Invalid value for `wifi_fw_version`, length must be less than or equal to `10`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                wifi_fw_version is not None and not re.search(r'^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$', wifi_fw_version)):  # noqa: E501
+            raise ValueError(r"Invalid value for `wifi_fw_version`, must be a follow pattern or equal to `/^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/`")  # noqa: E501
+
+        self._wifi_fw_version = wifi_fw_version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

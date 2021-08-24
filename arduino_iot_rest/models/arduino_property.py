@@ -43,8 +43,10 @@ class ArduinoProperty(object):
         'name': 'str',
         'permission': 'str',
         'persist': 'bool',
+        'sync_id': 'str',
         'tag': 'float',
         'thing_id': 'str',
+        'thing_name': 'str',
         'type': 'str',
         'update_parameter': 'float',
         'update_strategy': 'str',
@@ -64,8 +66,10 @@ class ArduinoProperty(object):
         'name': 'name',
         'permission': 'permission',
         'persist': 'persist',
+        'sync_id': 'sync_id',
         'tag': 'tag',
         'thing_id': 'thing_id',
+        'thing_name': 'thing_name',
         'type': 'type',
         'update_parameter': 'update_parameter',
         'update_strategy': 'update_strategy',
@@ -74,7 +78,7 @@ class ArduinoProperty(object):
         'variable_name': 'variable_name'
     }
 
-    def __init__(self, created_at=None, deleted_at=None, href=None, id=None, last_value=None, max_value=None, min_value=None, name=None, permission=None, persist=None, tag=None, thing_id=None, type=None, update_parameter=None, update_strategy=None, updated_at=None, value_updated_at=None, variable_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, deleted_at=None, href=None, id=None, last_value=None, max_value=None, min_value=None, name=None, permission=None, persist=None, sync_id=None, tag=None, thing_id=None, thing_name=None, type=None, update_parameter=None, update_strategy=None, updated_at=None, value_updated_at=None, variable_name=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoProperty - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,8 +94,10 @@ class ArduinoProperty(object):
         self._name = None
         self._permission = None
         self._persist = None
+        self._sync_id = None
         self._tag = None
         self._thing_id = None
+        self._thing_name = None
         self._type = None
         self._update_parameter = None
         self._update_strategy = None
@@ -106,7 +112,8 @@ class ArduinoProperty(object):
             self.deleted_at = deleted_at
         self.href = href
         self.id = id
-        self.last_value = last_value
+        if last_value is not None:
+            self.last_value = last_value
         if max_value is not None:
             self.max_value = max_value
         if min_value is not None:
@@ -115,9 +122,13 @@ class ArduinoProperty(object):
         self.permission = permission
         if persist is not None:
             self.persist = persist
+        if sync_id is not None:
+            self.sync_id = sync_id
         if tag is not None:
             self.tag = tag
         self.thing_id = thing_id
+        if thing_name is not None:
+            self.thing_name = thing_name
         self.type = type
         if update_parameter is not None:
             self.update_parameter = update_parameter
@@ -368,6 +379,29 @@ class ArduinoProperty(object):
         self._persist = persist
 
     @property
+    def sync_id(self):
+        """Gets the sync_id of this ArduinoProperty.  # noqa: E501
+
+        The id of the sync pool  # noqa: E501
+
+        :return: The sync_id of this ArduinoProperty.  # noqa: E501
+        :rtype: str
+        """
+        return self._sync_id
+
+    @sync_id.setter
+    def sync_id(self, sync_id):
+        """Sets the sync_id of this ArduinoProperty.
+
+        The id of the sync pool  # noqa: E501
+
+        :param sync_id: The sync_id of this ArduinoProperty.  # noqa: E501
+        :type: str
+        """
+
+        self._sync_id = sync_id
+
+    @property
     def tag(self):
         """Gets the tag of this ArduinoProperty.  # noqa: E501
 
@@ -414,6 +448,29 @@ class ArduinoProperty(object):
             raise ValueError("Invalid value for `thing_id`, must not be `None`")  # noqa: E501
 
         self._thing_id = thing_id
+
+    @property
+    def thing_name(self):
+        """Gets the thing_name of this ArduinoProperty.  # noqa: E501
+
+        The name of the associated thing  # noqa: E501
+
+        :return: The thing_name of this ArduinoProperty.  # noqa: E501
+        :rtype: str
+        """
+        return self._thing_name
+
+    @thing_name.setter
+    def thing_name(self, thing_name):
+        """Sets the thing_name of this ArduinoProperty.
+
+        The name of the associated thing  # noqa: E501
+
+        :param thing_name: The thing_name of this ArduinoProperty.  # noqa: E501
+        :type: str
+        """
+
+        self._thing_name = thing_name
 
     @property
     def type(self):
