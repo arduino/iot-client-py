@@ -48,8 +48,11 @@ from arduino_iot_rest.models.create_devices_v2_certs_payload import CreateDevice
 from arduino_iot_rest.models.create_devices_v2_payload import CreateDevicesV2Payload
 from arduino_iot_rest.models.devicev2 import Devicev2
 from arduino_iot_rest.models.devicev2_cert import Devicev2Cert
+from arduino_iot_rest.models.devicev2_otabinaryurl import Devicev2Otabinaryurl
 from arduino_iot_rest.models.devicev2_pass import Devicev2Pass
 from arduino_iot_rest.models.error import Error
+from arduino_iot_rest.models.historic_data_request import HistoricDataRequest
+from arduino_iot_rest.models.inline_object import InlineObject
 from arduino_iot_rest.models.model_property import ModelProperty
 from arduino_iot_rest.models.properties_value import PropertiesValue
 from arduino_iot_rest.models.properties_values import PropertiesValues

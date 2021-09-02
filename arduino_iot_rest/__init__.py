@@ -14,11 +14,12 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.3.6"
+__version__ = "1.3.7"
 
 # import apis into sdk package
 from arduino_iot_rest.api.devices_v2_api import DevicesV2Api
 from arduino_iot_rest.api.devices_v2_certs_api import DevicesV2CertsApi
+from arduino_iot_rest.api.devices_v2_ota_api import DevicesV2OtaApi
 from arduino_iot_rest.api.devices_v2_pass_api import DevicesV2PassApi
 from arduino_iot_rest.api.properties_v2_api import PropertiesV2Api
 from arduino_iot_rest.api.series_v2_api import SeriesV2Api
@@ -67,8 +68,11 @@ from arduino_iot_rest.models.create_devices_v2_certs_payload import CreateDevice
 from arduino_iot_rest.models.create_devices_v2_payload import CreateDevicesV2Payload
 from arduino_iot_rest.models.devicev2 import Devicev2
 from arduino_iot_rest.models.devicev2_cert import Devicev2Cert
+from arduino_iot_rest.models.devicev2_otabinaryurl import Devicev2Otabinaryurl
 from arduino_iot_rest.models.devicev2_pass import Devicev2Pass
 from arduino_iot_rest.models.error import Error
+from arduino_iot_rest.models.historic_data_request import HistoricDataRequest
+from arduino_iot_rest.models.inline_object import InlineObject
 from arduino_iot_rest.models.model_property import ModelProperty
 from arduino_iot_rest.models.properties_value import PropertiesValue
 from arduino_iot_rest.models.properties_values import PropertiesValues
