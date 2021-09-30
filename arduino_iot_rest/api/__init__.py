@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from arduino_iot_rest.api.dashboards_v2_api import DashboardsV2Api
 from arduino_iot_rest.api.devices_v2_api import DevicesV2Api
 from arduino_iot_rest.api.devices_v2_certs_api import DevicesV2CertsApi
 from arduino_iot_rest.api.devices_v2_ota_api import DevicesV2OtaApi
