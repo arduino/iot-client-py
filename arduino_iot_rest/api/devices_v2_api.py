@@ -523,6 +523,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the devices
         :param str serial: Filter by device serial number
+        :param list[str] tags: Filter by tags
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -549,6 +550,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param bool across_user_ids: If true, returns all the devices
         :param str serial: Filter by device serial number
+        :param list[str] tags: Filter by tags
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -567,7 +569,8 @@ class DevicesV2Api(object):
 
         all_params = [
             'across_user_ids',
-            'serial'
+            'serial',
+            'tags'
         ]
         all_params.extend(
             [
@@ -596,6 +599,9 @@ class DevicesV2Api(object):
             query_params.append(('across_user_ids', local_var_params['across_user_ids']))  # noqa: E501
         if 'serial' in local_var_params and local_var_params['serial'] is not None:  # noqa: E501
             query_params.append(('serial', local_var_params['serial']))  # noqa: E501
+        if 'tags' in local_var_params and local_var_params['tags'] is not None:  # noqa: E501
+            query_params.append(('tags', local_var_params['tags']))  # noqa: E501
+            collection_formats['tags'] = 'multi'  # noqa: E501
 
         header_params = {}
 

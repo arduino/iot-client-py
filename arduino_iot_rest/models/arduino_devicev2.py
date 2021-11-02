@@ -47,6 +47,7 @@ class ArduinoDevicev2(object):
         'ota_compatible': 'bool',
         'required_wifi_fw_version': 'str',
         'serial': 'str',
+        'tags': 'dict(str, object)',
         'thing': 'ArduinoThing',
         'type': 'str',
         'user_id': 'str',
@@ -69,6 +70,7 @@ class ArduinoDevicev2(object):
         'ota_compatible': 'ota_compatible',
         'required_wifi_fw_version': 'required_wifi_fw_version',
         'serial': 'serial',
+        'tags': 'tags',
         'thing': 'thing',
         'type': 'type',
         'user_id': 'user_id',
@@ -76,7 +78,7 @@ class ArduinoDevicev2(object):
         'wifi_fw_version': 'wifi_fw_version'
     }
 
-    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, label=None, last_activity_at=None, latest_wifi_fw_version=None, metadata=None, name=None, ota_available=None, ota_compatible=None, required_wifi_fw_version=None, serial=None, thing=None, type=None, user_id=None, webhooks=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, label=None, last_activity_at=None, latest_wifi_fw_version=None, metadata=None, name=None, ota_available=None, ota_compatible=None, required_wifi_fw_version=None, serial=None, tags=None, thing=None, type=None, user_id=None, webhooks=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoDevicev2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -96,6 +98,7 @@ class ArduinoDevicev2(object):
         self._ota_compatible = None
         self._required_wifi_fw_version = None
         self._serial = None
+        self._tags = None
         self._thing = None
         self._type = None
         self._user_id = None
@@ -126,6 +129,8 @@ class ArduinoDevicev2(object):
         if required_wifi_fw_version is not None:
             self.required_wifi_fw_version = required_wifi_fw_version
         self.serial = serial
+        if tags is not None:
+            self.tags = tags
         if thing is not None:
             self.thing = thing
         self.type = type
@@ -466,6 +471,29 @@ class ArduinoDevicev2(object):
             raise ValueError("Invalid value for `serial`, must not be `None`")  # noqa: E501
 
         self._serial = serial
+
+    @property
+    def tags(self):
+        """Gets the tags of this ArduinoDevicev2.  # noqa: E501
+
+        Tags belonging to the device  # noqa: E501
+
+        :return: The tags of this ArduinoDevicev2.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ArduinoDevicev2.
+
+        Tags belonging to the device  # noqa: E501
+
+        :param tags: The tags of this ArduinoDevicev2.  # noqa: E501
+        :type: dict(str, object)
+        """
+
+        self._tags = tags
 
     @property
     def thing(self):

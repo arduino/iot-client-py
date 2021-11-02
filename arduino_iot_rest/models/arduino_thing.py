@@ -42,6 +42,7 @@ class ArduinoThing(object):
         'properties': 'list[ArduinoProperty]',
         'properties_count': 'int',
         'sketch_id': 'str',
+        'tags': 'dict(str, object)',
         'updated_at': 'datetime',
         'user_id': 'str',
         'webhook_active': 'bool',
@@ -58,13 +59,14 @@ class ArduinoThing(object):
         'properties': 'properties',
         'properties_count': 'properties_count',
         'sketch_id': 'sketch_id',
+        'tags': 'tags',
         'updated_at': 'updated_at',
         'user_id': 'user_id',
         'webhook_active': 'webhook_active',
         'webhook_uri': 'webhook_uri'
     }
 
-    def __init__(self, created_at=None, deleted_at=None, device_id=None, href=None, id=None, name=None, properties=None, properties_count=None, sketch_id=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, deleted_at=None, device_id=None, href=None, id=None, name=None, properties=None, properties_count=None, sketch_id=None, tags=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoThing - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,6 +81,7 @@ class ArduinoThing(object):
         self._properties = None
         self._properties_count = None
         self._sketch_id = None
+        self._tags = None
         self._updated_at = None
         self._user_id = None
         self._webhook_active = None
@@ -100,6 +103,8 @@ class ArduinoThing(object):
             self.properties_count = properties_count
         if sketch_id is not None:
             self.sketch_id = sketch_id
+        if tags is not None:
+            self.tags = tags
         if updated_at is not None:
             self.updated_at = updated_at
         self.user_id = user_id
@@ -320,6 +325,29 @@ class ArduinoThing(object):
         """
 
         self._sketch_id = sketch_id
+
+    @property
+    def tags(self):
+        """Gets the tags of this ArduinoThing.  # noqa: E501
+
+        Tags of the thing  # noqa: E501
+
+        :return: The tags of this ArduinoThing.  # noqa: E501
+        :rtype: dict(str, object)
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this ArduinoThing.
+
+        Tags of the thing  # noqa: E501
+
+        :param tags: The tags of this ArduinoThing.  # noqa: E501
+        :type: dict(str, object)
+        """
+
+        self._tags = tags
 
     @property
     def updated_at(self):
