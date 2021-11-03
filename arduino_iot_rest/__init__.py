@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.3.8"
+__version__ = "1.3.9"
 
 # import apis into sdk package
 from arduino_iot_rest.api.dashboards_v2_api import DashboardsV2Api
@@ -22,9 +22,11 @@ from arduino_iot_rest.api.devices_v2_api import DevicesV2Api
 from arduino_iot_rest.api.devices_v2_certs_api import DevicesV2CertsApi
 from arduino_iot_rest.api.devices_v2_ota_api import DevicesV2OtaApi
 from arduino_iot_rest.api.devices_v2_pass_api import DevicesV2PassApi
+from arduino_iot_rest.api.devices_v2_tags_api import DevicesV2TagsApi
 from arduino_iot_rest.api.properties_v2_api import PropertiesV2Api
 from arduino_iot_rest.api.series_v2_api import SeriesV2Api
 from arduino_iot_rest.api.things_v2_api import ThingsV2Api
+from arduino_iot_rest.api.things_v2_tags_api import ThingsV2TagsApi
 
 # import ApiClient
 from arduino_iot_rest.api_client import ApiClient
@@ -58,6 +60,7 @@ from arduino_iot_rest.models.arduino_series_raw_batch_lastvalue import ArduinoSe
 from arduino_iot_rest.models.arduino_series_raw_last_value_response import ArduinoSeriesRawLastValueResponse
 from arduino_iot_rest.models.arduino_series_raw_response import ArduinoSeriesRawResponse
 from arduino_iot_rest.models.arduino_series_response import ArduinoSeriesResponse
+from arduino_iot_rest.models.arduino_tags import ArduinoTags
 from arduino_iot_rest.models.arduino_thing import ArduinoThing
 from arduino_iot_rest.models.arduino_timeseriesmedia import ArduinoTimeseriesmedia
 from arduino_iot_rest.models.arduino_variableslinks import ArduinoVariableslinks
@@ -86,6 +89,7 @@ from arduino_iot_rest.models.properties_value import PropertiesValue
 from arduino_iot_rest.models.properties_values import PropertiesValues
 from arduino_iot_rest.models.property_value import PropertyValue
 from arduino_iot_rest.models.sharerequest import Sharerequest
+from arduino_iot_rest.models.tag import Tag
 from arduino_iot_rest.models.thing import Thing
 from arduino_iot_rest.models.thing_sketch import ThingSketch
 from arduino_iot_rest.models.timeseries_data_point import TimeseriesDataPoint

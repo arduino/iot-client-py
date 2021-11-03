@@ -532,6 +532,7 @@ class ThingsV2Api(object):
         :param list[str] ids: Filter only the desired things
         :param bool show_deleted: If true, shows the soft deleted things
         :param bool show_properties: If true, returns things with their properties, and last values
+        :param list[str] tags: Filter by tags
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -561,6 +562,7 @@ class ThingsV2Api(object):
         :param list[str] ids: Filter only the desired things
         :param bool show_deleted: If true, shows the soft deleted things
         :param bool show_properties: If true, returns things with their properties, and last values
+        :param list[str] tags: Filter by tags
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -582,7 +584,8 @@ class ThingsV2Api(object):
             'device_id',
             'ids',
             'show_deleted',
-            'show_properties'
+            'show_properties',
+            'tags'
         ]
         all_params.extend(
             [
@@ -618,6 +621,9 @@ class ThingsV2Api(object):
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
         if 'show_properties' in local_var_params and local_var_params['show_properties'] is not None:  # noqa: E501
             query_params.append(('show_properties', local_var_params['show_properties']))  # noqa: E501
+        if 'tags' in local_var_params and local_var_params['tags'] is not None:  # noqa: E501
+            query_params.append(('tags', local_var_params['tags']))  # noqa: E501
+            collection_formats['tags'] = 'multi'  # noqa: E501
 
         header_params = {}
 
