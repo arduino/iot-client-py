@@ -30,6 +30,9 @@ from arduino_iot_rest.models.arduino_devicev2propertyvalue_value_statistics impo
 from arduino_iot_rest.models.arduino_devicev2propertyvalues import ArduinoDevicev2propertyvalues
 from arduino_iot_rest.models.arduino_devicev2propertyvalues_last_evaluated_key import ArduinoDevicev2propertyvaluesLastEvaluatedKey
 from arduino_iot_rest.models.arduino_linkedvariable import ArduinoLinkedvariable
+from arduino_iot_rest.models.arduino_loradevicev1 import ArduinoLoradevicev1
+from arduino_iot_rest.models.arduino_lorafreqplansv1 import ArduinoLorafreqplansv1
+from arduino_iot_rest.models.arduino_lorafreqplanv1 import ArduinoLorafreqplanv1
 from arduino_iot_rest.models.arduino_property import ArduinoProperty
 from arduino_iot_rest.models.arduino_series_batch import ArduinoSeriesBatch
 from arduino_iot_rest.models.arduino_series_raw_batch import ArduinoSeriesRawBatch
@@ -40,6 +43,7 @@ from arduino_iot_rest.models.arduino_series_response import ArduinoSeriesRespons
 from arduino_iot_rest.models.arduino_tags import ArduinoTags
 from arduino_iot_rest.models.arduino_thing import ArduinoThing
 from arduino_iot_rest.models.arduino_timeseriesmedia import ArduinoTimeseriesmedia
+from arduino_iot_rest.models.arduino_timezone import ArduinoTimezone
 from arduino_iot_rest.models.arduino_variableslinks import ArduinoVariableslinks
 from arduino_iot_rest.models.arduino_widgetv2 import ArduinoWidgetv2
 from arduino_iot_rest.models.batch_last_value_requests_media_v1 import BatchLastValueRequestsMediaV1
@@ -52,6 +56,7 @@ from arduino_iot_rest.models.batch_query_requests_media_v1 import BatchQueryRequ
 from arduino_iot_rest.models.check_devices_v2_pass_payload import CheckDevicesV2PassPayload
 from arduino_iot_rest.models.create_devices_v2_certs_payload import CreateDevicesV2CertsPayload
 from arduino_iot_rest.models.create_devices_v2_payload import CreateDevicesV2Payload
+from arduino_iot_rest.models.create_lora_devices_v1_payload import CreateLoraDevicesV1Payload
 from arduino_iot_rest.models.dashboardshare import Dashboardshare
 from arduino_iot_rest.models.dashboardv2 import Dashboardv2
 from arduino_iot_rest.models.devicev2 import Devicev2
@@ -67,8 +72,9 @@ from arduino_iot_rest.models.properties_values import PropertiesValues
 from arduino_iot_rest.models.property_value import PropertyValue
 from arduino_iot_rest.models.sharerequest import Sharerequest
 from arduino_iot_rest.models.tag import Tag
-from arduino_iot_rest.models.thing import Thing
+from arduino_iot_rest.models.thing_create import ThingCreate
 from arduino_iot_rest.models.thing_sketch import ThingSketch
+from arduino_iot_rest.models.thing_update import ThingUpdate
 from arduino_iot_rest.models.timeseries_data_point import TimeseriesDataPoint
 from arduino_iot_rest.models.update_sketch import UpdateSketch
 from arduino_iot_rest.models.widget import Widget
