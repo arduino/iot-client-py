@@ -40,6 +40,7 @@ class ArduinoLinkedvariable(object):
         'permission': 'str',
         'thing_id': 'str',
         'thing_name': 'str',
+        'thing_timezone': 'ArduinoTimezone',
         'type': 'str',
         'variable_name': 'str'
     }
@@ -52,11 +53,12 @@ class ArduinoLinkedvariable(object):
         'permission': 'permission',
         'thing_id': 'thing_id',
         'thing_name': 'thing_name',
+        'thing_timezone': 'thing_timezone',
         'type': 'type',
         'variable_name': 'variable_name'
     }
 
-    def __init__(self, id=None, last_value=None, last_value_updated_at=None, name=None, permission=None, thing_id=None, thing_name=None, type=None, variable_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, last_value=None, last_value_updated_at=None, name=None, permission=None, thing_id=None, thing_name=None, thing_timezone=None, type=None, variable_name=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoLinkedvariable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class ArduinoLinkedvariable(object):
         self._permission = None
         self._thing_id = None
         self._thing_name = None
+        self._thing_timezone = None
         self._type = None
         self._variable_name = None
         self.discriminator = None
@@ -82,6 +85,8 @@ class ArduinoLinkedvariable(object):
         self.permission = permission
         self.thing_id = thing_id
         self.thing_name = thing_name
+        if thing_timezone is not None:
+            self.thing_timezone = thing_timezone
         self.type = type
         self.variable_name = variable_name
 
@@ -255,6 +260,27 @@ class ArduinoLinkedvariable(object):
             raise ValueError("Invalid value for `thing_name`, must not be `None`")  # noqa: E501
 
         self._thing_name = thing_name
+
+    @property
+    def thing_timezone(self):
+        """Gets the thing_timezone of this ArduinoLinkedvariable.  # noqa: E501
+
+
+        :return: The thing_timezone of this ArduinoLinkedvariable.  # noqa: E501
+        :rtype: ArduinoTimezone
+        """
+        return self._thing_timezone
+
+    @thing_timezone.setter
+    def thing_timezone(self, thing_timezone):
+        """Sets the thing_timezone of this ArduinoLinkedvariable.
+
+
+        :param thing_timezone: The thing_timezone of this ArduinoLinkedvariable.  # noqa: E501
+        :type: ArduinoTimezone
+        """
+
+        self._thing_timezone = thing_timezone
 
     @property
     def type(self):

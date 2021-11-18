@@ -43,6 +43,7 @@ class ArduinoThing(object):
         'properties_count': 'int',
         'sketch_id': 'str',
         'tags': 'dict(str, object)',
+        'timezone': 'str',
         'updated_at': 'datetime',
         'user_id': 'str',
         'webhook_active': 'bool',
@@ -60,13 +61,14 @@ class ArduinoThing(object):
         'properties_count': 'properties_count',
         'sketch_id': 'sketch_id',
         'tags': 'tags',
+        'timezone': 'timezone',
         'updated_at': 'updated_at',
         'user_id': 'user_id',
         'webhook_active': 'webhook_active',
         'webhook_uri': 'webhook_uri'
     }
 
-    def __init__(self, created_at=None, deleted_at=None, device_id=None, href=None, id=None, name=None, properties=None, properties_count=None, sketch_id=None, tags=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, deleted_at=None, device_id=None, href=None, id=None, name=None, properties=None, properties_count=None, sketch_id=None, tags=None, timezone=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoThing - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +84,7 @@ class ArduinoThing(object):
         self._properties_count = None
         self._sketch_id = None
         self._tags = None
+        self._timezone = None
         self._updated_at = None
         self._user_id = None
         self._webhook_active = None
@@ -105,6 +108,7 @@ class ArduinoThing(object):
             self.sketch_id = sketch_id
         if tags is not None:
             self.tags = tags
+        self.timezone = timezone
         if updated_at is not None:
             self.updated_at = updated_at
         self.user_id = user_id
@@ -348,6 +352,31 @@ class ArduinoThing(object):
         """
 
         self._tags = tags
+
+    @property
+    def timezone(self):
+        """Gets the timezone of this ArduinoThing.  # noqa: E501
+
+        Time zone of the thing  # noqa: E501
+
+        :return: The timezone of this ArduinoThing.  # noqa: E501
+        :rtype: str
+        """
+        return self._timezone
+
+    @timezone.setter
+    def timezone(self, timezone):
+        """Sets the timezone of this ArduinoThing.
+
+        Time zone of the thing  # noqa: E501
+
+        :param timezone: The timezone of this ArduinoThing.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and timezone is None:  # noqa: E501
+            raise ValueError("Invalid value for `timezone`, must not be `None`")  # noqa: E501
+
+        self._timezone = timezone
 
     @property
     def updated_at(self):
