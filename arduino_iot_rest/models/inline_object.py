@@ -33,28 +33,56 @@ class InlineObject(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        '_async': 'bool',
         'expire_in_mins': 'int',
         'ota_file': 'file'
     }
 
     attribute_map = {
+        '_async': 'async',
         'expire_in_mins': 'expire_in_mins',
         'ota_file': 'ota_file'
     }
 
-    def __init__(self, expire_in_mins=10, ota_file=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, _async=True, expire_in_mins=10, ota_file=None, local_vars_configuration=None):  # noqa: E501
         """InlineObject - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self.__async = None
         self._expire_in_mins = None
         self._ota_file = None
         self.discriminator = None
 
+        if _async is not None:
+            self._async = _async
         if expire_in_mins is not None:
             self.expire_in_mins = expire_in_mins
         self.ota_file = ota_file
+
+    @property
+    def _async(self):
+        """Gets the _async of this InlineObject.  # noqa: E501
+
+        If false, wait for the full OTA process, until it gets a result from the device  # noqa: E501
+
+        :return: The _async of this InlineObject.  # noqa: E501
+        :rtype: bool
+        """
+        return self.__async
+
+    @_async.setter
+    def _async(self, _async):
+        """Sets the _async of this InlineObject.
+
+        If false, wait for the full OTA process, until it gets a result from the device  # noqa: E501
+
+        :param _async: The _async of this InlineObject.  # noqa: E501
+        :type: bool
+        """
+
+        self.__async = _async
 
     @property
     def expire_in_mins(self):

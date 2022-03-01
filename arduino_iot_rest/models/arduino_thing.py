@@ -35,7 +35,10 @@ class ArduinoThing(object):
     openapi_types = {
         'created_at': 'datetime',
         'deleted_at': 'datetime',
+        'device_fqbn': 'str',
         'device_id': 'str',
+        'device_name': 'str',
+        'device_type': 'str',
         'href': 'str',
         'id': 'str',
         'name': 'str',
@@ -53,7 +56,10 @@ class ArduinoThing(object):
     attribute_map = {
         'created_at': 'created_at',
         'deleted_at': 'deleted_at',
+        'device_fqbn': 'device_fqbn',
         'device_id': 'device_id',
+        'device_name': 'device_name',
+        'device_type': 'device_type',
         'href': 'href',
         'id': 'id',
         'name': 'name',
@@ -68,7 +74,7 @@ class ArduinoThing(object):
         'webhook_uri': 'webhook_uri'
     }
 
-    def __init__(self, created_at=None, deleted_at=None, device_id=None, href=None, id=None, name=None, properties=None, properties_count=None, sketch_id=None, tags=None, timezone=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, deleted_at=None, device_fqbn=None, device_id=None, device_name=None, device_type=None, href=None, id=None, name=None, properties=None, properties_count=None, sketch_id=None, tags=None, timezone=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoThing - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,7 +82,10 @@ class ArduinoThing(object):
 
         self._created_at = None
         self._deleted_at = None
+        self._device_fqbn = None
         self._device_id = None
+        self._device_name = None
+        self._device_type = None
         self._href = None
         self._id = None
         self._name = None
@@ -95,8 +104,14 @@ class ArduinoThing(object):
             self.created_at = created_at
         if deleted_at is not None:
             self.deleted_at = deleted_at
+        if device_fqbn is not None:
+            self.device_fqbn = device_fqbn
         if device_id is not None:
             self.device_id = device_id
+        if device_name is not None:
+            self.device_name = device_name
+        if device_type is not None:
+            self.device_type = device_type
         self.href = href
         self.id = id
         self.name = name
@@ -164,10 +179,33 @@ class ArduinoThing(object):
         self._deleted_at = deleted_at
 
     @property
+    def device_fqbn(self):
+        """Gets the device_fqbn of this ArduinoThing.  # noqa: E501
+
+        The fqbn of the attached device, if any  # noqa: E501
+
+        :return: The device_fqbn of this ArduinoThing.  # noqa: E501
+        :rtype: str
+        """
+        return self._device_fqbn
+
+    @device_fqbn.setter
+    def device_fqbn(self, device_fqbn):
+        """Sets the device_fqbn of this ArduinoThing.
+
+        The fqbn of the attached device, if any  # noqa: E501
+
+        :param device_fqbn: The device_fqbn of this ArduinoThing.  # noqa: E501
+        :type: str
+        """
+
+        self._device_fqbn = device_fqbn
+
+    @property
     def device_id(self):
         """Gets the device_id of this ArduinoThing.  # noqa: E501
 
-        The arn of the device  # noqa: E501
+        The id of the device  # noqa: E501
 
         :return: The device_id of this ArduinoThing.  # noqa: E501
         :rtype: str
@@ -178,13 +216,59 @@ class ArduinoThing(object):
     def device_id(self, device_id):
         """Sets the device_id of this ArduinoThing.
 
-        The arn of the device  # noqa: E501
+        The id of the device  # noqa: E501
 
         :param device_id: The device_id of this ArduinoThing.  # noqa: E501
         :type: str
         """
 
         self._device_id = device_id
+
+    @property
+    def device_name(self):
+        """Gets the device_name of this ArduinoThing.  # noqa: E501
+
+        The name of the attached device, if any  # noqa: E501
+
+        :return: The device_name of this ArduinoThing.  # noqa: E501
+        :rtype: str
+        """
+        return self._device_name
+
+    @device_name.setter
+    def device_name(self, device_name):
+        """Sets the device_name of this ArduinoThing.
+
+        The name of the attached device, if any  # noqa: E501
+
+        :param device_name: The device_name of this ArduinoThing.  # noqa: E501
+        :type: str
+        """
+
+        self._device_name = device_name
+
+    @property
+    def device_type(self):
+        """Gets the device_type of this ArduinoThing.  # noqa: E501
+
+        The type of the attached device, if any  # noqa: E501
+
+        :return: The device_type of this ArduinoThing.  # noqa: E501
+        :rtype: str
+        """
+        return self._device_type
+
+    @device_type.setter
+    def device_type(self, device_type):
+        """Sets the device_type of this ArduinoThing.
+
+        The type of the attached device, if any  # noqa: E501
+
+        :param device_type: The device_type of this ArduinoThing.  # noqa: E501
+        :type: str
+        """
+
+        self._device_type = device_type
 
     @property
     def href(self):

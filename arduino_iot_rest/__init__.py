@@ -14,10 +14,10 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.4.0"
+__version__ = "1.4.1"
 
 # import apis into sdk package
-from arduino_iot_rest.api.dashboards_v2_api import DashboardsV2Api 
+from arduino_iot_rest.api.dashboards_v2_api import DashboardsV2Api
 from arduino_iot_rest.api.devices_v2_api import DevicesV2Api
 from arduino_iot_rest.api.devices_v2_certs_api import DevicesV2CertsApi
 from arduino_iot_rest.api.devices_v2_ota_api import DevicesV2OtaApi

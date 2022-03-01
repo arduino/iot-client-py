@@ -175,6 +175,7 @@ class DevicesV2OtaApi(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param file ota_file: OTA file (required)
+        :param bool _async: If false, wait for the full OTA process, until it gets a result from the device
         :param int expire_in_mins: Binary expire time in minutes, default 10 mins
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -202,6 +203,7 @@ class DevicesV2OtaApi(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param file ota_file: OTA file (required)
+        :param bool _async: If false, wait for the full OTA process, until it gets a result from the device
         :param int expire_in_mins: Binary expire time in minutes, default 10 mins
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -222,6 +224,7 @@ class DevicesV2OtaApi(object):
         all_params = [
             'id',
             'ota_file',
+            '_async',
             'expire_in_mins'
         ]
         all_params.extend(
@@ -262,6 +265,8 @@ class DevicesV2OtaApi(object):
 
         form_params = []
         local_var_files = {}
+        if '_async' in local_var_params:
+            form_params.append(('async', local_var_params['_async']))  # noqa: E501
         if 'expire_in_mins' in local_var_params:
             form_params.append(('expire_in_mins', local_var_params['expire_in_mins']))  # noqa: E501
         if 'ota_file' in local_var_params:
