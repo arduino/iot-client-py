@@ -33,23 +33,51 @@ class PropertiesValues(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'input': 'bool',
         'properties': 'list[PropertiesValue]'
     }
 
     attribute_map = {
+        'input': 'input',
         'properties': 'properties'
     }
 
-    def __init__(self, properties=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, input=False, properties=None, local_vars_configuration=None):  # noqa: E501
         """PropertiesValues - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._input = None
         self._properties = None
         self.discriminator = None
 
+        if input is not None:
+            self.input = input
         self.properties = properties
+
+    @property
+    def input(self):
+        """Gets the input of this PropertiesValues.  # noqa: E501
+
+        If true, send property values to device's input topic.  # noqa: E501
+
+        :return: The input of this PropertiesValues.  # noqa: E501
+        :rtype: bool
+        """
+        return self._input
+
+    @input.setter
+    def input(self, input):
+        """Sets the input of this PropertiesValues.
+
+        If true, send property values to device's input topic.  # noqa: E501
+
+        :param input: The input of this PropertiesValues.  # noqa: E501
+        :type: bool
+        """
+
+        self._input = input
 
     @property
     def properties(self):

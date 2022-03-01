@@ -34,15 +34,17 @@ class ArduinoTimezone(object):
     """
     openapi_types = {
         'name': 'str',
-        'offset': 'int'
+        'offset': 'int',
+        'until': 'datetime'
     }
 
     attribute_map = {
         'name': 'name',
-        'offset': 'offset'
+        'offset': 'offset',
+        'until': 'until'
     }
 
-    def __init__(self, name=None, offset=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, offset=None, until=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoTimezone - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -50,10 +52,13 @@ class ArduinoTimezone(object):
 
         self._name = None
         self._offset = None
+        self._until = None
         self.discriminator = None
 
         self.name = name
         self.offset = offset
+        if until is not None:
+            self.until = until
 
     @property
     def name(self):
@@ -104,6 +109,29 @@ class ArduinoTimezone(object):
             raise ValueError("Invalid value for `offset`, must not be `None`")  # noqa: E501
 
         self._offset = offset
+
+    @property
+    def until(self):
+        """Gets the until of this ArduinoTimezone.  # noqa: E501
+
+        Date until the offset is valid.  # noqa: E501
+
+        :return: The until of this ArduinoTimezone.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._until
+
+    @until.setter
+    def until(self, until):
+        """Sets the until of this ArduinoTimezone.
+
+        Date until the offset is valid.  # noqa: E501
+
+        :param until: The until of this ArduinoTimezone.  # noqa: E501
+        :type: datetime
+        """
+
+        self._until = until
 
     def to_dict(self):
         """Returns the model properties as a dict"""
