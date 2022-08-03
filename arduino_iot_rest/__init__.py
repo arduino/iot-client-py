@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.4.1"
+__version__ = "1.4.2"
 
 # import apis into sdk package
 from arduino_iot_rest.api.dashboards_v2_api import DashboardsV2Api
@@ -40,6 +40,7 @@ from arduino_iot_rest.exceptions import ApiKeyError
 from arduino_iot_rest.exceptions import ApiException
 # import models into sdk package
 from arduino_iot_rest.models.arduino_compressedv2 import ArduinoCompressedv2
+from arduino_iot_rest.models.arduino_dashboardowner import ArduinoDashboardowner
 from arduino_iot_rest.models.arduino_dashboardshare import ArduinoDashboardshare
 from arduino_iot_rest.models.arduino_dashboardv2 import ArduinoDashboardv2
 from arduino_iot_rest.models.arduino_devicev2 import ArduinoDevicev2

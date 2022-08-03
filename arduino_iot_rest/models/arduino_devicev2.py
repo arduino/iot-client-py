@@ -43,6 +43,7 @@ class ArduinoDevicev2(object):
         'latest_wifi_fw_version': 'str',
         'metadata': 'dict(str, object)',
         'name': 'str',
+        'organization_id': 'str',
         'ota_available': 'bool',
         'ota_compatible': 'bool',
         'required_wifi_fw_version': 'str',
@@ -66,6 +67,7 @@ class ArduinoDevicev2(object):
         'latest_wifi_fw_version': 'latest_wifi_fw_version',
         'metadata': 'metadata',
         'name': 'name',
+        'organization_id': 'organization_id',
         'ota_available': 'ota_available',
         'ota_compatible': 'ota_compatible',
         'required_wifi_fw_version': 'required_wifi_fw_version',
@@ -78,7 +80,7 @@ class ArduinoDevicev2(object):
         'wifi_fw_version': 'wifi_fw_version'
     }
 
-    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, label=None, last_activity_at=None, latest_wifi_fw_version=None, metadata=None, name=None, ota_available=None, ota_compatible=None, required_wifi_fw_version=None, serial=None, tags=None, thing=None, type=None, user_id=None, webhooks=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, label=None, last_activity_at=None, latest_wifi_fw_version=None, metadata=None, name=None, organization_id=None, ota_available=None, ota_compatible=None, required_wifi_fw_version=None, serial=None, tags=None, thing=None, type=None, user_id=None, webhooks=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoDevicev2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,6 +96,7 @@ class ArduinoDevicev2(object):
         self._latest_wifi_fw_version = None
         self._metadata = None
         self._name = None
+        self._organization_id = None
         self._ota_available = None
         self._ota_compatible = None
         self._required_wifi_fw_version = None
@@ -122,6 +125,8 @@ class ArduinoDevicev2(object):
         if metadata is not None:
             self.metadata = metadata
         self.name = name
+        if organization_id is not None:
+            self.organization_id = organization_id
         if ota_available is not None:
             self.ota_available = ota_available
         if ota_compatible is not None:
@@ -377,6 +382,29 @@ class ArduinoDevicev2(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def organization_id(self):
+        """Gets the organization_id of this ArduinoDevicev2.  # noqa: E501
+
+        Id of the organization the device belongs to  # noqa: E501
+
+        :return: The organization_id of this ArduinoDevicev2.  # noqa: E501
+        :rtype: str
+        """
+        return self._organization_id
+
+    @organization_id.setter
+    def organization_id(self, organization_id):
+        """Sets the organization_id of this ArduinoDevicev2.
+
+        Id of the organization the device belongs to  # noqa: E501
+
+        :param organization_id: The organization_id of this ArduinoDevicev2.  # noqa: E501
+        :type: str
+        """
+
+        self._organization_id = organization_id
 
     @property
     def ota_available(self):

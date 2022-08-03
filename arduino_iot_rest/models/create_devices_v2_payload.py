@@ -179,7 +179,7 @@ class CreateDevicesV2Payload(object):
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["mkrwifi1010", "mkr1000", "nano_33_iot", "mkrgsm1400", "mkrwan1310", "mkrwan1300", "mkrnb1500", "lora-device", "login_and_secretkey_wifi", "envie_m7", "nanorp2040connect"]  # noqa: E501
+        allowed_values = ["mkrwifi1010", "mkr1000", "nano_33_iot", "mkrgsm1400", "mkrwan1310", "mkrwan1300", "mkrnb1500", "lora-device", "login_and_secretkey_wifi", "envie_m7", "nanorp2040connect", "nicla_vision"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

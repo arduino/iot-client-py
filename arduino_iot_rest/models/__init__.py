@@ -15,6 +15,7 @@ from __future__ import absolute_import
 
 # import models into model package
 from arduino_iot_rest.models.arduino_compressedv2 import ArduinoCompressedv2
+from arduino_iot_rest.models.arduino_dashboardowner import ArduinoDashboardowner
 from arduino_iot_rest.models.arduino_dashboardshare import ArduinoDashboardshare
 from arduino_iot_rest.models.arduino_dashboardv2 import ArduinoDashboardv2
 from arduino_iot_rest.models.arduino_devicev2 import ArduinoDevicev2

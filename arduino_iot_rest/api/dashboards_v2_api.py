@@ -47,6 +47,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param Dashboardv2 dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -72,6 +73,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param Dashboardv2 dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -89,7 +91,8 @@ class DashboardsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'dashboardv2'
+            'dashboardv2',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -120,6 +123,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -165,6 +170,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -190,6 +196,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -207,7 +214,8 @@ class DashboardsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -240,6 +248,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -280,6 +290,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param str user_id: The id of the user (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -306,6 +317,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param str user_id: The id of the user (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -324,7 +336,8 @@ class DashboardsV2Api(object):
 
         all_params = [
             'id',
-            'user_id'
+            'user_id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -363,6 +376,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -404,6 +419,7 @@ class DashboardsV2Api(object):
         :param str id: The id of the dashboard (required)
         :param str widget_id: The id of the widget (required)
         :param Widgetlink widgetlink: (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -431,6 +447,7 @@ class DashboardsV2Api(object):
         :param str id: The id of the dashboard (required)
         :param str widget_id: The id of the widget (required)
         :param Widgetlink widgetlink: (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -450,7 +467,8 @@ class DashboardsV2Api(object):
         all_params = [
             'id',
             'widget_id',
-            'widgetlink'
+            'widgetlink',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -493,6 +511,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -539,6 +559,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str name: The name of the dashboard
         :param str user_id: The user_id of the dashboard's owner
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -565,6 +586,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str name: The name of the dashboard
         :param str user_id: The user_id of the dashboard's owner
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -583,7 +605,8 @@ class DashboardsV2Api(object):
 
         all_params = [
             'name',
-            'user_id'
+            'user_id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -619,6 +642,8 @@ class DashboardsV2Api(object):
             query_params.append(('user_id', local_var_params['user_id']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -658,6 +683,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -683,6 +709,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -700,7 +727,8 @@ class DashboardsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -733,6 +761,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -773,6 +803,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param Sharerequest sharerequest: (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -799,6 +830,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param Sharerequest sharerequest: (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -817,7 +849,8 @@ class DashboardsV2Api(object):
 
         all_params = [
             'id',
-            'sharerequest'
+            'sharerequest',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -854,6 +887,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -900,6 +935,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param Dashboardshare dashboardshare: (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -926,6 +962,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param Dashboardshare dashboardshare: (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -944,7 +981,8 @@ class DashboardsV2Api(object):
 
         all_params = [
             'id',
-            'dashboardshare'
+            'dashboardshare',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -981,6 +1019,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -1026,6 +1066,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1051,6 +1092,7 @@ class DashboardsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1068,7 +1110,8 @@ class DashboardsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -1101,6 +1144,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -1141,6 +1186,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param Dashboardv2 dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1167,6 +1213,7 @@ class DashboardsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the dashboard (required)
         :param Dashboardv2 dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1185,7 +1232,8 @@ class DashboardsV2Api(object):
 
         all_params = [
             'id',
-            'dashboardv2'
+            'dashboardv2',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -1222,6 +1270,8 @@ class DashboardsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
