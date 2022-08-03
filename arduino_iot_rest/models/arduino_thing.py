@@ -42,6 +42,7 @@ class ArduinoThing(object):
         'href': 'str',
         'id': 'str',
         'name': 'str',
+        'organization_id': 'str',
         'properties': 'list[ArduinoProperty]',
         'properties_count': 'int',
         'sketch_id': 'str',
@@ -63,6 +64,7 @@ class ArduinoThing(object):
         'href': 'href',
         'id': 'id',
         'name': 'name',
+        'organization_id': 'organization_id',
         'properties': 'properties',
         'properties_count': 'properties_count',
         'sketch_id': 'sketch_id',
@@ -74,7 +76,7 @@ class ArduinoThing(object):
         'webhook_uri': 'webhook_uri'
     }
 
-    def __init__(self, created_at=None, deleted_at=None, device_fqbn=None, device_id=None, device_name=None, device_type=None, href=None, id=None, name=None, properties=None, properties_count=None, sketch_id=None, tags=None, timezone=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_at=None, deleted_at=None, device_fqbn=None, device_id=None, device_name=None, device_type=None, href=None, id=None, name=None, organization_id=None, properties=None, properties_count=None, sketch_id=None, tags=None, timezone=None, updated_at=None, user_id=None, webhook_active=None, webhook_uri=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoThing - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class ArduinoThing(object):
         self._href = None
         self._id = None
         self._name = None
+        self._organization_id = None
         self._properties = None
         self._properties_count = None
         self._sketch_id = None
@@ -115,6 +118,8 @@ class ArduinoThing(object):
         self.href = href
         self.id = id
         self.name = name
+        if organization_id is not None:
+            self.organization_id = organization_id
         if properties is not None:
             self.properties = properties
         if properties_count is not None:
@@ -344,6 +349,29 @@ class ArduinoThing(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def organization_id(self):
+        """Gets the organization_id of this ArduinoThing.  # noqa: E501
+
+        Id of the organization the thing belongs to  # noqa: E501
+
+        :return: The organization_id of this ArduinoThing.  # noqa: E501
+        :rtype: str
+        """
+        return self._organization_id
+
+    @organization_id.setter
+    def organization_id(self, organization_id):
+        """Sets the organization_id of this ArduinoThing.
+
+        Id of the organization the thing belongs to  # noqa: E501
+
+        :param organization_id: The organization_id of this ArduinoThing.  # noqa: E501
+        :type: str
+        """
+
+        self._organization_id = organization_id
 
     @property
     def properties(self):

@@ -58,7 +58,7 @@ class ModelProperty(object):
         'variable_name': 'variable_name'
     }
 
-    def __init__(self, max_value=None, min_value=None, name=None, permission=None, persist=False, tag=None, type=None, update_parameter=None, update_strategy=None, variable_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, max_value=None, min_value=None, name=None, permission=None, persist=True, tag=None, type=None, update_parameter=None, update_strategy=None, variable_name=None, local_vars_configuration=None):  # noqa: E501
         """ModelProperty - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

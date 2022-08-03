@@ -48,6 +48,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param ThingCreate thing_create: Payload to create a new thing (required)
         :param bool force: If true, detach device from the other thing, and attach to this thing
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -74,6 +75,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param ThingCreate thing_create: Payload to create a new thing (required)
         :param bool force: If true, detach device from the other thing, and attach to this thing
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -92,7 +94,8 @@ class ThingsV2Api(object):
 
         all_params = [
             'thing_create',
-            'force'
+            'force',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -125,6 +128,8 @@ class ThingsV2Api(object):
             query_params.append(('force', local_var_params['force']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -171,6 +176,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param ThingSketch thing_sketch: ThingSketchPayload describes a sketch of a thing (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -197,6 +203,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param ThingSketch thing_sketch: ThingSketchPayload describes a sketch of a thing (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -215,7 +222,8 @@ class ThingsV2Api(object):
 
         all_params = [
             'id',
-            'thing_sketch'
+            'thing_sketch',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -252,6 +260,8 @@ class ThingsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -298,6 +308,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param bool force: If true, hard delete the thing
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -324,6 +335,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param bool force: If true, hard delete the thing
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -342,7 +354,8 @@ class ThingsV2Api(object):
 
         all_params = [
             'id',
-            'force'
+            'force',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -377,6 +390,8 @@ class ThingsV2Api(object):
             query_params.append(('force', local_var_params['force']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -415,6 +430,7 @@ class ThingsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -439,6 +455,7 @@ class ThingsV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -456,7 +473,8 @@ class ThingsV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -489,6 +507,8 @@ class ThingsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -533,6 +553,7 @@ class ThingsV2Api(object):
         :param bool show_deleted: If true, shows the soft deleted things
         :param bool show_properties: If true, returns things with their properties, and last values
         :param list[str] tags: Filter by tags
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -563,6 +584,7 @@ class ThingsV2Api(object):
         :param bool show_deleted: If true, shows the soft deleted things
         :param bool show_properties: If true, returns things with their properties, and last values
         :param list[str] tags: Filter by tags
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -585,7 +607,8 @@ class ThingsV2Api(object):
             'ids',
             'show_deleted',
             'show_properties',
-            'tags'
+            'tags',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -626,6 +649,8 @@ class ThingsV2Api(object):
             collection_formats['tags'] = 'multi'  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -666,6 +691,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param bool show_deleted: If true, shows the soft deleted thing
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -692,6 +718,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param bool show_deleted: If true, shows the soft deleted thing
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -710,7 +737,8 @@ class ThingsV2Api(object):
 
         all_params = [
             'id',
-            'show_deleted'
+            'show_deleted',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -745,6 +773,8 @@ class ThingsV2Api(object):
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -786,6 +816,7 @@ class ThingsV2Api(object):
         :param str id: The id of the thing (required)
         :param ThingUpdate thing_update: Payload to update an existing thing (required)
         :param bool force: If true, detach device from the other thing, and attach to this thing
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -813,6 +844,7 @@ class ThingsV2Api(object):
         :param str id: The id of the thing (required)
         :param ThingUpdate thing_update: Payload to update an existing thing (required)
         :param bool force: If true, detach device from the other thing, and attach to this thing
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -832,7 +864,8 @@ class ThingsV2Api(object):
         all_params = [
             'id',
             'thing_update',
-            'force'
+            'force',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -871,6 +904,8 @@ class ThingsV2Api(object):
             query_params.append(('force', local_var_params['force']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -917,6 +952,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param str sketch_id: The id of the sketch (required)
+        :param str x_organization:
         :param UpdateSketch update_sketch:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -944,6 +980,7 @@ class ThingsV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the thing (required)
         :param str sketch_id: The id of the sketch (required)
+        :param str x_organization:
         :param UpdateSketch update_sketch:
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -964,6 +1001,7 @@ class ThingsV2Api(object):
         all_params = [
             'id',
             'sketch_id',
+            'x_organization',
             'update_sketch'
         ]
         all_params.extend(
@@ -1003,6 +1041,8 @@ class ThingsV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}

@@ -47,6 +47,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param CreateDevicesV2Payload create_devices_v2_payload: DeviceV2 describes a device. (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -72,6 +73,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param CreateDevicesV2Payload create_devices_v2_payload: DeviceV2 describes a device. (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -89,7 +91,8 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'create_devices_v2_payload'
+            'create_devices_v2_payload',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -120,6 +123,8 @@ class DevicesV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -165,6 +170,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -190,6 +196,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -207,7 +214,8 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -240,6 +248,8 @@ class DevicesV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -281,6 +291,7 @@ class DevicesV2Api(object):
         :param str id: The id of the device (required)
         :param int limit: The number of events to select
         :param str start: The time at which to start selecting events
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -308,6 +319,7 @@ class DevicesV2Api(object):
         :param str id: The id of the device (required)
         :param int limit: The number of events to select
         :param str start: The time at which to start selecting events
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -327,7 +339,8 @@ class DevicesV2Api(object):
         all_params = [
             'id',
             'limit',
-            'start'
+            'start',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -364,6 +377,8 @@ class DevicesV2Api(object):
             query_params.append(('start', local_var_params['start']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -404,6 +419,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param bool show_deleted: If true, shows the soft deleted properties
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -430,6 +446,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param bool show_deleted: If true, shows the soft deleted properties
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -448,7 +465,8 @@ class DevicesV2Api(object):
 
         all_params = [
             'id',
-            'show_deleted'
+            'show_deleted',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -483,6 +501,8 @@ class DevicesV2Api(object):
             query_params.append(('show_deleted', local_var_params['show_deleted']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -524,6 +544,7 @@ class DevicesV2Api(object):
         :param bool across_user_ids: If true, returns all the devices
         :param str serial: Filter by device serial number
         :param list[str] tags: Filter by tags
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -551,6 +572,7 @@ class DevicesV2Api(object):
         :param bool across_user_ids: If true, returns all the devices
         :param str serial: Filter by device serial number
         :param list[str] tags: Filter by tags
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -570,7 +592,8 @@ class DevicesV2Api(object):
         all_params = [
             'across_user_ids',
             'serial',
-            'tags'
+            'tags',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -604,6 +627,8 @@ class DevicesV2Api(object):
             collection_formats['tags'] = 'multi'  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -643,6 +668,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -668,6 +694,7 @@ class DevicesV2Api(object):
 
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -685,7 +712,8 @@ class DevicesV2Api(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -718,6 +746,8 @@ class DevicesV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -760,6 +790,7 @@ class DevicesV2Api(object):
         :param str pid: The id of the property (required)
         :param int limit: The number of properties to select
         :param str start: The time at which to start selecting properties
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -788,6 +819,7 @@ class DevicesV2Api(object):
         :param str pid: The id of the property (required)
         :param int limit: The number of properties to select
         :param str start: The time at which to start selecting properties
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -808,7 +840,8 @@ class DevicesV2Api(object):
             'id',
             'pid',
             'limit',
-            'start'
+            'start',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -851,6 +884,8 @@ class DevicesV2Api(object):
             query_params.append(('start', local_var_params['start']))  # noqa: E501
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -891,6 +926,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param Devicev2 devicev2: DeviceV2 describes a device. (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -917,6 +953,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param Devicev2 devicev2: DeviceV2 describes a device. (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -935,7 +972,8 @@ class DevicesV2Api(object):
 
         all_params = [
             'id',
-            'devicev2'
+            'devicev2',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -972,6 +1010,8 @@ class DevicesV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -1018,6 +1058,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param PropertiesValues properties_values: (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1044,6 +1085,7 @@ class DevicesV2Api(object):
         :param async_req bool: execute request asynchronously
         :param str id: The id of the device (required)
         :param PropertiesValues properties_values: (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1062,7 +1104,8 @@ class DevicesV2Api(object):
 
         all_params = [
             'id',
-            'properties_values'
+            'properties_values',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -1099,6 +1142,8 @@ class DevicesV2Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}

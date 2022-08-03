@@ -33,8 +33,10 @@ class ArduinoDashboardv2(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'created_by': 'ArduinoDashboardowner',
         'id': 'str',
         'name': 'str',
+        'organization_id': 'str',
         'shared_by': 'ArduinoDashboardshare',
         'shared_with': 'list[ArduinoDashboardshare]',
         'updated_at': 'datetime',
@@ -42,30 +44,38 @@ class ArduinoDashboardv2(object):
     }
 
     attribute_map = {
+        'created_by': 'created_by',
         'id': 'id',
         'name': 'name',
+        'organization_id': 'organization_id',
         'shared_by': 'shared_by',
         'shared_with': 'shared_with',
         'updated_at': 'updated_at',
         'widgets': 'widgets'
     }
 
-    def __init__(self, id=None, name=None, shared_by=None, shared_with=None, updated_at=None, widgets=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_by=None, id=None, name=None, organization_id=None, shared_by=None, shared_with=None, updated_at=None, widgets=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoDashboardv2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._created_by = None
         self._id = None
         self._name = None
+        self._organization_id = None
         self._shared_by = None
         self._shared_with = None
         self._updated_at = None
         self._widgets = None
         self.discriminator = None
 
+        if created_by is not None:
+            self.created_by = created_by
         self.id = id
         self.name = name
+        if organization_id is not None:
+            self.organization_id = organization_id
         if shared_by is not None:
             self.shared_by = shared_by
         if shared_with is not None:
@@ -73,6 +83,27 @@ class ArduinoDashboardv2(object):
         self.updated_at = updated_at
         if widgets is not None:
             self.widgets = widgets
+
+    @property
+    def created_by(self):
+        """Gets the created_by of this ArduinoDashboardv2.  # noqa: E501
+
+
+        :return: The created_by of this ArduinoDashboardv2.  # noqa: E501
+        :rtype: ArduinoDashboardowner
+        """
+        return self._created_by
+
+    @created_by.setter
+    def created_by(self, created_by):
+        """Sets the created_by of this ArduinoDashboardv2.
+
+
+        :param created_by: The created_by of this ArduinoDashboardv2.  # noqa: E501
+        :type: ArduinoDashboardowner
+        """
+
+        self._created_by = created_by
 
     @property
     def id(self):
@@ -123,6 +154,29 @@ class ArduinoDashboardv2(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def organization_id(self):
+        """Gets the organization_id of this ArduinoDashboardv2.  # noqa: E501
+
+        Id of the organization the dashboard belongs to  # noqa: E501
+
+        :return: The organization_id of this ArduinoDashboardv2.  # noqa: E501
+        :rtype: str
+        """
+        return self._organization_id
+
+    @organization_id.setter
+    def organization_id(self, organization_id):
+        """Sets the organization_id of this ArduinoDashboardv2.
+
+        Id of the organization the dashboard belongs to  # noqa: E501
+
+        :param organization_id: The organization_id of this ArduinoDashboardv2.  # noqa: E501
+        :type: str
+        """
+
+        self._organization_id = organization_id
 
     @property
     def shared_by(self):
