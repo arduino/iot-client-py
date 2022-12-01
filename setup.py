@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 version = {}
-with open("arduino_iot_rest/__init__.py") as fp:
+with open("iot_api_client/__init__.py") as fp:
     exec(fp.read(), version)
 
 with open("README.md") as f:
