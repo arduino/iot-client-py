@@ -71,16 +71,16 @@ For a working example, see [the example folder](https://github.com/arduino/iot-c
 
 ## How to get Arduino IoT Cloud Client Credentials
 
-You can generate Arduino IoT Cloud Client Credentials in the `ARDUINO API` section in the [IoT Cloud things section](https://create.arduino.cc/iot/things):
+You can generate Arduino IoT Cloud Client Credentials in the `API Keys` section of the [Arduino Cloud](https://cloud.arduino.cc/home/api-keys):
 
-### Step 1
+### Step 1 - Click on "Create API Key" on top right
 
-![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_1.png?raw=true)
+<img src="img/api_step1.png">
 
-### Step 2
+### Step 2 - Enter a name for your API Key
 
-![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_2.png?raw=true)
+<img src="img/api_step2.png" width="600">
 
-### Step 3
+### Step 3 - Save or download generated credentials
 
-![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_3.png?raw=true)
+<img src="img/api_step3.png" width="460">
