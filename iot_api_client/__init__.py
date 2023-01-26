@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "1.4.3"
+__version__ = "1.4.4"
 
 # import apis into sdk package
 from iot_api_client.api.dashboards_v2_api import DashboardsV2Api

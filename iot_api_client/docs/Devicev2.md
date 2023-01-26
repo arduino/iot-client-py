@@ -4,6 +4,7 @@ DeviceV2 describes a device.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**connection_type** | **str** | The type of the connections selected by the user when multiple connections are available | [optional] 
 **fqbn** | **str** | The fully qualified board name | [optional] 
 **name** | **str** | The friendly name of the device | [optional] 
 **serial** | **str** | The serial uuid of the device | [optional] 
