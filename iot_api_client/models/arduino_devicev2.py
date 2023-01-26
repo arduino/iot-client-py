@@ -33,6 +33,7 @@ class ArduinoDevicev2(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'connection_type': 'str',
         'created_at': 'datetime',
         'events': 'list[ArduinoDevicev2SimpleProperties]',
         'fqbn': 'str',
@@ -43,6 +44,7 @@ class ArduinoDevicev2(object):
         'latest_wifi_fw_version': 'str',
         'metadata': 'dict(str, object)',
         'name': 'str',
+        'no_sketch': 'bool',
         'organization_id': 'str',
         'ota_available': 'bool',
         'ota_compatible': 'bool',
@@ -57,6 +59,7 @@ class ArduinoDevicev2(object):
     }
 
     attribute_map = {
+        'connection_type': 'connection_type',
         'created_at': 'created_at',
         'events': 'events',
         'fqbn': 'fqbn',
@@ -67,6 +70,7 @@ class ArduinoDevicev2(object):
         'latest_wifi_fw_version': 'latest_wifi_fw_version',
         'metadata': 'metadata',
         'name': 'name',
+        'no_sketch': 'no_sketch',
         'organization_id': 'organization_id',
         'ota_available': 'ota_available',
         'ota_compatible': 'ota_compatible',
@@ -80,12 +84,13 @@ class ArduinoDevicev2(object):
         'wifi_fw_version': 'wifi_fw_version'
     }
 
-    def __init__(self, created_at=None, events=None, fqbn=None, href=None, id=None, label=None, last_activity_at=None, latest_wifi_fw_version=None, metadata=None, name=None, organization_id=None, ota_available=None, ota_compatible=None, required_wifi_fw_version=None, serial=None, tags=None, thing=None, type=None, user_id=None, webhooks=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, connection_type=None, created_at=None, events=None, fqbn=None, href=None, id=None, label=None, last_activity_at=None, latest_wifi_fw_version=None, metadata=None, name=None, no_sketch=None, organization_id=None, ota_available=None, ota_compatible=None, required_wifi_fw_version=None, serial=None, tags=None, thing=None, type=None, user_id=None, webhooks=None, wifi_fw_version=None, local_vars_configuration=None):  # noqa: E501
         """ArduinoDevicev2 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._connection_type = None
         self._created_at = None
         self._events = None
         self._fqbn = None
@@ -96,6 +101,7 @@ class ArduinoDevicev2(object):
         self._latest_wifi_fw_version = None
         self._metadata = None
         self._name = None
+        self._no_sketch = None
         self._organization_id = None
         self._ota_available = None
         self._ota_compatible = None
@@ -109,6 +115,8 @@ class ArduinoDevicev2(object):
         self._wifi_fw_version = None
         self.discriminator = None
 
+        if connection_type is not None:
+            self.connection_type = connection_type
         if created_at is not None:
             self.created_at = created_at
         if events is not None:
@@ -125,6 +133,8 @@ class ArduinoDevicev2(object):
         if metadata is not None:
             self.metadata = metadata
         self.name = name
+        if no_sketch is not None:
+            self.no_sketch = no_sketch
         if organization_id is not None:
             self.organization_id = organization_id
         if ota_available is not None:
@@ -144,6 +154,35 @@ class ArduinoDevicev2(object):
             self.webhooks = webhooks
         if wifi_fw_version is not None:
             self.wifi_fw_version = wifi_fw_version
+
+    @property
+    def connection_type(self):
+        """Gets the connection_type of this ArduinoDevicev2.  # noqa: E501
+
+        The type of the connections selected by the user when multiple connections are available  # noqa: E501
+
+        :return: The connection_type of this ArduinoDevicev2.  # noqa: E501
+        :rtype: str
+        """
+        return self._connection_type
+
+    @connection_type.setter
+    def connection_type(self, connection_type):
+        """Sets the connection_type of this ArduinoDevicev2.
+
+        The type of the connections selected by the user when multiple connections are available  # noqa: E501
+
+        :param connection_type: The connection_type of this ArduinoDevicev2.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and connection_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `connection_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(connection_type, allowed_values)
+            )
+
+        self._connection_type = connection_type
 
     @property
     def created_at(self):
@@ -382,6 +421,29 @@ class ArduinoDevicev2(object):
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
+
+    @property
+    def no_sketch(self):
+        """Gets the no_sketch of this ArduinoDevicev2.  # noqa: E501
+
+        True if the device type can not have an associated sketch  # noqa: E501
+
+        :return: The no_sketch of this ArduinoDevicev2.  # noqa: E501
+        :rtype: bool
+        """
+        return self._no_sketch
+
+    @no_sketch.setter
+    def no_sketch(self, no_sketch):
+        """Sets the no_sketch of this ArduinoDevicev2.
+
+        True if the device type can not have an associated sketch  # noqa: E501
+
+        :param no_sketch: The no_sketch of this ArduinoDevicev2.  # noqa: E501
+        :type: bool
+        """
+
+        self._no_sketch = no_sketch
 
     @property
     def organization_id(self):

@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **lora_devices_v1_create**
-> ArduinoLoradevicev1 lora_devices_v1_create(create_lora_devices_v1_payload)
+> ArduinoLoradevicev1 lora_devices_v1_create(create_lora_devices_v1_payload, x_organization=x_organization)
 
 create lora_devices_v1
 
@@ -34,10 +34,11 @@ with iot_api_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.LoraDevicesV1Api(api_client)
     create_lora_devices_v1_payload = iot_api_client.CreateLoraDevicesV1Payload() # CreateLoraDevicesV1Payload | 
+x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # create lora_devices_v1
-        api_response = api_instance.lora_devices_v1_create(create_lora_devices_v1_payload)
+        api_response = api_instance.lora_devices_v1_create(create_lora_devices_v1_payload, x_organization=x_organization)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LoraDevicesV1Api->lora_devices_v1_create: %s\n" % e)
@@ -48,6 +49,7 @@ with iot_api_client.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_lora_devices_v1_payload** | [**CreateLoraDevicesV1Payload**](CreateLoraDevicesV1Payload.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 

@@ -47,6 +47,7 @@ class LoraDevicesV1Api(object):
 
         :param async_req bool: execute request asynchronously
         :param CreateLoraDevicesV1Payload create_lora_devices_v1_payload: (required)
+        :param str x_organization:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -72,6 +73,7 @@ class LoraDevicesV1Api(object):
 
         :param async_req bool: execute request asynchronously
         :param CreateLoraDevicesV1Payload create_lora_devices_v1_payload: (required)
+        :param str x_organization:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -89,7 +91,8 @@ class LoraDevicesV1Api(object):
         local_var_params = locals()
 
         all_params = [
-            'create_lora_devices_v1_payload'
+            'create_lora_devices_v1_payload',
+            'x_organization'
         ]
         all_params.extend(
             [
@@ -120,6 +123,8 @@ class LoraDevicesV1Api(object):
         query_params = []
 
         header_params = {}
+        if 'x_organization' in local_var_params:
+            header_params['X-Organization'] = local_var_params['x_organization']  # noqa: E501
 
         form_params = []
         local_var_files = {}
