@@ -25,6 +25,7 @@ Create a new dashboard
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -37,9 +38,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     dashboardv2 = iot_api_client.Dashboardv2() # Dashboardv2 | DashboardV2Payload describes a dashboard
@@ -66,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -92,6 +103,7 @@ Delete a dashboard
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -104,9 +116,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -132,7 +154,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -159,6 +181,7 @@ Delete a user the dashboard has been shared with
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -171,9 +194,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -201,7 +234,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -228,6 +261,7 @@ Link or detach widget variables
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -240,9 +274,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -273,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -300,6 +344,7 @@ Returns the list of dashboards
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -312,9 +357,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     name = 'name_example' # str | The name of the dashboard (optional)
@@ -343,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -368,6 +423,7 @@ List of users the dashboard has been shared with
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -380,9 +436,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -409,7 +475,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -436,6 +502,7 @@ Request access to a dashboard
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -448,9 +515,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -478,7 +555,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -505,6 +582,7 @@ Share a dashboard
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -517,9 +595,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -547,7 +635,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -574,6 +662,7 @@ Show a dashboard
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -586,9 +675,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -615,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -641,6 +740,7 @@ Updates an existing dashboard
 
 ### Example
 
+* OAuth Authentication (oauth2):
 ```python
 from __future__ import print_function
 import time
@@ -653,9 +753,19 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc/iot"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with iot_api_client.ApiClient() as api_client:
+with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
@@ -684,7 +794,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

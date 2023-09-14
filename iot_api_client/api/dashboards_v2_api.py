@@ -141,7 +141,7 @@ class DashboardsV2Api(object):
             ['application/json', 'application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards', 'POST',
@@ -260,7 +260,7 @@ class DashboardsV2Api(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}', 'DELETE',
@@ -388,7 +388,7 @@ class DashboardsV2Api(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}/shares/{user_id}', 'DELETE',
@@ -529,7 +529,7 @@ class DashboardsV2Api(object):
             ['application/json', 'application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}/widgets/{widgetId}/variables', 'PUT',
@@ -654,7 +654,7 @@ class DashboardsV2Api(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards', 'GET',
@@ -773,7 +773,7 @@ class DashboardsV2Api(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}/shares', 'GET',
@@ -905,7 +905,7 @@ class DashboardsV2Api(object):
             ['application/json', 'application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}/share_request', 'PUT',
@@ -1037,7 +1037,7 @@ class DashboardsV2Api(object):
             ['application/json', 'application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}/shares', 'PUT',
@@ -1156,7 +1156,7 @@ class DashboardsV2Api(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}', 'GET',
@@ -1288,7 +1288,7 @@ class DashboardsV2Api(object):
             ['application/json', 'application/x-www-form-urlencoded'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['oauth2']  # noqa: E501
 
         return self.api_client.call_api(
             '/v2/dashboards/{id}', 'PUT',
