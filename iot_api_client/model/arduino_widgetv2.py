@@ -31,7 +31,7 @@ class ArduinoWidgetv2(
 
     Do not edit the class manually.
 
-    Widget describes a dashboard widget (default view)
+    ArduinoWidgetv2 media type (default view)
     """
 
 

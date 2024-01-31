@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 batch_query series_v2
 
-Returns the batch of time-series data
+Returns the batch of time-series aggregated samples
 
 ### Example
 
@@ -53,6 +53,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     body = BatchQueryRequestsMediaV1(
         requests=[
             BatchQueryRequestMediaV1(
+                aggregation="AVG",
                 _from="1970-01-01T00:00:00.00Z",
                 interval=1,
                 q="q_example",
@@ -210,7 +211,7 @@ Type | Description  | Notes
 
 batch_query_raw series_v2
 
-Returns the batch of time-series data raw
+Returns the batch of time-series raw samples
 
 ### Example
 

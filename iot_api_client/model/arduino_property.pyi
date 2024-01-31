@@ -62,7 +62,7 @@ class ArduinoProperty(
             min_value = schemas.Float64Schema
             persist = schemas.BoolSchema
             sync_id = schemas.UUIDSchema
-            tag = schemas.Float64Schema
+            tag = schemas.Int64Schema
             thing_name = schemas.StrSchema
             update_parameter = schemas.Float64Schema
             updated_at = schemas.DateTimeSchema
@@ -259,7 +259,7 @@ class ArduinoProperty(
         min_value: typing.Union[MetaOapg.properties.min_value, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         persist: typing.Union[MetaOapg.properties.persist, bool, schemas.Unset] = schemas.unset,
         sync_id: typing.Union[MetaOapg.properties.sync_id, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        tag: typing.Union[MetaOapg.properties.tag, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        tag: typing.Union[MetaOapg.properties.tag, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         thing_name: typing.Union[MetaOapg.properties.thing_name, str, schemas.Unset] = schemas.unset,
         update_parameter: typing.Union[MetaOapg.properties.update_parameter, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         updated_at: typing.Union[MetaOapg.properties.updated_at, str, datetime, schemas.Unset] = schemas.unset,

@@ -102,6 +102,68 @@ class ArduinoSeriesResponse(
             
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
+            
+            
+            class aggregation(
+                schemas.EnumBase,
+                schemas.StrSchema
+            ):
+                
+                @schemas.classproperty
+                def AVG(cls):
+                    return cls("AVG")
+                
+                @schemas.classproperty
+                def MIN(cls):
+                    return cls("MIN")
+                
+                @schemas.classproperty
+                def MAX(cls):
+                    return cls("MAX")
+                
+                @schemas.classproperty
+                def SUM(cls):
+                    return cls("SUM")
+                
+                @schemas.classproperty
+                def COUNT(cls):
+                    return cls("COUNT")
+                
+                @schemas.classproperty
+                def PCT_99(cls):
+                    return cls("PCT_99")
+                
+                @schemas.classproperty
+                def PCT_95(cls):
+                    return cls("PCT_95")
+                
+                @schemas.classproperty
+                def PCT_90(cls):
+                    return cls("PCT_90")
+                
+                @schemas.classproperty
+                def PCT_75(cls):
+                    return cls("PCT_75")
+                
+                @schemas.classproperty
+                def PCT_50(cls):
+                    return cls("PCT_50")
+                
+                @schemas.classproperty
+                def PCT_15(cls):
+                    return cls("PCT_15")
+                
+                @schemas.classproperty
+                def PCT_5(cls):
+                    return cls("PCT_5")
+                
+                @schemas.classproperty
+                def BOOL_OR(cls):
+                    return cls("BOOL_OR")
+                
+                @schemas.classproperty
+                def BOOL_AND(cls):
+                    return cls("BOOL_AND")
             message = schemas.StrSchema
             series_limit = schemas.Int64Schema
             __annotations__ = {
@@ -114,6 +176,7 @@ class ArduinoSeriesResponse(
                 "times": times,
                 "to_date": to_date,
                 "values": values,
+                "aggregation": aggregation,
                 "message": message,
                 "series_limit": series_limit,
             }
@@ -156,6 +219,9 @@ class ArduinoSeriesResponse(
     def __getitem__(self, name: typing_extensions.Literal["values"]) -> MetaOapg.properties.values: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["aggregation"]) -> MetaOapg.properties.aggregation: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
@@ -164,7 +230,7 @@ class ArduinoSeriesResponse(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "interval", "query", "resp_version", "status", "times", "to_date", "values", "message", "series_limit", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "interval", "query", "resp_version", "status", "times", "to_date", "values", "aggregation", "message", "series_limit", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -197,6 +263,9 @@ class ArduinoSeriesResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["values"]) -> MetaOapg.properties.values: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["aggregation"]) -> typing.Union[MetaOapg.properties.aggregation, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
@@ -205,7 +274,7 @@ class ArduinoSeriesResponse(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "interval", "query", "resp_version", "status", "times", "to_date", "values", "message", "series_limit", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "interval", "query", "resp_version", "status", "times", "to_date", "values", "aggregation", "message", "series_limit", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -221,6 +290,7 @@ class ArduinoSeriesResponse(
         values: typing.Union[MetaOapg.properties.values, list, tuple, ],
         interval: typing.Union[MetaOapg.properties.interval, decimal.Decimal, int, ],
         status: typing.Union[MetaOapg.properties.status, str, ],
+        aggregation: typing.Union[MetaOapg.properties.aggregation, str, schemas.Unset] = schemas.unset,
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
         series_limit: typing.Union[MetaOapg.properties.series_limit, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -238,6 +308,7 @@ class ArduinoSeriesResponse(
             values=values,
             interval=interval,
             status=status,
+            aggregation=aggregation,
             message=message,
             series_limit=series_limit,
             _configuration=_configuration,

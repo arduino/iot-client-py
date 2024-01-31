@@ -78,6 +78,32 @@ class ThingCreate(
             
                 def __getitem__(self, i: int) -> 'ModelProperty':
                     return super().__getitem__(i)
+            
+            
+            class tags(
+                schemas.ListSchema
+            ):
+            
+            
+                class MetaOapg:
+                    
+                    @staticmethod
+                    def items() -> typing.Type['Tag']:
+                        return Tag
+            
+                def __new__(
+                    cls,
+                    _arg: typing.Union[typing.Tuple['Tag'], typing.List['Tag']],
+                    _configuration: typing.Optional[schemas.Configuration] = None,
+                ) -> 'tags':
+                    return super().__new__(
+                        cls,
+                        _arg,
+                        _configuration=_configuration,
+                    )
+            
+                def __getitem__(self, i: int) -> 'Tag':
+                    return super().__getitem__(i)
             timezone = schemas.StrSchema
             webhook_active = schemas.BoolSchema
             webhook_uri = schemas.StrSchema
@@ -86,6 +112,7 @@ class ThingCreate(
                 "id": id,
                 "name": name,
                 "properties": properties,
+                "tags": tags,
                 "timezone": timezone,
                 "webhook_active": webhook_active,
                 "webhook_uri": webhook_uri,
@@ -104,6 +131,9 @@ class ThingCreate(
     def __getitem__(self, name: typing_extensions.Literal["properties"]) -> MetaOapg.properties.properties: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["tags"]) -> MetaOapg.properties.tags: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["timezone"]) -> MetaOapg.properties.timezone: ...
     
     @typing.overload
@@ -115,7 +145,7 @@ class ThingCreate(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["device_id", "id", "name", "properties", "timezone", "webhook_active", "webhook_uri", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["device_id", "id", "name", "properties", "tags", "timezone", "webhook_active", "webhook_uri", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -133,6 +163,9 @@ class ThingCreate(
     def get_item_oapg(self, name: typing_extensions.Literal["properties"]) -> typing.Union[MetaOapg.properties.properties, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["tags"]) -> typing.Union[MetaOapg.properties.tags, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["timezone"]) -> typing.Union[MetaOapg.properties.timezone, schemas.Unset]: ...
     
     @typing.overload
@@ -144,7 +177,7 @@ class ThingCreate(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["device_id", "id", "name", "properties", "timezone", "webhook_active", "webhook_uri", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["device_id", "id", "name", "properties", "tags", "timezone", "webhook_active", "webhook_uri", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -155,6 +188,7 @@ class ThingCreate(
         id: typing.Union[MetaOapg.properties.id, str, uuid.UUID, schemas.Unset] = schemas.unset,
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
         properties: typing.Union[MetaOapg.properties.properties, list, tuple, schemas.Unset] = schemas.unset,
+        tags: typing.Union[MetaOapg.properties.tags, list, tuple, schemas.Unset] = schemas.unset,
         timezone: typing.Union[MetaOapg.properties.timezone, str, schemas.Unset] = schemas.unset,
         webhook_active: typing.Union[MetaOapg.properties.webhook_active, bool, schemas.Unset] = schemas.unset,
         webhook_uri: typing.Union[MetaOapg.properties.webhook_uri, str, schemas.Unset] = schemas.unset,
@@ -168,6 +202,7 @@ class ThingCreate(
             id=id,
             name=name,
             properties=properties,
+            tags=tags,
             timezone=timezone,
             webhook_active=webhook_active,
             webhook_uri=webhook_uri,
@@ -176,3 +211,4 @@ class ThingCreate(
         )
 
 from iot_api_client.model.model_property import ModelProperty
+from iot_api_client.model.tag import Tag

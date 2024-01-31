@@ -8,7 +8,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**q** | str,  | str,  | Query | 
+**q** | str,  | str,  | Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5) | 
 **from** | str, datetime,  | str,  | From timestamp | [optional] value must conform to RFC-3339 date-time
 **series_limit** | decimal.Decimal, int,  | decimal.Decimal,  | Max of values | [optional] value must be a 64 bit integer
 **sort** | str,  | str,  | Sorting | [optional] must be one of ["ASC", "DESC", ] if omitted the server will use the default value of "DESC"

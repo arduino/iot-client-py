@@ -160,6 +160,27 @@ class ModelProperty(
                         "HOME_TEMPERATURE_F": "HOME_TEMPERATURE_F",
                         "HOME_SWITCH": "HOME_SWITCH",
                         "HOME_TELEVISION": "HOME_TELEVISION",
+                        "GOOGLE_HOME_COLORED_LIGHT": "GOOGLE_HOME_COLORED_LIGHT",
+                        "GOOGLE_HOME_DIMMED_LIGHT": "GOOGLE_HOME_DIMMED_LIGHT",
+                        "GOOGLE_HOME_LIGHT": "GOOGLE_HOME_LIGHT",
+                        "GOOGLE_HOME_CONTACT_SENSOR": "GOOGLE_HOME_CONTACT_SENSOR",
+                        "GOOGLE_HOME_MOTION_SENSOR": "GOOGLE_HOME_MOTION_SENSOR",
+                        "GOOGLE_HOME_SMART_PLUG": "GOOGLE_HOME_SMART_PLUG",
+                        "GOOGLE_HOME_TEMPERATURE": "GOOGLE_HOME_TEMPERATURE",
+                        "GOOGLE_HOME_TEMPERATURE_C": "GOOGLE_HOME_TEMPERATURE_C",
+                        "GOOGLE_HOME_TEMPERATURE_F": "GOOGLE_HOME_TEMPERATURE_F",
+                        "GOOGLE_HOME_SWITCH": "GOOGLE_HOME_SWITCH",
+                        "SMART_HOME_COLORED_LIGHT": "SMART_HOME_COLORED_LIGHT",
+                        "SMART_HOME_DIMMED_LIGHT": "SMART_HOME_DIMMED_LIGHT",
+                        "SMART_HOME_LIGHT": "SMART_HOME_LIGHT",
+                        "SMART_HOME_CONTACT_SENSOR": "SMART_HOME_CONTACT_SENSOR",
+                        "SMART_HOME_MOTION_SENSOR": "SMART_HOME_MOTION_SENSOR",
+                        "SMART_HOME_SMART_PLUG": "SMART_HOME_SMART_PLUG",
+                        "SMART_HOME_TEMPERATURE": "SMART_HOME_TEMPERATURE",
+                        "SMART_HOME_TEMPERATURE_C": "SMART_HOME_TEMPERATURE_C",
+                        "SMART_HOME_TEMPERATURE_F": "SMART_HOME_TEMPERATURE_F",
+                        "SMART_HOME_SWITCH": "SMART_HOME_SWITCH",
+                        "SMART_HOME_TELEVISION": "SMART_HOME_TELEVISION",
                         "ENERGY": "ENERGY",
                         "FORCE": "FORCE",
                         "TEMPERATURE": "TEMPERATURE",
@@ -526,6 +547,90 @@ class ModelProperty(
                     return cls("HOME_TELEVISION")
                 
                 @schemas.classproperty
+                def GOOGLE_HOME_COLORED_LIGHT(cls):
+                    return cls("GOOGLE_HOME_COLORED_LIGHT")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_DIMMED_LIGHT(cls):
+                    return cls("GOOGLE_HOME_DIMMED_LIGHT")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_LIGHT(cls):
+                    return cls("GOOGLE_HOME_LIGHT")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_CONTACT_SENSOR(cls):
+                    return cls("GOOGLE_HOME_CONTACT_SENSOR")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_MOTION_SENSOR(cls):
+                    return cls("GOOGLE_HOME_MOTION_SENSOR")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_SMART_PLUG(cls):
+                    return cls("GOOGLE_HOME_SMART_PLUG")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_TEMPERATURE(cls):
+                    return cls("GOOGLE_HOME_TEMPERATURE")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_TEMPERATURE_C(cls):
+                    return cls("GOOGLE_HOME_TEMPERATURE_C")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_TEMPERATURE_F(cls):
+                    return cls("GOOGLE_HOME_TEMPERATURE_F")
+                
+                @schemas.classproperty
+                def GOOGLE_HOME_SWITCH(cls):
+                    return cls("GOOGLE_HOME_SWITCH")
+                
+                @schemas.classproperty
+                def SMART_HOME_COLORED_LIGHT(cls):
+                    return cls("SMART_HOME_COLORED_LIGHT")
+                
+                @schemas.classproperty
+                def SMART_HOME_DIMMED_LIGHT(cls):
+                    return cls("SMART_HOME_DIMMED_LIGHT")
+                
+                @schemas.classproperty
+                def SMART_HOME_LIGHT(cls):
+                    return cls("SMART_HOME_LIGHT")
+                
+                @schemas.classproperty
+                def SMART_HOME_CONTACT_SENSOR(cls):
+                    return cls("SMART_HOME_CONTACT_SENSOR")
+                
+                @schemas.classproperty
+                def SMART_HOME_MOTION_SENSOR(cls):
+                    return cls("SMART_HOME_MOTION_SENSOR")
+                
+                @schemas.classproperty
+                def SMART_HOME_SMART_PLUG(cls):
+                    return cls("SMART_HOME_SMART_PLUG")
+                
+                @schemas.classproperty
+                def SMART_HOME_TEMPERATURE(cls):
+                    return cls("SMART_HOME_TEMPERATURE")
+                
+                @schemas.classproperty
+                def SMART_HOME_TEMPERATURE_C(cls):
+                    return cls("SMART_HOME_TEMPERATURE_C")
+                
+                @schemas.classproperty
+                def SMART_HOME_TEMPERATURE_F(cls):
+                    return cls("SMART_HOME_TEMPERATURE_F")
+                
+                @schemas.classproperty
+                def SMART_HOME_SWITCH(cls):
+                    return cls("SMART_HOME_SWITCH")
+                
+                @schemas.classproperty
+                def SMART_HOME_TELEVISION(cls):
+                    return cls("SMART_HOME_TELEVISION")
+                
+                @schemas.classproperty
                 def ENERGY(cls):
                     return cls("ENERGY")
                 
@@ -656,7 +761,7 @@ class ModelProperty(
             max_value = schemas.Float64Schema
             min_value = schemas.Float64Schema
             persist = schemas.BoolSchema
-            tag = schemas.Float64Schema
+            tag = schemas.Int64Schema
             update_parameter = schemas.Float64Schema
             
             
@@ -773,7 +878,7 @@ class ModelProperty(
         max_value: typing.Union[MetaOapg.properties.max_value, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         min_value: typing.Union[MetaOapg.properties.min_value, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         persist: typing.Union[MetaOapg.properties.persist, bool, schemas.Unset] = schemas.unset,
-        tag: typing.Union[MetaOapg.properties.tag, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
+        tag: typing.Union[MetaOapg.properties.tag, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         update_parameter: typing.Union[MetaOapg.properties.update_parameter, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         variable_name: typing.Union[MetaOapg.properties.variable_name, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,

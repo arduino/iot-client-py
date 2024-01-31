@@ -31,6 +31,77 @@ from iot_api_client.model.error import Error
 from . import path
 
 # Query params
+
+
+class AggregationSchema(
+    schemas.EnumBase,
+    schemas.StrSchema
+):
+
+
+    class MetaOapg:
+        enum_value_to_name = {
+            "AVG": "AVG",
+            "MIN": "MIN",
+            "MAX": "MAX",
+            "SUM": "SUM",
+            "COUNT": "COUNT",
+            "PCT_99": "PCT_99",
+            "PCT_95": "PCT_95",
+            "PCT_90": "PCT_90",
+            "PCT_75": "PCT_75",
+            "PCT_50": "PCT_50",
+            "PCT_15": "PCT_15",
+            "PCT_5": "PCT_5",
+        }
+    
+    @schemas.classproperty
+    def AVG(cls):
+        return cls("AVG")
+    
+    @schemas.classproperty
+    def MIN(cls):
+        return cls("MIN")
+    
+    @schemas.classproperty
+    def MAX(cls):
+        return cls("MAX")
+    
+    @schemas.classproperty
+    def SUM(cls):
+        return cls("SUM")
+    
+    @schemas.classproperty
+    def COUNT(cls):
+        return cls("COUNT")
+    
+    @schemas.classproperty
+    def PCT_99(cls):
+        return cls("PCT_99")
+    
+    @schemas.classproperty
+    def PCT_95(cls):
+        return cls("PCT_95")
+    
+    @schemas.classproperty
+    def PCT_90(cls):
+        return cls("PCT_90")
+    
+    @schemas.classproperty
+    def PCT_75(cls):
+        return cls("PCT_75")
+    
+    @schemas.classproperty
+    def PCT_50(cls):
+        return cls("PCT_50")
+    
+    @schemas.classproperty
+    def PCT_15(cls):
+        return cls("PCT_15")
+    
+    @schemas.classproperty
+    def PCT_5(cls):
+        return cls("PCT_5")
 DescSchema = schemas.BoolSchema
 ModelFromSchema = schemas.StrSchema
 
@@ -51,6 +122,7 @@ RequestRequiredQueryParams = typing_extensions.TypedDict(
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
+        'aggregation': typing.Union[AggregationSchema, str, ],
         'desc': typing.Union[DescSchema, bool, ],
         'from': typing.Union[ModelFromSchema, str, ],
         'interval': typing.Union[IntervalSchema, decimal.Decimal, int, ],
@@ -64,6 +136,12 @@ class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams)
     pass
 
 
+request_query_aggregation = api_client.QueryParameter(
+    name="aggregation",
+    style=api_client.ParameterStyle.FORM,
+    schema=AggregationSchema,
+    explode=True,
+)
 request_query_desc = api_client.QueryParameter(
     name="desc",
     style=api_client.ParameterStyle.FORM,
@@ -87,6 +165,31 @@ request_query_to = api_client.QueryParameter(
     style=api_client.ParameterStyle.FORM,
     schema=ToSchema,
     explode=True,
+)
+# Header params
+XOrganizationSchema = schemas.StrSchema
+RequestRequiredHeaderParams = typing_extensions.TypedDict(
+    'RequestRequiredHeaderParams',
+    {
+    }
+)
+RequestOptionalHeaderParams = typing_extensions.TypedDict(
+    'RequestOptionalHeaderParams',
+    {
+        'X-Organization': typing.Union[XOrganizationSchema, str, ],
+    },
+    total=False
+)
+
+
+class RequestHeaderParams(RequestRequiredHeaderParams, RequestOptionalHeaderParams):
+    pass
+
+
+request_header_x_organization = api_client.HeaderParameter(
+    name="X-Organization",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=XOrganizationSchema,
 )
 # Path params
 IdSchema = schemas.StrSchema
@@ -236,6 +339,7 @@ class BaseApi(api_client.Api):
     def _properties_v2_timeseries_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -250,6 +354,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -260,6 +365,7 @@ class BaseApi(api_client.Api):
     def _properties_v2_timeseries_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -273,6 +379,7 @@ class BaseApi(api_client.Api):
     def _properties_v2_timeseries_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -286,6 +393,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
+        self._verify_typed_dict_inputs_oapg(RequestHeaderParams, header_params)
         self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
 
@@ -305,6 +413,7 @@ class BaseApi(api_client.Api):
 
         prefix_separator_iterator = None
         for parameter in (
+            request_query_aggregation,
             request_query_desc,
             request_query__from,
             request_query_interval,
@@ -320,6 +429,14 @@ class BaseApi(api_client.Api):
                 used_path += serialized_value
 
         _headers = HTTPHeaderDict()
+        for parameter in (
+            request_header_x_organization,
+        ):
+            parameter_data = header_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            serialized_data = parameter.serialize(parameter_data)
+            _headers.extend(serialized_data)
         # TODO add cookie handling
         if accept_content_types:
             for accept_content_type in accept_content_types:
@@ -360,6 +477,7 @@ class PropertiesV2Timeseries(BaseApi):
     def properties_v2_timeseries(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -374,6 +492,7 @@ class PropertiesV2Timeseries(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -384,6 +503,7 @@ class PropertiesV2Timeseries(BaseApi):
     def properties_v2_timeseries(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -397,6 +517,7 @@ class PropertiesV2Timeseries(BaseApi):
     def properties_v2_timeseries(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -405,6 +526,7 @@ class PropertiesV2Timeseries(BaseApi):
     ):
         return self._properties_v2_timeseries_oapg(
             query_params=query_params,
+            header_params=header_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -420,6 +542,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -434,6 +557,7 @@ class ApiForget(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -444,6 +568,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -457,6 +582,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -465,6 +591,7 @@ class ApiForget(BaseApi):
     ):
         return self._properties_v2_timeseries_oapg(
             query_params=query_params,
+            header_params=header_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
