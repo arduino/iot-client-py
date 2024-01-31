@@ -19,6 +19,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **type** | str,  | str,  | The type of the device | 
 **connection_type** | str,  | str,  | The type of the connections selected by the user when multiple connections are available | [optional] must be one of ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora", ] 
 **created_at** | str, datetime,  | str,  | Creation date of the device | [optional] value must conform to RFC-3339 date-time
+**device_status** | str,  | str,  | The connection status of the device | [optional] must be one of ["ONLINE", "OFFLINE", "UNKNOWN", ] 
 **events** | [**ArduinoDevicev2SimplePropertiesCollection**](ArduinoDevicev2SimplePropertiesCollection.md) | [**ArduinoDevicev2SimplePropertiesCollection**](ArduinoDevicev2SimplePropertiesCollection.md) |  | [optional] 
 **fqbn** | str,  | str,  | The fully qualified board name | [optional] 
 **last_activity_at** | str, datetime,  | str,  | Last activity date | [optional] value must conform to RFC-3339 date-time

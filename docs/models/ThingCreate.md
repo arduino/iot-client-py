@@ -14,6 +14,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **id** | str, uuid.UUID,  | str,  | The id of the thing | [optional] value must be a uuid
 **name** | str,  | str,  | The friendly name of the thing | [optional] 
 **[properties](#properties)** | list, tuple,  | tuple,  | The properties of the thing | [optional] 
+**[tags](#tags)** | list, tuple,  | tuple,  | Optional set of tags | [optional] 
 **timezone** | str,  | str,  | A time zone name Check /v2/timezones for a list of valid names. | [optional] if omitted the server will use the default value of "America/New_York"
 **webhook_active** | bool,  | BoolClass,  | Webhook uri | [optional] 
 **webhook_uri** | str,  | str,  | Webhook uri | [optional] 
@@ -32,6 +33,20 @@ list, tuple,  | tuple,  | The properties of the thing |
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**ModelProperty**](ModelProperty.md) | [**ModelProperty**](ModelProperty.md) | [**ModelProperty**](ModelProperty.md) |  | 
+
+# tags
+
+Optional set of tags
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | Optional set of tags | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**Tag**](Tag.md) | [**Tag**](Tag.md) | [**Tag**](Tag.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

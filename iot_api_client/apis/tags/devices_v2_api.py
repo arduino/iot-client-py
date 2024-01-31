@@ -13,6 +13,7 @@ from iot_api_client.paths.v2_devices.put import DevicesV2Create
 from iot_api_client.paths.v2_devices_id.delete import DevicesV2Delete
 from iot_api_client.paths.v2_devices_id_events.get import DevicesV2GetEvents
 from iot_api_client.paths.v2_devices_id_properties.get import DevicesV2GetProperties
+from iot_api_client.paths.v2_devices_id_status.get import DevicesV2GetStatusEvents
 from iot_api_client.paths.v2_devices.get import DevicesV2List
 from iot_api_client.paths.v2_devices_id.get import DevicesV2Show
 from iot_api_client.paths.v2_devices_id_properties_pid.get import DevicesV2Timeseries
@@ -25,6 +26,7 @@ class DevicesV2Api(
     DevicesV2Delete,
     DevicesV2GetEvents,
     DevicesV2GetProperties,
+    DevicesV2GetStatusEvents,
     DevicesV2List,
     DevicesV2Show,
     DevicesV2Timeseries,

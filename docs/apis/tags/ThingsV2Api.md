@@ -5,14 +5,241 @@ All URIs are relative to *https://api2.arduino.cc/iot*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**things_v2_clone**](#things_v2_clone) | **put** /v2/things/{id}/clone | clone things_v2
 [**things_v2_create**](#things_v2_create) | **put** /v2/things | create things_v2
 [**things_v2_create_sketch**](#things_v2_create_sketch) | **put** /v2/things/{id}/sketch | createSketch things_v2
 [**things_v2_delete**](#things_v2_delete) | **delete** /v2/things/{id} | delete things_v2
 [**things_v2_delete_sketch**](#things_v2_delete_sketch) | **delete** /v2/things/{id}/sketch | deleteSketch things_v2
 [**things_v2_list**](#things_v2_list) | **get** /v2/things | list things_v2
 [**things_v2_show**](#things_v2_show) | **get** /v2/things/{id} | show things_v2
+[**things_v2_template**](#things_v2_template) | **get** /v2/things/{id}/template | template things_v2
 [**things_v2_update**](#things_v2_update) | **post** /v2/things/{id} | update things_v2
 [**things_v2_update_sketch**](#things_v2_update_sketch) | **put** /v2/things/{id}/sketch/{sketchId} | updateSketch things_v2
+
+# **things_v2_clone**
+<a name="things_v2_clone"></a>
+> ArduinoThing things_v2_clone(idthing_clone)
+
+clone things_v2
+
+Clone a given thing
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+import iot_api_client
+from iot_api_client.apis.tags import things_v2_api
+from iot_api_client.model.thing_clone import ThingClone
+from iot_api_client.model.error import Error
+from iot_api_client.model.arduino_thing import ArduinoThing
+from pprint import pprint
+# Defining the host is optional and defaults to https://api2.arduino.cc/iot
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = things_v2_api.ThingsV2Api(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+    }
+    body = ThingClone(
+        include_tags=True,
+        name="A",
+    )
+    try:
+        # clone things_v2
+        api_response = api_instance.things_v2_clone(
+            path_params=path_params,
+            header_params=header_params,
+            body=body,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling ThingsV2Api->things_v2_clone: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    body = ThingClone(
+        include_tags=True,
+        name="A",
+    )
+    try:
+        # clone things_v2
+        api_response = api_instance.things_v2_clone(
+            path_params=path_params,
+            header_params=header_params,
+            body=body,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling ThingsV2Api->things_v2_clone: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXWwwFormUrlencoded] | required |
+header_params | RequestHeaderParams | |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.thing+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ThingClone**](../../models/ThingClone.md) |  | 
+
+
+# SchemaForRequestBodyApplicationXWwwFormUrlencoded
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ThingClone**](../../models/ThingClone.md) |  | 
+
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+201 | [ApiResponseFor201](#things_v2_clone.ApiResponseFor201) | OK
+400 | [ApiResponseFor400](#things_v2_clone.ApiResponseFor400) | Bad Request
+401 | [ApiResponseFor401](#things_v2_clone.ApiResponseFor401) | Unauthorized
+404 | [ApiResponseFor404](#things_v2_clone.ApiResponseFor404) | Not Found
+500 | [ApiResponseFor500](#things_v2_clone.ApiResponseFor500) | Internal Server Error
+
+#### things_v2_clone.ApiResponseFor201
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor201ResponseBodyApplicationVndArduinoThingjson, SchemaFor201ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor201ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoThing**](../../models/ArduinoThing.md) |  | 
+
+
+# SchemaFor201ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoThing**](../../models/ArduinoThing.md) |  | 
+
+
+#### things_v2_clone.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoThingjson, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_clone.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### things_v2_clone.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### things_v2_clone.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationVndArduinoThingjson, SchemaFor500ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor500ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+### Authorization
+
+[oauth2](../../../README.md#oauth2)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **things_v2_create**
 <a name="things_v2_create"></a>
@@ -69,11 +296,17 @@ with iot_api_client.ApiClient(configuration) as api_client:
                 name="name_example",
                 permission="READ_ONLY",
                 persist=True,
-                tag=3.14,
+                tag=1,
                 type="ANALOG",
                 update_parameter=3.14,
                 update_strategy="ON_CHANGE",
                 variable_name="MqXzyCBw3_uufVPIPFhB9JcGRYnua",
+            )
+        ],
+        tags=[
+            Tag(
+                key="0",
+                value="0",
             )
         ],
         timezone="America/New_York",
@@ -109,11 +342,17 @@ with iot_api_client.ApiClient(configuration) as api_client:
                 name="name_example",
                 permission="READ_ONLY",
                 persist=True,
-                tag=3.14,
+                tag=1,
                 type="ANALOG",
                 update_parameter=3.14,
                 update_strategy="ON_CHANGE",
                 variable_name="MqXzyCBw3_uufVPIPFhB9JcGRYnua",
+            )
+        ],
+        tags=[
+            Tag(
+                key="0",
+                value="0",
             )
         ],
         timezone="America/New_York",
@@ -1379,6 +1618,184 @@ Type | Description  | Notes
 
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
+# **things_v2_template**
+<a name="things_v2_template"></a>
+> ArduinoThingtemplate things_v2_template(id)
+
+template things_v2
+
+Extract template from the given thing
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+import iot_api_client
+from iot_api_client.apis.tags import things_v2_api
+from iot_api_client.model.error import Error
+from iot_api_client.model.arduino_thingtemplate import ArduinoThingtemplate
+from pprint import pprint
+# Defining the host is optional and defaults to https://api2.arduino.cc/iot
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = things_v2_api.ThingsV2Api(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+    }
+    try:
+        # template things_v2
+        api_response = api_instance.things_v2_template(
+            path_params=path_params,
+            header_params=header_params,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling ThingsV2Api->things_v2_template: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    try:
+        # template things_v2
+        api_response = api_instance.things_v2_template(
+            path_params=path_params,
+            header_params=header_params,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling ThingsV2Api->things_v2_template: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+header_params | RequestHeaderParams | |
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.thingtemplate+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#things_v2_template.ApiResponseFor200) | OK
+401 | [ApiResponseFor401](#things_v2_template.ApiResponseFor401) | Unauthorized
+404 | [ApiResponseFor404](#things_v2_template.ApiResponseFor404) | Not Found
+500 | [ApiResponseFor500](#things_v2_template.ApiResponseFor500) | Internal Server Error
+
+#### things_v2_template.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationVndArduinoThingtemplatejson, SchemaFor200ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationVndArduinoThingtemplatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoThingtemplate**](../../models/ArduinoThingtemplate.md) |  | 
+
+
+# SchemaFor200ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoThingtemplate**](../../models/ArduinoThingtemplate.md) |  | 
+
+
+#### things_v2_template.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### things_v2_template.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### things_v2_template.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationVndArduinoThingtemplatejson, SchemaFor500ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationVndArduinoThingtemplatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor500ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+### Authorization
+
+[oauth2](../../../README.md#oauth2)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
 # **things_v2_update**
 <a name="things_v2_update"></a>
 > ArduinoThing things_v2_update(idthing_update)
@@ -1437,7 +1854,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
                 name="name_example",
                 permission="READ_ONLY",
                 persist=True,
-                tag=3.14,
+                tag=1,
                 type="ANALOG",
                 update_parameter=3.14,
                 update_strategy="ON_CHANGE",
@@ -1481,7 +1898,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
                 name="name_example",
                 permission="READ_ONLY",
                 persist=True,
-                tag=3.14,
+                tag=1,
                 type="ANALOG",
                 update_parameter=3.14,
                 update_strategy="ON_CHANGE",

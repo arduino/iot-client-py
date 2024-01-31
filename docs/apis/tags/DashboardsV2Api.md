@@ -5,6 +5,7 @@ All URIs are relative to *https://api2.arduino.cc/iot*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**dashboards_v2_clone**](#dashboards_v2_clone) | **put** /v2/dashboards/{id}/clone | clone dashboards_v2
 [**dashboards_v2_create**](#dashboards_v2_create) | **post** /v2/dashboards | create dashboards_v2
 [**dashboards_v2_delete**](#dashboards_v2_delete) | **delete** /v2/dashboards/{id} | delete dashboards_v2
 [**dashboards_v2_delete_share**](#dashboards_v2_delete_share) | **delete** /v2/dashboards/{id}/shares/{user_id} | deleteShare dashboards_v2
@@ -14,7 +15,253 @@ Method | HTTP request | Description
 [**dashboards_v2_request_access**](#dashboards_v2_request_access) | **put** /v2/dashboards/{id}/share_request | requestAccess dashboards_v2
 [**dashboards_v2_share**](#dashboards_v2_share) | **put** /v2/dashboards/{id}/shares | share dashboards_v2
 [**dashboards_v2_show**](#dashboards_v2_show) | **get** /v2/dashboards/{id} | show dashboards_v2
+[**dashboards_v2_template**](#dashboards_v2_template) | **get** /v2/dashboards/{id}/template | template dashboards_v2
 [**dashboards_v2_update**](#dashboards_v2_update) | **put** /v2/dashboards/{id} | update dashboards_v2
+
+# **dashboards_v2_clone**
+<a name="dashboards_v2_clone"></a>
+> ArduinoDashboardv2 dashboards_v2_clone(idclone)
+
+clone dashboards_v2
+
+Clone an existing dashboard
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+import iot_api_client
+from iot_api_client.apis.tags import dashboards_v2_api
+from iot_api_client.model.clone import Clone
+from iot_api_client.model.error import Error
+from iot_api_client.model.arduino_dashboardv2 import ArduinoDashboardv2
+from pprint import pprint
+# Defining the host is optional and defaults to https://api2.arduino.cc/iot
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = dashboards_v2_api.DashboardsV2Api(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+    }
+    body = Clone(
+        overrides=[
+            Override(
+                new_thing_id="new_thing_id_example",
+                old_thing_id="old_thing_id_example",
+            )
+        ],
+    )
+    try:
+        # clone dashboards_v2
+        api_response = api_instance.dashboards_v2_clone(
+            path_params=path_params,
+            header_params=header_params,
+            body=body,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling DashboardsV2Api->dashboards_v2_clone: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    body = Clone(
+        overrides=[
+            Override(
+                new_thing_id="new_thing_id_example",
+                old_thing_id="old_thing_id_example",
+            )
+        ],
+    )
+    try:
+        # clone dashboards_v2
+        api_response = api_instance.dashboards_v2_clone(
+            path_params=path_params,
+            header_params=header_params,
+            body=body,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling DashboardsV2Api->dashboards_v2_clone: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXWwwFormUrlencoded] | required |
+header_params | RequestHeaderParams | |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.dashboardv2+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Clone**](../../models/Clone.md) |  | 
+
+
+# SchemaForRequestBodyApplicationXWwwFormUrlencoded
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Clone**](../../models/Clone.md) |  | 
+
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+201 | [ApiResponseFor201](#dashboards_v2_clone.ApiResponseFor201) | Created
+400 | [ApiResponseFor400](#dashboards_v2_clone.ApiResponseFor400) | Bad Request
+401 | [ApiResponseFor401](#dashboards_v2_clone.ApiResponseFor401) | Unauthorized
+404 | [ApiResponseFor404](#dashboards_v2_clone.ApiResponseFor404) | Not Found
+500 | [ApiResponseFor500](#dashboards_v2_clone.ApiResponseFor500) | Internal Server Error
+
+#### dashboards_v2_clone.ApiResponseFor201
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor201ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor201ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor201ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDashboardv2**](../../models/ArduinoDashboardv2.md) |  | 
+
+
+# SchemaFor201ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDashboardv2**](../../models/ArduinoDashboardv2.md) |  | 
+
+
+#### dashboards_v2_clone.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_clone.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_clone.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### dashboards_v2_clone.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor500ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor500ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+### Authorization
+
+[oauth2](../../../README.md#oauth2)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **dashboards_v2_create**
 <a name="dashboards_v2_create"></a>
@@ -1852,6 +2099,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#dashboards_v2_show.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#dashboards_v2_show.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_show.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_show.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_show.ApiResponseFor500) | Internal Server Error
 
@@ -1893,6 +2141,25 @@ Type | Description  | Notes
 [**Error**](../../models/Error.md) |  | 
 
 
+#### dashboards_v2_show.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
 #### dashboards_v2_show.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1908,6 +2175,216 @@ body | typing.Union[SchemaFor500ResponseBodyApplicationVndArduinoDashboardv2json
 headers | Unset | headers were not defined |
 
 # SchemaFor500ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor500ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+### Authorization
+
+[oauth2](../../../README.md#oauth2)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **dashboards_v2_template**
+<a name="dashboards_v2_template"></a>
+> ArduinoDashboardv2template dashboards_v2_template(id)
+
+template dashboards_v2
+
+Get a template of the dashboard
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+import iot_api_client
+from iot_api_client.apis.tags import dashboards_v2_api
+from iot_api_client.model.error import Error
+from iot_api_client.model.arduino_dashboardv2template import ArduinoDashboardv2template
+from pprint import pprint
+# Defining the host is optional and defaults to https://api2.arduino.cc/iot
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = dashboards_v2_api.DashboardsV2Api(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+    }
+    try:
+        # template dashboards_v2
+        api_response = api_instance.dashboards_v2_template(
+            path_params=path_params,
+            header_params=header_params,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling DashboardsV2Api->dashboards_v2_template: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    try:
+        # template dashboards_v2
+        api_response = api_instance.dashboards_v2_template(
+            path_params=path_params,
+            header_params=header_params,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling DashboardsV2Api->dashboards_v2_template: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+header_params | RequestHeaderParams | |
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.dashboardv2template+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#dashboards_v2_template.ApiResponseFor200) | OK
+400 | [ApiResponseFor400](#dashboards_v2_template.ApiResponseFor400) | Bad Request
+401 | [ApiResponseFor401](#dashboards_v2_template.ApiResponseFor401) | Unauthorized
+404 | [ApiResponseFor404](#dashboards_v2_template.ApiResponseFor404) | Not Found
+500 | [ApiResponseFor500](#dashboards_v2_template.ApiResponseFor500) | Internal Server Error
+
+#### dashboards_v2_template.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationVndArduinoDashboardv2templatejson, SchemaFor200ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationVndArduinoDashboardv2templatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDashboardv2template**](../../models/ArduinoDashboardv2template.md) |  | 
+
+
+# SchemaFor200ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDashboardv2template**](../../models/ArduinoDashboardv2template.md) |  | 
+
+
+#### dashboards_v2_template.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoDashboardv2templatejson, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoDashboardv2templatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_template.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDashboardv2templatejson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDashboardv2templatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_template.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### dashboards_v2_template.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationVndArduinoDashboardv2templatejson, SchemaFor500ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationVndArduinoDashboardv2templatejson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 

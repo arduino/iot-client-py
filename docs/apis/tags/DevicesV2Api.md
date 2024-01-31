@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**devices_v2_delete**](#devices_v2_delete) | **delete** /v2/devices/{id} | delete devices_v2
 [**devices_v2_get_events**](#devices_v2_get_events) | **get** /v2/devices/{id}/events | getEvents devices_v2
 [**devices_v2_get_properties**](#devices_v2_get_properties) | **get** /v2/devices/{id}/properties | getProperties devices_v2
+[**devices_v2_get_status_events**](#devices_v2_get_status_events) | **get** /v2/devices/{id}/status | GetStatusEvents devices_v2
 [**devices_v2_list**](#devices_v2_list) | **get** /v2/devices | list devices_v2
 [**devices_v2_show**](#devices_v2_show) | **get** /v2/devices/{id} | show devices_v2
 [**devices_v2_timeseries**](#devices_v2_timeseries) | **get** /v2/devices/{id}/properties/{pid} | timeseries devices_v2
@@ -826,6 +827,260 @@ Type | Description  | Notes
 
 
 # SchemaFor500ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+### Authorization
+
+[oauth2](../../../README.md#oauth2)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **devices_v2_get_status_events**
+<a name="devices_v2_get_status_events"></a>
+> ArduinoDevicev2StatusEvents devices_v2_get_status_events(id)
+
+GetStatusEvents devices_v2
+
+GET connection status events
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+import iot_api_client
+from iot_api_client.apis.tags import devices_v2_api
+from iot_api_client.model.error import Error
+from iot_api_client.model.arduino_devicev2_status_events import ArduinoDevicev2StatusEvents
+from pprint import pprint
+# Defining the host is optional and defaults to https://api2.arduino.cc/iot
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = devices_v2_api.DevicesV2Api(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    query_params = {
+    }
+    header_params = {
+    }
+    try:
+        # GetStatusEvents devices_v2
+        api_response = api_instance.devices_v2_get_status_events(
+            path_params=path_params,
+            query_params=query_params,
+            header_params=header_params,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling DevicesV2Api->devices_v2_get_status_events: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+    }
+    query_params = {
+        'limit': 30,
+        'start': "start_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    try:
+        # GetStatusEvents devices_v2
+        api_response = api_instance.devices_v2_get_status_events(
+            path_params=path_params,
+            query_params=query_params,
+            header_params=header_params,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling DevicesV2Api->devices_v2_get_status_events: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
+header_params | RequestHeaderParams | |
+path_params | RequestPathParams | |
+accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.devicev2.status.events+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+limit | LimitSchema | | optional
+start | StartSchema | | optional
+
+
+# LimitSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  |  | if omitted the server will use the default value of 30
+
+# StartSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#devices_v2_get_status_events.ApiResponseFor200) | OK
+400 | [ApiResponseFor400](#devices_v2_get_status_events.ApiResponseFor400) | Bad Request
+401 | [ApiResponseFor401](#devices_v2_get_status_events.ApiResponseFor401) | Unauthorized
+500 | [ApiResponseFor500](#devices_v2_get_status_events.ApiResponseFor500) | Internal Server Error
+503 | [ApiResponseFor503](#devices_v2_get_status_events.ApiResponseFor503) | Service Unavailable
+
+#### devices_v2_get_status_events.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor200ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson, SchemaFor200ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor200ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDevicev2StatusEvents**](../../models/ArduinoDevicev2StatusEvents.md) |  | 
+
+
+# SchemaFor200ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDevicev2StatusEvents**](../../models/ArduinoDevicev2StatusEvents.md) |  | 
+
+
+#### devices_v2_get_status_events.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_get_status_events.ApiResponseFor401
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_get_status_events.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson, SchemaFor500ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor500ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_get_status_events.ApiResponseFor503
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor503ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson, SchemaFor503ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor503ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor503ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 

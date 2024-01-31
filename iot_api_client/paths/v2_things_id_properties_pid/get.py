@@ -56,6 +56,31 @@ request_query_show_deleted = api_client.QueryParameter(
     schema=ShowDeletedSchema,
     explode=True,
 )
+# Header params
+XOrganizationSchema = schemas.StrSchema
+RequestRequiredHeaderParams = typing_extensions.TypedDict(
+    'RequestRequiredHeaderParams',
+    {
+    }
+)
+RequestOptionalHeaderParams = typing_extensions.TypedDict(
+    'RequestOptionalHeaderParams',
+    {
+        'X-Organization': typing.Union[XOrganizationSchema, str, ],
+    },
+    total=False
+)
+
+
+class RequestHeaderParams(RequestRequiredHeaderParams, RequestOptionalHeaderParams):
+    pass
+
+
+request_header_x_organization = api_client.HeaderParameter(
+    name="X-Organization",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=XOrganizationSchema,
+)
 # Path params
 IdSchema = schemas.StrSchema
 PidSchema = schemas.StrSchema
@@ -202,6 +227,7 @@ class BaseApi(api_client.Api):
     def _properties_v2_show_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -216,6 +242,7 @@ class BaseApi(api_client.Api):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -226,6 +253,7 @@ class BaseApi(api_client.Api):
     def _properties_v2_show_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -239,6 +267,7 @@ class BaseApi(api_client.Api):
     def _properties_v2_show_oapg(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -252,6 +281,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
+        self._verify_typed_dict_inputs_oapg(RequestHeaderParams, header_params)
         self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
 
@@ -283,6 +313,14 @@ class BaseApi(api_client.Api):
                 used_path += serialized_value
 
         _headers = HTTPHeaderDict()
+        for parameter in (
+            request_header_x_organization,
+        ):
+            parameter_data = header_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            serialized_data = parameter.serialize(parameter_data)
+            _headers.extend(serialized_data)
         # TODO add cookie handling
         if accept_content_types:
             for accept_content_type in accept_content_types:
@@ -323,6 +361,7 @@ class PropertiesV2Show(BaseApi):
     def properties_v2_show(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -337,6 +376,7 @@ class PropertiesV2Show(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -347,6 +387,7 @@ class PropertiesV2Show(BaseApi):
     def properties_v2_show(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -360,6 +401,7 @@ class PropertiesV2Show(BaseApi):
     def properties_v2_show(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -368,6 +410,7 @@ class PropertiesV2Show(BaseApi):
     ):
         return self._properties_v2_show_oapg(
             query_params=query_params,
+            header_params=header_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -383,6 +426,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -397,6 +441,7 @@ class ApiForget(BaseApi):
         self,
         skip_deserialization: typing_extensions.Literal[True],
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -407,6 +452,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -420,6 +466,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         query_params: RequestQueryParams = frozendict.frozendict(),
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -428,6 +475,7 @@ class ApiForget(BaseApi):
     ):
         return self._properties_v2_show_oapg(
             query_params=query_params,
+            header_params=header_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,

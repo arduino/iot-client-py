@@ -56,13 +56,15 @@ with iot_api_client.ApiClient(configuration) as api_client:
     path_params = {
         'id': "id_example",
     }
+    header_params = {
+    }
     body = ModelProperty(
         max_value=3.14,
         min_value=3.14,
         name="name_example",
         permission="READ_ONLY",
         persist=True,
-        tag=3.14,
+        tag=1,
         type="ANALOG",
         update_parameter=3.14,
         update_strategy="ON_CHANGE",
@@ -72,6 +74,37 @@ with iot_api_client.ApiClient(configuration) as api_client:
         # create properties_v2
         api_response = api_instance.properties_v2_create(
             path_params=path_params,
+            header_params=header_params,
+            body=body,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling PropertiesV2Api->properties_v2_create: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    body = ModelProperty(
+        max_value=3.14,
+        min_value=3.14,
+        name="name_example",
+        permission="READ_ONLY",
+        persist=True,
+        tag=1,
+        type="ANALOG",
+        update_parameter=3.14,
+        update_strategy="ON_CHANGE",
+        variable_name="MqXzyCBw3_uufVPIPFhB9JcGRYnua",
+    )
+    try:
+        # create properties_v2
+        api_response = api_instance.properties_v2_create(
+            path_params=path_params,
+            header_params=header_params,
             body=body,
         )
         pprint(api_response)
@@ -83,6 +116,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXWwwFormUrlencoded] | required |
+header_params | RequestHeaderParams | |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.property+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
@@ -103,6 +137,20 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ModelProperty**](../../models/ModelProperty.md) |  | 
 
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -282,11 +330,14 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     query_params = {
     }
+    header_params = {
+    }
     try:
         # delete properties_v2
         api_response = api_instance.properties_v2_delete(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
     except iot_api_client.ApiException as e:
         print("Exception when calling PropertiesV2Api->properties_v2_delete: %s\n" % e)
@@ -299,11 +350,15 @@ with iot_api_client.ApiClient(configuration) as api_client:
     query_params = {
         'force': False,
     }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
     try:
         # delete properties_v2
         api_response = api_instance.properties_v2_delete(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
     except iot_api_client.ApiException as e:
         print("Exception when calling PropertiesV2Api->properties_v2_delete: %s\n" % e)
@@ -313,6 +368,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query_params | RequestQueryParams | |
+header_params | RequestHeaderParams | |
 path_params | RequestPathParams | |
 accept_content_types | typing.Tuple[str] | default is ('application/vnd.goa.error+json', 'text/plain', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -333,6 +389,20 @@ force | ForceSchema | | optional
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -468,11 +538,14 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     query_params = {
     }
+    header_params = {
+    }
     try:
         # list properties_v2
         api_response = api_instance.properties_v2_list(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
         pprint(api_response)
     except iot_api_client.ApiException as e:
@@ -485,11 +558,15 @@ with iot_api_client.ApiClient(configuration) as api_client:
     query_params = {
         'show_deleted': False,
     }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
     try:
         # list properties_v2
         api_response = api_instance.properties_v2_list(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
         pprint(api_response)
     except iot_api_client.ApiException as e:
@@ -500,6 +577,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query_params | RequestQueryParams | |
+header_params | RequestHeaderParams | |
 path_params | RequestPathParams | |
 accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.property+json; type&#x3D;collection', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -520,6 +598,20 @@ show_deleted | ShowDeletedSchema | | optional
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -670,6 +762,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'id': "id_example",
         'pid': "pid_example",
     }
+    header_params = {
+    }
     body = PropertyValue(
         device_id="device_id_example",
         value=None,
@@ -678,6 +772,29 @@ with iot_api_client.ApiClient(configuration) as api_client:
         # publish properties_v2
         api_response = api_instance.properties_v2_publish(
             path_params=path_params,
+            header_params=header_params,
+            body=body,
+        )
+    except iot_api_client.ApiException as e:
+        print("Exception when calling PropertiesV2Api->properties_v2_publish: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+        'pid': "pid_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    body = PropertyValue(
+        device_id="device_id_example",
+        value=None,
+    )
+    try:
+        # publish properties_v2
+        api_response = api_instance.properties_v2_publish(
+            path_params=path_params,
+            header_params=header_params,
             body=body,
         )
     except iot_api_client.ApiException as e:
@@ -688,6 +805,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXWwwFormUrlencoded] | required |
+header_params | RequestHeaderParams | |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/vnd.goa.error+json', 'text/plain', ) | Tells the server the content type(s) that are accepted by the client
@@ -708,6 +826,20 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**PropertyValue**](../../models/PropertyValue.md) |  | 
 
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -864,11 +996,14 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     query_params = {
     }
+    header_params = {
+    }
     try:
         # show properties_v2
         api_response = api_instance.properties_v2_show(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
         pprint(api_response)
     except iot_api_client.ApiException as e:
@@ -882,11 +1017,15 @@ with iot_api_client.ApiClient(configuration) as api_client:
     query_params = {
         'show_deleted': False,
     }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
     try:
         # show properties_v2
         api_response = api_instance.properties_v2_show(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
         pprint(api_response)
     except iot_api_client.ApiException as e:
@@ -897,6 +1036,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query_params | RequestQueryParams | |
+header_params | RequestHeaderParams | |
 path_params | RequestPathParams | |
 accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.property+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -917,6 +1057,20 @@ show_deleted | ShowDeletedSchema | | optional
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bool,  | BoolClass,  |  | if omitted the server will use the default value of False
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -1077,11 +1231,14 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     query_params = {
     }
+    header_params = {
+    }
     try:
         # timeseries properties_v2
         api_response = api_instance.properties_v2_timeseries(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
         pprint(api_response)
     except iot_api_client.ApiException as e:
@@ -1093,16 +1250,21 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'pid': "pid_example",
     }
     query_params = {
+        'aggregation': "AVG",
         'desc': False,
         'from': "from_example",
         'interval': 1,
         'to': "to_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
     }
     try:
         # timeseries properties_v2
         api_response = api_instance.properties_v2_timeseries(
             path_params=path_params,
             query_params=query_params,
+            header_params=header_params,
         )
         pprint(api_response)
     except iot_api_client.ApiException as e:
@@ -1113,6 +1275,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 query_params | RequestQueryParams | |
+header_params | RequestHeaderParams | |
 path_params | RequestPathParams | |
 accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.timeseriesmedia+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -1124,11 +1287,19 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+aggregation | AggregationSchema | | optional
 desc | DescSchema | | optional
 from | ModelFromSchema | | optional
 interval | IntervalSchema | | optional
 to | ToSchema | | optional
 
+
+# AggregationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | must be one of ["AVG", "MIN", "MAX", "SUM", "COUNT", "PCT_99", "PCT_95", "PCT_90", "PCT_75", "PCT_50", "PCT_15", "PCT_5", ] 
 
 # DescSchema
 
@@ -1152,6 +1323,20 @@ Input Type | Accessed Type | Description | Notes
 decimal.Decimal, int,  | decimal.Decimal,  |  | 
 
 # ToSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
@@ -1312,13 +1497,15 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'id': "id_example",
         'pid': "pid_example",
     }
+    header_params = {
+    }
     body = ModelProperty(
         max_value=3.14,
         min_value=3.14,
         name="name_example",
         permission="READ_ONLY",
         persist=True,
-        tag=3.14,
+        tag=1,
         type="ANALOG",
         update_parameter=3.14,
         update_strategy="ON_CHANGE",
@@ -1328,6 +1515,38 @@ with iot_api_client.ApiClient(configuration) as api_client:
         # update properties_v2
         api_response = api_instance.properties_v2_update(
             path_params=path_params,
+            header_params=header_params,
+            body=body,
+        )
+        pprint(api_response)
+    except iot_api_client.ApiException as e:
+        print("Exception when calling PropertiesV2Api->properties_v2_update: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'id': "id_example",
+        'pid': "pid_example",
+    }
+    header_params = {
+        'X-Organization': "X-Organization_example",
+    }
+    body = ModelProperty(
+        max_value=3.14,
+        min_value=3.14,
+        name="name_example",
+        permission="READ_ONLY",
+        persist=True,
+        tag=1,
+        type="ANALOG",
+        update_parameter=3.14,
+        update_strategy="ON_CHANGE",
+        variable_name="MqXzyCBw3_uufVPIPFhB9JcGRYnua",
+    )
+    try:
+        # update properties_v2
+        api_response = api_instance.properties_v2_update(
+            path_params=path_params,
+            header_params=header_params,
             body=body,
         )
         pprint(api_response)
@@ -1339,6 +1558,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXWwwFormUrlencoded] | required |
+header_params | RequestHeaderParams | |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.property+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
@@ -1359,6 +1579,20 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ModelProperty**](../../models/ModelProperty.md) |  | 
 
+
+### header_params
+#### RequestHeaderParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+X-Organization | XOrganizationSchema | | optional
+
+# XOrganizationSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams

@@ -44,12 +44,75 @@ class BatchQueryRequestMediaV1(
             _from = schemas.DateTimeSchema
             q = schemas.StrSchema
             to = schemas.DateTimeSchema
+            
+            
+            class aggregation(
+                schemas.EnumBase,
+                schemas.StrSchema
+            ):
+                
+                @schemas.classproperty
+                def AVG(cls):
+                    return cls("AVG")
+                
+                @schemas.classproperty
+                def MIN(cls):
+                    return cls("MIN")
+                
+                @schemas.classproperty
+                def MAX(cls):
+                    return cls("MAX")
+                
+                @schemas.classproperty
+                def SUM(cls):
+                    return cls("SUM")
+                
+                @schemas.classproperty
+                def COUNT(cls):
+                    return cls("COUNT")
+                
+                @schemas.classproperty
+                def PCT_99(cls):
+                    return cls("PCT_99")
+                
+                @schemas.classproperty
+                def PCT_95(cls):
+                    return cls("PCT_95")
+                
+                @schemas.classproperty
+                def PCT_90(cls):
+                    return cls("PCT_90")
+                
+                @schemas.classproperty
+                def PCT_75(cls):
+                    return cls("PCT_75")
+                
+                @schemas.classproperty
+                def PCT_50(cls):
+                    return cls("PCT_50")
+                
+                @schemas.classproperty
+                def PCT_15(cls):
+                    return cls("PCT_15")
+                
+                @schemas.classproperty
+                def PCT_5(cls):
+                    return cls("PCT_5")
+                
+                @schemas.classproperty
+                def BOOL_OR(cls):
+                    return cls("BOOL_OR")
+                
+                @schemas.classproperty
+                def BOOL_AND(cls):
+                    return cls("BOOL_AND")
             interval = schemas.Int64Schema
             series_limit = schemas.Int64Schema
             __annotations__ = {
                 "from": _from,
                 "q": q,
                 "to": to,
+                "aggregation": aggregation,
                 "interval": interval,
                 "series_limit": series_limit,
             }
@@ -67,6 +130,9 @@ class BatchQueryRequestMediaV1(
     def __getitem__(self, name: typing_extensions.Literal["to"]) -> MetaOapg.properties.to: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["aggregation"]) -> MetaOapg.properties.aggregation: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["interval"]) -> MetaOapg.properties.interval: ...
     
     @typing.overload
@@ -75,7 +141,7 @@ class BatchQueryRequestMediaV1(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["from", "q", "to", "interval", "series_limit", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["from", "q", "to", "aggregation", "interval", "series_limit", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -90,6 +156,9 @@ class BatchQueryRequestMediaV1(
     def get_item_oapg(self, name: typing_extensions.Literal["to"]) -> MetaOapg.properties.to: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["aggregation"]) -> typing.Union[MetaOapg.properties.aggregation, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["interval"]) -> typing.Union[MetaOapg.properties.interval, schemas.Unset]: ...
     
     @typing.overload
@@ -98,7 +167,7 @@ class BatchQueryRequestMediaV1(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["from", "q", "to", "interval", "series_limit", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["from", "q", "to", "aggregation", "interval", "series_limit", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -107,6 +176,7 @@ class BatchQueryRequestMediaV1(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         q: typing.Union[MetaOapg.properties.q, str, ],
         to: typing.Union[MetaOapg.properties.to, str, datetime, ],
+        aggregation: typing.Union[MetaOapg.properties.aggregation, str, schemas.Unset] = schemas.unset,
         interval: typing.Union[MetaOapg.properties.interval, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         series_limit: typing.Union[MetaOapg.properties.series_limit, decimal.Decimal, int, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -117,6 +187,7 @@ class BatchQueryRequestMediaV1(
             *_args,
             q=q,
             to=to,
+            aggregation=aggregation,
             interval=interval,
             series_limit=series_limit,
             _configuration=_configuration,

@@ -1,11 +1,11 @@
 # iot_api_client.model.arduino_widgetv2.ArduinoWidgetv2
 
-Widget describes a dashboard widget (default view)
+ArduinoWidgetv2 media type (default view)
 
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict,  | frozendict.frozendict,  | Widget describes a dashboard widget (default view) | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | ArduinoWidgetv2 media type (default view) | 
 
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes

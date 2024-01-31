@@ -39,6 +39,7 @@ class ArduinoTimezone(
         required = {
             "offset",
             "name",
+            "until",
         }
         
         class properties:
@@ -53,6 +54,7 @@ class ArduinoTimezone(
     
     offset: MetaOapg.properties.offset
     name: MetaOapg.properties.name
+    until: MetaOapg.properties.until
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -78,7 +80,7 @@ class ArduinoTimezone(
     def get_item_oapg(self, name: typing_extensions.Literal["offset"]) -> MetaOapg.properties.offset: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["until"]) -> typing.Union[MetaOapg.properties.until, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["until"]) -> MetaOapg.properties.until: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -92,7 +94,7 @@ class ArduinoTimezone(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         offset: typing.Union[MetaOapg.properties.offset, decimal.Decimal, int, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
-        until: typing.Union[MetaOapg.properties.until, str, datetime, schemas.Unset] = schemas.unset,
+        until: typing.Union[MetaOapg.properties.until, str, datetime, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ArduinoTimezone':

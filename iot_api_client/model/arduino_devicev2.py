@@ -96,6 +96,32 @@ class ArduinoDevicev2(
                 def LORA(cls):
                     return cls("lora")
             created_at = schemas.DateTimeSchema
+            
+            
+            class device_status(
+                schemas.EnumBase,
+                schemas.StrSchema
+            ):
+            
+            
+                class MetaOapg:
+                    enum_value_to_name = {
+                        "ONLINE": "ONLINE",
+                        "OFFLINE": "OFFLINE",
+                        "UNKNOWN": "UNKNOWN",
+                    }
+                
+                @schemas.classproperty
+                def ONLINE(cls):
+                    return cls("ONLINE")
+                
+                @schemas.classproperty
+                def OFFLINE(cls):
+                    return cls("OFFLINE")
+                
+                @schemas.classproperty
+                def UNKNOWN(cls):
+                    return cls("UNKNOWN")
         
             @staticmethod
             def events() -> typing.Type['ArduinoDevicev2SimplePropertiesCollection']:
@@ -185,6 +211,7 @@ class ArduinoDevicev2(
                 "user_id": user_id,
                 "connection_type": connection_type,
                 "created_at": created_at,
+                "device_status": device_status,
                 "events": events,
                 "fqbn": fqbn,
                 "last_activity_at": last_activity_at,
@@ -237,6 +264,9 @@ class ArduinoDevicev2(
     def __getitem__(self, name: typing_extensions.Literal["created_at"]) -> MetaOapg.properties.created_at: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["device_status"]) -> MetaOapg.properties.device_status: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["events"]) -> 'ArduinoDevicev2SimplePropertiesCollection': ...
     
     @typing.overload
@@ -281,7 +311,7 @@ class ArduinoDevicev2(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["href", "id", "label", "name", "serial", "type", "user_id", "connection_type", "created_at", "events", "fqbn", "last_activity_at", "latest_wifi_fw_version", "metadata", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "tags", "thing", "webhooks", "wifi_fw_version", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["href", "id", "label", "name", "serial", "type", "user_id", "connection_type", "created_at", "device_status", "events", "fqbn", "last_activity_at", "latest_wifi_fw_version", "metadata", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "tags", "thing", "webhooks", "wifi_fw_version", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -312,6 +342,9 @@ class ArduinoDevicev2(
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["created_at"]) -> typing.Union[MetaOapg.properties.created_at, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["device_status"]) -> typing.Union[MetaOapg.properties.device_status, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["events"]) -> typing.Union['ArduinoDevicev2SimplePropertiesCollection', schemas.Unset]: ...
@@ -358,7 +391,7 @@ class ArduinoDevicev2(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["href", "id", "label", "name", "serial", "type", "user_id", "connection_type", "created_at", "events", "fqbn", "last_activity_at", "latest_wifi_fw_version", "metadata", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "tags", "thing", "webhooks", "wifi_fw_version", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["href", "id", "label", "name", "serial", "type", "user_id", "connection_type", "created_at", "device_status", "events", "fqbn", "last_activity_at", "latest_wifi_fw_version", "metadata", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "tags", "thing", "webhooks", "wifi_fw_version", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -374,6 +407,7 @@ class ArduinoDevicev2(
         type: typing.Union[MetaOapg.properties.type, str, ],
         connection_type: typing.Union[MetaOapg.properties.connection_type, str, schemas.Unset] = schemas.unset,
         created_at: typing.Union[MetaOapg.properties.created_at, str, datetime, schemas.Unset] = schemas.unset,
+        device_status: typing.Union[MetaOapg.properties.device_status, str, schemas.Unset] = schemas.unset,
         events: typing.Union['ArduinoDevicev2SimplePropertiesCollection', schemas.Unset] = schemas.unset,
         fqbn: typing.Union[MetaOapg.properties.fqbn, str, schemas.Unset] = schemas.unset,
         last_activity_at: typing.Union[MetaOapg.properties.last_activity_at, str, datetime, schemas.Unset] = schemas.unset,
@@ -403,6 +437,7 @@ class ArduinoDevicev2(
             type=type,
             connection_type=connection_type,
             created_at=created_at,
+            device_status=device_status,
             events=events,
             fqbn=fqbn,
             last_activity_at=last_activity_at,

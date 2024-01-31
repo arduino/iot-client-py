@@ -25,7 +25,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **min_value** | decimal.Decimal, int, float,  | decimal.Decimal,  | Minimum value of this property | [optional] value must be a 64 bit float
 **persist** | bool,  | BoolClass,  | If true, data will persist into a timeseries database | [optional] 
 **sync_id** | str, uuid.UUID,  | str,  | The id of the sync pool | [optional] value must be a uuid
-**tag** | decimal.Decimal, int, float,  | decimal.Decimal,  | The integer id of the property | [optional] value must be a 64 bit float
+**tag** | decimal.Decimal, int,  | decimal.Decimal,  | The integer id of the property | [optional] value must be a 64 bit integer
 **thing_name** | str,  | str,  | The name of the associated thing | [optional] 
 **update_parameter** | decimal.Decimal, int, float,  | decimal.Decimal,  | The update frequency in seconds, or the amount of the property has to change in order to trigger an update | [optional] value must be a 64 bit float
 **updated_at** | str, datetime,  | str,  | Update date of the property | [optional] value must conform to RFC-3339 date-time
