@@ -12,16 +12,16 @@ from unittest.mock import patch
 import urllib3
 
 import iot_api_client
-from iot_api_client.paths.v2_devices_id_ota import post  # noqa: E501
+from iot_api_client.paths.v2_devices_id_ota_url import post  # noqa: E501
 from iot_api_client import configuration, schemas, api_client
 
 from .. import ApiTestMixin
 
 
-class TestV2DevicesIdOta(ApiTestMixin, unittest.TestCase):
+class TestV2DevicesIdOtaUrl(ApiTestMixin, unittest.TestCase):
     """
-    V2DevicesIdOta unit test stubs
-        upload devices_v2_ota  # noqa: E501
+    V2DevicesIdOtaUrl unit test stubs
+        url devices_v2_ota  # noqa: E501
     """
     _configuration = configuration.Configuration()
 
@@ -33,6 +33,7 @@ class TestV2DevicesIdOta(ApiTestMixin, unittest.TestCase):
         pass
 
     response_status = 200
+    response_body = ''
 
 
 

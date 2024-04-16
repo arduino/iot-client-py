@@ -22,6 +22,7 @@ class PathValues(str, enum.Enum):
     V2_DEVICES_ID_CERTS_CID = "/v2/devices/{id}/certs/{cid}"
     V2_DEVICES_ID_EVENTS = "/v2/devices/{id}/events"
     V2_DEVICES_ID_OTA = "/v2/devices/{id}/ota"
+    V2_DEVICES_ID_OTA_URL = "/v2/devices/{id}/ota/url"
     V2_DEVICES_ID_PASS = "/v2/devices/{id}/pass"
     V2_DEVICES_ID_PROPERTIES = "/v2/devices/{id}/properties"
     V2_DEVICES_ID_PROPERTIES_PID = "/v2/devices/{id}/properties/{pid}"

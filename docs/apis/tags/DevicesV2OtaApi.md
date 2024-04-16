@@ -7,6 +7,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**devices_v2_ota_send**](#devices_v2_ota_send) | **put** /v2/devices/{id}/ota | send devices_v2_ota
 [**devices_v2_ota_upload**](#devices_v2_ota_upload) | **post** /v2/devices/{id}/ota | upload devices_v2_ota
+[**devices_v2_ota_url**](#devices_v2_ota_url) | **post** /v2/devices/{id}/ota/url | url devices_v2_ota
 
 # **devices_v2_ota_send**
 <a name="devices_v2_ota_send"></a>
@@ -242,7 +243,7 @@ Type | Description  | Notes
 
 # **devices_v2_ota_upload**
 <a name="devices_v2_ota_upload"></a>
-> devices_v2_ota_upload(id)
+> ArduinoDevicev2Otaupload devices_v2_ota_upload(id)
 
 upload devices_v2_ota
 
@@ -255,6 +256,7 @@ Upload a binary and send it to a device
 import iot_api_client
 from iot_api_client.apis.tags import devices_v2_ota_api
 from iot_api_client.model.error import Error
+from iot_api_client.model.arduino_devicev2_otaupload import ArduinoDevicev2Otaupload
 from pprint import pprint
 # Defining the host is optional and defaults to https://api2.arduino.cc/iot
 # See configuration.py for a list of all supported configuration parameters.
@@ -286,6 +288,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
         api_response = api_instance.devices_v2_ota_upload(
             path_params=path_params,
         )
+        pprint(api_response)
     except iot_api_client.ApiException as e:
         print("Exception when calling DevicesV2OtaApi->devices_v2_ota_upload: %s\n" % e)
 
@@ -304,6 +307,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
             path_params=path_params,
             body=body,
         )
+        pprint(api_response)
     except iot_api_client.ApiException as e:
         print("Exception when calling DevicesV2OtaApi->devices_v2_ota_upload: %s\n" % e)
 ```
@@ -314,7 +318,7 @@ Name | Type | Description  | Notes
 body | typing.Union[SchemaForRequestBodyMultipartFormData, Unset] | optional, default is unset |
 path_params | RequestPathParams | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
-accept_content_types | typing.Tuple[str] | default is ('application/vnd.goa.error+json', 'text/plain', ) | Tells the server the content type(s) that are accepted by the client
+accept_content_types | typing.Tuple[str] | default is ('application/vnd.arduino.devicev2.otaupload+json', 'application/vnd.goa.error+json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
@@ -360,6 +364,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 400 | [ApiResponseFor400](#devices_v2_ota_upload.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#devices_v2_ota_upload.ApiResponseFor401) | Unauthorized
 404 | [ApiResponseFor404](#devices_v2_ota_upload.ApiResponseFor404) | Not Found
+409 | [ApiResponseFor409](#devices_v2_ota_upload.ApiResponseFor409) | Conflict
 410 | [ApiResponseFor410](#devices_v2_ota_upload.ApiResponseFor410) | Gone
 412 | [ApiResponseFor412](#devices_v2_ota_upload.ApiResponseFor412) | Precondition Failed
 500 | [ApiResponseFor500](#devices_v2_ota_upload.ApiResponseFor500) | Internal Server Error
@@ -368,17 +373,280 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor200ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
 
+# SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDevicev2Otaupload**](../../models/ArduinoDevicev2Otaupload.md) |  | 
+
+
+# SchemaFor200ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDevicev2Otaupload**](../../models/ArduinoDevicev2Otaupload.md) |  | 
+
+
 #### devices_v2_ota_upload.ApiResponseFor202
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor202ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDevicev2Otaupload**](../../models/ArduinoDevicev2Otaupload.md) |  | 
+
+
+# SchemaFor202ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArduinoDevicev2Otaupload**](../../models/ArduinoDevicev2Otaupload.md) |  | 
+
+
+#### devices_v2_ota_upload.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_ota_upload.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### devices_v2_ota_upload.ApiResponseFor400
+#### devices_v2_ota_upload.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor404ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor404ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_ota_upload.ApiResponseFor409
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### devices_v2_ota_upload.ApiResponseFor410
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor410ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor410ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_ota_upload.ApiResponseFor412
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor412ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor412ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_ota_upload.ApiResponseFor500
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor500ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor500ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+### Authorization
+
+[oauth2](../../../README.md#oauth2)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **devices_v2_ota_url**
+<a name="devices_v2_ota_url"></a>
+> devices_v2_ota_url(iddevicev2_otaurlpyalod)
+
+url devices_v2_ota
+
+Generate a url for downloading a binary
+
+### Example
+
+* OAuth Authentication (oauth2):
+```python
+import iot_api_client
+from iot_api_client.apis.tags import devices_v2_ota_api
+from iot_api_client.model.error import Error
+from iot_api_client.model.devicev2_otaurlpyalod import Devicev2Otaurlpyalod
+from pprint import pprint
+# Defining the host is optional and defaults to https://api2.arduino.cc/iot
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure OAuth2 access token for authorization: oauth2
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc/iot",
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = devices_v2_ota_api.DevicesV2OtaApi(api_client)
+
+    # example passing only required values which don't have defaults set
+    path_params = {
+        'id': "id_example",
+    }
+    body = Devicev2Otaurlpyalod(
+        binary_key="ota/z/AMDTMv2D2ylmgd10Z3UB6UkJSISSB512iz2DiJysota",
+        sha256="62ECB020842930cc01FFCCfeEe150AC32DcAEc8a83DDD7dBF7567C88195ffcea",
+        user_id="user_id_example",
+    )
+    try:
+        # url devices_v2_ota
+        api_response = api_instance.devices_v2_ota_url(
+            path_params=path_params,
+            body=body,
+        )
+    except iot_api_client.ApiException as e:
+        print("Exception when calling DevicesV2OtaApi->devices_v2_ota_url: %s\n" % e)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson, SchemaForRequestBodyApplicationXWwwFormUrlencoded] | required |
+path_params | RequestPathParams | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/vnd.goa.error+json', 'text/plain', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Devicev2Otaurlpyalod**](../../models/Devicev2Otaurlpyalod.md) |  | 
+
+
+# SchemaForRequestBodyApplicationXWwwFormUrlencoded
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Devicev2Otaurlpyalod**](../../models/Devicev2Otaurlpyalod.md) |  | 
+
+
+### path_params
+#### RequestPathParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+id | IdSchema | | 
+
+# IdSchema
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  |  | 
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+200 | [ApiResponseFor200](#devices_v2_ota_url.ApiResponseFor200) | OK
+202 | [ApiResponseFor202](#devices_v2_ota_url.ApiResponseFor202) | Accepted
+400 | [ApiResponseFor400](#devices_v2_ota_url.ApiResponseFor400) | Bad Request
+401 | [ApiResponseFor401](#devices_v2_ota_url.ApiResponseFor401) | Unauthorized
+404 | [ApiResponseFor404](#devices_v2_ota_url.ApiResponseFor404) | Not Found
+410 | [ApiResponseFor410](#devices_v2_ota_url.ApiResponseFor410) | Gone
+412 | [ApiResponseFor412](#devices_v2_ota_url.ApiResponseFor412) | Precondition Failed
+500 | [ApiResponseFor500](#devices_v2_ota_url.ApiResponseFor500) | Internal Server Error
+
+#### devices_v2_ota_url.ApiResponseFor200
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### devices_v2_ota_url.ApiResponseFor202
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
+
+#### devices_v2_ota_url.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -397,14 +665,14 @@ Type | Description  | Notes
 [**Error**](../../models/Error.md) |  | 
 
 
-#### devices_v2_ota_upload.ApiResponseFor401
+#### devices_v2_ota_url.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | Unset | body was not defined |
 headers | Unset | headers were not defined |
 
-#### devices_v2_ota_upload.ApiResponseFor404
+#### devices_v2_ota_url.ApiResponseFor404
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -423,7 +691,7 @@ Type | Description  | Notes
 [**Error**](../../models/Error.md) |  | 
 
 
-#### devices_v2_ota_upload.ApiResponseFor410
+#### devices_v2_ota_url.ApiResponseFor410
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -442,7 +710,7 @@ Type | Description  | Notes
 [**Error**](../../models/Error.md) |  | 
 
 
-#### devices_v2_ota_upload.ApiResponseFor412
+#### devices_v2_ota_url.ApiResponseFor412
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -461,7 +729,7 @@ Type | Description  | Notes
 [**Error**](../../models/Error.md) |  | 
 
 
-#### devices_v2_ota_upload.ApiResponseFor500
+#### devices_v2_ota_url.ApiResponseFor500
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -26,7 +26,7 @@ import frozendict  # noqa: F401
 from iot_api_client import schemas  # noqa: F401
 
 from iot_api_client.model.error import Error
-from iot_api_client.model.arduino_devicev2_otaupload import ArduinoDevicev2Otaupload
+from iot_api_client.model.devicev2_otaurlpyalod import Devicev2Otaurlpyalod
 
 # Path params
 IdSchema = schemas.StrSchema
@@ -55,143 +55,53 @@ request_path_id = api_client.PathParameter(
     required=True,
 )
 # body param
+SchemaForRequestBodyApplicationJson = Devicev2Otaurlpyalod
+SchemaForRequestBodyApplicationXWwwFormUrlencoded = Devicev2Otaurlpyalod
 
 
-class SchemaForRequestBodyMultipartFormData(
-    schemas.DictSchema
-):
-
-
-    class MetaOapg:
-        required = {
-            "ota_file",
-        }
-        
-        class properties:
-            _async = schemas.BoolSchema
-            expire_in_mins = schemas.IntSchema
-            ota_file = schemas.BinarySchema
-            __annotations__ = {
-                "async": _async,
-                "expire_in_mins": expire_in_mins,
-                "ota_file": ota_file,
-            }
-    
-    ota_file: MetaOapg.properties.ota_file
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["async"]) -> MetaOapg.properties._async: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["expire_in_mins"]) -> MetaOapg.properties.expire_in_mins: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ota_file"]) -> MetaOapg.properties.ota_file: ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
-    
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["async", "expire_in_mins", "ota_file", ], str]):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
-    
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["async"]) -> typing.Union[MetaOapg.properties._async, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["expire_in_mins"]) -> typing.Union[MetaOapg.properties.expire_in_mins, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["ota_file"]) -> MetaOapg.properties.ota_file: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
-    
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["async", "expire_in_mins", "ota_file", ], str]):
-        return super().get_item_oapg(name)
-    
-
-    def __new__(
-        cls,
-        *_args: typing.Union[dict, frozendict.frozendict, ],
-        ota_file: typing.Union[MetaOapg.properties.ota_file, bytes, io.FileIO, io.BufferedReader, ],
-        expire_in_mins: typing.Union[MetaOapg.properties.expire_in_mins, decimal.Decimal, int, schemas.Unset] = schemas.unset,
-        _configuration: typing.Optional[schemas.Configuration] = None,
-        **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
-    ) -> 'SchemaForRequestBodyMultipartFormData':
-        return super().__new__(
-            cls,
-            *_args,
-            ota_file=ota_file,
-            expire_in_mins=expire_in_mins,
-            _configuration=_configuration,
-            **kwargs,
-        )
-
-
-request_body_body = api_client.RequestBody(
+request_body_devicev2_otaurlpyalod = api_client.RequestBody(
     content={
-        'multipart/form-data': api_client.MediaType(
-            schema=SchemaForRequestBodyMultipartFormData),
+        'application/json': api_client.MediaType(
+            schema=SchemaForRequestBodyApplicationJson),
+        'application/x-www-form-urlencoded': api_client.MediaType(
+            schema=SchemaForRequestBodyApplicationXWwwFormUrlencoded),
     },
+    required=True,
 )
-SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = ArduinoDevicev2Otaupload
-SchemaFor200ResponseBodyApplicationVndGoaErrorjson = ArduinoDevicev2Otaupload
 
 
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
-        SchemaFor200ResponseBodyApplicationVndGoaErrorjson,
-    ]
+    body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
-    content={
-        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
-            schema=SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
-        'application/vnd.goa.error+json': api_client.MediaType(
-            schema=SchemaFor200ResponseBodyApplicationVndGoaErrorjson),
-    },
 )
-SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = ArduinoDevicev2Otaupload
-SchemaFor202ResponseBodyApplicationVndGoaErrorjson = ArduinoDevicev2Otaupload
 
 
 @dataclass
 class ApiResponseFor202(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: typing.Union[
-        SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
-        SchemaFor202ResponseBodyApplicationVndGoaErrorjson,
-    ]
+    body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_202 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor202,
-    content={
-        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
-            schema=SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
-        'application/vnd.goa.error+json': api_client.MediaType(
-            schema=SchemaFor202ResponseBodyApplicationVndGoaErrorjson),
-    },
 )
-SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor400ResponseBodyApplicationVndGoaErrorjson = Error
+SchemaFor400ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor400(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor400ResponseBodyApplicationVndGoaErrorjson,
+        SchemaFor400ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -199,10 +109,10 @@ class ApiResponseFor400(api_client.ApiResponse):
 _response_for_400 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor400,
     content={
-        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor400ResponseBodyApplicationVndGoaErrorjson),
+        'text/plain': api_client.MediaType(
+            schema=SchemaFor400ResponseBodyTextPlain),
     },
 )
 
@@ -217,16 +127,16 @@ class ApiResponseFor401(api_client.ApiResponse):
 _response_for_401 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor401,
 )
-SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor404ResponseBodyApplicationVndGoaErrorjson = Error
+SchemaFor404ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor404(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor404ResponseBodyApplicationVndGoaErrorjson,
+        SchemaFor404ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -234,34 +144,22 @@ class ApiResponseFor404(api_client.ApiResponse):
 _response_for_404 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor404,
     content={
-        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
-            schema=SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor404ResponseBodyApplicationVndGoaErrorjson),
+        'text/plain': api_client.MediaType(
+            schema=SchemaFor404ResponseBodyTextPlain),
     },
 )
-
-
-@dataclass
-class ApiResponseFor409(api_client.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
-    headers: schemas.Unset = schemas.unset
-
-
-_response_for_409 = api_client.OpenApiResponse(
-    response_cls=ApiResponseFor409,
-)
-SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor410ResponseBodyApplicationVndGoaErrorjson = Error
+SchemaFor410ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor410(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor410ResponseBodyApplicationVndGoaErrorjson,
+        SchemaFor410ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -269,22 +167,22 @@ class ApiResponseFor410(api_client.ApiResponse):
 _response_for_410 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor410,
     content={
-        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
-            schema=SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor410ResponseBodyApplicationVndGoaErrorjson),
+        'text/plain': api_client.MediaType(
+            schema=SchemaFor410ResponseBodyTextPlain),
     },
 )
-SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor412ResponseBodyApplicationVndGoaErrorjson = Error
+SchemaFor412ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor412(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor412ResponseBodyApplicationVndGoaErrorjson,
+        SchemaFor412ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -292,22 +190,22 @@ class ApiResponseFor412(api_client.ApiResponse):
 _response_for_412 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor412,
     content={
-        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
-            schema=SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor412ResponseBodyApplicationVndGoaErrorjson),
+        'text/plain': api_client.MediaType(
+            schema=SchemaFor412ResponseBodyTextPlain),
     },
 )
-SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor500ResponseBodyApplicationVndGoaErrorjson = Error
+SchemaFor500ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor500(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor500ResponseBodyApplicationVndGoaErrorjson,
+        SchemaFor500ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -315,24 +213,24 @@ class ApiResponseFor500(api_client.ApiResponse):
 _response_for_500 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor500,
     content={
-        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
-            schema=SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor500ResponseBodyApplicationVndGoaErrorjson),
+        'text/plain': api_client.MediaType(
+            schema=SchemaFor500ResponseBodyTextPlain),
     },
 )
 _all_accept_content_types = (
-    'application/vnd.arduino.devicev2.otaupload+json',
     'application/vnd.goa.error+json',
+    'text/plain',
 )
 
 
 class BaseApi(api_client.Api):
     @typing.overload
-    def _devices_v2_ota_upload_oapg(
+    def _devices_v2_ota_url_oapg(
         self,
-        content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -344,10 +242,25 @@ class BaseApi(api_client.Api):
     ]: ...
 
     @typing.overload
-    def _devices_v2_ota_upload_oapg(
+    def _devices_v2_ota_url_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"],
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseFor202,
+    ]: ...
+
+    @typing.overload
+    def _devices_v2_ota_url_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -360,11 +273,11 @@ class BaseApi(api_client.Api):
 
 
     @typing.overload
-    def _devices_v2_ota_upload_oapg(
+    def _devices_v2_ota_url_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -372,10 +285,10 @@ class BaseApi(api_client.Api):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def _devices_v2_ota_upload_oapg(
+    def _devices_v2_ota_url_oapg(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -387,10 +300,10 @@ class BaseApi(api_client.Api):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def _devices_v2_ota_upload_oapg(
+    def _devices_v2_ota_url_oapg(
         self,
-        content_type: str = 'multipart/form-data',
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
+        content_type: str = 'application/json',
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -398,7 +311,7 @@ class BaseApi(api_client.Api):
         skip_deserialization: bool = False,
     ):
         """
-        upload devices_v2_ota
+        url devices_v2_ota
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
@@ -425,15 +338,17 @@ class BaseApi(api_client.Api):
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
 
+        if body is schemas.unset:
+            raise exceptions.ApiValueError(
+                'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
         _body = None
-        if body is not schemas.unset:
-            serialized_data = request_body_body.serialize(body, content_type)
-            _headers.add('Content-Type', content_type)
-            if 'fields' in serialized_data:
-                _fields = serialized_data['fields']
-            elif 'body' in serialized_data:
-                _body = serialized_data['body']
+        serialized_data = request_body_devicev2_otaurlpyalod.serialize(body, content_type)
+        _headers.add('Content-Type', content_type)
+        if 'fields' in serialized_data:
+            _fields = serialized_data['fields']
+        elif 'body' in serialized_data:
+            _body = serialized_data['body']
         response = self.api_client.call_api(
             resource_path=used_path,
             method='post'.upper(),
@@ -464,14 +379,14 @@ class BaseApi(api_client.Api):
         return api_response
 
 
-class DevicesV2OtaUpload(BaseApi):
+class DevicesV2OtaUrl(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
     @typing.overload
-    def devices_v2_ota_upload(
+    def devices_v2_ota_url(
         self,
-        content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -483,10 +398,25 @@ class DevicesV2OtaUpload(BaseApi):
     ]: ...
 
     @typing.overload
-    def devices_v2_ota_upload(
+    def devices_v2_ota_url(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"],
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseFor202,
+    ]: ...
+
+    @typing.overload
+    def devices_v2_ota_url(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -499,11 +429,11 @@ class DevicesV2OtaUpload(BaseApi):
 
 
     @typing.overload
-    def devices_v2_ota_upload(
+    def devices_v2_ota_url(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -511,10 +441,10 @@ class DevicesV2OtaUpload(BaseApi):
     ) -> api_client.ApiResponseWithoutDeserialization: ...
 
     @typing.overload
-    def devices_v2_ota_upload(
+    def devices_v2_ota_url(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -526,17 +456,17 @@ class DevicesV2OtaUpload(BaseApi):
         api_client.ApiResponseWithoutDeserialization,
     ]: ...
 
-    def devices_v2_ota_upload(
+    def devices_v2_ota_url(
         self,
-        content_type: str = 'multipart/form-data',
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
+        content_type: str = 'application/json',
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._devices_v2_ota_upload_oapg(
+        return self._devices_v2_ota_url_oapg(
             body=body,
             path_params=path_params,
             content_type=content_type,
@@ -553,8 +483,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        content_type: typing_extensions.Literal["multipart/form-data"] = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,],
+        content_type: typing_extensions.Literal["application/json"] = ...,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -568,8 +498,23 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"],
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseFor202,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -584,9 +529,9 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -596,8 +541,8 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -611,15 +556,15 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        content_type: str = 'multipart/form-data',
-        body: typing.Union[SchemaForRequestBodyMultipartFormData, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
+        content_type: str = 'application/json',
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
     ):
-        return self._devices_v2_ota_upload_oapg(
+        return self._devices_v2_ota_url_oapg(
             body=body,
             path_params=path_params,
             content_type=content_type,
