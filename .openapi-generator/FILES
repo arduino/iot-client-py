@@ -26,6 +26,7 @@ docs/models/ArduinoDevicev2Cert.md
 docs/models/ArduinoDevicev2CertCollection.md
 docs/models/ArduinoDevicev2Collection.md
 docs/models/ArduinoDevicev2EventProperties.md
+docs/models/ArduinoDevicev2Otaupload.md
 docs/models/ArduinoDevicev2Pass.md
 docs/models/ArduinoDevicev2SimpleProperties.md
 docs/models/ArduinoDevicev2SimplePropertiesCollection.md
@@ -83,6 +84,7 @@ docs/models/Dashboardv2.md
 docs/models/Devicev2.md
 docs/models/Devicev2Cert.md
 docs/models/Devicev2Otabinaryurl.md
+docs/models/Devicev2Otaurlpyalod.md
 docs/models/Devicev2Pass.md
 docs/models/Error.md
 docs/models/HistoricDataRequest.md
@@ -144,6 +146,8 @@ iot_api_client/model/arduino_devicev2_collection.py
 iot_api_client/model/arduino_devicev2_collection.pyi
 iot_api_client/model/arduino_devicev2_event_properties.py
 iot_api_client/model/arduino_devicev2_event_properties.pyi
+iot_api_client/model/arduino_devicev2_otaupload.py
+iot_api_client/model/arduino_devicev2_otaupload.pyi
 iot_api_client/model/arduino_devicev2_pass.py
 iot_api_client/model/arduino_devicev2_pass.pyi
 iot_api_client/model/arduino_devicev2_simple_properties.py
@@ -258,6 +262,8 @@ iot_api_client/model/devicev2_cert.py
 iot_api_client/model/devicev2_cert.pyi
 iot_api_client/model/devicev2_otabinaryurl.py
 iot_api_client/model/devicev2_otabinaryurl.pyi
+iot_api_client/model/devicev2_otaurlpyalod.py
+iot_api_client/model/devicev2_otaurlpyalod.pyi
 iot_api_client/model/devicev2_pass.py
 iot_api_client/model/devicev2_pass.pyi
 iot_api_client/model/error.py
@@ -303,18 +309,6 @@ setup.py
 test-requirements.txt
 test/__init__.py
 test/test_models/__init__.py
-test/test_models/test_arduino_dashboardv2template.py
-test/test_models/test_arduino_devicev2_status_event.py
-test/test_models/test_arduino_devicev2_status_event_collection.py
-test/test_models/test_arduino_devicev2_status_events.py
-test/test_models/test_arduino_templateproperty.py
-test/test_models/test_arduino_templateproperty_collection.py
-test/test_models/test_arduino_templatevariable.py
-test/test_models/test_arduino_templatevariable_collection.py
-test/test_models/test_arduino_thingtemplate.py
-test/test_models/test_arduino_widgetv2template.py
-test/test_models/test_arduino_widgetv2template_collection.py
-test/test_models/test_clone.py
-test/test_models/test_override.py
-test/test_models/test_thing_clone.py
+test/test_models/test_arduino_devicev2_otaupload.py
+test/test_models/test_devicev2_otaurlpyalod.py
 tox.ini

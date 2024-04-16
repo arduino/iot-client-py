@@ -26,6 +26,7 @@ import frozendict  # noqa: F401
 from iot_api_client import schemas  # noqa: F401
 
 from iot_api_client.model.error import Error
+from iot_api_client.model.arduino_devicev2_otaupload import ArduinoDevicev2Otaupload
 
 from . import path
 
@@ -140,40 +141,62 @@ request_body_body = api_client.RequestBody(
 _auth = [
     'oauth2',
 ]
+SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = ArduinoDevicev2Otaupload
+SchemaFor200ResponseBodyApplicationVndGoaErrorjson = ArduinoDevicev2Otaupload
 
 
 @dataclass
 class ApiResponseFor200(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
+    body: typing.Union[
+        SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
+        SchemaFor200ResponseBodyApplicationVndGoaErrorjson,
+    ]
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
+    content={
+        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor200ResponseBodyApplicationVndGoaErrorjson),
+    },
 )
+SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = ArduinoDevicev2Otaupload
+SchemaFor202ResponseBodyApplicationVndGoaErrorjson = ArduinoDevicev2Otaupload
 
 
 @dataclass
 class ApiResponseFor202(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
+    body: typing.Union[
+        SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
+        SchemaFor202ResponseBodyApplicationVndGoaErrorjson,
+    ]
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_202 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor202,
+    content={
+        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
+            schema=SchemaFor202ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor202ResponseBodyApplicationVndGoaErrorjson),
+    },
 )
+SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor400ResponseBodyApplicationVndGoaErrorjson = Error
-SchemaFor400ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor400(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
+        SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor400ResponseBodyApplicationVndGoaErrorjson,
-        SchemaFor400ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -181,10 +204,10 @@ class ApiResponseFor400(api_client.ApiResponse):
 _response_for_400 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor400,
     content={
+        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
+            schema=SchemaFor400ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor400ResponseBodyApplicationVndGoaErrorjson),
-        'text/plain': api_client.MediaType(
-            schema=SchemaFor400ResponseBodyTextPlain),
     },
 )
 
@@ -199,16 +222,16 @@ class ApiResponseFor401(api_client.ApiResponse):
 _response_for_401 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor401,
 )
+SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor404ResponseBodyApplicationVndGoaErrorjson = Error
-SchemaFor404ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor404(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
+        SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor404ResponseBodyApplicationVndGoaErrorjson,
-        SchemaFor404ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -216,22 +239,34 @@ class ApiResponseFor404(api_client.ApiResponse):
 _response_for_404 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor404,
     content={
+        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
+            schema=SchemaFor404ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor404ResponseBodyApplicationVndGoaErrorjson),
-        'text/plain': api_client.MediaType(
-            schema=SchemaFor404ResponseBodyTextPlain),
     },
 )
+
+
+@dataclass
+class ApiResponseFor409(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: schemas.Unset = schemas.unset
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_409 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor409,
+)
+SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor410ResponseBodyApplicationVndGoaErrorjson = Error
-SchemaFor410ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor410(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
+        SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor410ResponseBodyApplicationVndGoaErrorjson,
-        SchemaFor410ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -239,22 +274,22 @@ class ApiResponseFor410(api_client.ApiResponse):
 _response_for_410 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor410,
     content={
+        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
+            schema=SchemaFor410ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor410ResponseBodyApplicationVndGoaErrorjson),
-        'text/plain': api_client.MediaType(
-            schema=SchemaFor410ResponseBodyTextPlain),
     },
 )
+SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor412ResponseBodyApplicationVndGoaErrorjson = Error
-SchemaFor412ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor412(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
+        SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor412ResponseBodyApplicationVndGoaErrorjson,
-        SchemaFor412ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -262,22 +297,22 @@ class ApiResponseFor412(api_client.ApiResponse):
 _response_for_412 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor412,
     content={
+        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
+            schema=SchemaFor412ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor412ResponseBodyApplicationVndGoaErrorjson),
-        'text/plain': api_client.MediaType(
-            schema=SchemaFor412ResponseBodyTextPlain),
     },
 )
+SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson = Error
 SchemaFor500ResponseBodyApplicationVndGoaErrorjson = Error
-SchemaFor500ResponseBodyTextPlain = Error
 
 
 @dataclass
 class ApiResponseFor500(api_client.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
+        SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson,
         SchemaFor500ResponseBodyApplicationVndGoaErrorjson,
-        SchemaFor500ResponseBodyTextPlain,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -285,10 +320,10 @@ class ApiResponseFor500(api_client.ApiResponse):
 _response_for_500 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor500,
     content={
+        'application/vnd.arduino.devicev2.otaupload+json': api_client.MediaType(
+            schema=SchemaFor500ResponseBodyApplicationVndArduinoDevicev2Otauploadjson),
         'application/vnd.goa.error+json': api_client.MediaType(
             schema=SchemaFor500ResponseBodyApplicationVndGoaErrorjson),
-        'text/plain': api_client.MediaType(
-            schema=SchemaFor500ResponseBodyTextPlain),
     },
 )
 _status_code_to_response = {
@@ -297,13 +332,14 @@ _status_code_to_response = {
     '400': _response_for_400,
     '401': _response_for_401,
     '404': _response_for_404,
+    '409': _response_for_409,
     '410': _response_for_410,
     '412': _response_for_412,
     '500': _response_for_500,
 }
 _all_accept_content_types = (
+    'application/vnd.arduino.devicev2.otaupload+json',
     'application/vnd.goa.error+json',
-    'text/plain',
 )
 
 

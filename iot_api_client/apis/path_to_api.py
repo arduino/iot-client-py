@@ -17,6 +17,7 @@ from iot_api_client.apis.paths.v2_devices_id_certs import V2DevicesIdCerts
 from iot_api_client.apis.paths.v2_devices_id_certs_cid import V2DevicesIdCertsCid
 from iot_api_client.apis.paths.v2_devices_id_events import V2DevicesIdEvents
 from iot_api_client.apis.paths.v2_devices_id_ota import V2DevicesIdOta
+from iot_api_client.apis.paths.v2_devices_id_ota_url import V2DevicesIdOtaUrl
 from iot_api_client.apis.paths.v2_devices_id_pass import V2DevicesIdPass
 from iot_api_client.apis.paths.v2_devices_id_properties import V2DevicesIdProperties
 from iot_api_client.apis.paths.v2_devices_id_properties_pid import V2DevicesIdPropertiesPid
@@ -59,6 +60,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V2_DEVICES_ID_CERTS_CID: V2DevicesIdCertsCid,
         PathValues.V2_DEVICES_ID_EVENTS: V2DevicesIdEvents,
         PathValues.V2_DEVICES_ID_OTA: V2DevicesIdOta,
+        PathValues.V2_DEVICES_ID_OTA_URL: V2DevicesIdOtaUrl,
         PathValues.V2_DEVICES_ID_PASS: V2DevicesIdPass,
         PathValues.V2_DEVICES_ID_PROPERTIES: V2DevicesIdProperties,
         PathValues.V2_DEVICES_ID_PROPERTIES_PID: V2DevicesIdPropertiesPid,
@@ -102,6 +104,7 @@ path_to_api = PathToApi(
         PathValues.V2_DEVICES_ID_CERTS_CID: V2DevicesIdCertsCid,
         PathValues.V2_DEVICES_ID_EVENTS: V2DevicesIdEvents,
         PathValues.V2_DEVICES_ID_OTA: V2DevicesIdOta,
+        PathValues.V2_DEVICES_ID_OTA_URL: V2DevicesIdOtaUrl,
         PathValues.V2_DEVICES_ID_PASS: V2DevicesIdPass,
         PathValues.V2_DEVICES_ID_PROPERTIES: V2DevicesIdProperties,
         PathValues.V2_DEVICES_ID_PROPERTIES_PID: V2DevicesIdPropertiesPid,

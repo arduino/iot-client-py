@@ -6,7 +6,8 @@
 
 ## Installation
 
-You can install the package directly from Github (you may need to run `pip` with `sudo`):
+You can install the package directly from Github (you may need to run `pip` with
+`sudo`):
 
 ```sh
 pip install arduino-iot-client
@@ -64,12 +65,6 @@ try:
     print(resp)
 except ApiException as e:
     print("Got an exception: {}".format(e))
-```
-
-In case it's required to access resources for a given organization, it is possible to specify organization identifier at client level.
-Above code can be modified as follow:
-```python
-client = iot.ApiClient(client_config, header_name='X-Organization', header_value='<organization-id>')
 ```
 
 For a working example, see [the example folder](https://github.com/arduino/iot-client-py/tree/master/example/main.py) in this repo.

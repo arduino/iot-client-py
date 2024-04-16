@@ -23,6 +23,7 @@ from iot_api_client.model.arduino_devicev2_cert import ArduinoDevicev2Cert
 from iot_api_client.model.arduino_devicev2_cert_collection import ArduinoDevicev2CertCollection
 from iot_api_client.model.arduino_devicev2_collection import ArduinoDevicev2Collection
 from iot_api_client.model.arduino_devicev2_event_properties import ArduinoDevicev2EventProperties
+from iot_api_client.model.arduino_devicev2_otaupload import ArduinoDevicev2Otaupload
 from iot_api_client.model.arduino_devicev2_pass import ArduinoDevicev2Pass
 from iot_api_client.model.arduino_devicev2_simple_properties import ArduinoDevicev2SimpleProperties
 from iot_api_client.model.arduino_devicev2_simple_properties_collection import ArduinoDevicev2SimplePropertiesCollection
@@ -80,6 +81,7 @@ from iot_api_client.model.dashboardv2 import Dashboardv2
 from iot_api_client.model.devicev2 import Devicev2
 from iot_api_client.model.devicev2_cert import Devicev2Cert
 from iot_api_client.model.devicev2_otabinaryurl import Devicev2Otabinaryurl
+from iot_api_client.model.devicev2_otaurlpyalod import Devicev2Otaurlpyalod
 from iot_api_client.model.devicev2_pass import Devicev2Pass
 from iot_api_client.model.error import Error
 from iot_api_client.model.historic_data_request import HistoricDataRequest
