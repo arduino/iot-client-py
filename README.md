@@ -39,7 +39,26 @@ token = oauth.fetch_token(
     client_id=YOUR_CLIENT_ID,
     client_secret=YOUR_CLIENT_SECRET,
     include_client_id=True,
+    audience="https://api2.arduino.cc/iot"
+)
+
+print(token.get("access_token"))
+```
+
+In case of organization access, you can specify organization identifier specifying required header:
+
+
+```python
+
+org_id="<org-id>"
+
+token = oauth.fetch_token(
+    token_url=token_url,
+    client_id=YOUR_CLIENT_ID,
+    client_secret=YOUR_CLIENT_SECRET,
+    include_client_id=True,
     audience="https://api2.arduino.cc/iot",
+    headers={"X-Organization":org_id}
 )
 
 print(token.get("access_token"))
@@ -65,6 +84,12 @@ try:
     print(resp)
 except ApiException as e:
     print("Got an exception: {}".format(e))
+```
+
+In case of organization access, you can specify organization identifier in this way:
+
+```python
+client = iot.ApiClient(client_config,header_name="X-Organization",header_value=org_id)
 ```
 
 For a working example, see [the example folder](https://github.com/arduino/iot-client-py/tree/master/example/main.py) in this repo.
