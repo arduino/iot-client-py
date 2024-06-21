@@ -1,0 +1,6 @@
+oauthlib
+requests-oauthlib
+arduino-iot-client
+typing_extensions
+frozendict ~= 2.3.4
+wheel

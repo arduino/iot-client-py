@@ -27,9 +27,9 @@ jobs:
 
       - name: Run smoke tests
         run: |
-          pip install -r example/requirements-test.txt
+          pip install -r test/test_req/requirements.txt
           pip install .
-          python example/main.py
+          python test/test_req/main.py
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
