@@ -45,7 +45,7 @@ token = oauth.fetch_token(
 print(token.get("access_token"))
 ```
 
-In case of organization access, you can specify organization identifier specifying required header:
+In case of organization access, you can add organization identifier specifying required header:
 
 
 ```python
@@ -70,6 +70,7 @@ Once you get a token, you can create an instance of the iot-api client:
 import iot_api_client as iot
 from iot_api_client.rest import ApiException
 from iot_api_client.configuration import Configuration
+import iot_api_client.apis.tags.devices_v2_api as deviceApi
 
 # configure and instance the API client
 client_config = Configuration(host="https://api2.arduino.cc/iot")
@@ -77,11 +78,13 @@ client_config.access_token = YOUR_ACCESS_TOKEN
 client = iot.ApiClient(client_config)
 
 # as an example, interact with the devices API
-devices_api = iot.DevicesV2Api(client)
+devices_api = deviceApi.DevicesV2Api(client)
 
 try:
-    resp = devices_api.devices_v2_list()
-    print(resp)
+    devices = devices_api.devices_v2_list()
+    if devices.response.status==200:
+        for device in devices.body: 
+            print("Device ("+device["id"]+"): "+device["name"])
 except ApiException as e:
     print("Got an exception: {}".format(e))
 ```
