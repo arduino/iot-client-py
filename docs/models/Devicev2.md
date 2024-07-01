@@ -10,7 +10,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | DeviceV2 describes a d
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**connection_type** | str,  | str,  | The type of the connections selected by the user when multiple connections are available | [optional] must be one of ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora", ] 
+**connection_type** | str,  | str,  | The type of the connections selected by the user when multiple connections are available | [optional] must be one of ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora", "catm1", "cellular", ] 
 **fqbn** | str,  | str,  | The fully qualified board name | [optional] 
 **name** | str,  | str,  | The friendly name of the device | [optional] 
 **serial** | str,  | str,  | The serial uuid of the device | [optional] 

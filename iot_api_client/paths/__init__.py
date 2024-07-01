@@ -32,6 +32,7 @@ class PathValues(str, enum.Enum):
     V2_SERIES_BATCH_QUERY = "/v2/series/batch_query"
     V2_SERIES_BATCH_QUERY_RAW = "/v2/series/batch_query_raw"
     V2_SERIES_BATCH_QUERY_RAW_LASTVALUE = "/v2/series/batch_query_raw/lastvalue"
+    V2_SERIES_BATCH_QUERY_SAMPLING = "/v2/series/batch_query_sampling"
     V2_SERIES_HISTORIC_DATA = "/v2/series/historic_data"
     V2_THINGS = "/v2/things"
     V2_THINGS_ID = "/v2/things/{id}"

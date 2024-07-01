@@ -50,6 +50,24 @@ class ArduinoThing(
             name = schemas.StrSchema
             timezone = schemas.StrSchema
             user_id = schemas.UUIDSchema
+            
+            
+            class assistant(
+                schemas.EnumBase,
+                schemas.StrSchema
+            ):
+                
+                @schemas.classproperty
+                def ALEXA(cls):
+                    return cls("ALEXA")
+                
+                @schemas.classproperty
+                def GOOGLE(cls):
+                    return cls("GOOGLE")
+                
+                @schemas.classproperty
+                def NONE(cls):
+                    return cls("NONE")
             created_at = schemas.DateTimeSchema
             deleted_at = schemas.DateTimeSchema
             device_fqbn = schemas.StrSchema
@@ -101,6 +119,7 @@ class ArduinoThing(
                 "name": name,
                 "timezone": timezone,
                 "user_id": user_id,
+                "assistant": assistant,
                 "created_at": created_at,
                 "deleted_at": deleted_at,
                 "device_fqbn": device_fqbn,
@@ -137,6 +156,9 @@ class ArduinoThing(
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["user_id"]) -> MetaOapg.properties.user_id: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["assistant"]) -> MetaOapg.properties.assistant: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["created_at"]) -> MetaOapg.properties.created_at: ...
@@ -183,7 +205,7 @@ class ArduinoThing(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["href", "id", "name", "timezone", "user_id", "created_at", "deleted_at", "device_fqbn", "device_id", "device_name", "device_type", "organization_id", "properties", "properties_count", "sketch_id", "tags", "updated_at", "webhook_active", "webhook_uri", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["href", "id", "name", "timezone", "user_id", "assistant", "created_at", "deleted_at", "device_fqbn", "device_id", "device_name", "device_type", "organization_id", "properties", "properties_count", "sketch_id", "tags", "updated_at", "webhook_active", "webhook_uri", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -202,6 +224,9 @@ class ArduinoThing(
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["user_id"]) -> MetaOapg.properties.user_id: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["assistant"]) -> typing.Union[MetaOapg.properties.assistant, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["created_at"]) -> typing.Union[MetaOapg.properties.created_at, schemas.Unset]: ...
@@ -248,7 +273,7 @@ class ArduinoThing(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["href", "id", "name", "timezone", "user_id", "created_at", "deleted_at", "device_fqbn", "device_id", "device_name", "device_type", "organization_id", "properties", "properties_count", "sketch_id", "tags", "updated_at", "webhook_active", "webhook_uri", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["href", "id", "name", "timezone", "user_id", "assistant", "created_at", "deleted_at", "device_fqbn", "device_id", "device_name", "device_type", "organization_id", "properties", "properties_count", "sketch_id", "tags", "updated_at", "webhook_active", "webhook_uri", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -260,6 +285,7 @@ class ArduinoThing(
         name: typing.Union[MetaOapg.properties.name, str, ],
         href: typing.Union[MetaOapg.properties.href, str, ],
         id: typing.Union[MetaOapg.properties.id, str, uuid.UUID, ],
+        assistant: typing.Union[MetaOapg.properties.assistant, str, schemas.Unset] = schemas.unset,
         created_at: typing.Union[MetaOapg.properties.created_at, str, datetime, schemas.Unset] = schemas.unset,
         deleted_at: typing.Union[MetaOapg.properties.deleted_at, str, datetime, schemas.Unset] = schemas.unset,
         device_fqbn: typing.Union[MetaOapg.properties.device_fqbn, str, schemas.Unset] = schemas.unset,
@@ -285,6 +311,7 @@ class ArduinoThing(
             name=name,
             href=href,
             id=id,
+            assistant=assistant,
             created_at=created_at,
             deleted_at=deleted_at,
             device_fqbn=device_fqbn,

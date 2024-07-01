@@ -39,6 +39,7 @@ docs/models/ArduinoDevicev2properties.md
 docs/models/ArduinoDevicev2propertyvalue.md
 docs/models/ArduinoDevicev2propertyvalueCollection.md
 docs/models/ArduinoDevicev2propertyvalues.md
+docs/models/ArduinoDevicev2templatedevice.md
 docs/models/ArduinoLinkedvariable.md
 docs/models/ArduinoLinkedvariableCollection.md
 docs/models/ArduinoLoradevicev1.md
@@ -47,11 +48,13 @@ docs/models/ArduinoLorafreqplanv1.md
 docs/models/ArduinoProperty.md
 docs/models/ArduinoPropertyCollection.md
 docs/models/ArduinoSeriesBatch.md
+docs/models/ArduinoSeriesBatchSampled.md
 docs/models/ArduinoSeriesRawBatch.md
 docs/models/ArduinoSeriesRawBatchLastvalue.md
 docs/models/ArduinoSeriesRawLastValueResponse.md
 docs/models/ArduinoSeriesRawResponse.md
 docs/models/ArduinoSeriesResponse.md
+docs/models/ArduinoSeriesSampledResponse.md
 docs/models/ArduinoTags.md
 docs/models/ArduinoTemplateproperty.md
 docs/models/ArduinoTemplatepropertyCollection.md
@@ -74,6 +77,8 @@ docs/models/BatchQueryRawRequestsMediaV1.md
 docs/models/BatchQueryRawResponseSeriesMediaV1.md
 docs/models/BatchQueryRequestMediaV1.md
 docs/models/BatchQueryRequestsMediaV1.md
+docs/models/BatchQuerySampledRequestMediaV1.md
+docs/models/BatchQuerySampledRequestsMediaV1.md
 docs/models/CheckDevicesV2PassPayload.md
 docs/models/Clone.md
 docs/models/CreateDevicesV2CertsPayload.md
@@ -172,6 +177,8 @@ iot_api_client/model/arduino_devicev2propertyvalue_collection.py
 iot_api_client/model/arduino_devicev2propertyvalue_collection.pyi
 iot_api_client/model/arduino_devicev2propertyvalues.py
 iot_api_client/model/arduino_devicev2propertyvalues.pyi
+iot_api_client/model/arduino_devicev2templatedevice.py
+iot_api_client/model/arduino_devicev2templatedevice.pyi
 iot_api_client/model/arduino_linkedvariable.py
 iot_api_client/model/arduino_linkedvariable.pyi
 iot_api_client/model/arduino_linkedvariable_collection.py
@@ -188,6 +195,8 @@ iot_api_client/model/arduino_property_collection.py
 iot_api_client/model/arduino_property_collection.pyi
 iot_api_client/model/arduino_series_batch.py
 iot_api_client/model/arduino_series_batch.pyi
+iot_api_client/model/arduino_series_batch_sampled.py
+iot_api_client/model/arduino_series_batch_sampled.pyi
 iot_api_client/model/arduino_series_raw_batch.py
 iot_api_client/model/arduino_series_raw_batch.pyi
 iot_api_client/model/arduino_series_raw_batch_lastvalue.py
@@ -198,6 +207,8 @@ iot_api_client/model/arduino_series_raw_response.py
 iot_api_client/model/arduino_series_raw_response.pyi
 iot_api_client/model/arduino_series_response.py
 iot_api_client/model/arduino_series_response.pyi
+iot_api_client/model/arduino_series_sampled_response.py
+iot_api_client/model/arduino_series_sampled_response.pyi
 iot_api_client/model/arduino_tags.py
 iot_api_client/model/arduino_tags.pyi
 iot_api_client/model/arduino_templateproperty.py
@@ -242,6 +253,10 @@ iot_api_client/model/batch_query_request_media_v1.py
 iot_api_client/model/batch_query_request_media_v1.pyi
 iot_api_client/model/batch_query_requests_media_v1.py
 iot_api_client/model/batch_query_requests_media_v1.pyi
+iot_api_client/model/batch_query_sampled_request_media_v1.py
+iot_api_client/model/batch_query_sampled_request_media_v1.pyi
+iot_api_client/model/batch_query_sampled_requests_media_v1.py
+iot_api_client/model/batch_query_sampled_requests_media_v1.pyi
 iot_api_client/model/check_devices_v2_pass_payload.py
 iot_api_client/model/check_devices_v2_pass_payload.pyi
 iot_api_client/model/clone.py
@@ -309,6 +324,9 @@ setup.py
 test-requirements.txt
 test/__init__.py
 test/test_models/__init__.py
-test/test_models/test_arduino_devicev2_otaupload.py
-test/test_models/test_devicev2_otaurlpyalod.py
+test/test_models/test_arduino_devicev2templatedevice.py
+test/test_models/test_arduino_series_batch_sampled.py
+test/test_models/test_arduino_series_sampled_response.py
+test/test_models/test_batch_query_sampled_request_media_v1.py
+test/test_models/test_batch_query_sampled_requests_media_v1.py
 tox.ini

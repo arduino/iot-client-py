@@ -27,6 +27,7 @@ from iot_api_client.apis.paths.v2_devices_id_tags_key import V2DevicesIdTagsKey
 from iot_api_client.apis.paths.v2_series_batch_query import V2SeriesBatchQuery
 from iot_api_client.apis.paths.v2_series_batch_query_raw import V2SeriesBatchQueryRaw
 from iot_api_client.apis.paths.v2_series_batch_query_raw_lastvalue import V2SeriesBatchQueryRawLastvalue
+from iot_api_client.apis.paths.v2_series_batch_query_sampling import V2SeriesBatchQuerySampling
 from iot_api_client.apis.paths.v2_series_historic_data import V2SeriesHistoricData
 from iot_api_client.apis.paths.v2_things import V2Things
 from iot_api_client.apis.paths.v2_things_id import V2ThingsId
@@ -70,6 +71,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V2_SERIES_BATCH_QUERY: V2SeriesBatchQuery,
         PathValues.V2_SERIES_BATCH_QUERY_RAW: V2SeriesBatchQueryRaw,
         PathValues.V2_SERIES_BATCH_QUERY_RAW_LASTVALUE: V2SeriesBatchQueryRawLastvalue,
+        PathValues.V2_SERIES_BATCH_QUERY_SAMPLING: V2SeriesBatchQuerySampling,
         PathValues.V2_SERIES_HISTORIC_DATA: V2SeriesHistoricData,
         PathValues.V2_THINGS: V2Things,
         PathValues.V2_THINGS_ID: V2ThingsId,
@@ -114,6 +116,7 @@ path_to_api = PathToApi(
         PathValues.V2_SERIES_BATCH_QUERY: V2SeriesBatchQuery,
         PathValues.V2_SERIES_BATCH_QUERY_RAW: V2SeriesBatchQueryRaw,
         PathValues.V2_SERIES_BATCH_QUERY_RAW_LASTVALUE: V2SeriesBatchQueryRawLastvalue,
+        PathValues.V2_SERIES_BATCH_QUERY_SAMPLING: V2SeriesBatchQuerySampling,
         PathValues.V2_SERIES_HISTORIC_DATA: V2SeriesHistoricData,
         PathValues.V2_THINGS: V2Things,
         PathValues.V2_THINGS_ID: V2ThingsId,
