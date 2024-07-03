@@ -39,26 +39,7 @@ token = oauth.fetch_token(
     client_id=YOUR_CLIENT_ID,
     client_secret=YOUR_CLIENT_SECRET,
     include_client_id=True,
-    audience="https://api2.arduino.cc/iot"
-)
-
-print(token.get("access_token"))
-```
-
-In case of organization access, you can add organization identifier specifying required header:
-
-
-```python
-
-org_id="<org-id>"
-
-token = oauth.fetch_token(
-    token_url=token_url,
-    client_id=YOUR_CLIENT_ID,
-    client_secret=YOUR_CLIENT_SECRET,
-    include_client_id=True,
     audience="https://api2.arduino.cc/iot",
-    headers={"X-Organization":org_id}
 )
 
 print(token.get("access_token"))
@@ -70,7 +51,6 @@ Once you get a token, you can create an instance of the iot-api client:
 import iot_api_client as iot
 from iot_api_client.rest import ApiException
 from iot_api_client.configuration import Configuration
-import iot_api_client.apis.tags.devices_v2_api as deviceApi
 
 # configure and instance the API client
 client_config = Configuration(host="https://api2.arduino.cc/iot")
@@ -78,37 +58,29 @@ client_config.access_token = YOUR_ACCESS_TOKEN
 client = iot.ApiClient(client_config)
 
 # as an example, interact with the devices API
-devices_api = deviceApi.DevicesV2Api(client)
+devices_api = iot.DevicesV2Api(client)
 
 try:
-    devices = devices_api.devices_v2_list()
-    if devices.response.status==200:
-        for device in devices.body: 
-            print("Device ("+device["id"]+"): "+device["name"])
+    resp = devices_api.devices_v2_list()
+    print(resp)
 except ApiException as e:
     print("Got an exception: {}".format(e))
-```
-
-In case of organization access, you can specify organization identifier in this way:
-
-```python
-client = iot.ApiClient(client_config,header_name="X-Organization",header_value=org_id)
 ```
 
 For a working example, see [the example folder](https://github.com/arduino/iot-client-py/tree/master/example/main.py) in this repo.
 
 ## How to get Arduino IoT Cloud Client Credentials
 
-You can generate Arduino IoT Cloud Client Credentials in `API Keys` section in the [IoT Cloud](https://app.arduino.cc/api-keys):
+You can generate Arduino IoT Cloud Client Credentials in the `ARDUINO API` section in the [IoT Cloud things section](https://create.arduino.cc/iot/things):
 
 ### Step 1
 
-![IoT Cloud](img/api_step1.png)
+![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_1.png?raw=true)
 
 ### Step 2
 
-![IoT Cloud](img/api_step2.png)
+![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_2.png?raw=true)
 
 ### Step 3
 
-![IoT Cloud](img/api_step3.png)
+![IoT Cloud Site](https://github.com/arduino/iot-client-js/blob/master/img/selection_3.png?raw=true)

@@ -42,12 +42,14 @@ class ArduinoDashboardv2template(
         
         class properties:
             name = schemas.StrSchema
+            id = schemas.StrSchema
         
             @staticmethod
             def widgets() -> typing.Type['ArduinoWidgetv2templateCollection']:
                 return ArduinoWidgetv2templateCollection
             __annotations__ = {
                 "name": name,
+                "id": id,
                 "widgets": widgets,
             }
     
@@ -57,12 +59,15 @@ class ArduinoDashboardv2template(
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["widgets"]) -> 'ArduinoWidgetv2templateCollection': ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "widgets", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "id", "widgets", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -71,12 +76,15 @@ class ArduinoDashboardv2template(
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.properties.id, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["widgets"]) -> typing.Union['ArduinoWidgetv2templateCollection', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "widgets", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "id", "widgets", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -84,6 +92,7 @@ class ArduinoDashboardv2template(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
+        id: typing.Union[MetaOapg.properties.id, str, schemas.Unset] = schemas.unset,
         widgets: typing.Union['ArduinoWidgetv2templateCollection', schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -92,6 +101,7 @@ class ArduinoDashboardv2template(
             cls,
             *_args,
             name=name,
+            id=id,
             widgets=widgets,
             _configuration=_configuration,
             **kwargs,

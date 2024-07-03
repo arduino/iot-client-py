@@ -38,6 +38,24 @@ class ThingUpdate(
     class MetaOapg:
         
         class properties:
+            
+            
+            class assistant(
+                schemas.EnumBase,
+                schemas.StrSchema
+            ):
+                
+                @schemas.classproperty
+                def ALEXA(cls):
+                    return cls("ALEXA")
+                
+                @schemas.classproperty
+                def GOOGLE(cls):
+                    return cls("GOOGLE")
+                
+                @schemas.classproperty
+                def NONE(cls):
+                    return cls("NONE")
             device_id = schemas.UUIDSchema
             id = schemas.UUIDSchema
             
@@ -76,6 +94,7 @@ class ThingUpdate(
             webhook_active = schemas.BoolSchema
             webhook_uri = schemas.StrSchema
             __annotations__ = {
+                "assistant": assistant,
                 "device_id": device_id,
                 "id": id,
                 "name": name,
@@ -84,6 +103,9 @@ class ThingUpdate(
                 "webhook_active": webhook_active,
                 "webhook_uri": webhook_uri,
             }
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["assistant"]) -> MetaOapg.properties.assistant: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["device_id"]) -> MetaOapg.properties.device_id: ...
@@ -109,10 +131,13 @@ class ThingUpdate(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["device_id", "id", "name", "properties", "timezone", "webhook_active", "webhook_uri", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["assistant", "device_id", "id", "name", "properties", "timezone", "webhook_active", "webhook_uri", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["assistant"]) -> typing.Union[MetaOapg.properties.assistant, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["device_id"]) -> typing.Union[MetaOapg.properties.device_id, schemas.Unset]: ...
@@ -138,13 +163,14 @@ class ThingUpdate(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["device_id", "id", "name", "properties", "timezone", "webhook_active", "webhook_uri", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["assistant", "device_id", "id", "name", "properties", "timezone", "webhook_active", "webhook_uri", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
+        assistant: typing.Union[MetaOapg.properties.assistant, str, schemas.Unset] = schemas.unset,
         device_id: typing.Union[MetaOapg.properties.device_id, str, uuid.UUID, schemas.Unset] = schemas.unset,
         id: typing.Union[MetaOapg.properties.id, str, uuid.UUID, schemas.Unset] = schemas.unset,
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
@@ -158,6 +184,7 @@ class ThingUpdate(
         return super().__new__(
             cls,
             *_args,
+            assistant=assistant,
             device_id=device_id,
             id=id,
             name=name,

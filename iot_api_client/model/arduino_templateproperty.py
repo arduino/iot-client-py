@@ -48,6 +48,7 @@ class ArduinoTemplateproperty(
             permission = schemas.StrSchema
             type = schemas.StrSchema
             update_strategy = schemas.StrSchema
+            id = schemas.StrSchema
             update_parameter = schemas.Float64Schema
             variable_name = schemas.StrSchema
             __annotations__ = {
@@ -55,6 +56,7 @@ class ArduinoTemplateproperty(
                 "permission": permission,
                 "type": type,
                 "update_strategy": update_strategy,
+                "id": id,
                 "update_parameter": update_parameter,
                 "variable_name": variable_name,
             }
@@ -77,6 +79,9 @@ class ArduinoTemplateproperty(
     def __getitem__(self, name: typing_extensions.Literal["update_strategy"]) -> MetaOapg.properties.update_strategy: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["update_parameter"]) -> MetaOapg.properties.update_parameter: ...
     
     @typing.overload
@@ -85,7 +90,7 @@ class ArduinoTemplateproperty(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "permission", "type", "update_strategy", "update_parameter", "variable_name", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "permission", "type", "update_strategy", "id", "update_parameter", "variable_name", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -103,6 +108,9 @@ class ArduinoTemplateproperty(
     def get_item_oapg(self, name: typing_extensions.Literal["update_strategy"]) -> MetaOapg.properties.update_strategy: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.properties.id, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["update_parameter"]) -> typing.Union[MetaOapg.properties.update_parameter, schemas.Unset]: ...
     
     @typing.overload
@@ -111,7 +119,7 @@ class ArduinoTemplateproperty(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "permission", "type", "update_strategy", "update_parameter", "variable_name", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "permission", "type", "update_strategy", "id", "update_parameter", "variable_name", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -122,6 +130,7 @@ class ArduinoTemplateproperty(
         name: typing.Union[MetaOapg.properties.name, str, ],
         permission: typing.Union[MetaOapg.properties.permission, str, ],
         type: typing.Union[MetaOapg.properties.type, str, ],
+        id: typing.Union[MetaOapg.properties.id, str, schemas.Unset] = schemas.unset,
         update_parameter: typing.Union[MetaOapg.properties.update_parameter, decimal.Decimal, int, float, schemas.Unset] = schemas.unset,
         variable_name: typing.Union[MetaOapg.properties.variable_name, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -134,6 +143,7 @@ class ArduinoTemplateproperty(
             name=name,
             permission=permission,
             type=type,
+            id=id,
             update_parameter=update_parameter,
             variable_name=variable_name,
             _configuration=_configuration,
