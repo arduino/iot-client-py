@@ -15,7 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **x** | decimal.Decimal, int,  | decimal.Decimal,  | Widget x position for desktop | value must be a 64 bit integer
 **y** | decimal.Decimal, int,  | decimal.Decimal,  | Widget y position for desktop | value must be a 64 bit integer
 **id** | str, uuid.UUID,  | str,  | The UUID of the widget, set by client | value must be a uuid
-**type** | str,  | str,  | The type of the widget | must be one of ["slider, gauge", ] 
+**type** | str,  | str,  | The type of the widget | 
 **height** | decimal.Decimal, int,  | decimal.Decimal,  | Widget current height for desktop | value must be a 64 bit integer
 **has_permission_incompatibility** | bool,  | BoolClass,  | True if the linked variables permissions are incompatible with the widget | [optional] 
 **has_type_incompatibility** | bool,  | BoolClass,  | True if the linked variables types are incompatible with the widget | [optional] 

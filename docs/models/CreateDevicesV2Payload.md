@@ -11,7 +11,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | DeviceV2 describes a d
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **type** | str,  | str,  | The type of the device | must be one of ["mkrwifi1010", "mkr1000", "nano_33_iot", "mkrgsm1400", "mkrwan1310", "mkrwan1300", "mkrnb1500", "lora-device", "login_and_secretkey_wifi", "envie_m7", "nanorp2040connect", "nicla_vision", "phone", "portenta_x8", "opta", "giga", "generic_device_secretkey", "portenta_c33", "unor4wifi", "nano_nora", ] 
-**connection_type** | str,  | str,  | The type of the connections selected by the user when multiple connections are available | [optional] must be one of ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora", ] 
+**connection_type** | str,  | str,  | The type of the connections selected by the user when multiple connections are available | [optional] must be one of ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora", "catm1", "cellular", ] 
 **fqbn** | str,  | str,  | The fully qualified board name | [optional] 
 **name** | str,  | str,  | The friendly name of the device | [optional] 
 **serial** | str,  | str,  | The serial uuid of the device | [optional] 

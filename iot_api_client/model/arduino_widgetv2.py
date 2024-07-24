@@ -78,22 +78,7 @@ class ArduinoWidgetv2(
                         _configuration=_configuration,
                         **kwargs,
                     )
-            
-            
-            class type(
-                schemas.EnumBase,
-                schemas.StrSchema
-            ):
-            
-            
-                class MetaOapg:
-                    enum_value_to_name = {
-                        "slider, gauge": "SLIDER_GAUGE",
-                    }
-                
-                @schemas.classproperty
-                def SLIDER_GAUGE(cls):
-                    return cls("slider, gauge")
+            type = schemas.StrSchema
             width = schemas.Int64Schema
             x = schemas.Int64Schema
             y = schemas.Int64Schema

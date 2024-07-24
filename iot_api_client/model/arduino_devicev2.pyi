@@ -84,6 +84,14 @@ class ArduinoDevicev2(
                 @schemas.classproperty
                 def LORA(cls):
                     return cls("lora")
+                
+                @schemas.classproperty
+                def CATM1(cls):
+                    return cls("catm1")
+                
+                @schemas.classproperty
+                def CELLULAR(cls):
+                    return cls("cellular")
             created_at = schemas.DateTimeSchema
             
             

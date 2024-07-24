@@ -306,6 +306,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(
@@ -342,6 +343,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(
@@ -2448,6 +2450,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(
@@ -2488,6 +2491,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(

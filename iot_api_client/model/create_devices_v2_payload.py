@@ -168,6 +168,8 @@ class CreateDevicesV2Payload(
                         "gsm": "GSM",
                         "nb": "NB",
                         "lora": "LORA",
+                        "catm1": "CATM1",
+                        "cellular": "CELLULAR",
                     }
                 
                 @schemas.classproperty
@@ -193,6 +195,14 @@ class CreateDevicesV2Payload(
                 @schemas.classproperty
                 def LORA(cls):
                     return cls("lora")
+                
+                @schemas.classproperty
+                def CATM1(cls):
+                    return cls("catm1")
+                
+                @schemas.classproperty
+                def CELLULAR(cls):
+                    return cls("cellular")
             fqbn = schemas.StrSchema
             
             

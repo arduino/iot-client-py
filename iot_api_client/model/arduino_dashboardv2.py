@@ -46,6 +46,15 @@ class ArduinoDashboardv2(
             id = schemas.UUIDSchema
             name = schemas.StrSchema
             updated_at = schemas.DateTimeSchema
+            
+            
+            class cover_image(
+                schemas.StrSchema
+            ):
+            
+            
+                class MetaOapg:
+                    max_length = 1024
         
             @staticmethod
             def created_by() -> typing.Type['ArduinoDashboardowner']:
@@ -67,6 +76,7 @@ class ArduinoDashboardv2(
                 "id": id,
                 "name": name,
                 "updated_at": updated_at,
+                "cover_image": cover_image,
                 "created_by": created_by,
                 "organization_id": organization_id,
                 "shared_by": shared_by,
@@ -88,6 +98,9 @@ class ArduinoDashboardv2(
     def __getitem__(self, name: typing_extensions.Literal["updated_at"]) -> MetaOapg.properties.updated_at: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["cover_image"]) -> MetaOapg.properties.cover_image: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["created_by"]) -> 'ArduinoDashboardowner': ...
     
     @typing.overload
@@ -105,7 +118,7 @@ class ArduinoDashboardv2(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "updated_at", "created_by", "organization_id", "shared_by", "shared_with", "widgets", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["id", "name", "updated_at", "cover_image", "created_by", "organization_id", "shared_by", "shared_with", "widgets", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -118,6 +131,9 @@ class ArduinoDashboardv2(
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["updated_at"]) -> MetaOapg.properties.updated_at: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["cover_image"]) -> typing.Union[MetaOapg.properties.cover_image, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["created_by"]) -> typing.Union['ArduinoDashboardowner', schemas.Unset]: ...
@@ -137,7 +153,7 @@ class ArduinoDashboardv2(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "updated_at", "created_by", "organization_id", "shared_by", "shared_with", "widgets", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["id", "name", "updated_at", "cover_image", "created_by", "organization_id", "shared_by", "shared_with", "widgets", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -147,6 +163,7 @@ class ArduinoDashboardv2(
         updated_at: typing.Union[MetaOapg.properties.updated_at, str, datetime, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
         id: typing.Union[MetaOapg.properties.id, str, uuid.UUID, ],
+        cover_image: typing.Union[MetaOapg.properties.cover_image, str, schemas.Unset] = schemas.unset,
         created_by: typing.Union['ArduinoDashboardowner', schemas.Unset] = schemas.unset,
         organization_id: typing.Union[MetaOapg.properties.organization_id, str, uuid.UUID, schemas.Unset] = schemas.unset,
         shared_by: typing.Union['ArduinoDashboardshare', schemas.Unset] = schemas.unset,
@@ -161,6 +178,7 @@ class ArduinoDashboardv2(
             updated_at=updated_at,
             name=name,
             id=id,
+            cover_image=cover_image,
             created_by=created_by,
             organization_id=organization_id,
             shared_by=shared_by,

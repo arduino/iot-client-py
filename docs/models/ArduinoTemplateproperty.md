@@ -14,6 +14,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **name** | str,  | str,  | The friendly name of the property | 
 **permission** | str,  | str,  | The permission of the property | 
 **type** | str,  | str,  | The type of the property | 
+**id** | str,  | str,  | The friendly id of the property | [optional] 
 **update_parameter** | decimal.Decimal, int, float,  | decimal.Decimal,  | The update frequency in seconds, or the amount of the property has to change in order to trigger an update | [optional] value must be a 64 bit float
 **variable_name** | str,  | str,  | The sketch variable name of the property | [optional] 
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]

@@ -40,6 +40,15 @@ class Dashboardv2(
         class properties:
             
             
+            class cover_image(
+                schemas.StrSchema
+            ):
+            
+            
+                class MetaOapg:
+                    max_length = 1024
+            
+            
             class name(
                 schemas.StrSchema
             ):
@@ -77,9 +86,13 @@ class Dashboardv2(
                 def __getitem__(self, i: int) -> 'Widget':
                     return super().__getitem__(i)
             __annotations__ = {
+                "cover_image": cover_image,
                 "name": name,
                 "widgets": widgets,
             }
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["cover_image"]) -> MetaOapg.properties.cover_image: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
@@ -90,10 +103,13 @@ class Dashboardv2(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "widgets", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["cover_image", "name", "widgets", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["cover_image"]) -> typing.Union[MetaOapg.properties.cover_image, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> typing.Union[MetaOapg.properties.name, schemas.Unset]: ...
@@ -104,13 +120,14 @@ class Dashboardv2(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "widgets", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["cover_image", "name", "widgets", ], str]):
         return super().get_item_oapg(name)
     
 
     def __new__(
         cls,
         *_args: typing.Union[dict, frozendict.frozendict, ],
+        cover_image: typing.Union[MetaOapg.properties.cover_image, str, schemas.Unset] = schemas.unset,
         name: typing.Union[MetaOapg.properties.name, str, schemas.Unset] = schemas.unset,
         widgets: typing.Union[MetaOapg.properties.widgets, list, tuple, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -119,6 +136,7 @@ class Dashboardv2(
         return super().__new__(
             cls,
             *_args,
+            cover_image=cover_image,
             name=name,
             widgets=widgets,
             _configuration=_configuration,

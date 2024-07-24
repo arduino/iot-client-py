@@ -63,7 +63,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     body = ThingClone(
         include_tags=True,
-        name="A",
+        name=".",
     )
     try:
         # clone things_v2
@@ -85,7 +85,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     body = ThingClone(
         include_tags=True,
-        name="A",
+        name=".",
     )
     try:
         # clone things_v2
@@ -286,9 +286,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = ThingCreate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,
@@ -332,9 +333,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = ThingCreate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,
@@ -1734,6 +1736,7 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#things_v2_template.ApiResponseFor200) | OK
+400 | [ApiResponseFor400](#things_v2_template.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_template.ApiResponseFor401) | Unauthorized
 404 | [ApiResponseFor404](#things_v2_template.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_template.ApiResponseFor500) | Internal Server Error
@@ -1755,6 +1758,25 @@ Type | Description  | Notes
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**ArduinoThingtemplate**](../../models/ArduinoThingtemplate.md) |  | 
+
+
+#### things_v2_template.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoThingtemplatejson, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoThingtemplatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
 
 
 #### things_v2_template.ApiResponseFor401
@@ -1844,9 +1866,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = ThingUpdate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,
@@ -1888,9 +1911,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = ThingUpdate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,

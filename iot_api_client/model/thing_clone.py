@@ -51,7 +51,7 @@ class ThingClone(
                 class MetaOapg:
                     max_length = 64
                     regex=[{
-                        'pattern': r'^[a-zA-Z0-9_.@ -]+$',  # noqa: E501
+                        'pattern': r'^[a-zA-Z0-9_. -]+$',  # noqa: E501
                     }]
             include_tags = schemas.BoolSchema
             __annotations__ = {

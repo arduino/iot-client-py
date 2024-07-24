@@ -17,7 +17,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **id** | str, uuid.UUID,  | str,  | The arn of the device | value must be a uuid
 **label** | str,  | str,  | The label of the device | 
 **type** | str,  | str,  | The type of the device | 
-**connection_type** | str,  | str,  | The type of the connections selected by the user when multiple connections are available | [optional] must be one of ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora", ] 
+**connection_type** | str,  | str,  | The type of the connections selected by the user when multiple connections are available | [optional] must be one of ["wifi", "eth", "wifiandsecret", "gsm", "nb", "lora", "catm1", "cellular", ] 
 **created_at** | str, datetime,  | str,  | Creation date of the device | [optional] value must conform to RFC-3339 date-time
 **device_status** | str,  | str,  | The connection status of the device | [optional] must be one of ["ONLINE", "OFFLINE", "UNKNOWN", ] 
 **events** | [**ArduinoDevicev2SimplePropertiesCollection**](ArduinoDevicev2SimplePropertiesCollection.md) | [**ArduinoDevicev2SimplePropertiesCollection**](ArduinoDevicev2SimplePropertiesCollection.md) |  | [optional] 
