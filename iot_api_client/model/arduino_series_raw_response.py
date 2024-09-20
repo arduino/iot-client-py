@@ -128,7 +128,11 @@ class ArduinoSeriesRawResponse(
                 def __getitem__(self, i: int) -> MetaOapg.items:
                     return super().__getitem__(i)
             message = schemas.StrSchema
+            property_id = schemas.UUIDSchema
+            property_name = schemas.StrSchema
+            property_type = schemas.StrSchema
             series_limit = schemas.Int64Schema
+            thing_id = schemas.UUIDSchema
             __annotations__ = {
                 "count_values": count_values,
                 "from_date": from_date,
@@ -141,7 +145,11 @@ class ArduinoSeriesRawResponse(
                 "to_date": to_date,
                 "values": values,
                 "message": message,
+                "property_id": property_id,
+                "property_name": property_name,
+                "property_type": property_type,
                 "series_limit": series_limit,
+                "thing_id": thing_id,
             }
     
     count_values: MetaOapg.properties.count_values
@@ -189,12 +197,24 @@ class ArduinoSeriesRawResponse(
     def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["property_id"]) -> MetaOapg.properties.property_id: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["property_name"]) -> MetaOapg.properties.property_name: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["property_type"]) -> MetaOapg.properties.property_type: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["series_limit"]) -> MetaOapg.properties.series_limit: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["thing_id"]) -> MetaOapg.properties.thing_id: ...
     
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "query", "resp_version", "series", "sort", "status", "times", "to_date", "values", "message", "series_limit", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "query", "resp_version", "series", "sort", "status", "times", "to_date", "values", "message", "property_id", "property_name", "property_type", "series_limit", "thing_id", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -233,12 +253,24 @@ class ArduinoSeriesRawResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["property_id"]) -> typing.Union[MetaOapg.properties.property_id, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["property_name"]) -> typing.Union[MetaOapg.properties.property_name, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["property_type"]) -> typing.Union[MetaOapg.properties.property_type, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["series_limit"]) -> typing.Union[MetaOapg.properties.series_limit, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["thing_id"]) -> typing.Union[MetaOapg.properties.thing_id, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "query", "resp_version", "series", "sort", "status", "times", "to_date", "values", "message", "series_limit", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["count_values", "from_date", "query", "resp_version", "series", "sort", "status", "times", "to_date", "values", "message", "property_id", "property_name", "property_type", "series_limit", "thing_id", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -256,7 +288,11 @@ class ArduinoSeriesRawResponse(
         sort: typing.Union[MetaOapg.properties.sort, str, ],
         status: typing.Union[MetaOapg.properties.status, str, ],
         message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
+        property_id: typing.Union[MetaOapg.properties.property_id, str, uuid.UUID, schemas.Unset] = schemas.unset,
+        property_name: typing.Union[MetaOapg.properties.property_name, str, schemas.Unset] = schemas.unset,
+        property_type: typing.Union[MetaOapg.properties.property_type, str, schemas.Unset] = schemas.unset,
         series_limit: typing.Union[MetaOapg.properties.series_limit, decimal.Decimal, int, schemas.Unset] = schemas.unset,
+        thing_id: typing.Union[MetaOapg.properties.thing_id, str, uuid.UUID, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ArduinoSeriesRawResponse':
@@ -274,7 +310,11 @@ class ArduinoSeriesRawResponse(
             sort=sort,
             status=status,
             message=message,
+            property_id=property_id,
+            property_name=property_name,
+            property_type=property_type,
             series_limit=series_limit,
+            thing_id=thing_id,
             _configuration=_configuration,
             **kwargs,
         )

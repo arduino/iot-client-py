@@ -99,6 +99,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#things_v2_tags_delete.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#things_v2_tags_delete.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_tags_delete.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_tags_delete.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#things_v2_tags_delete.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_tags_delete.ApiResponseFor500) | Internal Server Error
 
 #### things_v2_tags_delete.ApiResponseFor200
@@ -145,6 +147,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### things_v2_tags_delete.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_tags_delete.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### things_v2_tags_delete.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -253,6 +281,8 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#things_v2_tags_list.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#things_v2_tags_list.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_tags_list.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#things_v2_tags_list.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_tags_list.ApiResponseFor500) | Internal Server Error
 
 #### things_v2_tags_list.ApiResponseFor200
@@ -292,6 +322,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### things_v2_tags_list.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoTagsjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoTagsjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_tags_list.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### things_v2_tags_list.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -421,6 +477,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#things_v2_tags_upsert.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#things_v2_tags_upsert.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_tags_upsert.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_tags_upsert.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#things_v2_tags_upsert.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_tags_upsert.ApiResponseFor500) | Internal Server Error
 
 #### things_v2_tags_upsert.ApiResponseFor200
@@ -467,6 +525,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### things_v2_tags_upsert.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_tags_upsert.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### things_v2_tags_upsert.ApiResponseFor500
 Name | Type | Description  | Notes

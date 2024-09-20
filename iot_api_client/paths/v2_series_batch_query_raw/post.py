@@ -31,6 +31,31 @@ from iot_api_client.model.batch_query_raw_requests_media_v1 import BatchQueryRaw
 
 from . import path
 
+# Header params
+XOrganizationSchema = schemas.StrSchema
+RequestRequiredHeaderParams = typing_extensions.TypedDict(
+    'RequestRequiredHeaderParams',
+    {
+    }
+)
+RequestOptionalHeaderParams = typing_extensions.TypedDict(
+    'RequestOptionalHeaderParams',
+    {
+        'X-Organization': typing.Union[XOrganizationSchema, str, ],
+    },
+    total=False
+)
+
+
+class RequestHeaderParams(RequestRequiredHeaderParams, RequestOptionalHeaderParams):
+    pass
+
+
+request_header_x_organization = api_client.HeaderParameter(
+    name="X-Organization",
+    style=api_client.ParameterStyle.SIMPLE,
+    schema=XOrganizationSchema,
+)
 # body param
 SchemaForRequestBodyApplicationJson = BatchQueryRawRequestsMediaV1
 SchemaForRequestBodyApplicationXWwwFormUrlencoded = BatchQueryRawRequestsMediaV1
@@ -117,6 +142,29 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationVndGoaErrorjson),
     },
 )
+SchemaFor403ResponseBodyApplicationVndArduinoSeriesRawBatchjson = Error
+SchemaFor403ResponseBodyApplicationVndGoaErrorjson = Error
+
+
+@dataclass
+class ApiResponseFor403(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor403ResponseBodyApplicationVndArduinoSeriesRawBatchjson,
+        SchemaFor403ResponseBodyApplicationVndGoaErrorjson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_403 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor403,
+    content={
+        'application/vnd.arduino.series.raw.batch+json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndArduinoSeriesRawBatchjson),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndGoaErrorjson),
+    },
+)
 
 
 @dataclass
@@ -168,6 +216,7 @@ _status_code_to_response = {
     '200': _response_for_200,
     '400': _response_for_400,
     '401': _response_for_401,
+    '403': _response_for_403,
     '404': _response_for_404,
     '501': _response_for_501,
     '503': _response_for_503,
@@ -184,6 +233,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -197,6 +247,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"],
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -210,6 +261,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -225,6 +277,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -235,6 +288,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -248,6 +302,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = 'application/json',
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -259,9 +314,18 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        self._verify_typed_dict_inputs_oapg(RequestHeaderParams, header_params)
         used_path = path.value
 
         _headers = HTTPHeaderDict()
+        for parameter in (
+            request_header_x_organization,
+        ):
+            parameter_data = header_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            serialized_data = parameter.serialize(parameter_data)
+            _headers.extend(serialized_data)
         # TODO add cookie handling
         if accept_content_types:
             for accept_content_type in accept_content_types:
@@ -316,6 +380,7 @@ class SeriesV2BatchQueryRaw(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -329,6 +394,7 @@ class SeriesV2BatchQueryRaw(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"],
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -342,6 +408,7 @@ class SeriesV2BatchQueryRaw(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -357,6 +424,7 @@ class SeriesV2BatchQueryRaw(BaseApi):
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -367,6 +435,7 @@ class SeriesV2BatchQueryRaw(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -380,6 +449,7 @@ class SeriesV2BatchQueryRaw(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = 'application/json',
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -387,6 +457,7 @@ class SeriesV2BatchQueryRaw(BaseApi):
     ):
         return self._series_v2_batch_query_raw_oapg(
             body=body,
+            header_params=header_params,
             content_type=content_type,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -403,6 +474,7 @@ class ApiForpost(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,],
         content_type: typing_extensions.Literal["application/json"] = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -416,6 +488,7 @@ class ApiForpost(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"],
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -429,6 +502,7 @@ class ApiForpost(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -444,6 +518,7 @@ class ApiForpost(BaseApi):
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -454,6 +529,7 @@ class ApiForpost(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = ...,
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -467,6 +543,7 @@ class ApiForpost(BaseApi):
         self,
         body: typing.Union[SchemaForRequestBodyApplicationJson,SchemaForRequestBodyApplicationXWwwFormUrlencoded,],
         content_type: str = 'application/json',
+        header_params: RequestHeaderParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
@@ -474,6 +551,7 @@ class ApiForpost(BaseApi):
     ):
         return self._series_v2_batch_query_raw_oapg(
             body=body,
+            header_params=header_params,
             content_type=content_type,
             accept_content_types=accept_content_types,
             stream=stream,

@@ -195,6 +195,41 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationVndGoaErrorjson),
     },
 )
+SchemaFor403ResponseBodyApplicationVndArduinoDevicev2propertyvaluesjson = Error
+SchemaFor403ResponseBodyApplicationVndGoaErrorjson = Error
+
+
+@dataclass
+class ApiResponseFor403(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor403ResponseBodyApplicationVndArduinoDevicev2propertyvaluesjson,
+        SchemaFor403ResponseBodyApplicationVndGoaErrorjson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_403 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor403,
+    content={
+        'application/vnd.arduino.devicev2propertyvalues+json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndArduinoDevicev2propertyvaluesjson),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndGoaErrorjson),
+    },
+)
+
+
+@dataclass
+class ApiResponseFor404(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: schemas.Unset = schemas.unset
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_404 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor404,
+)
 SchemaFor500ResponseBodyApplicationVndArduinoDevicev2propertyvaluesjson = Error
 SchemaFor500ResponseBodyApplicationVndGoaErrorjson = Error
 
@@ -222,6 +257,8 @@ _status_code_to_response = {
     '200': _response_for_200,
     '400': _response_for_400,
     '401': _response_for_401,
+    '403': _response_for_403,
+    '404': _response_for_404,
     '500': _response_for_500,
 }
 _all_accept_content_types = (

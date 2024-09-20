@@ -162,8 +162,20 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Certjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Certjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_certs_create.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -300,8 +312,20 @@ headers | Unset | headers were not defined |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndGoaErrorjson, SchemaFor401ResponseBodyTextPlain, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_certs_delete.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -443,8 +467,20 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDevicev2CertjsonTypecollection, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDevicev2CertjsonTypecollection
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_certs_list.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -595,8 +631,20 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Certjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Certjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_certs_show.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -790,8 +838,20 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Certjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Certjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_certs_update.ApiResponseFor404
 Name | Type | Description  | Notes

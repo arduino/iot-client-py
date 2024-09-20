@@ -3,6 +3,10 @@ import typing_extensions
 from iot_api_client.paths import PathValues
 from iot_api_client.apis.paths.v1_lora_devices_ import V1LoraDevices
 from iot_api_client.apis.paths.v1_lora_freq_plans_ import V1LoraFreqPlans
+from iot_api_client.apis.paths.v1_network_credentials_type import V1NetworkCredentialsType
+from iot_api_client.apis.paths.v1_network_credentials_type_connections import V1NetworkCredentialsTypeConnections
+from iot_api_client.apis.paths.v1_property_types import V1PropertyTypes
+from iot_api_client.apis.paths.v1_templates import V1Templates
 from iot_api_client.apis.paths.v2_dashboards import V2Dashboards
 from iot_api_client.apis.paths.v2_dashboards_id import V2DashboardsId
 from iot_api_client.apis.paths.v2_dashboards_id_clone import V2DashboardsIdClone
@@ -27,6 +31,7 @@ from iot_api_client.apis.paths.v2_devices_id_tags_key import V2DevicesIdTagsKey
 from iot_api_client.apis.paths.v2_series_batch_query import V2SeriesBatchQuery
 from iot_api_client.apis.paths.v2_series_batch_query_raw import V2SeriesBatchQueryRaw
 from iot_api_client.apis.paths.v2_series_batch_query_raw_lastvalue import V2SeriesBatchQueryRawLastvalue
+from iot_api_client.apis.paths.v2_series_batch_query_sampling import V2SeriesBatchQuerySampling
 from iot_api_client.apis.paths.v2_series_historic_data import V2SeriesHistoricData
 from iot_api_client.apis.paths.v2_things import V2Things
 from iot_api_client.apis.paths.v2_things_id import V2ThingsId
@@ -46,6 +51,10 @@ PathToApi = typing_extensions.TypedDict(
     {
         PathValues.V1_LORADEVICES_: V1LoraDevices,
         PathValues.V1_LORAFREQPLANS_: V1LoraFreqPlans,
+        PathValues.V1_NETWORK_CREDENTIALS_TYPE: V1NetworkCredentialsType,
+        PathValues.V1_NETWORK_CREDENTIALS_TYPE_CONNECTIONS: V1NetworkCredentialsTypeConnections,
+        PathValues.V1_PROPERTY_TYPES: V1PropertyTypes,
+        PathValues.V1_TEMPLATES: V1Templates,
         PathValues.V2_DASHBOARDS: V2Dashboards,
         PathValues.V2_DASHBOARDS_ID: V2DashboardsId,
         PathValues.V2_DASHBOARDS_ID_CLONE: V2DashboardsIdClone,
@@ -70,6 +79,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.V2_SERIES_BATCH_QUERY: V2SeriesBatchQuery,
         PathValues.V2_SERIES_BATCH_QUERY_RAW: V2SeriesBatchQueryRaw,
         PathValues.V2_SERIES_BATCH_QUERY_RAW_LASTVALUE: V2SeriesBatchQueryRawLastvalue,
+        PathValues.V2_SERIES_BATCH_QUERY_SAMPLING: V2SeriesBatchQuerySampling,
         PathValues.V2_SERIES_HISTORIC_DATA: V2SeriesHistoricData,
         PathValues.V2_THINGS: V2Things,
         PathValues.V2_THINGS_ID: V2ThingsId,
@@ -90,6 +100,10 @@ path_to_api = PathToApi(
     {
         PathValues.V1_LORADEVICES_: V1LoraDevices,
         PathValues.V1_LORAFREQPLANS_: V1LoraFreqPlans,
+        PathValues.V1_NETWORK_CREDENTIALS_TYPE: V1NetworkCredentialsType,
+        PathValues.V1_NETWORK_CREDENTIALS_TYPE_CONNECTIONS: V1NetworkCredentialsTypeConnections,
+        PathValues.V1_PROPERTY_TYPES: V1PropertyTypes,
+        PathValues.V1_TEMPLATES: V1Templates,
         PathValues.V2_DASHBOARDS: V2Dashboards,
         PathValues.V2_DASHBOARDS_ID: V2DashboardsId,
         PathValues.V2_DASHBOARDS_ID_CLONE: V2DashboardsIdClone,
@@ -114,6 +128,7 @@ path_to_api = PathToApi(
         PathValues.V2_SERIES_BATCH_QUERY: V2SeriesBatchQuery,
         PathValues.V2_SERIES_BATCH_QUERY_RAW: V2SeriesBatchQueryRaw,
         PathValues.V2_SERIES_BATCH_QUERY_RAW_LASTVALUE: V2SeriesBatchQueryRawLastvalue,
+        PathValues.V2_SERIES_BATCH_QUERY_SAMPLING: V2SeriesBatchQuerySampling,
         PathValues.V2_SERIES_HISTORIC_DATA: V2SeriesHistoricData,
         PathValues.V2_THINGS: V2Things,
         PathValues.V2_THINGS_ID: V2ThingsId,

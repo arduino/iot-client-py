@@ -44,11 +44,13 @@ class ArduinoThingtemplate(
         class properties:
             name = schemas.StrSchema
             timezone = schemas.StrSchema
-            organization_id = schemas.UUIDSchema
         
             @staticmethod
-            def properties() -> typing.Type['ArduinoTemplatepropertyCollection']:
-                return ArduinoTemplatepropertyCollection
+            def device_metadata() -> typing.Type['ArduinoDevicev2templatedevice']:
+                return ArduinoDevicev2templatedevice
+            id = schemas.StrSchema
+            organization_id = schemas.UUIDSchema
+            sketch_template = schemas.StrSchema
             
             
             class tags(
@@ -75,13 +77,20 @@ class ArduinoThingtemplate(
             
                 def __getitem__(self, i: int) -> 'Tag':
                     return super().__getitem__(i)
+        
+            @staticmethod
+            def variables() -> typing.Type['ArduinoTemplatepropertyCollection']:
+                return ArduinoTemplatepropertyCollection
             webhook_uri = schemas.StrSchema
             __annotations__ = {
                 "name": name,
                 "timezone": timezone,
+                "device_metadata": device_metadata,
+                "id": id,
                 "organization_id": organization_id,
-                "properties": properties,
+                "sketch_template": sketch_template,
                 "tags": tags,
+                "variables": variables,
                 "webhook_uri": webhook_uri,
             }
     
@@ -95,13 +104,22 @@ class ArduinoThingtemplate(
     def __getitem__(self, name: typing_extensions.Literal["timezone"]) -> MetaOapg.properties.timezone: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["device_metadata"]) -> 'ArduinoDevicev2templatedevice': ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> MetaOapg.properties.id: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["organization_id"]) -> MetaOapg.properties.organization_id: ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["properties"]) -> 'ArduinoTemplatepropertyCollection': ...
+    def __getitem__(self, name: typing_extensions.Literal["sketch_template"]) -> MetaOapg.properties.sketch_template: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["tags"]) -> MetaOapg.properties.tags: ...
+    
+    @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["variables"]) -> 'ArduinoTemplatepropertyCollection': ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["webhook_uri"]) -> MetaOapg.properties.webhook_uri: ...
@@ -109,7 +127,7 @@ class ArduinoThingtemplate(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "timezone", "organization_id", "properties", "tags", "webhook_uri", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "timezone", "device_metadata", "id", "organization_id", "sketch_template", "tags", "variables", "webhook_uri", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -121,13 +139,22 @@ class ArduinoThingtemplate(
     def get_item_oapg(self, name: typing_extensions.Literal["timezone"]) -> MetaOapg.properties.timezone: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["device_metadata"]) -> typing.Union['ArduinoDevicev2templatedevice', schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["id"]) -> typing.Union[MetaOapg.properties.id, schemas.Unset]: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["organization_id"]) -> typing.Union[MetaOapg.properties.organization_id, schemas.Unset]: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["properties"]) -> typing.Union['ArduinoTemplatepropertyCollection', schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["sketch_template"]) -> typing.Union[MetaOapg.properties.sketch_template, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["tags"]) -> typing.Union[MetaOapg.properties.tags, schemas.Unset]: ...
+    
+    @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["variables"]) -> typing.Union['ArduinoTemplatepropertyCollection', schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["webhook_uri"]) -> typing.Union[MetaOapg.properties.webhook_uri, schemas.Unset]: ...
@@ -135,7 +162,7 @@ class ArduinoThingtemplate(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "timezone", "organization_id", "properties", "tags", "webhook_uri", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "timezone", "device_metadata", "id", "organization_id", "sketch_template", "tags", "variables", "webhook_uri", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -144,9 +171,12 @@ class ArduinoThingtemplate(
         *_args: typing.Union[dict, frozendict.frozendict, ],
         timezone: typing.Union[MetaOapg.properties.timezone, str, ],
         name: typing.Union[MetaOapg.properties.name, str, ],
+        device_metadata: typing.Union['ArduinoDevicev2templatedevice', schemas.Unset] = schemas.unset,
+        id: typing.Union[MetaOapg.properties.id, str, schemas.Unset] = schemas.unset,
         organization_id: typing.Union[MetaOapg.properties.organization_id, str, uuid.UUID, schemas.Unset] = schemas.unset,
-        properties: typing.Union['ArduinoTemplatepropertyCollection', schemas.Unset] = schemas.unset,
+        sketch_template: typing.Union[MetaOapg.properties.sketch_template, str, schemas.Unset] = schemas.unset,
         tags: typing.Union[MetaOapg.properties.tags, list, tuple, schemas.Unset] = schemas.unset,
+        variables: typing.Union['ArduinoTemplatepropertyCollection', schemas.Unset] = schemas.unset,
         webhook_uri: typing.Union[MetaOapg.properties.webhook_uri, str, schemas.Unset] = schemas.unset,
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -156,13 +186,17 @@ class ArduinoThingtemplate(
             *_args,
             timezone=timezone,
             name=name,
+            device_metadata=device_metadata,
+            id=id,
             organization_id=organization_id,
-            properties=properties,
+            sketch_template=sketch_template,
             tags=tags,
+            variables=variables,
             webhook_uri=webhook_uri,
             _configuration=_configuration,
             **kwargs,
         )
 
+from iot_api_client.model.arduino_devicev2templatedevice import ArduinoDevicev2templatedevice
 from iot_api_client.model.arduino_templateproperty_collection import ArduinoTemplatepropertyCollection
 from iot_api_client.model.tag import Tag

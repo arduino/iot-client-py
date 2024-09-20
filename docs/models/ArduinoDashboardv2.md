@@ -13,6 +13,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **updated_at** | str, datetime,  | str,  | Last update date | value must conform to RFC-3339 date-time
 **name** | str,  | str,  | The friendly name of the dashboard | 
 **id** | str, uuid.UUID,  | str,  | The friendly name of the dashboard | value must be a uuid
+**cover_image** | str,  | str,  | The cover image of the dashboard | [optional] 
 **created_by** | [**ArduinoDashboardowner**](ArduinoDashboardowner.md) | [**ArduinoDashboardowner**](ArduinoDashboardowner.md) |  | [optional] 
 **organization_id** | str, uuid.UUID,  | str,  | Id of the organization the dashboard belongs to | [optional] value must be a uuid
 **shared_by** | [**ArduinoDashboardshare**](ArduinoDashboardshare.md) | [**ArduinoDashboardshare**](ArduinoDashboardshare.md) |  | [optional] 

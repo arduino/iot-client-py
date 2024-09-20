@@ -21,7 +21,11 @@ Key | Input Type | Accessed Type | Description | Notes
 **sort** | str,  | str,  | Sorting | must be one of ["ASC", "DESC", ] 
 **status** | str,  | str,  | Status of the response | 
 **message** | str,  | str,  | If the response is different than &#x27;ok&#x27; | [optional] if omitted the server will use the default value of ""
+**property_id** | str, uuid.UUID,  | str,  | Property id | [optional] value must be a uuid
+**property_name** | str,  | str,  | Property name | [optional] 
+**property_type** | str,  | str,  | Property type | [optional] 
 **series_limit** | decimal.Decimal, int,  | decimal.Decimal,  | Max of values | [optional] value must be a 64 bit integer
+**thing_id** | str, uuid.UUID,  | str,  | Thing id | [optional] value must be a uuid
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # times

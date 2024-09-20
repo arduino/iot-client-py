@@ -274,17 +274,28 @@ _response_for_400 = api_client.OpenApiResponse(
             schema=SchemaFor400ResponseBodyApplicationVndGoaErrorjson),
     },
 )
+SchemaFor401ResponseBodyApplicationVndArduinoTimeseriesmediajson = Error
+SchemaFor401ResponseBodyApplicationVndGoaErrorjson = Error
 
 
 @dataclass
 class ApiResponseFor401(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
+    body: typing.Union[
+        SchemaFor401ResponseBodyApplicationVndArduinoTimeseriesmediajson,
+        SchemaFor401ResponseBodyApplicationVndGoaErrorjson,
+    ]
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_401 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor401,
+    content={
+        'application/vnd.arduino.timeseriesmedia+json': api_client.MediaType(
+            schema=SchemaFor401ResponseBodyApplicationVndArduinoTimeseriesmediajson),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor401ResponseBodyApplicationVndGoaErrorjson),
+    },
 )
 
 

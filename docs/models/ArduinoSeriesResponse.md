@@ -21,7 +21,11 @@ Key | Input Type | Accessed Type | Description | Notes
 **status** | str,  | str,  | Status of the response | 
 **aggregation** | str,  | str,  | Aggregation statistic function. For numeric values, AVG statistic is used by default. PCT_X compute the Xth approximate percentile (e.g. PCT_95 is the 95th approximate percentile). For boolean, BOOL_OR statistic is used as default. | [optional] must be one of ["AVG", "MIN", "MAX", "SUM", "COUNT", "PCT_99", "PCT_95", "PCT_90", "PCT_75", "PCT_50", "PCT_15", "PCT_5", "BOOL_OR", "BOOL_AND", ] 
 **message** | str,  | str,  | If the response is different than &#x27;ok&#x27; | [optional] if omitted the server will use the default value of ""
+**property_id** | str, uuid.UUID,  | str,  | Property id | [optional] value must be a uuid
+**property_name** | str,  | str,  | Property name | [optional] 
+**property_type** | str,  | str,  | Property type | [optional] 
 **series_limit** | decimal.Decimal, int,  | decimal.Decimal,  | Maximum number of values returned after data aggregation, if any | [optional] value must be a 64 bit integer
+**thing_id** | str, uuid.UUID,  | str,  | Thing id | [optional] value must be a uuid
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # times

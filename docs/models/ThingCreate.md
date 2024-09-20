@@ -10,6 +10,7 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  | Payload to create a ne
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
+**assistant** | str,  | str,  | The kind of voice assistant the thing is connected to, it can be ALEXA | GOOGLE | NONE | [optional] must be one of ["ALEXA", "GOOGLE", "NONE", ] 
 **device_id** | str, uuid.UUID,  | str,  | The arn of the associated device | [optional] value must be a uuid
 **id** | str, uuid.UUID,  | str,  | The id of the thing | [optional] value must be a uuid
 **name** | str,  | str,  | The friendly name of the thing | [optional] 

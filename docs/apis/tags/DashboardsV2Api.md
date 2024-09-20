@@ -171,6 +171,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 201 | [ApiResponseFor201](#dashboards_v2_clone.ApiResponseFor201) | Created
 400 | [ApiResponseFor400](#dashboards_v2_clone.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_clone.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_clone.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_clone.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_clone.ApiResponseFor500) | Internal Server Error
 
@@ -226,6 +227,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_clone.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -306,6 +326,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(
@@ -342,6 +363,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(
@@ -421,6 +443,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 201 | [ApiResponseFor201](#dashboards_v2_create.ApiResponseFor201) | Created
 400 | [ApiResponseFor400](#dashboards_v2_create.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_create.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_create.ApiResponseFor403) | Forbidden
 500 | [ApiResponseFor500](#dashboards_v2_create.ApiResponseFor500) | Internal Server Error
 
 #### dashboards_v2_create.ApiResponseFor201
@@ -475,6 +498,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_create.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -620,6 +662,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_delete.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_delete.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_delete.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_delete.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_delete.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_delete.ApiResponseFor500) | Internal Server Error
 
@@ -663,6 +706,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_delete.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -825,6 +887,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_delete_share.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_delete_share.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_delete_share.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_delete_share.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_delete_share.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_delete_share.ApiResponseFor500) | Internal Server Error
 
@@ -868,6 +931,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_delete_share.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -1062,6 +1144,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_link.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_link.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_link.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_link.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_link.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_link.ApiResponseFor500) | Internal Server Error
 
@@ -1117,6 +1200,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_link.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoVariableslinksjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoVariableslinksjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -1264,7 +1366,9 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#dashboards_v2_list.ApiResponseFor200) | OK
+400 | [ApiResponseFor400](#dashboards_v2_list.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_list.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_list.ApiResponseFor403) | Forbidden
 500 | [ApiResponseFor500](#dashboards_v2_list.ApiResponseFor500) | Internal Server Error
 
 #### dashboards_v2_list.ApiResponseFor200
@@ -1286,6 +1390,25 @@ Type | Description  | Notes
 [**ArduinoDashboardv2Collection**](../../models/ArduinoDashboardv2Collection.md) |  | 
 
 
+#### dashboards_v2_list.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoDashboardv2jsonTypecollection, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoDashboardv2jsonTypecollection
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
 #### dashboards_v2_list.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1300,6 +1423,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_list.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2jsonTypecollection, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2jsonTypecollection
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -1448,6 +1590,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_list_shares.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_list_shares.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_list_shares.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_list_shares.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_list_shares.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_list_shares.ApiResponseFor500) | Internal Server Error
 
@@ -1503,6 +1646,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_list_shares.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDashboardsharejsonTypecollection, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDashboardsharejsonTypecollection
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -1680,6 +1842,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_request_access.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_request_access.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_request_access.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_request_access.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_request_access.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_request_access.ApiResponseFor500) | Internal Server Error
 
@@ -1723,6 +1886,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_request_access.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -1902,6 +2084,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_share.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_share.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_share.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_share.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_share.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_share.ApiResponseFor500) | Internal Server Error
 
@@ -1945,6 +2128,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_share.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -2310,6 +2512,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_template.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_template.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_template.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_template.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_template.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_template.ApiResponseFor500) | Internal Server Error
 
@@ -2365,6 +2568,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_template.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2templatejson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2templatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -2448,6 +2670,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(
@@ -2488,6 +2711,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = Dashboardv2(
+        cover_image="cover_image_example",
         name="0",
         widgets=[
             Widget(
@@ -2583,6 +2807,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#dashboards_v2_update.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#dashboards_v2_update.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#dashboards_v2_update.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#dashboards_v2_update.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#dashboards_v2_update.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#dashboards_v2_update.ApiResponseFor500) | Internal Server Error
 
@@ -2638,6 +2863,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### dashboards_v2_update.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDashboardv2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 

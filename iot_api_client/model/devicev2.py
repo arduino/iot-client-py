@@ -54,6 +54,8 @@ class Devicev2(
                         "gsm": "GSM",
                         "nb": "NB",
                         "lora": "LORA",
+                        "catm1": "CATM1",
+                        "cellular": "CELLULAR",
                     }
                 
                 @schemas.classproperty
@@ -79,6 +81,14 @@ class Devicev2(
                 @schemas.classproperty
                 def LORA(cls):
                     return cls("lora")
+                
+                @schemas.classproperty
+                def CATM1(cls):
+                    return cls("catm1")
+                
+                @schemas.classproperty
+                def CELLULAR(cls):
+                    return cls("cellular")
             fqbn = schemas.StrSchema
             
             
@@ -118,10 +128,7 @@ class Devicev2(
                         "mkr1000": "MKR1000",
                         "nano_33_iot": "NANO_33_IOT",
                         "mkrgsm1400": "MKRGSM1400",
-                        "mkrwan1310": "MKRWAN1310",
-                        "mkrwan1300": "MKRWAN1300",
                         "mkrnb1500": "MKRNB1500",
-                        "lora-device": "LORADEVICE",
                         "login_and_secretkey_wifi": "LOGIN_AND_SECRETKEY_WIFI",
                         "envie_m7": "ENVIE_M7",
                         "nanorp2040connect": "NANORP2040CONNECT",
@@ -153,20 +160,8 @@ class Devicev2(
                     return cls("mkrgsm1400")
                 
                 @schemas.classproperty
-                def MKRWAN1310(cls):
-                    return cls("mkrwan1310")
-                
-                @schemas.classproperty
-                def MKRWAN1300(cls):
-                    return cls("mkrwan1300")
-                
-                @schemas.classproperty
                 def MKRNB1500(cls):
                     return cls("mkrnb1500")
-                
-                @schemas.classproperty
-                def LORADEVICE(cls):
-                    return cls("lora-device")
                 
                 @schemas.classproperty
                 def LOGIN_AND_SECRETKEY_WIFI(cls):

@@ -153,6 +153,29 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationVndGoaErrorjson),
     },
 )
+SchemaFor403ResponseBodyApplicationVndArduinoDashboardsharejsonTypecollection = Error
+SchemaFor403ResponseBodyApplicationVndGoaErrorjson = Error
+
+
+@dataclass
+class ApiResponseFor403(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor403ResponseBodyApplicationVndArduinoDashboardsharejsonTypecollection,
+        SchemaFor403ResponseBodyApplicationVndGoaErrorjson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_403 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor403,
+    content={
+        'application/vnd.arduino.dashboardshare+json; type=collection': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndArduinoDashboardsharejsonTypecollection),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndGoaErrorjson),
+    },
+)
 
 
 @dataclass
@@ -192,6 +215,7 @@ _status_code_to_response = {
     '200': _response_for_200,
     '400': _response_for_400,
     '401': _response_for_401,
+    '403': _response_for_403,
     '404': _response_for_404,
     '500': _response_for_500,
 }

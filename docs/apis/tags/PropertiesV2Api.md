@@ -1418,8 +1418,20 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoTimeseriesmediajson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoTimeseriesmediajson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### properties_v2_timeseries.ApiResponseFor404
 Name | Type | Description  | Notes

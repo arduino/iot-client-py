@@ -15,6 +15,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **name** | str,  | str,  | The friendly name of the thing | 
 **href** | str,  | str,  | The api reference of this thing | 
 **id** | str, uuid.UUID,  | str,  | The id of the thing | value must be a uuid
+**assistant** | str,  | str,  | The kind of voice assistant the thing is connected to, it can be ALEXA | GOOGLE | NONE | [optional] must be one of ["ALEXA", "GOOGLE", "NONE", ] 
 **created_at** | str, datetime,  | str,  | Creation date of the thing | [optional] value must conform to RFC-3339 date-time
 **deleted_at** | str, datetime,  | str,  | Delete date of the thing | [optional] value must conform to RFC-3339 date-time
 **device_fqbn** | str,  | str,  | The fqbn of the attached device, if any | [optional] 

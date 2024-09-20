@@ -156,8 +156,20 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndGoaErrorjson, SchemaFor401ResponseBodyTextPlain, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_ota_send.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -363,6 +375,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 202 | [ApiResponseFor202](#devices_v2_ota_upload.ApiResponseFor202) | Accepted
 400 | [ApiResponseFor400](#devices_v2_ota_upload.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#devices_v2_ota_upload.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_ota_upload.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#devices_v2_ota_upload.ApiResponseFor404) | Not Found
 409 | [ApiResponseFor409](#devices_v2_ota_upload.ApiResponseFor409) | Conflict
 410 | [ApiResponseFor410](#devices_v2_ota_upload.ApiResponseFor410) | Gone
@@ -430,8 +443,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_ota_upload.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2Otauploadjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2Otauploadjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_ota_upload.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -669,8 +713,20 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndGoaErrorjson, SchemaFor401ResponseBodyTextPlain, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### devices_v2_ota_url.ApiResponseFor404
 Name | Type | Description  | Notes

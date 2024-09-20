@@ -147,6 +147,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 201 | [ApiResponseFor201](#devices_v2_create.ApiResponseFor201) | Created
 401 | [ApiResponseFor401](#devices_v2_create.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_create.ApiResponseFor403) | Forbidden
 412 | [ApiResponseFor412](#devices_v2_create.ApiResponseFor412) | Precondition Failed
 500 | [ApiResponseFor500](#devices_v2_create.ApiResponseFor500) | Internal Server Error
 
@@ -183,6 +184,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_create.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2json, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -346,6 +366,8 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#devices_v2_delete.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#devices_v2_delete.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_delete.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_delete.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_delete.ApiResponseFor500) | Internal Server Error
 
 #### devices_v2_delete.ApiResponseFor200
@@ -373,6 +395,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_delete.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_delete.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_delete.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -548,6 +596,8 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#devices_v2_get_events.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#devices_v2_get_events.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_get_events.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_get_events.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_get_events.ApiResponseFor500) | Internal Server Error
 503 | [ApiResponseFor503](#devices_v2_get_events.ApiResponseFor503) | Service Unavailable
 
@@ -588,6 +638,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_get_events.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2EventPropertiesjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2EventPropertiesjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_get_events.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_get_events.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -773,6 +849,8 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#devices_v2_get_properties.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#devices_v2_get_properties.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_get_properties.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_get_properties.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_get_properties.ApiResponseFor500) | Internal Server Error
 
 #### devices_v2_get_properties.ApiResponseFor200
@@ -812,6 +890,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_get_properties.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2propertiesjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2propertiesjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_get_properties.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_get_properties.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -988,6 +1092,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#devices_v2_get_status_events.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#devices_v2_get_status_events.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#devices_v2_get_status_events.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_get_status_events.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_get_status_events.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_get_status_events.ApiResponseFor500) | Internal Server Error
 503 | [ApiResponseFor503](#devices_v2_get_status_events.ApiResponseFor503) | Service Unavailable
 
@@ -1047,6 +1153,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_get_status_events.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2StatusEventsjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_get_status_events.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_get_status_events.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -1220,6 +1352,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#devices_v2_list.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#devices_v2_list.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#devices_v2_list.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_list.ApiResponseFor403) | Forbidden
 500 | [ApiResponseFor500](#devices_v2_list.ApiResponseFor500) | Internal Server Error
 
 #### devices_v2_list.ApiResponseFor200
@@ -1274,6 +1407,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_list.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2jsonTypecollection, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2jsonTypecollection
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -1421,6 +1573,8 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#devices_v2_show.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#devices_v2_show.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_show.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_show.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_show.ApiResponseFor500) | Internal Server Error
 
 #### devices_v2_show.ApiResponseFor200
@@ -1460,6 +1614,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_show.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2json, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_show.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_show.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -1646,6 +1826,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#devices_v2_timeseries.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#devices_v2_timeseries.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#devices_v2_timeseries.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_timeseries.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_timeseries.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_timeseries.ApiResponseFor500) | Internal Server Error
 
 #### devices_v2_timeseries.ApiResponseFor200
@@ -1704,6 +1886,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_timeseries.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2propertyvaluesjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2propertyvaluesjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_timeseries.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_timeseries.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -1885,6 +2093,8 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#devices_v2_update.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#devices_v2_update.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#devices_v2_update.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_update.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_update.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_update.ApiResponseFor500) | Internal Server Error
 
 #### devices_v2_update.ApiResponseFor200
@@ -1943,6 +2153,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_update.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoDevicev2json, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoDevicev2json
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_update.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_update.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -2122,6 +2358,8 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#devices_v2_update_properties.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#devices_v2_update_properties.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#devices_v2_update_properties.ApiResponseFor403) | Forbidden
+404 | [ApiResponseFor404](#devices_v2_update_properties.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#devices_v2_update_properties.ApiResponseFor500) | Internal Server Error
 
 #### devices_v2_update_properties.ApiResponseFor200
@@ -2149,6 +2387,32 @@ Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
 
+
+#### devices_v2_update_properties.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### devices_v2_update_properties.ApiResponseFor404
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | Unset | body was not defined |
+headers | Unset | headers were not defined |
 
 #### devices_v2_update_properties.ApiResponseFor500
 Name | Type | Description  | Notes

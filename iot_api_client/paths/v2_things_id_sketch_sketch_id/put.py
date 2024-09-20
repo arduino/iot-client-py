@@ -152,17 +152,51 @@ _response_for_400 = api_client.OpenApiResponse(
             schema=SchemaFor400ResponseBodyApplicationVndGoaErrorjson),
     },
 )
+SchemaFor401ResponseBodyApplicationVndArduinoThingjson = Error
+SchemaFor401ResponseBodyApplicationVndGoaErrorjson = Error
 
 
 @dataclass
 class ApiResponseFor401(api_client.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
+    body: typing.Union[
+        SchemaFor401ResponseBodyApplicationVndArduinoThingjson,
+        SchemaFor401ResponseBodyApplicationVndGoaErrorjson,
+    ]
     headers: schemas.Unset = schemas.unset
 
 
 _response_for_401 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor401,
+    content={
+        'application/vnd.arduino.thing+json': api_client.MediaType(
+            schema=SchemaFor401ResponseBodyApplicationVndArduinoThingjson),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor401ResponseBodyApplicationVndGoaErrorjson),
+    },
+)
+SchemaFor403ResponseBodyApplicationVndArduinoThingjson = Error
+SchemaFor403ResponseBodyApplicationVndGoaErrorjson = Error
+
+
+@dataclass
+class ApiResponseFor403(api_client.ApiResponse):
+    response: urllib3.HTTPResponse
+    body: typing.Union[
+        SchemaFor403ResponseBodyApplicationVndArduinoThingjson,
+        SchemaFor403ResponseBodyApplicationVndGoaErrorjson,
+    ]
+    headers: schemas.Unset = schemas.unset
+
+
+_response_for_403 = api_client.OpenApiResponse(
+    response_cls=ApiResponseFor403,
+    content={
+        'application/vnd.arduino.thing+json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndArduinoThingjson),
+        'application/vnd.goa.error+json': api_client.MediaType(
+            schema=SchemaFor403ResponseBodyApplicationVndGoaErrorjson),
+    },
 )
 SchemaFor404ResponseBodyApplicationVndArduinoThingjson = Error
 SchemaFor404ResponseBodyApplicationVndGoaErrorjson = Error
@@ -237,6 +271,7 @@ _status_code_to_response = {
     '200': _response_for_200,
     '400': _response_for_400,
     '401': _response_for_401,
+    '403': _response_for_403,
     '404': _response_for_404,
     '412': _response_for_412,
     '500': _response_for_500,

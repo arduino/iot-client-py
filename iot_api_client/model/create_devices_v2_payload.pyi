@@ -65,20 +65,8 @@ class CreateDevicesV2Payload(
                     return cls("mkrgsm1400")
                 
                 @schemas.classproperty
-                def MKRWAN1310(cls):
-                    return cls("mkrwan1310")
-                
-                @schemas.classproperty
-                def MKRWAN1300(cls):
-                    return cls("mkrwan1300")
-                
-                @schemas.classproperty
                 def MKRNB1500(cls):
                     return cls("mkrnb1500")
-                
-                @schemas.classproperty
-                def LORADEVICE(cls):
-                    return cls("lora-device")
                 
                 @schemas.classproperty
                 def LOGIN_AND_SECRETKEY_WIFI(cls):
@@ -157,6 +145,14 @@ class CreateDevicesV2Payload(
                 @schemas.classproperty
                 def LORA(cls):
                     return cls("lora")
+                
+                @schemas.classproperty
+                def CATM1(cls):
+                    return cls("catm1")
+                
+                @schemas.classproperty
+                def CELLULAR(cls):
+                    return cls("cellular")
             fqbn = schemas.StrSchema
             
             

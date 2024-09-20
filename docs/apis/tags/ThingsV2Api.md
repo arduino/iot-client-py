@@ -63,7 +63,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     body = ThingClone(
         include_tags=True,
-        name="A",
+        name=".",
     )
     try:
         # clone things_v2
@@ -85,7 +85,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     }
     body = ThingClone(
         include_tags=True,
-        name="A",
+        name=".",
     )
     try:
         # clone things_v2
@@ -161,6 +161,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 201 | [ApiResponseFor201](#things_v2_clone.ApiResponseFor201) | OK
 400 | [ApiResponseFor400](#things_v2_clone.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_clone.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_clone.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_clone.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_clone.ApiResponseFor500) | Internal Server Error
 
@@ -206,8 +207,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_clone.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_clone.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -286,9 +318,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = ThingCreate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,
@@ -332,9 +365,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = ThingCreate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,
@@ -434,6 +468,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 201 | [ApiResponseFor201](#things_v2_create.ApiResponseFor201) | Created
 400 | [ApiResponseFor400](#things_v2_create.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_create.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_create.ApiResponseFor403) | Forbidden
 409 | [ApiResponseFor409](#things_v2_create.ApiResponseFor409) | Conflict
 412 | [ApiResponseFor412](#things_v2_create.ApiResponseFor412) | Precondition Failed
 500 | [ApiResponseFor500](#things_v2_create.ApiResponseFor500) | Internal Server Error
@@ -480,8 +515,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_create.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_create.ApiResponseFor409
 Name | Type | Description  | Notes
@@ -689,6 +755,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 201 | [ApiResponseFor201](#things_v2_create_sketch.ApiResponseFor201) | Created
 400 | [ApiResponseFor400](#things_v2_create_sketch.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_create_sketch.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_create_sketch.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_create_sketch.ApiResponseFor404) | Not Found
 412 | [ApiResponseFor412](#things_v2_create_sketch.ApiResponseFor412) | Precondition Failed
 500 | [ApiResponseFor500](#things_v2_create_sketch.ApiResponseFor500) | Internal Server Error
@@ -735,8 +802,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_create_sketch.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_create_sketch.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -927,6 +1025,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#things_v2_delete.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#things_v2_delete.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_delete.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_delete.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_delete.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_delete.ApiResponseFor500) | Internal Server Error
 
@@ -960,8 +1059,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndGoaErrorjson, SchemaFor401ResponseBodyTextPlain, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_delete.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndGoaErrorjson, SchemaFor403ResponseBodyTextPlain, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyTextPlain
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_delete.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -1110,6 +1240,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#things_v2_delete_sketch.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#things_v2_delete_sketch.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_delete_sketch.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_delete_sketch.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_delete_sketch.ApiResponseFor500) | Internal Server Error
 
@@ -1136,8 +1267,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_delete_sketch.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_delete_sketch.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -1333,6 +1495,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#things_v2_list.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#things_v2_list.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_list.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_list.ApiResponseFor403) | Forbidden
 500 | [ApiResponseFor500](#things_v2_list.ApiResponseFor500) | Internal Server Error
 
 #### things_v2_list.ApiResponseFor200
@@ -1377,8 +1540,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingjsonTypecollection, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingjsonTypecollection
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_list.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjsonTypecollection, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjsonTypecollection
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_list.ApiResponseFor500
 Name | Type | Description  | Notes
@@ -1545,6 +1739,7 @@ Code | Class | Description
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#things_v2_show.ApiResponseFor200) | OK
 401 | [ApiResponseFor401](#things_v2_show.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_show.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_show.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_show.ApiResponseFor500) | Internal Server Error
 
@@ -1581,6 +1776,25 @@ Type | Description  | Notes
 
 
 # SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_show.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
 [**Error**](../../models/Error.md) |  | 
@@ -1734,7 +1948,9 @@ Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
 200 | [ApiResponseFor200](#things_v2_template.ApiResponseFor200) | OK
+400 | [ApiResponseFor400](#things_v2_template.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_template.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_template.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_template.ApiResponseFor404) | Not Found
 500 | [ApiResponseFor500](#things_v2_template.ApiResponseFor500) | Internal Server Error
 
@@ -1757,12 +1973,62 @@ Type | Description  | Notes
 [**ArduinoThingtemplate**](../../models/ArduinoThingtemplate.md) |  | 
 
 
+#### things_v2_template.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationVndArduinoThingtemplatejson, SchemaFor400ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationVndArduinoThingtemplatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor400ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
 #### things_v2_template.ApiResponseFor401
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingtemplatejson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingtemplatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_template.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingtemplatejson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingtemplatejson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_template.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -1844,9 +2110,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
     header_params = {
     }
     body = ThingUpdate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,
@@ -1888,9 +2155,10 @@ with iot_api_client.ApiClient(configuration) as api_client:
         'X-Organization': "X-Organization_example",
     }
     body = ThingUpdate(
+        assistant="ALEXA",
         device_id="device_id_example",
         id="id_example",
-        name="A",
+        name=".",
         properties=[
             ModelProperty(
                 max_value=3.14,
@@ -2000,6 +2268,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#things_v2_update.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#things_v2_update.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_update.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_update.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_update.ApiResponseFor404) | Not Found
 409 | [ApiResponseFor409](#things_v2_update.ApiResponseFor409) | Conflict
 412 | [ApiResponseFor412](#things_v2_update.ApiResponseFor412) | Precondition Failed
@@ -2047,8 +2316,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_update.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_update.ApiResponseFor404
 Name | Type | Description  | Notes
@@ -2269,6 +2569,7 @@ n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization i
 200 | [ApiResponseFor200](#things_v2_update_sketch.ApiResponseFor200) | OK
 400 | [ApiResponseFor400](#things_v2_update_sketch.ApiResponseFor400) | Bad Request
 401 | [ApiResponseFor401](#things_v2_update_sketch.ApiResponseFor401) | Unauthorized
+403 | [ApiResponseFor403](#things_v2_update_sketch.ApiResponseFor403) | Forbidden
 404 | [ApiResponseFor404](#things_v2_update_sketch.ApiResponseFor404) | Not Found
 412 | [ApiResponseFor412](#things_v2_update_sketch.ApiResponseFor412) | Precondition Failed
 500 | [ApiResponseFor500](#things_v2_update_sketch.ApiResponseFor500) | Internal Server Error
@@ -2315,8 +2616,39 @@ Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-body | Unset | body was not defined |
+body | typing.Union[SchemaFor401ResponseBodyApplicationVndArduinoThingjson, SchemaFor401ResponseBodyApplicationVndGoaErrorjson, ] |  |
 headers | Unset | headers were not defined |
+
+# SchemaFor401ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor401ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+#### things_v2_update_sketch.ApiResponseFor403
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor403ResponseBodyApplicationVndArduinoThingjson, SchemaFor403ResponseBodyApplicationVndGoaErrorjson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor403ResponseBodyApplicationVndArduinoThingjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
+
+# SchemaFor403ResponseBodyApplicationVndGoaErrorjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**Error**](../../models/Error.md) |  | 
+
 
 #### things_v2_update_sketch.ApiResponseFor404
 Name | Type | Description  | Notes

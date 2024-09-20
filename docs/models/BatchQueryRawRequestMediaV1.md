@@ -8,9 +8,9 @@ dict, frozendict.frozendict,  | frozendict.frozendict,  |  |
 ### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**q** | str,  | str,  | Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5) | 
+**q** | str,  | str,  | Data selection query (e.g. property.2a99729d-2556-4220-a139-023348a1e6b5 or thing.95717675-4786-4ffc-afcc-799777755391) | 
 **from** | str, datetime,  | str,  | From timestamp | [optional] value must conform to RFC-3339 date-time
-**series_limit** | decimal.Decimal, int,  | decimal.Decimal,  | Max of values | [optional] value must be a 64 bit integer
+**series_limit** | decimal.Decimal, int,  | decimal.Decimal,  | Maximum number of values returned, if any (default/limit: 1000, 10000 in case of thing query) | [optional] value must be a 64 bit integer
 **sort** | str,  | str,  | Sorting | [optional] must be one of ["ASC", "DESC", ] if omitted the server will use the default value of "DESC"
 **to** | str, datetime,  | str,  | To timestamp | [optional] value must conform to RFC-3339 date-time
 **any_string_name** | dict, frozendict.frozendict, str, date, datetime, int, float, bool, decimal.Decimal, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, BoolClass, decimal.Decimal, NoneClass, tuple, bytes, FileIO | any string name can be used but the value must be the correct type | [optional]
