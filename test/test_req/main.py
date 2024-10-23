@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
     # Now we setup the iot-api Python client, first of all create a
     # configuration object. The access token goes in the config object.
-    client_config = iot_api_client.Configuration(host = "https://api2.arduino.cc/iot")
+    client_config = iot_api_client.Configuration(host = "https://api2.arduino.cc")
     # client_config.debug = True
     client_config.access_token = token.get("access_token")
 
