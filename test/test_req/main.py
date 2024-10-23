@@ -1,8 +1,4 @@
-import sys,os
-sys.path.append(os.getcwd())
-
-print("Loading iot api modules")
-print(os.getcwd())
+import os
 
 import iot_api_client
 from iot_api_client.configuration import Configuration

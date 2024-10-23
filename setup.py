@@ -9,7 +9,7 @@ with open("README.md") as f:
     long_description = f.read()
 
 NAME = "arduino-iot-client"
-REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+REQUIRES = ["urllib3 >= 1.25", "python_dateutil >= 2.8.2", "pydantic >= 2", "typing-extensions >= 4.7.1"]
 
 setup(
     name=NAME,
