@@ -68,31 +68,39 @@ Once you get a token, you can create an instance of the iot-api client:
 
 ```python
 import iot_api_client as iot
-from iot_api_client.rest import ApiException
+from iot_api_client.exceptions import ApiException
+from iot_api_client.models import *
 from iot_api_client.configuration import Configuration
-import iot_api_client.apis.tags.devices_v2_api as deviceApi
+from iot_api_client.api import DevicesV2Api
 
 # configure and instance the API client
-client_config = Configuration(host="https://api2.arduino.cc/iot")
+client_config = Configuration(host="https://api2.arduino.cc")
 client_config.access_token = YOUR_ACCESS_TOKEN
 client = iot.ApiClient(client_config)
 
 # as an example, interact with the devices API
 devices_api = deviceApi.DevicesV2Api(client)
 
+client_config = Configuration(host="https://api2.arduino.cc")
+client_config.access_token = access_token
+client = iot.ApiClient(client_config)
+
 try:
-    devices = devices_api.devices_v2_list()
-    if devices.response.status==200:
-        for device in devices.body: 
-            print("Device ("+device["id"]+"): "+device["name"])
+    api_instance = DevicesV2Api(client)
+    api_response = api_instance.devices_v2_list()
+    for device in api_response:
+        print(device.name+" - id:"+device.id+" - type:"+device.type)
+
 except ApiException as e:
-    print("Got an exception: {}".format(e))
+    print("Exception when calling DevicesV2Api->devices_v2_list: %s\n" % e)
 ```
 
 In case of organization access, you can specify organization identifier in this way:
 
 ```python
 client = iot.ApiClient(client_config,header_name="X-Organization",header_value=org_id)
+# or you can specify at method level, like:
+api_instance.devices_v2_list(x_organization="org_id")
 ```
 
 For a working example, see [the example folder](https://github.com/arduino/iot-client-py/tree/master/example/main.py) in this repo.
