@@ -1,8 +1,10 @@
 import os
 
 import iot_api_client
-from iot_api_client.rest import ApiException
-import  iot_api_client.apis.tags.devices_v2_api as DevicesV2
+from iot_api_client.configuration import Configuration
+from iot_api_client.api import DevicesV2Api
+from iot_api_client.exceptions import ApiException
+from iot_api_client.models import *
 
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
@@ -41,7 +43,7 @@ if __name__ == "__main__":
 
     # Each API model has its own wrapper, here we want to interact with
     # devices, so we create a DevicesV2Api object
-    api_instance = DevicesV2.DevicesV2Api(api_client)
+    api_instance = DevicesV2Api(api_client)
 
     # Get a list of devices, catching the specific exception
     try:
