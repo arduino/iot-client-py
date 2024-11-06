@@ -20,7 +20,7 @@ Returns the batch of time-series aggregated samples
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -40,14 +40,17 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_query_requests_media_v1 = iot_api_client.BatchQueryRequestsMediaV1() # BatchQueryRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # batch_query series_v2
@@ -66,7 +69,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_query_requests_media_v1** | [**BatchQueryRequestsMediaV1**](BatchQueryRequestsMediaV1.md)|  | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -78,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.series.batch+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -104,7 +107,7 @@ Returns the batch of time-series raw samples
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -124,14 +127,17 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_query_raw_requests_media_v1 = iot_api_client.BatchQueryRawRequestsMediaV1() # BatchQueryRawRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # batch_query_raw series_v2
@@ -150,7 +156,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_query_raw_requests_media_v1** | [**BatchQueryRawRequestsMediaV1**](BatchQueryRawRequestsMediaV1.md)|  | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -162,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.series.raw.batch+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -188,7 +194,7 @@ Returns the batch of time-series data raw
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -208,14 +214,17 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_last_value_requests_media_v1 = iot_api_client.BatchLastValueRequestsMediaV1() # BatchLastValueRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # batch_query_raw_last_value series_v2
@@ -234,7 +243,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_last_value_requests_media_v1** | [**BatchLastValueRequestsMediaV1**](BatchLastValueRequestsMediaV1.md)|  | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -246,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.series.raw.batch.lastvalue+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -271,7 +280,7 @@ Returns a batch of time-series sampled samples. To be used for types that does n
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -291,14 +300,17 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_query_sampled_requests_media_v1 = iot_api_client.BatchQuerySampledRequestsMediaV1() # BatchQuerySampledRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # batch_query_sampling series_v2
@@ -317,7 +329,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_query_sampled_requests_media_v1** | [**BatchQuerySampledRequestsMediaV1**](BatchQuerySampledRequestsMediaV1.md)|  | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -329,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.series.batch.sampled+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -355,7 +367,7 @@ Request sending of historical data of properties by email
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -374,14 +386,17 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     historic_data_request = iot_api_client.HistoricDataRequest() # HistoricDataRequest | 
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # historic_data series_v2
@@ -398,7 +413,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **historic_data_request** | [**HistoricDataRequest**](HistoricDataRequest.md)|  | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -410,7 +425,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.goa.error+json
 
 ### HTTP response details

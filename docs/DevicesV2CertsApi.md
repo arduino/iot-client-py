@@ -20,7 +20,7 @@ Creates a new cert associated to a device. The csr is signed and saved in databa
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -40,7 +40,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -78,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.devicev2.cert+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -102,7 +105,7 @@ Removes a cert associated to a device
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -120,7 +123,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -179,7 +185,7 @@ Returns the list of certs associated to the device
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -198,7 +204,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -257,7 +266,7 @@ Returns the cert requested by the user
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -276,7 +285,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -337,7 +349,7 @@ Updates a cert associated to a device. The csr is signed and saved in database. 
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -357,7 +369,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -397,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.devicev2.cert+json, application/vnd.goa.error+json
 
 ### HTTP response details

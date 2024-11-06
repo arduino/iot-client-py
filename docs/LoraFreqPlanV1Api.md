@@ -16,6 +16,7 @@ List the lora frequency plans supported
 
 ### Example
 
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -29,6 +30,15 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -56,7 +66,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
