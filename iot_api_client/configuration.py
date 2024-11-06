@@ -376,7 +376,7 @@ class Configuration:
         auth = {}
         if self.access_token is not None:
             auth['oauth2'] = {
-                'type': 'oauth2',
+                'type': 'bearer',
                 'in': 'header',
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token

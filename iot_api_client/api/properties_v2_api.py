@@ -47,7 +47,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -69,7 +69,7 @@ class PropertiesV2Api:
         :type id: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -127,7 +127,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -149,7 +149,7 @@ class PropertiesV2Api:
         :type id: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -207,7 +207,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -229,7 +229,7 @@ class PropertiesV2Api:
         :type id: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -332,8 +332,7 @@ class PropertiesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -369,7 +368,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the property")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -393,7 +392,7 @@ class PropertiesV2Api:
         :type pid: str
         :param force: If true, hard delete the property
         :type force: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -451,7 +450,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the property")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -475,7 +474,7 @@ class PropertiesV2Api:
         :type pid: str
         :param force: If true, hard delete the property
         :type force: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -533,7 +532,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the property")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -557,7 +556,7 @@ class PropertiesV2Api:
         :type pid: str
         :param force: If true, hard delete the property
         :type force: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -686,7 +685,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -708,7 +707,7 @@ class PropertiesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -764,7 +763,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -786,7 +785,7 @@ class PropertiesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -842,7 +841,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -864,7 +863,7 @@ class PropertiesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -990,7 +989,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         property_value: Annotated[PropertyValue, Field(description="PropertyValuePayload describes a property value")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1014,7 +1013,7 @@ class PropertiesV2Api:
         :type pid: str
         :param property_value: PropertyValuePayload describes a property value (required)
         :type property_value: PropertyValue
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1073,7 +1072,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         property_value: Annotated[PropertyValue, Field(description="PropertyValuePayload describes a property value")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1097,7 +1096,7 @@ class PropertiesV2Api:
         :type pid: str
         :param property_value: PropertyValuePayload describes a property value (required)
         :type property_value: PropertyValue
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1156,7 +1155,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         property_value: Annotated[PropertyValue, Field(description="PropertyValuePayload describes a property value")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1180,7 +1179,7 @@ class PropertiesV2Api:
         :type pid: str
         :param property_value: PropertyValuePayload describes a property value (required)
         :type property_value: PropertyValue
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1286,8 +1285,7 @@ class PropertiesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -1323,7 +1321,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1347,7 +1345,7 @@ class PropertiesV2Api:
         :type pid: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1405,7 +1403,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1429,7 +1427,7 @@ class PropertiesV2Api:
         :type pid: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1487,7 +1485,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1511,7 +1509,7 @@ class PropertiesV2Api:
         :type pid: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1645,7 +1643,7 @@ class PropertiesV2Api:
         var_from: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
         interval: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)")] = None,
         to: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1677,7 +1675,7 @@ class PropertiesV2Api:
         :type interval: int
         :param to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
         :type to: str
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1744,7 +1742,7 @@ class PropertiesV2Api:
         var_from: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
         interval: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)")] = None,
         to: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1776,7 +1774,7 @@ class PropertiesV2Api:
         :type interval: int
         :param to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
         :type to: str
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1843,7 +1841,7 @@ class PropertiesV2Api:
         var_from: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
         interval: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)")] = None,
         to: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1875,7 +1873,7 @@ class PropertiesV2Api:
         :type interval: int
         :param to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
         :type to: str
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2030,7 +2028,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2054,7 +2052,7 @@ class PropertiesV2Api:
         :type pid: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2113,7 +2111,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2137,7 +2135,7 @@ class PropertiesV2Api:
         :type pid: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2196,7 +2194,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2220,7 +2218,7 @@ class PropertiesV2Api:
         :type pid: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: The id of the organization
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2326,8 +2324,7 @@ class PropertiesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )

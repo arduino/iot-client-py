@@ -19,7 +19,7 @@ Check if the password matches.
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -38,7 +38,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -74,7 +77,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.goa.error+json, text/plain
 
 ### HTTP response details
@@ -97,7 +100,7 @@ Removes the password for the device.
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -115,7 +118,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -172,7 +178,7 @@ Returns whether the password for this device is set or not. It doesn't return th
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -191,7 +197,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -252,7 +261,7 @@ Sets the password for the device. It can never be read back.
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -272,7 +281,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -310,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.devicev2.pass+json, application/vnd.goa.error+json
 
 ### HTTP response details
