@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr, field_validator
+from pydantic import Field, StrictBool, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
 from iot_api_client.models.arduino_dashboardshare import ArduinoDashboardshare
@@ -51,8 +51,8 @@ class DashboardsV2Api:
     def dashboards_v2_clone(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        clone: Clone,
-        x_organization: Optional[StrictStr] = None,
+        clone: Annotated[Clone, Field(description="Add overrides used when performing a clone of a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -72,9 +72,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param clone: (required)
+        :param clone: Add overrides used when performing a clone of a dashboard (required)
         :type clone: Clone
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -131,8 +131,8 @@ class DashboardsV2Api:
     def dashboards_v2_clone_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        clone: Clone,
-        x_organization: Optional[StrictStr] = None,
+        clone: Annotated[Clone, Field(description="Add overrides used when performing a clone of a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -152,9 +152,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param clone: (required)
+        :param clone: Add overrides used when performing a clone of a dashboard (required)
         :type clone: Clone
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -211,8 +211,8 @@ class DashboardsV2Api:
     def dashboards_v2_clone_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        clone: Clone,
-        x_organization: Optional[StrictStr] = None,
+        clone: Annotated[Clone, Field(description="Add overrides used when performing a clone of a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -232,9 +232,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param clone: (required)
+        :param clone: Add overrides used when performing a clone of a dashboard (required)
         :type clone: Clone
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -337,8 +337,7 @@ class DashboardsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -371,8 +370,8 @@ class DashboardsV2Api:
     @validate_call
     def dashboards_v2_create(
         self,
-        dashboardv2: Annotated[Dashboardv2, Field(description="DashboardV2Payload describes a dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -390,9 +389,9 @@ class DashboardsV2Api:
 
         Create a new dashboard
 
-        :param dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param dashboardv2: Describes a dashboard (required)
         :type dashboardv2: Dashboardv2
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -446,8 +445,8 @@ class DashboardsV2Api:
     @validate_call
     def dashboards_v2_create_with_http_info(
         self,
-        dashboardv2: Annotated[Dashboardv2, Field(description="DashboardV2Payload describes a dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -465,9 +464,9 @@ class DashboardsV2Api:
 
         Create a new dashboard
 
-        :param dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param dashboardv2: Describes a dashboard (required)
         :type dashboardv2: Dashboardv2
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -521,8 +520,8 @@ class DashboardsV2Api:
     @validate_call
     def dashboards_v2_create_without_preload_content(
         self,
-        dashboardv2: Annotated[Dashboardv2, Field(description="DashboardV2Payload describes a dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -540,9 +539,9 @@ class DashboardsV2Api:
 
         Create a new dashboard
 
-        :param dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param dashboardv2: Describes a dashboard (required)
         :type dashboardv2: Dashboardv2
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -640,8 +639,7 @@ class DashboardsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -675,7 +673,8 @@ class DashboardsV2Api:
     def dashboards_v2_delete(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the thing")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -695,7 +694,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param force: If true, hard delete the thing
+        :type force: bool
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -721,6 +722,7 @@ class DashboardsV2Api:
 
         _param = self._dashboards_v2_delete_serialize(
             id=id,
+            force=force,
             x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -751,7 +753,8 @@ class DashboardsV2Api:
     def dashboards_v2_delete_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the thing")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -771,7 +774,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param force: If true, hard delete the thing
+        :type force: bool
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -797,6 +802,7 @@ class DashboardsV2Api:
 
         _param = self._dashboards_v2_delete_serialize(
             id=id,
+            force=force,
             x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -827,7 +833,8 @@ class DashboardsV2Api:
     def dashboards_v2_delete_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the thing")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -847,7 +854,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param force: If true, hard delete the thing
+        :type force: bool
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -873,6 +882,7 @@ class DashboardsV2Api:
 
         _param = self._dashboards_v2_delete_serialize(
             id=id,
+            force=force,
             x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -898,6 +908,7 @@ class DashboardsV2Api:
     def _dashboards_v2_delete_serialize(
         self,
         id,
+        force,
         x_organization,
         _request_auth,
         _content_type,
@@ -923,6 +934,10 @@ class DashboardsV2Api:
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
+        if force is not None:
+            
+            _query_params.append(('force', force))
+            
         # process the header parameters
         if x_organization is not None:
             _header_params['X-Organization'] = x_organization
@@ -968,7 +983,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         user_id: Annotated[StrictStr, Field(description="The id of the user")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -990,7 +1005,7 @@ class DashboardsV2Api:
         :type id: str
         :param user_id: The id of the user (required)
         :type user_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1048,7 +1063,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         user_id: Annotated[StrictStr, Field(description="The id of the user")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1070,7 +1085,7 @@ class DashboardsV2Api:
         :type id: str
         :param user_id: The id of the user (required)
         :type user_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1128,7 +1143,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         user_id: Annotated[StrictStr, Field(description="The id of the user")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1150,7 +1165,7 @@ class DashboardsV2Api:
         :type id: str
         :param user_id: The id of the user (required)
         :type user_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1276,7 +1291,7 @@ class DashboardsV2Api:
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         widget_id: Annotated[StrictStr, Field(description="The id of the widget")],
         widgetlink: Widgetlink,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1300,7 +1315,7 @@ class DashboardsV2Api:
         :type widget_id: str
         :param widgetlink: (required)
         :type widgetlink: Widgetlink
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1360,7 +1375,7 @@ class DashboardsV2Api:
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         widget_id: Annotated[StrictStr, Field(description="The id of the widget")],
         widgetlink: Widgetlink,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1384,7 +1399,7 @@ class DashboardsV2Api:
         :type widget_id: str
         :param widgetlink: (required)
         :type widgetlink: Widgetlink
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1444,7 +1459,7 @@ class DashboardsV2Api:
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         widget_id: Annotated[StrictStr, Field(description="The id of the widget")],
         widgetlink: Widgetlink,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1468,7 +1483,7 @@ class DashboardsV2Api:
         :type widget_id: str
         :param widgetlink: (required)
         :type widgetlink: Widgetlink
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1575,8 +1590,7 @@ class DashboardsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -1609,9 +1623,9 @@ class DashboardsV2Api:
     @validate_call
     def dashboards_v2_list(
         self,
-        name: Annotated[Optional[Annotated[str, Field(strict=True, max_length=64)]], Field(description="The name of the dashboard")] = None,
-        user_id: Annotated[Optional[StrictStr], Field(description="The user_id of the dashboard's owner")] = None,
-        x_organization: Optional[StrictStr] = None,
+        name: Annotated[Optional[Annotated[str, Field(strict=True, max_length=64)]], Field(description="Filter by name of the dashboard. It support like matching.")] = None,
+        user_id: Annotated[Optional[StrictStr], Field(description="Filter by user_id of the dashboard's owner")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1629,11 +1643,11 @@ class DashboardsV2Api:
 
         Returns the list of dashboards
 
-        :param name: The name of the dashboard
+        :param name: Filter by name of the dashboard. It support like matching.
         :type name: str
-        :param user_id: The user_id of the dashboard's owner
+        :param user_id: Filter by user_id of the dashboard's owner
         :type user_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1688,9 +1702,9 @@ class DashboardsV2Api:
     @validate_call
     def dashboards_v2_list_with_http_info(
         self,
-        name: Annotated[Optional[Annotated[str, Field(strict=True, max_length=64)]], Field(description="The name of the dashboard")] = None,
-        user_id: Annotated[Optional[StrictStr], Field(description="The user_id of the dashboard's owner")] = None,
-        x_organization: Optional[StrictStr] = None,
+        name: Annotated[Optional[Annotated[str, Field(strict=True, max_length=64)]], Field(description="Filter by name of the dashboard. It support like matching.")] = None,
+        user_id: Annotated[Optional[StrictStr], Field(description="Filter by user_id of the dashboard's owner")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1708,11 +1722,11 @@ class DashboardsV2Api:
 
         Returns the list of dashboards
 
-        :param name: The name of the dashboard
+        :param name: Filter by name of the dashboard. It support like matching.
         :type name: str
-        :param user_id: The user_id of the dashboard's owner
+        :param user_id: Filter by user_id of the dashboard's owner
         :type user_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1767,9 +1781,9 @@ class DashboardsV2Api:
     @validate_call
     def dashboards_v2_list_without_preload_content(
         self,
-        name: Annotated[Optional[Annotated[str, Field(strict=True, max_length=64)]], Field(description="The name of the dashboard")] = None,
-        user_id: Annotated[Optional[StrictStr], Field(description="The user_id of the dashboard's owner")] = None,
-        x_organization: Optional[StrictStr] = None,
+        name: Annotated[Optional[Annotated[str, Field(strict=True, max_length=64)]], Field(description="Filter by name of the dashboard. It support like matching.")] = None,
+        user_id: Annotated[Optional[StrictStr], Field(description="Filter by user_id of the dashboard's owner")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1787,11 +1801,11 @@ class DashboardsV2Api:
 
         Returns the list of dashboards
 
-        :param name: The name of the dashboard
+        :param name: Filter by name of the dashboard. It support like matching.
         :type name: str
-        :param user_id: The user_id of the dashboard's owner
+        :param user_id: Filter by user_id of the dashboard's owner
         :type user_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1918,7 +1932,7 @@ class DashboardsV2Api:
     def dashboards_v2_list_shares(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1938,7 +1952,7 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1994,7 +2008,7 @@ class DashboardsV2Api:
     def dashboards_v2_list_shares_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2014,7 +2028,7 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2070,7 +2084,7 @@ class DashboardsV2Api:
     def dashboards_v2_list_shares_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2090,7 +2104,7 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2207,11 +2221,331 @@ class DashboardsV2Api:
 
 
     @validate_call
+    def dashboards_v2_patch(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the dashboard")],
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ArduinoDashboardv2:
+        """patch dashboards_v2
+
+        Updates an existing dashboard field without overwriting the existing data
+
+        :param id: The id of the dashboard (required)
+        :type id: str
+        :param dashboardv2: Describes a dashboard (required)
+        :type dashboardv2: Dashboardv2
+        :param x_organization: Organization space identifer (optional)
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._dashboards_v2_patch_serialize(
+            id=id,
+            dashboardv2=dashboardv2,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ArduinoDashboardv2",
+            '400': "Error",
+            '401': "Error",
+            '403': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def dashboards_v2_patch_with_http_info(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the dashboard")],
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ArduinoDashboardv2]:
+        """patch dashboards_v2
+
+        Updates an existing dashboard field without overwriting the existing data
+
+        :param id: The id of the dashboard (required)
+        :type id: str
+        :param dashboardv2: Describes a dashboard (required)
+        :type dashboardv2: Dashboardv2
+        :param x_organization: Organization space identifer (optional)
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._dashboards_v2_patch_serialize(
+            id=id,
+            dashboardv2=dashboardv2,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ArduinoDashboardv2",
+            '400': "Error",
+            '401': "Error",
+            '403': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def dashboards_v2_patch_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the dashboard")],
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """patch dashboards_v2
+
+        Updates an existing dashboard field without overwriting the existing data
+
+        :param id: The id of the dashboard (required)
+        :type id: str
+        :param dashboardv2: Describes a dashboard (required)
+        :type dashboardv2: Dashboardv2
+        :param x_organization: Organization space identifer (optional)
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._dashboards_v2_patch_serialize(
+            id=id,
+            dashboardv2=dashboardv2,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ArduinoDashboardv2",
+            '400': "Error",
+            '401': "Error",
+            '403': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _dashboards_v2_patch_serialize(
+        self,
+        id,
+        dashboardv2,
+        x_organization,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
+        # process the form parameters
+        # process the body parameter
+        if dashboardv2 is not None:
+            _body_params = dashboardv2
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/vnd.arduino.dashboardv2+json', 
+                    'application/vnd.goa.error+json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'oauth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PATCH',
+            resource_path='/iot/v2/dashboards/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def dashboards_v2_request_access(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         sharerequest: Sharerequest,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2233,7 +2567,7 @@ class DashboardsV2Api:
         :type id: str
         :param sharerequest: (required)
         :type sharerequest: Sharerequest
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2291,7 +2625,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         sharerequest: Sharerequest,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2313,7 +2647,7 @@ class DashboardsV2Api:
         :type id: str
         :param sharerequest: (required)
         :type sharerequest: Sharerequest
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2371,7 +2705,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         sharerequest: Sharerequest,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2393,7 +2727,7 @@ class DashboardsV2Api:
         :type id: str
         :param sharerequest: (required)
         :type sharerequest: Sharerequest
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2496,8 +2830,7 @@ class DashboardsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -2532,7 +2865,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         dashboardshare: Dashboardshare,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2554,7 +2887,7 @@ class DashboardsV2Api:
         :type id: str
         :param dashboardshare: (required)
         :type dashboardshare: Dashboardshare
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2612,7 +2945,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         dashboardshare: Dashboardshare,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2634,7 +2967,7 @@ class DashboardsV2Api:
         :type id: str
         :param dashboardshare: (required)
         :type dashboardshare: Dashboardshare
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2692,7 +3025,7 @@ class DashboardsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
         dashboardshare: Dashboardshare,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2714,7 +3047,7 @@ class DashboardsV2Api:
         :type id: str
         :param dashboardshare: (required)
         :type dashboardshare: Dashboardshare
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2817,8 +3150,7 @@ class DashboardsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -2852,7 +3184,7 @@ class DashboardsV2Api:
     def dashboards_v2_show(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2868,11 +3200,11 @@ class DashboardsV2Api:
     ) -> ArduinoDashboardv2:
         """show dashboards_v2
 
-        Show a dashboard
+        Show a dashboard by id
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2927,7 +3259,7 @@ class DashboardsV2Api:
     def dashboards_v2_show_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2943,11 +3275,11 @@ class DashboardsV2Api:
     ) -> ApiResponse[ArduinoDashboardv2]:
         """show dashboards_v2
 
-        Show a dashboard
+        Show a dashboard by id
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3002,7 +3334,7 @@ class DashboardsV2Api:
     def dashboards_v2_show_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3018,11 +3350,11 @@ class DashboardsV2Api:
     ) -> RESTResponseType:
         """show dashboards_v2
 
-        Show a dashboard
+        Show a dashboard by id
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3141,7 +3473,7 @@ class DashboardsV2Api:
     def dashboards_v2_template(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3161,7 +3493,7 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3217,7 +3549,7 @@ class DashboardsV2Api:
     def dashboards_v2_template_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3237,7 +3569,7 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3293,7 +3625,7 @@ class DashboardsV2Api:
     def dashboards_v2_template_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3313,7 +3645,7 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3433,8 +3765,8 @@ class DashboardsV2Api:
     def dashboards_v2_update(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        dashboardv2: Annotated[Dashboardv2, Field(description="DashboardV2Payload describes a dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3454,9 +3786,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param dashboardv2: Describes a dashboard (required)
         :type dashboardv2: Dashboardv2
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3513,8 +3845,8 @@ class DashboardsV2Api:
     def dashboards_v2_update_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        dashboardv2: Annotated[Dashboardv2, Field(description="DashboardV2Payload describes a dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3534,9 +3866,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param dashboardv2: Describes a dashboard (required)
         :type dashboardv2: Dashboardv2
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3593,8 +3925,8 @@ class DashboardsV2Api:
     def dashboards_v2_update_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the dashboard")],
-        dashboardv2: Annotated[Dashboardv2, Field(description="DashboardV2Payload describes a dashboard")],
-        x_organization: Optional[StrictStr] = None,
+        dashboardv2: Annotated[Dashboardv2, Field(description="Describes a dashboard")],
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3614,9 +3946,9 @@ class DashboardsV2Api:
 
         :param id: The id of the dashboard (required)
         :type id: str
-        :param dashboardv2: DashboardV2Payload describes a dashboard (required)
+        :param dashboardv2: Describes a dashboard (required)
         :type dashboardv2: Dashboardv2
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3719,8 +4051,7 @@ class DashboardsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )

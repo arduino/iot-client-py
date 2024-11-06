@@ -1,5 +1,6 @@
 # Clone
 
+Add overrides used when performing a clone of a dashboard
 
 ## Properties
 

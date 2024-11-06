@@ -16,6 +16,7 @@ Create a new lora device. Its info are saved on our database, and on the lora pr
 
 ### Example
 
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -30,13 +31,22 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.LoraDevicesV1Api(api_client)
     create_lora_devices_v1_payload = iot_api_client.CreateLoraDevicesV1Payload() # CreateLoraDevicesV1Payload | 
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # create lora_devices_v1
@@ -55,7 +65,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_lora_devices_v1_payload** | [**CreateLoraDevicesV1Payload**](CreateLoraDevicesV1Payload.md)|  | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -63,11 +73,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.loradevicev1+json
 
 ### HTTP response details

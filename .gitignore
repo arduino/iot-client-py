@@ -65,5 +65,4 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
-
 pyproject.toml

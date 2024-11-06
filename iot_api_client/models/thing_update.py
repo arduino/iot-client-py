@@ -33,10 +33,11 @@ class ThingUpdate(BaseModel):
     id: Optional[StrictStr] = Field(default=None, description="The id of the thing")
     name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The friendly name of the thing")
     properties: Optional[List[ModelProperty]] = Field(default=None, description="The properties of the thing")
+    soft_deleted: Optional[StrictBool] = Field(default=False, description="If false, restore the thing from the soft deletion")
     timezone: Optional[StrictStr] = Field(default=None, description="A time zone name. Check /v2/timezones for a list of valid names.")
     webhook_active: Optional[StrictBool] = Field(default=None, description="Webhook uri")
     webhook_uri: Optional[StrictStr] = Field(default=None, description="Webhook uri")
-    __properties: ClassVar[List[str]] = ["assistant", "device_id", "id", "name", "properties", "timezone", "webhook_active", "webhook_uri"]
+    __properties: ClassVar[List[str]] = ["assistant", "device_id", "id", "name", "properties", "soft_deleted", "timezone", "webhook_active", "webhook_uri"]
 
     @field_validator('assistant')
     def assistant_validate_enum(cls, value):
@@ -121,6 +122,7 @@ class ThingUpdate(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "properties": [ModelProperty.from_dict(_item) for _item in obj["properties"]] if obj.get("properties") is not None else None,
+            "soft_deleted": obj.get("soft_deleted") if obj.get("soft_deleted") is not None else False,
             "timezone": obj.get("timezone"),
             "webhook_active": obj.get("webhook_active"),
             "webhook_uri": obj.get("webhook_uri")

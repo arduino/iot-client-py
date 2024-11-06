@@ -25,7 +25,7 @@ Clone a given thing
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -45,7 +45,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -53,7 +56,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.ThingsV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     thing_clone = iot_api_client.ThingClone() # ThingClone | Payload to clone a new thing from an existing one
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # clone things_v2
@@ -73,7 +76,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **thing_clone** | [**ThingClone**](ThingClone.md)| Payload to clone a new thing from an existing one | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -85,7 +88,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.thing+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -110,7 +113,7 @@ Creates a new thing associated to the user
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -130,7 +133,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -138,7 +144,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.ThingsV2Api(api_client)
     thing_create = iot_api_client.ThingCreate() # ThingCreate | Payload to create a new thing
     force = False # bool | If true, detach device from the other thing, and attach to this thing (optional) (default to False)
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # create things_v2
@@ -158,7 +164,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **thing_create** | [**ThingCreate**](ThingCreate.md)| Payload to create a new thing | 
  **force** | **bool**| If true, detach device from the other thing, and attach to this thing | [optional] [default to False]
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -170,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.thing+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -196,7 +202,7 @@ Creates a new sketch thing associated to the thing
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -216,7 +222,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -224,7 +233,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.ThingsV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     thing_sketch = iot_api_client.ThingSketch() # ThingSketch | ThingSketchPayload describes a sketch of a thing
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # createSketch things_v2
@@ -244,7 +253,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **thing_sketch** | [**ThingSketch**](ThingSketch.md)| ThingSketchPayload describes a sketch of a thing | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -256,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.thing+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -282,7 +291,7 @@ Removes a thing associated to the user
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -300,7 +309,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -308,7 +320,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.ThingsV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     force = False # bool | If true, hard delete the thing (optional) (default to False)
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # delete things_v2
@@ -326,7 +338,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **force** | **bool**| If true, hard delete the thing | [optional] [default to False]
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -361,7 +373,7 @@ deleteSketch things_v2
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -380,14 +392,17 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.ThingsV2Api(api_client)
     id = 'id_example' # str | The id of the thing
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # deleteSketch things_v2
@@ -406,7 +421,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -442,7 +457,7 @@ Returns the list of things associated to the user
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -461,7 +476,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -473,7 +491,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     show_deleted = False # bool | If true, shows the soft deleted things (optional) (default to False)
     show_properties = False # bool | If true, returns things with their properties, and last values (optional) (default to False)
     tags = ['tags_example'] # List[str] | Filter by tags (optional)
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # list things_v2
@@ -497,7 +515,7 @@ Name | Type | Description  | Notes
  **show_deleted** | **bool**| If true, shows the soft deleted things | [optional] [default to False]
  **show_properties** | **bool**| If true, returns things with their properties, and last values | [optional] [default to False]
  **tags** | [**List[str]**](str.md)| Filter by tags | [optional] 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -533,7 +551,7 @@ Returns the thing requested by the user
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -552,7 +570,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -560,7 +581,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.ThingsV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     show_deleted = False # bool | If true, shows the soft deleted thing (optional) (default to False)
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # show things_v2
@@ -580,7 +601,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **show_deleted** | **bool**| If true, shows the soft deleted thing | [optional] [default to False]
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -616,7 +637,7 @@ Extract template from the given thing
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -635,14 +656,17 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.ThingsV2Api(api_client)
     id = 'id_example' # str | The id of the thing
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # template things_v2
@@ -661,7 +685,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -698,7 +722,7 @@ Updates a thing associated to the user
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -718,7 +742,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -727,7 +754,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     thing_update = iot_api_client.ThingUpdate() # ThingUpdate | Payload to update an existing thing
     force = False # bool | If true, detach device from the other thing, and attach to this thing (optional) (default to False)
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # update things_v2
@@ -748,7 +775,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **thing_update** | [**ThingUpdate**](ThingUpdate.md)| Payload to update an existing thing | 
  **force** | **bool**| If true, detach device from the other thing, and attach to this thing | [optional] [default to False]
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -760,7 +787,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.thing+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -787,7 +814,7 @@ Update an existing thing sketch
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -807,7 +834,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -815,7 +845,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.ThingsV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     sketch_id = 'sketch_id_example' # str | The id of the sketch
-    x_organization = 'x_organization_example' # str |  (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
     update_sketch = iot_api_client.UpdateSketch() # UpdateSketch |  (optional)
 
     try:
@@ -836,7 +866,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **sketch_id** | **str**| The id of the sketch | 
- **x_organization** | **str**|  | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
  **update_sketch** | [**UpdateSketch**](UpdateSketch.md)|  | [optional] 
 
 ### Return type
@@ -849,7 +879,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.thing+json, application/vnd.goa.error+json
 
 ### HTTP response details

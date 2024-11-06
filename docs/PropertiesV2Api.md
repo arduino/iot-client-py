@@ -22,7 +22,7 @@ Creates a new property associated to a thing
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -42,7 +42,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -50,7 +53,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.PropertiesV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     model_property = iot_api_client.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
-    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # create properties_v2
@@ -70,7 +73,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **model_property** | [**ModelProperty**](ModelProperty.md)| PropertyPayload describes a property of a thing. No field is mandatory | 
- **x_organization** | **str**| The id of the organization | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -82,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.property+json, application/vnd.goa.error+json
 
 ### HTTP response details
@@ -107,7 +110,7 @@ Removes a property associated to a thing
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -125,7 +128,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -134,7 +140,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     force = False # bool | If true, hard delete the property (optional) (default to False)
-    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # delete properties_v2
@@ -153,7 +159,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **force** | **bool**| If true, hard delete the property | [optional] [default to False]
- **x_organization** | **str**| The id of the organization | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -188,7 +194,7 @@ Returns the list of properties associated to the thing
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -207,7 +213,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -215,7 +224,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.PropertiesV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     show_deleted = False # bool | If true, shows the soft deleted properties (optional) (default to False)
-    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # list properties_v2
@@ -235,7 +244,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **show_deleted** | **bool**| If true, shows the soft deleted properties | [optional] [default to False]
- **x_organization** | **str**| The id of the organization | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -270,7 +279,7 @@ Publish a property value to MQTT
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -289,7 +298,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -298,7 +310,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     property_value = iot_api_client.PropertyValue() # PropertyValue | PropertyValuePayload describes a property value
-    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # publish properties_v2
@@ -317,7 +329,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **property_value** | [**PropertyValue**](PropertyValue.md)| PropertyValuePayload describes a property value | 
- **x_organization** | **str**| The id of the organization | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -329,7 +341,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.goa.error+json, text/plain
 
 ### HTTP response details
@@ -353,7 +365,7 @@ Returns the property requested by the user
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -372,7 +384,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -381,7 +396,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     show_deleted = False # bool | If true, shows the soft deleted properties (optional) (default to False)
-    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # show properties_v2
@@ -402,7 +417,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **show_deleted** | **bool**| If true, shows the soft deleted properties | [optional] [default to False]
- **x_organization** | **str**| The id of the organization | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -437,7 +452,7 @@ Get numerical property's historic data binned on a specified time interval (note
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -456,7 +471,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -469,7 +487,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     var_from = 'var_from_example' # str | Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) (optional)
     interval = 56 # int | Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response) (optional)
     to = 'to_example' # str | Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) (optional)
-    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # timeseries properties_v2
@@ -494,7 +512,7 @@ Name | Type | Description  | Notes
  **var_from** | **str**| Get data with a timestamp &gt;&#x3D; to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) | [optional] 
  **interval** | **int**| Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response) | [optional] 
  **to** | **str**| Get data with a timestamp &lt; to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) | [optional] 
- **x_organization** | **str**| The id of the organization | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -530,7 +548,7 @@ Updates a property associated to a thing
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer (JWT) Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -550,7 +568,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization (JWT): oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -559,7 +580,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     model_property = iot_api_client.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
-    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
 
     try:
         # update properties_v2
@@ -580,7 +601,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **model_property** | [**ModelProperty**](ModelProperty.md)| PropertyPayload describes a property of a thing. No field is mandatory | 
- **x_organization** | **str**| The id of the organization | [optional] 
+ **x_organization** | **str**| Organization space identifer (optional) | [optional] 
 
 ### Return type
 
@@ -592,7 +613,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.arduino.property+json, application/vnd.goa.error+json
 
 ### HTTP response details

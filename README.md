@@ -75,7 +75,7 @@ from iot_api_client.api import DevicesV2Api
 
 # configure and instance the API client
 client_config = Configuration(host="https://api2.arduino.cc")
-client_config.access_token = YOUR_ACCESS_TOKEN
+client_config.access_token = YOUR_ACCESS_TOKEN or token function
 client = iot.ApiClient(client_config)
 
 # as an example, interact with the devices API
@@ -89,7 +89,8 @@ try:
     api_instance = DevicesV2Api(client)
     api_response = api_instance.devices_v2_list()
     for device in api_response:
-        print(device.name+" - id:"+device.id+" - type:"+device.type)
+        print(device.name)
+        print(device.type)
 
 except ApiException as e:
     print("Exception when calling DevicesV2Api->devices_v2_list: %s\n" % e)

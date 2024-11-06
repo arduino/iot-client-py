@@ -16,4 +16,5 @@ from iot_api_client.api.series_v2_api import SeriesV2Api
 from iot_api_client.api.templates_api import TemplatesApi
 from iot_api_client.api.things_v2_api import ThingsV2Api
 from iot_api_client.api.things_v2_tags_api import ThingsV2TagsApi
+from iot_api_client.api.triggers_v1_api import TriggersV1Api
 
