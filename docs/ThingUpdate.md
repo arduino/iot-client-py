@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **id** | **str** | The id of the thing | [optional] 
 **name** | **str** | The friendly name of the thing | [optional] 
 **properties** | [**List[ModelProperty]**](ModelProperty.md) | The properties of the thing | [optional] 
+**soft_deleted** | **bool** | If false, restore the thing from the soft deletion | [optional] [default to False]
 **timezone** | **str** | A time zone name. Check /v2/timezones for a list of valid names. | [optional] 
 **webhook_active** | **bool** | Webhook uri | [optional] 
 **webhook_uri** | **str** | Webhook uri | [optional] 

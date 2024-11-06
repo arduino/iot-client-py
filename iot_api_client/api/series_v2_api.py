@@ -16,8 +16,9 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
+from pydantic import Field, StrictStr
 from typing import Optional
+from typing_extensions import Annotated
 from iot_api_client.models.arduino_series_batch import ArduinoSeriesBatch
 from iot_api_client.models.arduino_series_batch_sampled import ArduinoSeriesBatchSampled
 from iot_api_client.models.arduino_series_raw_batch import ArduinoSeriesRawBatch
@@ -50,7 +51,7 @@ class SeriesV2Api:
     def series_v2_batch_query(
         self,
         batch_query_requests_media_v1: BatchQueryRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,7 +71,7 @@ class SeriesV2Api:
 
         :param batch_query_requests_media_v1: (required)
         :type batch_query_requests_media_v1: BatchQueryRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -127,7 +128,7 @@ class SeriesV2Api:
     def series_v2_batch_query_with_http_info(
         self,
         batch_query_requests_media_v1: BatchQueryRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -147,7 +148,7 @@ class SeriesV2Api:
 
         :param batch_query_requests_media_v1: (required)
         :type batch_query_requests_media_v1: BatchQueryRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -204,7 +205,7 @@ class SeriesV2Api:
     def series_v2_batch_query_without_preload_content(
         self,
         batch_query_requests_media_v1: BatchQueryRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -224,7 +225,7 @@ class SeriesV2Api:
 
         :param batch_query_requests_media_v1: (required)
         :type batch_query_requests_media_v1: BatchQueryRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -324,8 +325,7 @@ class SeriesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -359,7 +359,7 @@ class SeriesV2Api:
     def series_v2_batch_query_raw(
         self,
         batch_query_raw_requests_media_v1: BatchQueryRawRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -379,7 +379,7 @@ class SeriesV2Api:
 
         :param batch_query_raw_requests_media_v1: (required)
         :type batch_query_raw_requests_media_v1: BatchQueryRawRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -436,7 +436,7 @@ class SeriesV2Api:
     def series_v2_batch_query_raw_with_http_info(
         self,
         batch_query_raw_requests_media_v1: BatchQueryRawRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -456,7 +456,7 @@ class SeriesV2Api:
 
         :param batch_query_raw_requests_media_v1: (required)
         :type batch_query_raw_requests_media_v1: BatchQueryRawRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -513,7 +513,7 @@ class SeriesV2Api:
     def series_v2_batch_query_raw_without_preload_content(
         self,
         batch_query_raw_requests_media_v1: BatchQueryRawRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -533,7 +533,7 @@ class SeriesV2Api:
 
         :param batch_query_raw_requests_media_v1: (required)
         :type batch_query_raw_requests_media_v1: BatchQueryRawRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -633,8 +633,7 @@ class SeriesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -668,7 +667,7 @@ class SeriesV2Api:
     def series_v2_batch_query_raw_last_value(
         self,
         batch_last_value_requests_media_v1: BatchLastValueRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -688,7 +687,7 @@ class SeriesV2Api:
 
         :param batch_last_value_requests_media_v1: (required)
         :type batch_last_value_requests_media_v1: BatchLastValueRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -744,7 +743,7 @@ class SeriesV2Api:
     def series_v2_batch_query_raw_last_value_with_http_info(
         self,
         batch_last_value_requests_media_v1: BatchLastValueRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -764,7 +763,7 @@ class SeriesV2Api:
 
         :param batch_last_value_requests_media_v1: (required)
         :type batch_last_value_requests_media_v1: BatchLastValueRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -820,7 +819,7 @@ class SeriesV2Api:
     def series_v2_batch_query_raw_last_value_without_preload_content(
         self,
         batch_last_value_requests_media_v1: BatchLastValueRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -840,7 +839,7 @@ class SeriesV2Api:
 
         :param batch_last_value_requests_media_v1: (required)
         :type batch_last_value_requests_media_v1: BatchLastValueRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -939,8 +938,7 @@ class SeriesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -974,7 +972,7 @@ class SeriesV2Api:
     def series_v2_batch_query_sampling(
         self,
         batch_query_sampled_requests_media_v1: BatchQuerySampledRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -994,7 +992,7 @@ class SeriesV2Api:
 
         :param batch_query_sampled_requests_media_v1: (required)
         :type batch_query_sampled_requests_media_v1: BatchQuerySampledRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1051,7 +1049,7 @@ class SeriesV2Api:
     def series_v2_batch_query_sampling_with_http_info(
         self,
         batch_query_sampled_requests_media_v1: BatchQuerySampledRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1071,7 +1069,7 @@ class SeriesV2Api:
 
         :param batch_query_sampled_requests_media_v1: (required)
         :type batch_query_sampled_requests_media_v1: BatchQuerySampledRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1128,7 +1126,7 @@ class SeriesV2Api:
     def series_v2_batch_query_sampling_without_preload_content(
         self,
         batch_query_sampled_requests_media_v1: BatchQuerySampledRequestsMediaV1,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1148,7 +1146,7 @@ class SeriesV2Api:
 
         :param batch_query_sampled_requests_media_v1: (required)
         :type batch_query_sampled_requests_media_v1: BatchQuerySampledRequestsMediaV1
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1248,8 +1246,7 @@ class SeriesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -1283,7 +1280,7 @@ class SeriesV2Api:
     def series_v2_historic_data(
         self,
         historic_data_request: HistoricDataRequest,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1303,7 +1300,7 @@ class SeriesV2Api:
 
         :param historic_data_request: (required)
         :type historic_data_request: HistoricDataRequest
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1359,7 +1356,7 @@ class SeriesV2Api:
     def series_v2_historic_data_with_http_info(
         self,
         historic_data_request: HistoricDataRequest,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1379,7 +1376,7 @@ class SeriesV2Api:
 
         :param historic_data_request: (required)
         :type historic_data_request: HistoricDataRequest
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1435,7 +1432,7 @@ class SeriesV2Api:
     def series_v2_historic_data_without_preload_content(
         self,
         historic_data_request: HistoricDataRequest,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1455,7 +1452,7 @@ class SeriesV2Api:
 
         :param historic_data_request: (required)
         :type historic_data_request: HistoricDataRequest
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1553,8 +1550,7 @@ class SeriesV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
