@@ -303,6 +303,7 @@ class NetworkCredentialsV1Api:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'oauth2'
         ]
 
         return self.api_client.param_serialize(
@@ -570,6 +571,7 @@ class NetworkCredentialsV1Api:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'oauth2'
         ]
 
         return self.api_client.param_serialize(
