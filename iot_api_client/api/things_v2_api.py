@@ -50,7 +50,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_clone: Annotated[ThingClone, Field(description="Payload to clone a new thing from an existing one")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -72,7 +72,7 @@ class ThingsV2Api:
         :type id: str
         :param thing_clone: Payload to clone a new thing from an existing one (required)
         :type thing_clone: ThingClone
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -130,7 +130,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_clone: Annotated[ThingClone, Field(description="Payload to clone a new thing from an existing one")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -152,7 +152,7 @@ class ThingsV2Api:
         :type id: str
         :param thing_clone: Payload to clone a new thing from an existing one (required)
         :type thing_clone: ThingClone
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -210,7 +210,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_clone: Annotated[ThingClone, Field(description="Payload to clone a new thing from an existing one")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -232,7 +232,7 @@ class ThingsV2Api:
         :type id: str
         :param thing_clone: Payload to clone a new thing from an existing one (required)
         :type thing_clone: ThingClone
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -335,8 +335,7 @@ class ThingsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -371,7 +370,7 @@ class ThingsV2Api:
         self,
         thing_create: Annotated[ThingCreate, Field(description="Payload to create a new thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, detach device from the other thing, and attach to this thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -393,7 +392,7 @@ class ThingsV2Api:
         :type thing_create: ThingCreate
         :param force: If true, detach device from the other thing, and attach to this thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -452,7 +451,7 @@ class ThingsV2Api:
         self,
         thing_create: Annotated[ThingCreate, Field(description="Payload to create a new thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, detach device from the other thing, and attach to this thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -474,7 +473,7 @@ class ThingsV2Api:
         :type thing_create: ThingCreate
         :param force: If true, detach device from the other thing, and attach to this thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -533,7 +532,7 @@ class ThingsV2Api:
         self,
         thing_create: Annotated[ThingCreate, Field(description="Payload to create a new thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, detach device from the other thing, and attach to this thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -555,7 +554,7 @@ class ThingsV2Api:
         :type thing_create: ThingCreate
         :param force: If true, detach device from the other thing, and attach to this thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -661,8 +660,7 @@ class ThingsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -697,7 +695,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_sketch: Annotated[ThingSketch, Field(description="ThingSketchPayload describes a sketch of a thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -719,7 +717,7 @@ class ThingsV2Api:
         :type id: str
         :param thing_sketch: ThingSketchPayload describes a sketch of a thing (required)
         :type thing_sketch: ThingSketch
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -778,7 +776,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_sketch: Annotated[ThingSketch, Field(description="ThingSketchPayload describes a sketch of a thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -800,7 +798,7 @@ class ThingsV2Api:
         :type id: str
         :param thing_sketch: ThingSketchPayload describes a sketch of a thing (required)
         :type thing_sketch: ThingSketch
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -859,7 +857,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_sketch: Annotated[ThingSketch, Field(description="ThingSketchPayload describes a sketch of a thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -881,7 +879,7 @@ class ThingsV2Api:
         :type id: str
         :param thing_sketch: ThingSketchPayload describes a sketch of a thing (required)
         :type thing_sketch: ThingSketch
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -985,8 +983,7 @@ class ThingsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -1021,7 +1018,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1043,7 +1040,7 @@ class ThingsV2Api:
         :type id: str
         :param force: If true, hard delete the thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1101,7 +1098,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1123,7 +1120,7 @@ class ThingsV2Api:
         :type id: str
         :param force: If true, hard delete the thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1181,7 +1178,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1203,7 +1200,7 @@ class ThingsV2Api:
         :type id: str
         :param force: If true, hard delete the thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1329,7 +1326,7 @@ class ThingsV2Api:
     def things_v2_delete_sketch(
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1348,7 +1345,7 @@ class ThingsV2Api:
 
         :param id: The id of the thing (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1403,7 +1400,7 @@ class ThingsV2Api:
     def things_v2_delete_sketch_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1422,7 +1419,7 @@ class ThingsV2Api:
 
         :param id: The id of the thing (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1477,7 +1474,7 @@ class ThingsV2Api:
     def things_v2_delete_sketch_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1496,7 +1493,7 @@ class ThingsV2Api:
 
         :param id: The id of the thing (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1620,7 +1617,7 @@ class ThingsV2Api:
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted things")] = None,
         show_properties: Annotated[Optional[StrictBool], Field(description="If true, returns things with their properties, and last values")] = None,
         tags: Annotated[Optional[List[Annotated[str, Field(strict=True, max_length=129)]]], Field(description="Filter by tags")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1650,7 +1647,7 @@ class ThingsV2Api:
         :type show_properties: bool
         :param tags: Filter by tags
         :type tags: List[str]
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1715,7 +1712,7 @@ class ThingsV2Api:
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted things")] = None,
         show_properties: Annotated[Optional[StrictBool], Field(description="If true, returns things with their properties, and last values")] = None,
         tags: Annotated[Optional[List[Annotated[str, Field(strict=True, max_length=129)]]], Field(description="Filter by tags")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1745,7 +1742,7 @@ class ThingsV2Api:
         :type show_properties: bool
         :param tags: Filter by tags
         :type tags: List[str]
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1810,7 +1807,7 @@ class ThingsV2Api:
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted things")] = None,
         show_properties: Annotated[Optional[StrictBool], Field(description="If true, returns things with their properties, and last values")] = None,
         tags: Annotated[Optional[List[Annotated[str, Field(strict=True, max_length=129)]]], Field(description="Filter by tags")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1840,7 +1837,7 @@ class ThingsV2Api:
         :type show_properties: bool
         :param tags: Filter by tags
         :type tags: List[str]
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1994,7 +1991,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2016,7 +2013,7 @@ class ThingsV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted thing
         :type show_deleted: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2073,7 +2070,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2095,7 +2092,7 @@ class ThingsV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted thing
         :type show_deleted: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2152,7 +2149,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2174,7 +2171,7 @@ class ThingsV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted thing
         :type show_deleted: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2299,7 +2296,7 @@ class ThingsV2Api:
     def things_v2_template(
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2319,7 +2316,7 @@ class ThingsV2Api:
 
         :param id: The id of the thing (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2375,7 +2372,7 @@ class ThingsV2Api:
     def things_v2_template_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2395,7 +2392,7 @@ class ThingsV2Api:
 
         :param id: The id of the thing (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2451,7 +2448,7 @@ class ThingsV2Api:
     def things_v2_template_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2471,7 +2468,7 @@ class ThingsV2Api:
 
         :param id: The id of the thing (required)
         :type id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2593,7 +2590,7 @@ class ThingsV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_update: Annotated[ThingUpdate, Field(description="Payload to update an existing thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, detach device from the other thing, and attach to this thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2617,7 +2614,7 @@ class ThingsV2Api:
         :type thing_update: ThingUpdate
         :param force: If true, detach device from the other thing, and attach to this thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2679,7 +2676,7 @@ class ThingsV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_update: Annotated[ThingUpdate, Field(description="Payload to update an existing thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, detach device from the other thing, and attach to this thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2703,7 +2700,7 @@ class ThingsV2Api:
         :type thing_update: ThingUpdate
         :param force: If true, detach device from the other thing, and attach to this thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2765,7 +2762,7 @@ class ThingsV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         thing_update: Annotated[ThingUpdate, Field(description="Payload to update an existing thing")],
         force: Annotated[Optional[StrictBool], Field(description="If true, detach device from the other thing, and attach to this thing")] = None,
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2789,7 +2786,7 @@ class ThingsV2Api:
         :type thing_update: ThingUpdate
         :param force: If true, detach device from the other thing, and attach to this thing
         :type force: bool
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2900,8 +2897,7 @@ class ThingsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )
@@ -2936,7 +2932,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         sketch_id: Annotated[StrictStr, Field(description="The id of the sketch")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         update_sketch: Optional[UpdateSketch] = None,
         _request_timeout: Union[
             None,
@@ -2959,7 +2955,7 @@ class ThingsV2Api:
         :type id: str
         :param sketch_id: The id of the sketch (required)
         :type sketch_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param update_sketch:
         :type update_sketch: UpdateSketch
@@ -3021,7 +3017,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         sketch_id: Annotated[StrictStr, Field(description="The id of the sketch")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         update_sketch: Optional[UpdateSketch] = None,
         _request_timeout: Union[
             None,
@@ -3044,7 +3040,7 @@ class ThingsV2Api:
         :type id: str
         :param sketch_id: The id of the sketch (required)
         :type sketch_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param update_sketch:
         :type update_sketch: UpdateSketch
@@ -3106,7 +3102,7 @@ class ThingsV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         sketch_id: Annotated[StrictStr, Field(description="The id of the sketch")],
-        x_organization: Optional[StrictStr] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
         update_sketch: Optional[UpdateSketch] = None,
         _request_timeout: Union[
             None,
@@ -3129,7 +3125,7 @@ class ThingsV2Api:
         :type id: str
         :param sketch_id: The id of the sketch (required)
         :type sketch_id: str
-        :param x_organization:
+        :param x_organization: Organization space identifer (optional)
         :type x_organization: str
         :param update_sketch:
         :type update_sketch: UpdateSketch
@@ -3239,8 +3235,7 @@ class ThingsV2Api:
             _default_content_type = (
                 self.api_client.select_header_content_type(
                     [
-                        'application/json', 
-                        'application/x-www-form-urlencoded'
+                        'application/json'
                     ]
                 )
             )

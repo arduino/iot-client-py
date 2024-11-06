@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **connection_type** | **str** | The type of the connections selected by the user when multiple connections are available | [optional] 
 **created_at** | **datetime** | Creation date of the device | [optional] 
+**deleted_at** | **datetime** | Deletion date of the trigger | [optional] 
 **device_status** | **str** | The connection status of the device | [optional] 
 **events** | [**List[ArduinoDevicev2SimpleProperties]**](ArduinoDevicev2SimpleProperties.md) | ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view) | [optional] 
 **fqbn** | **str** | The fully qualified board name | [optional] 
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 **tags** | **Dict[str, object]** | Tags belonging to the device | [optional] 
 **thing** | [**ArduinoThing**](ArduinoThing.md) |  | [optional] 
 **type** | **str** | The type of the device | 
+**updated_at** | **datetime** | Update date of the trigger | [optional] 
 **user_id** | **str** | The id of the user | 
 **webhooks** | [**List[ArduinoDevicev2Webhook]**](ArduinoDevicev2Webhook.md) | ArduinoDevicev2WebhookCollection is the media type for an array of ArduinoDevicev2Webhook (default view) | [optional] 
 **wifi_fw_version** | **str** | The version of the NINA/WIFI101 firmware running on the device | [optional] 

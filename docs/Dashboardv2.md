@@ -1,6 +1,6 @@
 # Dashboardv2
 
-DashboardV2Payload describes a dashboard
+Describes a dashboard
 
 ## Properties
 
@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cover_image** | **str** | The cover image of the dashboard | [optional] 
 **name** | **str** | The friendly name of the dashboard | [optional] 
+**soft_deleted** | **bool** | If false, restore the thing from the soft deletion | [optional] [default to False]
 **widgets** | [**List[Widget]**](Widget.md) | Widgets attached to this dashboard | [optional] 
 
 ## Example
