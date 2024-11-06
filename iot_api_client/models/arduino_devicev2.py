@@ -32,6 +32,7 @@ class ArduinoDevicev2(BaseModel):
     """ # noqa: E501
     connection_type: Optional[StrictStr] = Field(default=None, description="The type of the connections selected by the user when multiple connections are available")
     created_at: Optional[datetime] = Field(default=None, description="Creation date of the device")
+    deleted_at: Optional[datetime] = Field(default=None, description="Deletion date of the trigger")
     device_status: Optional[StrictStr] = Field(default=None, description="The connection status of the device")
     events: Optional[List[ArduinoDevicev2SimpleProperties]] = Field(default=None, description="ArduinoDevicev2SimplePropertiesCollection is the media type for an array of ArduinoDevicev2SimpleProperties (default view)")
     fqbn: Optional[StrictStr] = Field(default=None, description="The fully qualified board name")
@@ -51,10 +52,11 @@ class ArduinoDevicev2(BaseModel):
     tags: Optional[Dict[str, Any]] = Field(default=None, description="Tags belonging to the device")
     thing: Optional[ArduinoThing] = None
     type: StrictStr = Field(description="The type of the device")
+    updated_at: Optional[datetime] = Field(default=None, description="Update date of the trigger")
     user_id: StrictStr = Field(description="The id of the user")
     webhooks: Optional[List[ArduinoDevicev2Webhook]] = Field(default=None, description="ArduinoDevicev2WebhookCollection is the media type for an array of ArduinoDevicev2Webhook (default view)")
     wifi_fw_version: Optional[StrictStr] = Field(default=None, description="The version of the NINA/WIFI101 firmware running on the device")
-    __properties: ClassVar[List[str]] = ["connection_type", "created_at", "device_status", "events", "fqbn", "href", "id", "label", "last_activity_at", "latest_wifi_fw_version", "metadata", "name", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "serial", "tags", "thing", "type", "user_id", "webhooks", "wifi_fw_version"]
+    __properties: ClassVar[List[str]] = ["connection_type", "created_at", "deleted_at", "device_status", "events", "fqbn", "href", "id", "label", "last_activity_at", "latest_wifi_fw_version", "metadata", "name", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "serial", "tags", "thing", "type", "updated_at", "user_id", "webhooks", "wifi_fw_version"]
 
     @field_validator('connection_type')
     def connection_type_validate_enum(cls, value):
@@ -146,6 +148,7 @@ class ArduinoDevicev2(BaseModel):
         _obj = cls.model_validate({
             "connection_type": obj.get("connection_type"),
             "created_at": obj.get("created_at"),
+            "deleted_at": obj.get("deleted_at"),
             "device_status": obj.get("device_status"),
             "events": [ArduinoDevicev2SimpleProperties.from_dict(_item) for _item in obj["events"]] if obj.get("events") is not None else None,
             "fqbn": obj.get("fqbn"),
@@ -165,6 +168,7 @@ class ArduinoDevicev2(BaseModel):
             "tags": obj.get("tags"),
             "thing": ArduinoThing.from_dict(obj["thing"]) if obj.get("thing") is not None else None,
             "type": obj.get("type"),
+            "updated_at": obj.get("updated_at"),
             "user_id": obj.get("user_id"),
             "webhooks": [ArduinoDevicev2Webhook.from_dict(_item) for _item in obj["webhooks"]] if obj.get("webhooks") is not None else None,
             "wifi_fw_version": obj.get("wifi_fw_version")

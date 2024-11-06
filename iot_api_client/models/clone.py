@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class Clone(BaseModel):
     """
-    Clone
+    Add overrides used when performing a clone of a dashboard
     """ # noqa: E501
     overrides: Optional[List[Override]] = Field(default=None, description="The overrides to apply to the cloned dashboard. An override is a tuple of ids: the id of the thing to override and the id of the new thing to link")
     __properties: ClassVar[List[str]] = ["overrides"]

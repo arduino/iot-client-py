@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **fqbn** | **str** | The fully qualified board name | [optional] 
 **name** | **str** | The friendly name of the device | [optional] 
 **serial** | **str** | The serial uuid of the device | [optional] 
+**soft_deleted** | **bool** | If false, restore the thing from the soft deletion | [optional] [default to False]
 **type** | **str** | The type of the device | 
 **user_id** | **str** | The user_id associated to the device. If absent it will be inferred from the authentication header | [optional] 
 **wifi_fw_version** | **str** | The version of the NINA/WIFI101 firmware running on the device | [optional] 

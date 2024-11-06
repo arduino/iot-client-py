@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from iot_api_client.models.widget import Widget
@@ -26,12 +26,13 @@ from typing_extensions import Self
 
 class Dashboardv2(BaseModel):
     """
-    DashboardV2Payload describes a dashboard
+    Describes a dashboard
     """ # noqa: E501
     cover_image: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="The cover image of the dashboard")
     name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The friendly name of the dashboard")
+    soft_deleted: Optional[StrictBool] = Field(default=False, description="If false, restore the thing from the soft deletion")
     widgets: Optional[List[Widget]] = Field(default=None, description="Widgets attached to this dashboard")
-    __properties: ClassVar[List[str]] = ["cover_image", "name", "widgets"]
+    __properties: ClassVar[List[str]] = ["cover_image", "name", "soft_deleted", "widgets"]
 
     @field_validator('name')
     def name_validate_regular_expression(cls, value):
@@ -103,6 +104,7 @@ class Dashboardv2(BaseModel):
         _obj = cls.model_validate({
             "cover_image": obj.get("cover_image"),
             "name": obj.get("name"),
+            "soft_deleted": obj.get("soft_deleted") if obj.get("soft_deleted") is not None else False,
             "widgets": [Widget.from_dict(_item) for _item in obj["widgets"]] if obj.get("widgets") is not None else None
         })
         return _obj

@@ -18,7 +18,7 @@ Delete a tag associated to the thing given its key.
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -36,7 +36,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -97,7 +100,7 @@ List tags associated to the thing.
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -116,7 +119,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -176,7 +182,7 @@ Creates or updates a tag associated to the thing.
 
 ### Example
 
-* OAuth Authentication (oauth2):
+* Bearer Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -195,7 +201,10 @@ configuration = iot_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-configuration.access_token = os.environ["ACCESS_TOKEN"]
+# Configure Bearer authorization: oauth2
+configuration = iot_api_client.Configuration(
+    access_token = os.environ["BEARER_TOKEN"]
+)
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -231,7 +240,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/x-www-form-urlencoded
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.goa.error+json, text/plain
 
 ### HTTP response details
