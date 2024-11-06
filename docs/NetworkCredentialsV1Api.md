@@ -17,6 +17,7 @@ Show required network credentials depending on device type
 
 ### Example
 
+* OAuth Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -30,6 +31,12 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -63,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -89,6 +96,7 @@ Show available connection types depending on device type
 
 ### Example
 
+* OAuth Authentication (oauth2):
 
 ```python
 import iot_api_client
@@ -101,6 +109,12 @@ configuration = iot_api_client.Configuration(
     host = "https://api2.arduino.cc"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with iot_api_client.ApiClient(configuration) as api_client:
@@ -130,7 +144,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 

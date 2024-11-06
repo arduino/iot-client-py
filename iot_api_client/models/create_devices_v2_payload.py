@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -31,10 +31,11 @@ class CreateDevicesV2Payload(BaseModel):
     fqbn: Optional[StrictStr] = Field(default=None, description="The fully qualified board name")
     name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The friendly name of the device")
     serial: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The serial uuid of the device")
+    soft_deleted: Optional[StrictBool] = Field(default=False, description="If false, restore the thing from the soft deletion")
     type: StrictStr = Field(description="The type of the device")
     user_id: Optional[StrictStr] = Field(default=None, description="The user_id associated to the device. If absent it will be inferred from the authentication header")
     wifi_fw_version: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="The version of the NINA/WIFI101 firmware running on the device")
-    __properties: ClassVar[List[str]] = ["connection_type", "fqbn", "name", "serial", "type", "user_id", "wifi_fw_version"]
+    __properties: ClassVar[List[str]] = ["connection_type", "fqbn", "name", "serial", "soft_deleted", "type", "user_id", "wifi_fw_version"]
 
     @field_validator('connection_type')
     def connection_type_validate_enum(cls, value):
@@ -138,6 +139,7 @@ class CreateDevicesV2Payload(BaseModel):
             "fqbn": obj.get("fqbn"),
             "name": obj.get("name"),
             "serial": obj.get("serial"),
+            "soft_deleted": obj.get("soft_deleted") if obj.get("soft_deleted") is not None else False,
             "type": obj.get("type"),
             "user_id": obj.get("user_id"),
             "wifi_fw_version": obj.get("wifi_fw_version")
