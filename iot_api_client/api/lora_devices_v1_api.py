@@ -16,9 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
+from pydantic import StrictStr
 from typing import Optional
-from typing_extensions import Annotated
 from iot_api_client.models.arduino_loradevicev1 import ArduinoLoradevicev1
 from iot_api_client.models.create_lora_devices_v1_payload import CreateLoraDevicesV1Payload
 
@@ -44,7 +43,7 @@ class LoraDevicesV1Api:
     def lora_devices_v1_create(
         self,
         create_lora_devices_v1_payload: CreateLoraDevicesV1Payload,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -64,7 +63,7 @@ class LoraDevicesV1Api:
 
         :param create_lora_devices_v1_payload: (required)
         :type create_lora_devices_v1_payload: CreateLoraDevicesV1Payload
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -115,7 +114,7 @@ class LoraDevicesV1Api:
     def lora_devices_v1_create_with_http_info(
         self,
         create_lora_devices_v1_payload: CreateLoraDevicesV1Payload,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -135,7 +134,7 @@ class LoraDevicesV1Api:
 
         :param create_lora_devices_v1_payload: (required)
         :type create_lora_devices_v1_payload: CreateLoraDevicesV1Payload
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -186,7 +185,7 @@ class LoraDevicesV1Api:
     def lora_devices_v1_create_without_preload_content(
         self,
         create_lora_devices_v1_payload: CreateLoraDevicesV1Payload,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -206,7 +205,7 @@ class LoraDevicesV1Api:
 
         :param create_lora_devices_v1_payload: (required)
         :type create_lora_devices_v1_payload: CreateLoraDevicesV1Payload
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

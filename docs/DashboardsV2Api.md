@@ -55,8 +55,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
-    clone = iot_api_client.Clone() # Clone | Add overrides used when performing a clone of a dashboard
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    clone = iot_api_client.Clone() # Clone | 
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # clone dashboards_v2
@@ -75,8 +75,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
- **clone** | [**Clone**](Clone.md)| Add overrides used when performing a clone of a dashboard | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **clone** | [**Clone**](Clone.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -139,8 +139,8 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
-    dashboardv2 = iot_api_client.Dashboardv2() # Dashboardv2 | Describes a dashboard
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    dashboardv2 = iot_api_client.Dashboardv2() # Dashboardv2 | DashboardV2Payload describes a dashboard
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # create dashboards_v2
@@ -158,8 +158,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| Describes a dashboard | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| DashboardV2Payload describes a dashboard | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -221,7 +221,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
     force = False # bool | If true, hard delete the thing (optional) (default to False)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # delete dashboards_v2
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
  **force** | **bool**| If true, hard delete the thing | [optional] [default to False]
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -302,7 +302,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
     user_id = 'user_id_example' # str | The id of the user
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # deleteShare dashboards_v2
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
  **user_id** | **str**| The id of the user | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -386,7 +386,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the dashboard
     widget_id = 'widget_id_example' # str | The id of the widget
     widgetlink = iot_api_client.Widgetlink() # Widgetlink | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # link dashboards_v2
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the dashboard | 
  **widget_id** | **str**| The id of the widget | 
  **widgetlink** | [**Widgetlink**](Widgetlink.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -469,9 +469,9 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
-    name = 'name_example' # str | Filter by name of the dashboard. It support like matching. (optional)
-    user_id = 'user_id_example' # str | Filter by user_id of the dashboard's owner (optional)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    name = 'name_example' # str | The name of the dashboard (optional)
+    user_id = 'user_id_example' # str | The user_id of the dashboard's owner (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # list dashboards_v2
@@ -489,9 +489,9 @@ with iot_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Filter by name of the dashboard. It support like matching. | [optional] 
- **user_id** | **str**| Filter by user_id of the dashboard&#39;s owner | [optional] 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **name** | **str**| The name of the dashboard | [optional] 
+ **user_id** | **str**| The user_id of the dashboard&#39;s owner | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -553,7 +553,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # listShares dashboards_v2
@@ -572,7 +572,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -636,8 +636,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
-    dashboardv2 = iot_api_client.Dashboardv2() # Dashboardv2 | Describes a dashboard
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    dashboardv2 = iot_api_client.Dashboardv2() # Dashboardv2 | DashboardV2Payload describes a dashboard
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # patch dashboards_v2
@@ -656,8 +656,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
- **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| Describes a dashboard | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| DashboardV2Payload describes a dashboard | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -721,7 +721,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
     sharerequest = iot_api_client.Sharerequest() # Sharerequest | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # requestAccess dashboards_v2
@@ -739,7 +739,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
  **sharerequest** | [**Sharerequest**](Sharerequest.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -803,7 +803,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
     dashboardshare = iot_api_client.Dashboardshare() # Dashboardshare | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # share dashboards_v2
@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
  **dashboardshare** | [**Dashboardshare**](Dashboardshare.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -854,7 +854,7 @@ void (empty response body)
 
 show dashboards_v2
 
-Show a dashboard by id
+Show a dashboard
 
 ### Example
 
@@ -884,7 +884,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # show dashboards_v2
@@ -903,7 +903,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -965,7 +965,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # template dashboards_v2
@@ -984,7 +984,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -1048,8 +1048,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DashboardsV2Api(api_client)
     id = 'id_example' # str | The id of the dashboard
-    dashboardv2 = iot_api_client.Dashboardv2() # Dashboardv2 | Describes a dashboard
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    dashboardv2 = iot_api_client.Dashboardv2() # Dashboardv2 | DashboardV2Payload describes a dashboard
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # update dashboards_v2
@@ -1068,8 +1068,8 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the dashboard | 
- **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| Describes a dashboard | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **dashboardv2** | [**Dashboardv2**](Dashboardv2.md)| DashboardV2Payload describes a dashboard | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 

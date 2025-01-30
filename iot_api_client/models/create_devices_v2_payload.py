@@ -27,15 +27,27 @@ class CreateDevicesV2Payload(BaseModel):
     """
     DeviceV2 describes a device.
     """ # noqa: E501
+    ble_mac: Optional[Annotated[str, Field(min_length=17, strict=True, max_length=17)]] = None
     connection_type: Optional[StrictStr] = Field(default=None, description="The type of the connections selected by the user when multiple connections are available")
     fqbn: Optional[StrictStr] = Field(default=None, description="The fully qualified board name")
     name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The friendly name of the device")
     serial: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The serial uuid of the device")
     soft_deleted: Optional[StrictBool] = Field(default=False, description="If false, restore the thing from the soft deletion")
     type: StrictStr = Field(description="The type of the device")
+    unique_hardware_id: Optional[Annotated[str, Field(min_length=64, strict=True, max_length=64)]] = None
     user_id: Optional[StrictStr] = Field(default=None, description="The user_id associated to the device. If absent it will be inferred from the authentication header")
     wifi_fw_version: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="The version of the NINA/WIFI101 firmware running on the device")
-    __properties: ClassVar[List[str]] = ["connection_type", "fqbn", "name", "serial", "soft_deleted", "type", "user_id", "wifi_fw_version"]
+    __properties: ClassVar[List[str]] = ["ble_mac", "connection_type", "fqbn", "name", "serial", "soft_deleted", "type", "unique_hardware_id", "user_id", "wifi_fw_version"]
+
+    @field_validator('ble_mac')
+    def ble_mac_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^(?:[0-9A-Fa-f]{2}[:]){5}(?:[0-9A-Fa-f]{2})", value):
+            raise ValueError(r"must validate the regular expression /^(?:[0-9A-Fa-f]{2}[:]){5}(?:[0-9A-Fa-f]{2})/")
+        return value
 
     @field_validator('connection_type')
     def connection_type_validate_enum(cls, value):
@@ -135,12 +147,14 @@ class CreateDevicesV2Payload(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "ble_mac": obj.get("ble_mac"),
             "connection_type": obj.get("connection_type"),
             "fqbn": obj.get("fqbn"),
             "name": obj.get("name"),
             "serial": obj.get("serial"),
             "soft_deleted": obj.get("soft_deleted") if obj.get("soft_deleted") is not None else False,
             "type": obj.get("type"),
+            "unique_hardware_id": obj.get("unique_hardware_id"),
             "user_id": obj.get("user_id"),
             "wifi_fw_version": obj.get("wifi_fw_version")
         })
