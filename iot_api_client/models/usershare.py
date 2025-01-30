@@ -17,18 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from iot_api_client.models.override import Override
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Clone(BaseModel):
+class Usershare(BaseModel):
     """
-    Clone
+    Usershare
     """ # noqa: E501
-    overrides: Optional[List[Override]] = Field(default=None, description="The overrides to apply to the cloned dashboard. An override is a tuple of ids: the id of the thing to override and the id of the new thing to link")
-    __properties: ClassVar[List[str]] = ["overrides"]
+    user_id: Optional[StrictStr] = Field(default=None, description="The userID of the user you want to share the dashboard with")
+    username: Optional[StrictStr] = Field(default=None, description="The username of the user you want to share the dashboard with")
+    __properties: ClassVar[List[str]] = ["user_id", "username"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +48,7 @@ class Clone(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Clone from a JSON string"""
+        """Create an instance of Usershare from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -69,18 +69,11 @@ class Clone(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in overrides (list)
-        _items = []
-        if self.overrides:
-            for _item_overrides in self.overrides:
-                if _item_overrides:
-                    _items.append(_item_overrides.to_dict())
-            _dict['overrides'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Clone from a dict"""
+        """Create an instance of Usershare from a dict"""
         if obj is None:
             return None
 
@@ -88,7 +81,8 @@ class Clone(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "overrides": [Override.from_dict(_item) for _item in obj["overrides"]] if obj.get("overrides") is not None else None
+            "user_id": obj.get("user_id"),
+            "username": obj.get("username")
         })
         return _obj
 

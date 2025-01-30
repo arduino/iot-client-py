@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "3.0.0"
+__version__ = "3.1.0"
 
 # import apis into sdk package
 from iot_api_client.api.dashboards_v2_api import DashboardsV2Api
@@ -48,6 +48,7 @@ from iot_api_client.exceptions import ApiException
 # import models into sdk package
 from iot_api_client.models.arduino_action import ArduinoAction
 from iot_api_client.models.arduino_action_template import ArduinoActionTemplate
+from iot_api_client.models.arduino_arduinoconnections_v1 import ArduinoArduinoconnectionsV1
 from iot_api_client.models.arduino_compressedv2 import ArduinoCompressedv2
 from iot_api_client.models.arduino_credentialsv1 import ArduinoCredentialsv1
 from iot_api_client.models.arduino_dashboardowner import ArduinoDashboardowner
@@ -116,6 +117,7 @@ from iot_api_client.models.body_expression import BodyExpression
 from iot_api_client.models.check_devices_v2_pass_payload import CheckDevicesV2PassPayload
 from iot_api_client.models.clone import Clone
 from iot_api_client.models.create_action import CreateAction
+from iot_api_client.models.create_claimed_devices_v2_payload import CreateClaimedDevicesV2Payload
 from iot_api_client.models.create_devices_v2_certs_payload import CreateDevicesV2CertsPayload
 from iot_api_client.models.create_devices_v2_payload import CreateDevicesV2Payload
 from iot_api_client.models.create_lora_devices_v1_payload import CreateLoraDevicesV1Payload
@@ -152,6 +154,7 @@ from iot_api_client.models.trigger import Trigger
 from iot_api_client.models.update_action import UpdateAction
 from iot_api_client.models.update_sketch import UpdateSketch
 from iot_api_client.models.user_recipient import UserRecipient
+from iot_api_client.models.usershare import Usershare
 from iot_api_client.models.variable import Variable
 from iot_api_client.models.widget import Widget
 from iot_api_client.models.widgetlink import Widgetlink

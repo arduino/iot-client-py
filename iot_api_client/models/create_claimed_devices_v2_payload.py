@@ -17,27 +17,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Devicev2(BaseModel):
+class CreateClaimedDevicesV2Payload(BaseModel):
     """
     DeviceV2 describes a device.
     """ # noqa: E501
+    id: Optional[StrictStr] = Field(default=None, description="The id of the device", alias="ID")
     ble_mac: Optional[Annotated[str, Field(min_length=17, strict=True, max_length=17)]] = None
     connection_type: Optional[StrictStr] = Field(default=None, description="The type of the connections selected by the user when multiple connections are available")
     fqbn: Optional[StrictStr] = Field(default=None, description="The fully qualified board name")
     name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The friendly name of the device")
     serial: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The serial uuid of the device")
-    soft_deleted: Optional[StrictBool] = Field(default=False, description="If false, restore the thing from the soft deletion")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the device")
-    unique_hardware_id: Optional[Annotated[str, Field(min_length=64, strict=True, max_length=64)]] = None
-    user_id: Optional[StrictStr] = Field(default=None, description="The user_id associated to the device. If absent it will be inferred from the authentication header")
+    type: StrictStr = Field(description="The type of the device")
+    unique_hardware_id: Annotated[str, Field(min_length=64, strict=True, max_length=64)] = Field(description="The unique hardware id of the device")
+    user_id: StrictStr = Field(description="The user_id associated to the device. If absent it will be inferred from the authentication header")
     wifi_fw_version: Optional[Annotated[str, Field(strict=True, max_length=10)]] = Field(default=None, description="The version of the NINA/WIFI101 firmware running on the device")
-    __properties: ClassVar[List[str]] = ["ble_mac", "connection_type", "fqbn", "name", "serial", "soft_deleted", "type", "unique_hardware_id", "user_id", "wifi_fw_version"]
+    __properties: ClassVar[List[str]] = ["ID", "ble_mac", "connection_type", "fqbn", "name", "serial", "type", "unique_hardware_id", "user_id", "wifi_fw_version"]
 
     @field_validator('ble_mac')
     def ble_mac_validate_regular_expression(cls, value):
@@ -82,9 +82,6 @@ class Devicev2(BaseModel):
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['mkrwifi1010', 'mkr1000', 'nano_33_iot', 'mkrgsm1400', 'mkrnb1500', 'login_and_secretkey_wifi', 'envie_m7', 'nanorp2040connect', 'nicla_vision', 'phone', 'portenta_x8', 'opta', 'giga', 'generic_device_secretkey', 'portenta_c33', 'unor4wifi', 'nano_nora']):
             raise ValueError("must be one of enum values ('mkrwifi1010', 'mkr1000', 'nano_33_iot', 'mkrgsm1400', 'mkrnb1500', 'login_and_secretkey_wifi', 'envie_m7', 'nanorp2040connect', 'nicla_vision', 'phone', 'portenta_x8', 'opta', 'giga', 'generic_device_secretkey', 'portenta_c33', 'unor4wifi', 'nano_nora')")
         return value
@@ -117,7 +114,7 @@ class Devicev2(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Devicev2 from a JSON string"""
+        """Create an instance of CreateClaimedDevicesV2Payload from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -142,7 +139,7 @@ class Devicev2(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Devicev2 from a dict"""
+        """Create an instance of CreateClaimedDevicesV2Payload from a dict"""
         if obj is None:
             return None
 
@@ -150,12 +147,12 @@ class Devicev2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "ID": obj.get("ID"),
             "ble_mac": obj.get("ble_mac"),
             "connection_type": obj.get("connection_type"),
             "fqbn": obj.get("fqbn"),
             "name": obj.get("name"),
             "serial": obj.get("serial"),
-            "soft_deleted": obj.get("soft_deleted") if obj.get("soft_deleted") is not None else False,
             "type": obj.get("type"),
             "unique_hardware_id": obj.get("unique_hardware_id"),
             "user_id": obj.get("user_id"),
