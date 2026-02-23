@@ -4,6 +4,10 @@ sources:
 python:
   virtual_env_dir: ".venv"
 
+ignored:
+  pip:
+    - arduino-iot-client
+
 allowed:
   - mit
   - apache-2.0
