@@ -4,7 +4,11 @@ version: 2.7.5
 type: pip
 summary: Extensions to the standard Python datetime module
 homepage: https://dateutil.readthedocs.io
-license: apache-2.0, bsd-3-clause
+# LICENSE.txt contains both Apache-2.0 (contributions after 2017-12-01) and
+# BSD-3-Clause (all historical code). The file explicitly states that BSD-3-Clause
+# applies to all code, even that also covered by Apache-2.0, making it the
+# universal baseline license.
+license: bsd-3-clause
 licenses:
 - sources: LICENSE.txt
   text: |-

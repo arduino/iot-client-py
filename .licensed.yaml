@@ -30,7 +30,6 @@ allowed:
   - gpl-3.0-or-later
   - lgpl-3.0-linking-exception
   - lgpl-3.0
-  - apache-2.0, bsd-3-clause
   - psf-2.0
 
 apps:
