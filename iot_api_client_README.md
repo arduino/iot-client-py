@@ -22,6 +22,26 @@ To be able to use it, you will need these dependencies in your own package that 
 * certifi
 * python-dateutil
 
+## How to update the license of the dependencies
+The license of the dependencies can be updated by running the following commands:
+
+- Create a virtual environment and install the dependencies:
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+- Install the licensed tool: https://github.com/licensee/licensed?tab=readme-ov-file#installation
+
+- Run the licensed tool to update the licenses files:
+
+```sh
+    licensed cache
+    licensed status
+```
+
 ## Getting Started
 
 In your own code, to use this library to connect and interact with arduino-iot-client,
