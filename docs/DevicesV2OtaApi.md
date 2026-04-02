@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **devices_v2_ota_send**
-> devices_v2_ota_send(id, devicev2_otabinaryurl)
+> devices_v2_ota_send(id, devicev2_otabinaryurl, x_organization=x_organization)
 
 send devices_v2_ota
 
@@ -45,10 +45,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2OtaApi(api_client)
     id = 'id_example' # str | The id of the device
     devicev2_otabinaryurl = iot_api_client.Devicev2Otabinaryurl() # Devicev2Otabinaryurl | 
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # send devices_v2_ota
-        api_instance.devices_v2_ota_send(id, devicev2_otabinaryurl)
+        api_instance.devices_v2_ota_send(id, devicev2_otabinaryurl, x_organization=x_organization)
     except Exception as e:
         print("Exception when calling DevicesV2OtaApi->devices_v2_ota_send: %s\n" % e)
 ```
@@ -62,6 +63,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **devicev2_otabinaryurl** | [**Devicev2Otabinaryurl**](Devicev2Otabinaryurl.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -92,7 +94,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_ota_upload**
-> ArduinoDevicev2Otaupload devices_v2_ota_upload(id, ota_file, var_async=var_async, expire_in_mins=expire_in_mins)
+> ArduinoDevicev2Otaupload devices_v2_ota_upload(id, ota_file, x_organization=x_organization, var_async=var_async, expire_in_mins=expire_in_mins)
 
 upload devices_v2_ota
 
@@ -127,12 +129,13 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2OtaApi(api_client)
     id = 'id_example' # str | The id of the device
     ota_file = None # bytearray | OTA file
+    x_organization = 'x_organization_example' # str |  (optional)
     var_async = True # bool | If false, wait for the full OTA process, until it gets a result from the device (optional) (default to True)
     expire_in_mins = 10 # int | Binary expire time in minutes, default 10 mins (optional) (default to 10)
 
     try:
         # upload devices_v2_ota
-        api_response = api_instance.devices_v2_ota_upload(id, ota_file, var_async=var_async, expire_in_mins=expire_in_mins)
+        api_response = api_instance.devices_v2_ota_upload(id, ota_file, x_organization=x_organization, var_async=var_async, expire_in_mins=expire_in_mins)
         print("The response of DevicesV2OtaApi->devices_v2_ota_upload:\n")
         pprint(api_response)
     except Exception as e:
@@ -148,6 +151,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **ota_file** | **bytearray**| OTA file | 
+ **x_organization** | **str**|  | [optional] 
  **var_async** | **bool**| If false, wait for the full OTA process, until it gets a result from the device | [optional] [default to True]
  **expire_in_mins** | **int**| Binary expire time in minutes, default 10 mins | [optional] [default to 10]
 
@@ -182,7 +186,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_ota_url**
-> devices_v2_ota_url(id, devicev2_otaurlpyalod)
+> devices_v2_ota_url(id, devicev2_otaurlpyalod, x_organization=x_organization)
 
 url devices_v2_ota
 
@@ -217,10 +221,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2OtaApi(api_client)
     id = 'id_example' # str | The id of the device
     devicev2_otaurlpyalod = iot_api_client.Devicev2Otaurlpyalod() # Devicev2Otaurlpyalod | 
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # url devices_v2_ota
-        api_instance.devices_v2_ota_url(id, devicev2_otaurlpyalod)
+        api_instance.devices_v2_ota_url(id, devicev2_otaurlpyalod, x_organization=x_organization)
     except Exception as e:
         print("Exception when calling DevicesV2OtaApi->devices_v2_ota_url: %s\n" % e)
 ```
@@ -234,6 +239,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **devicev2_otaurlpyalod** | [**Devicev2Otaurlpyalod**](Devicev2Otaurlpyalod.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 

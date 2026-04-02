@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **devices_v2_tags_delete**
-> devices_v2_tags_delete(id, key)
+> devices_v2_tags_delete(id, key, x_organization=x_organization)
 
 delete devices_v2_tags
 
@@ -44,10 +44,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2TagsApi(api_client)
     id = 'id_example' # str | The id of the device
     key = 'key_example' # str | The key of the tag
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # delete devices_v2_tags
-        api_instance.devices_v2_tags_delete(id, key)
+        api_instance.devices_v2_tags_delete(id, key, x_organization=x_organization)
     except Exception as e:
         print("Exception when calling DevicesV2TagsApi->devices_v2_tags_delete: %s\n" % e)
 ```
@@ -61,6 +62,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **key** | **str**| The key of the tag | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -87,7 +89,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_tags_list**
-> ArduinoTags devices_v2_tags_list(id)
+> ArduinoTags devices_v2_tags_list(id, x_organization=x_organization)
 
 list devices_v2_tags
 
@@ -121,10 +123,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DevicesV2TagsApi(api_client)
     id = 'id_example' # str | The id of the device
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # list devices_v2_tags
-        api_response = api_instance.devices_v2_tags_list(id)
+        api_response = api_instance.devices_v2_tags_list(id, x_organization=x_organization)
         print("The response of DevicesV2TagsApi->devices_v2_tags_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -139,6 +142,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -164,7 +168,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_tags_upsert**
-> devices_v2_tags_upsert(id, tag)
+> devices_v2_tags_upsert(id, tag, x_organization=x_organization)
 
 upsert devices_v2_tags
 
@@ -199,10 +203,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2TagsApi(api_client)
     id = 'id_example' # str | The id of the device
     tag = iot_api_client.Tag() # Tag | 
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # upsert devices_v2_tags
-        api_instance.devices_v2_tags_upsert(id, tag)
+        api_instance.devices_v2_tags_upsert(id, tag, x_organization=x_organization)
     except Exception as e:
         print("Exception when calling DevicesV2TagsApi->devices_v2_tags_upsert: %s\n" % e)
 ```
@@ -216,6 +221,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **tag** | [**Tag**](Tag.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 

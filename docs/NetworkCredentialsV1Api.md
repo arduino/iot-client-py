@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **network_credentials_v1_show_by_device**
-> network_credentials_v1_show_by_device(type)
+> ArduinoArduinoconnectionsV1 network_credentials_v1_show_by_device(type)
 
 showByDevice network_credentials_v1
 
@@ -100,6 +100,7 @@ Show available connection types depending on device type
 
 ```python
 import iot_api_client
+from iot_api_client.models.arduino_arduinoconnections_v1 import ArduinoArduinoconnectionsV1
 from iot_api_client.rest import ApiException
 from pprint import pprint
 
@@ -124,7 +125,9 @@ with iot_api_client.ApiClient(configuration) as api_client:
 
     try:
         # showByDevice network_credentials_v1
-        api_instance.network_credentials_v1_show_by_device(type)
+        api_response = api_instance.network_credentials_v1_show_by_device(type)
+        print("The response of NetworkCredentialsV1Api->network_credentials_v1_show_by_device:\n")
+        pprint(api_response)
     except Exception as e:
         print("Exception when calling NetworkCredentialsV1Api->network_credentials_v1_show_by_device: %s\n" % e)
 ```
@@ -140,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**ArduinoArduinoconnectionsV1**](ArduinoArduinoconnectionsV1.md)
 
 ### Authorization
 
@@ -149,7 +152,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/vnd.goa.error+json
+ - **Accept**: application/vnd.arduino.arduinoconnections.v1+json, application/vnd.goa.error+json
 
 ### HTTP response details
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,10 +27,11 @@ class ArduinoCredentialsv1(BaseModel):
     ArduinoCredentialsv1 media type (default view)
     """ # noqa: E501
     friendly_name: StrictStr = Field(description="Friendly name")
+    max_length: StrictInt = Field(description="Max length of the field expressed in bytes")
     required: StrictBool = Field(description="Tell if the parameter is required or not")
     secret_name: StrictStr = Field(description="The secret parameter name")
     sensitive: StrictBool = Field(description="Tell if the field is sensitive")
-    __properties: ClassVar[List[str]] = ["friendly_name", "required", "secret_name", "sensitive"]
+    __properties: ClassVar[List[str]] = ["friendly_name", "max_length", "required", "secret_name", "sensitive"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +85,7 @@ class ArduinoCredentialsv1(BaseModel):
 
         _obj = cls.model_validate({
             "friendly_name": obj.get("friendly_name"),
+            "max_length": obj.get("max_length"),
             "required": obj.get("required"),
             "secret_name": obj.get("secret_name"),
             "sensitive": obj.get("sensitive")

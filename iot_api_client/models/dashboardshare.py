@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from iot_api_client.models.usershare import Usershare
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +29,8 @@ class Dashboardshare(BaseModel):
     """ # noqa: E501
     user_id: Optional[StrictStr] = Field(default=None, description="The userID of the user you want to share the dashboard with")
     username: Optional[StrictStr] = Field(default=None, description="The username of the user you want to share the dashboard with")
-    __properties: ClassVar[List[str]] = ["user_id", "username"]
+    users: Optional[List[Usershare]] = Field(default=None, description="The list of users you want to share the dashboard with")
+    __properties: ClassVar[List[str]] = ["user_id", "username", "users"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,6 +71,13 @@ class Dashboardshare(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in users (list)
+        _items = []
+        if self.users:
+            for _item_users in self.users:
+                if _item_users:
+                    _items.append(_item_users.to_dict())
+            _dict['users'] = _items
         return _dict
 
     @classmethod
@@ -82,7 +91,8 @@ class Dashboardshare(BaseModel):
 
         _obj = cls.model_validate({
             "user_id": obj.get("user_id"),
-            "username": obj.get("username")
+            "username": obj.get("username"),
+            "users": [Usershare.from_dict(_item) for _item in obj["users"]] if obj.get("users") is not None else None
         })
         return _obj
 

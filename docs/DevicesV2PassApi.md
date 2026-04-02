@@ -89,7 +89,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_pass_delete**
-> devices_v2_pass_delete(id)
+> devices_v2_pass_delete(id, x_organization=x_organization)
 
 delete devices_v2_pass
 
@@ -122,10 +122,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DevicesV2PassApi(api_client)
     id = 'id_example' # str | The id of the device
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # delete devices_v2_pass
-        api_instance.devices_v2_pass_delete(id)
+        api_instance.devices_v2_pass_delete(id, x_organization=x_organization)
     except Exception as e:
         print("Exception when calling DevicesV2PassApi->devices_v2_pass_delete: %s\n" % e)
 ```
@@ -138,6 +139,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -164,7 +166,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_pass_get**
-> ArduinoDevicev2Pass devices_v2_pass_get(id, suggested_password=suggested_password)
+> ArduinoDevicev2Pass devices_v2_pass_get(id, suggested_password=suggested_password, x_organization=x_organization)
 
 get devices_v2_pass
 
@@ -199,10 +201,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2PassApi(api_client)
     id = 'id_example' # str | The id of the device
     suggested_password = False # bool | If true, return a suggested password (optional) (default to False)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # get devices_v2_pass
-        api_response = api_instance.devices_v2_pass_get(id, suggested_password=suggested_password)
+        api_response = api_instance.devices_v2_pass_get(id, suggested_password=suggested_password, x_organization=x_organization)
         print("The response of DevicesV2PassApi->devices_v2_pass_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -218,6 +221,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **suggested_password** | **bool**| If true, return a suggested password | [optional] [default to False]
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -244,7 +248,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_pass_set**
-> ArduinoDevicev2Pass devices_v2_pass_set(id, devicev2_pass)
+> ArduinoDevicev2Pass devices_v2_pass_set(id, devicev2_pass, x_organization=x_organization)
 
 set devices_v2_pass
 
@@ -280,10 +284,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2PassApi(api_client)
     id = 'id_example' # str | The id of the device
     devicev2_pass = iot_api_client.Devicev2Pass() # Devicev2Pass | 
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # set devices_v2_pass
-        api_response = api_instance.devices_v2_pass_set(id, devicev2_pass)
+        api_response = api_instance.devices_v2_pass_set(id, devicev2_pass, x_organization=x_organization)
         print("The response of DevicesV2PassApi->devices_v2_pass_set:\n")
         pprint(api_response)
     except Exception as e:
@@ -299,6 +304,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **devicev2_pass** | [**Devicev2Pass**](Devicev2Pass.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 

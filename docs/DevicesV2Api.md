@@ -5,11 +5,13 @@ All URIs are relative to *https://api2.arduino.cc*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**devices_v2_create**](DevicesV2Api.md#devices_v2_create) | **PUT** /iot/v2/devices | create devices_v2
+[**devices_v2_create_claimed**](DevicesV2Api.md#devices_v2_create_claimed) | **PUT** /iot/v2/devices/claim | createClaimed devices_v2
 [**devices_v2_delete**](DevicesV2Api.md#devices_v2_delete) | **DELETE** /iot/v2/devices/{id} | delete devices_v2
 [**devices_v2_get_events**](DevicesV2Api.md#devices_v2_get_events) | **GET** /iot/v2/devices/{id}/events | getEvents devices_v2
 [**devices_v2_get_properties**](DevicesV2Api.md#devices_v2_get_properties) | **GET** /iot/v2/devices/{id}/properties | getProperties devices_v2
 [**devices_v2_get_status_events**](DevicesV2Api.md#devices_v2_get_status_events) | **GET** /iot/v2/devices/{id}/status | GetStatusEvents devices_v2
 [**devices_v2_list**](DevicesV2Api.md#devices_v2_list) | **GET** /iot/v2/devices | list devices_v2
+[**devices_v2_remove_hardware_id**](DevicesV2Api.md#devices_v2_remove_hardware_id) | **POST** /iot/v2/devices/{id}/remove-uhwid | removeHardwareID devices_v2
 [**devices_v2_show**](DevicesV2Api.md#devices_v2_show) | **GET** /iot/v2/devices/{id} | show devices_v2
 [**devices_v2_timeseries**](DevicesV2Api.md#devices_v2_timeseries) | **GET** /iot/v2/devices/{id}/properties/{pid} | timeseries devices_v2
 [**devices_v2_update**](DevicesV2Api.md#devices_v2_update) | **POST** /iot/v2/devices/{id} | update devices_v2
@@ -52,7 +54,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DevicesV2Api(api_client)
     create_devices_v2_payload = iot_api_client.CreateDevicesV2Payload() # CreateDevicesV2Payload | DeviceV2 describes a device.
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # create devices_v2
@@ -71,7 +73,89 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_devices_v2_payload** | [**CreateDevicesV2Payload**](CreateDevicesV2Payload.md)| DeviceV2 describes a device. | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
+
+### Return type
+
+[**ArduinoDevicev2**](ArduinoDevicev2.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.arduino.devicev2+json, application/vnd.goa.error+json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Created |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**412** | Precondition Failed |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **devices_v2_create_claimed**
+> ArduinoDevicev2 devices_v2_create_claimed(create_claimed_devices_v2_payload, x_organization=x_organization)
+
+createClaimed devices_v2
+
+Creates a new device associated to the user.
+
+### Example
+
+* OAuth Authentication (oauth2):
+
+```python
+import iot_api_client
+from iot_api_client.models.arduino_devicev2 import ArduinoDevicev2
+from iot_api_client.models.create_claimed_devices_v2_payload import CreateClaimedDevicesV2Payload
+from iot_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api2.arduino.cc
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = iot_api_client.DevicesV2Api(api_client)
+    create_claimed_devices_v2_payload = iot_api_client.CreateClaimedDevicesV2Payload() # CreateClaimedDevicesV2Payload | DeviceV2 describes a device.
+    x_organization = 'x_organization_example' # str |  (optional)
+
+    try:
+        # createClaimed devices_v2
+        api_response = api_instance.devices_v2_create_claimed(create_claimed_devices_v2_payload, x_organization=x_organization)
+        print("The response of DevicesV2Api->devices_v2_create_claimed:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DevicesV2Api->devices_v2_create_claimed: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **create_claimed_devices_v2_payload** | [**CreateClaimedDevicesV2Payload**](CreateClaimedDevicesV2Payload.md)| DeviceV2 describes a device. | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -133,7 +217,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2Api(api_client)
     id = 'id_example' # str | The id of the device
     force = False # bool | If true, hard delete the device (optional) (default to False)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # delete devices_v2
@@ -151,7 +235,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **force** | **bool**| If true, hard delete the device | [optional] [default to False]
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -215,7 +299,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the device
     limit = 56 # int | The number of events to select (optional)
     start = 'start_example' # str | The time at which to start selecting events (optional)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # getEvents devices_v2
@@ -236,7 +320,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the device | 
  **limit** | **int**| The number of events to select | [optional] 
  **start** | **str**| The time at which to start selecting events | [optional] 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -300,7 +384,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2Api(api_client)
     id = 'id_example' # str | The id of the device
     show_deleted = False # bool | If true, shows the soft deleted properties (optional) (default to False)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # getProperties devices_v2
@@ -320,7 +404,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **show_deleted** | **bool**| If true, shows the soft deleted properties | [optional] [default to False]
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -384,7 +468,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the device
     limit = 30 # int | The number of events to select (optional) (default to 30)
     start = 'start_example' # str | The time at which to start selecting events (optional)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # GetStatusEvents devices_v2
@@ -405,7 +489,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the device | 
  **limit** | **int**| The number of events to select | [optional] [default to 30]
  **start** | **str**| The time at which to start selecting events | [optional] 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -435,7 +519,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_list**
-> List[ArduinoDevicev2] devices_v2_list(across_user_ids=across_user_ids, serial=serial, show_deleted=show_deleted, tags=tags, x_organization=x_organization)
+> List[ArduinoDevicev2] devices_v2_list(across_user_ids=across_user_ids, serial=serial, show_deleted=show_deleted, tags=tags, unique_hardware_id=unique_hardware_id, x_organization=x_organization)
 
 list devices_v2
 
@@ -472,11 +556,12 @@ with iot_api_client.ApiClient(configuration) as api_client:
     serial = 'serial_example' # str | Filter by device serial number (optional)
     show_deleted = False # bool | If true, shows the soft deleted devices (optional) (default to False)
     tags = ['tags_example'] # List[str] | Filter by tags (optional)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    unique_hardware_id = 'unique_hardware_id_example' # str | Filter by device unique hardware id (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # list devices_v2
-        api_response = api_instance.devices_v2_list(across_user_ids=across_user_ids, serial=serial, show_deleted=show_deleted, tags=tags, x_organization=x_organization)
+        api_response = api_instance.devices_v2_list(across_user_ids=across_user_ids, serial=serial, show_deleted=show_deleted, tags=tags, unique_hardware_id=unique_hardware_id, x_organization=x_organization)
         print("The response of DevicesV2Api->devices_v2_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -494,7 +579,8 @@ Name | Type | Description  | Notes
  **serial** | **str**| Filter by device serial number | [optional] 
  **show_deleted** | **bool**| If true, shows the soft deleted devices | [optional] [default to False]
  **tags** | [**List[str]**](str.md)| Filter by tags | [optional] 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **unique_hardware_id** | **str**| Filter by device unique hardware id | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -517,6 +603,88 @@ Name | Type | Description  | Notes
 **400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Forbidden |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **devices_v2_remove_hardware_id**
+> ArduinoDevicev2 devices_v2_remove_hardware_id(id, x_organization=x_organization)
+
+removeHardwareID devices_v2
+
+Removes the unique hardware id from the device
+
+### Example
+
+* OAuth Authentication (oauth2):
+
+```python
+import iot_api_client
+from iot_api_client.models.arduino_devicev2 import ArduinoDevicev2
+from iot_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api2.arduino.cc
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = iot_api_client.DevicesV2Api(api_client)
+    id = 'id_example' # str | The id of the device
+    x_organization = 'x_organization_example' # str |  (optional)
+
+    try:
+        # removeHardwareID devices_v2
+        api_response = api_instance.devices_v2_remove_hardware_id(id, x_organization=x_organization)
+        print("The response of DevicesV2Api->devices_v2_remove_hardware_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DevicesV2Api->devices_v2_remove_hardware_id: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the device | 
+ **x_organization** | **str**|  | [optional] 
+
+### Return type
+
+[**ArduinoDevicev2**](ArduinoDevicev2.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.arduino.devicev2+json, application/vnd.goa.error+json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
+**412** | Precondition Failed |  -  |
 **500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -556,7 +724,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DevicesV2Api(api_client)
     id = 'id_example' # str | The id of the device
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # show devices_v2
@@ -575,7 +743,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -640,7 +808,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     pid = 'pid_example' # str | The id of the property
     limit = 56 # int | The number of properties to select (optional)
     start = 'start_example' # str | The time at which to start selecting properties (optional)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # timeseries devices_v2
@@ -662,7 +830,7 @@ Name | Type | Description  | Notes
  **pid** | **str**| The id of the property | 
  **limit** | **int**| The number of properties to select | [optional] 
  **start** | **str**| The time at which to start selecting properties | [optional] 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -727,7 +895,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2Api(api_client)
     id = 'id_example' # str | The id of the device
     devicev2 = iot_api_client.Devicev2() # Devicev2 | DeviceV2 describes a device.
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # update devices_v2
@@ -747,7 +915,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **devicev2** | [**Devicev2**](Devicev2.md)| DeviceV2 describes a device. | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -811,7 +979,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2Api(api_client)
     id = 'id_example' # str | The id of the device
     properties_values = iot_api_client.PropertiesValues() # PropertiesValues | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # updateProperties devices_v2
@@ -829,7 +997,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **properties_values** | [**PropertiesValues**](PropertiesValues.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
