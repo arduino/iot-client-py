@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr, field_validator
+from typing import Optional
 from typing_extensions import Annotated
 from iot_api_client.models.arduino_tags import ArduinoTags
 from iot_api_client.models.tag import Tag
@@ -44,6 +45,7 @@ class DevicesV2TagsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         key: Annotated[str, Field(strict=True, max_length=64, description="The key of the tag")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -65,6 +67,8 @@ class DevicesV2TagsApi:
         :type id: str
         :param key: The key of the tag (required)
         :type key: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,6 +94,7 @@ class DevicesV2TagsApi:
         _param = self._devices_v2_tags_delete_serialize(
             id=id,
             key=key,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -118,6 +123,7 @@ class DevicesV2TagsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         key: Annotated[str, Field(strict=True, max_length=64, description="The key of the tag")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -139,6 +145,8 @@ class DevicesV2TagsApi:
         :type id: str
         :param key: The key of the tag (required)
         :type key: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -164,6 +172,7 @@ class DevicesV2TagsApi:
         _param = self._devices_v2_tags_delete_serialize(
             id=id,
             key=key,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -192,6 +201,7 @@ class DevicesV2TagsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         key: Annotated[str, Field(strict=True, max_length=64, description="The key of the tag")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -213,6 +223,8 @@ class DevicesV2TagsApi:
         :type id: str
         :param key: The key of the tag (required)
         :type key: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -238,6 +250,7 @@ class DevicesV2TagsApi:
         _param = self._devices_v2_tags_delete_serialize(
             id=id,
             key=key,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -261,6 +274,7 @@ class DevicesV2TagsApi:
         self,
         id,
         key,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -288,6 +302,8 @@ class DevicesV2TagsApi:
             _path_params['key'] = key
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
 
@@ -329,6 +345,7 @@ class DevicesV2TagsApi:
     def devices_v2_tags_list(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -348,6 +365,8 @@ class DevicesV2TagsApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -372,6 +391,7 @@ class DevicesV2TagsApi:
 
         _param = self._devices_v2_tags_list_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -398,6 +418,7 @@ class DevicesV2TagsApi:
     def devices_v2_tags_list_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -417,6 +438,8 @@ class DevicesV2TagsApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -441,6 +464,7 @@ class DevicesV2TagsApi:
 
         _param = self._devices_v2_tags_list_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -467,6 +491,7 @@ class DevicesV2TagsApi:
     def devices_v2_tags_list_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -486,6 +511,8 @@ class DevicesV2TagsApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -510,6 +537,7 @@ class DevicesV2TagsApi:
 
         _param = self._devices_v2_tags_list_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -531,6 +559,7 @@ class DevicesV2TagsApi:
     def _devices_v2_tags_list_serialize(
         self,
         id,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -556,6 +585,8 @@ class DevicesV2TagsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
 
@@ -598,6 +629,7 @@ class DevicesV2TagsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         tag: Tag,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -619,6 +651,8 @@ class DevicesV2TagsApi:
         :type id: str
         :param tag: (required)
         :type tag: Tag
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -644,6 +678,7 @@ class DevicesV2TagsApi:
         _param = self._devices_v2_tags_upsert_serialize(
             id=id,
             tag=tag,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -672,6 +707,7 @@ class DevicesV2TagsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         tag: Tag,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -693,6 +729,8 @@ class DevicesV2TagsApi:
         :type id: str
         :param tag: (required)
         :type tag: Tag
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -718,6 +756,7 @@ class DevicesV2TagsApi:
         _param = self._devices_v2_tags_upsert_serialize(
             id=id,
             tag=tag,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -746,6 +785,7 @@ class DevicesV2TagsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         tag: Tag,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -767,6 +807,8 @@ class DevicesV2TagsApi:
         :type id: str
         :param tag: (required)
         :type tag: Tag
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -792,6 +834,7 @@ class DevicesV2TagsApi:
         _param = self._devices_v2_tags_upsert_serialize(
             id=id,
             tag=tag,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -815,6 +858,7 @@ class DevicesV2TagsApi:
         self,
         id,
         tag,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -840,6 +884,8 @@ class DevicesV2TagsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
         if tag is not None:

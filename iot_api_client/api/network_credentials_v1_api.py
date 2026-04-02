@@ -19,6 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
+from iot_api_client.models.arduino_arduinoconnections_v1 import ArduinoArduinoconnectionsV1
 from iot_api_client.models.arduino_credentialsv1 import ArduinoCredentialsv1
 
 from iot_api_client.api_client import ApiClient, RequestSerialized
@@ -340,7 +341,7 @@ class NetworkCredentialsV1Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
+    ) -> ArduinoArduinoconnectionsV1:
         """showByDevice network_credentials_v1
 
         Show available connection types depending on device type
@@ -378,7 +379,7 @@ class NetworkCredentialsV1Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '200': "ArduinoArduinoconnectionsV1",
             '401': "Error",
             '404': None,
         }
@@ -409,7 +410,7 @@ class NetworkCredentialsV1Api:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
+    ) -> ApiResponse[ArduinoArduinoconnectionsV1]:
         """showByDevice network_credentials_v1
 
         Show available connection types depending on device type
@@ -447,7 +448,7 @@ class NetworkCredentialsV1Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '200': "ArduinoArduinoconnectionsV1",
             '401': "Error",
             '404': None,
         }
@@ -516,7 +517,7 @@ class NetworkCredentialsV1Api:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '200': "ArduinoArduinoconnectionsV1",
             '401': "Error",
             '404': None,
         }
@@ -563,7 +564,7 @@ class NetworkCredentialsV1Api:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json', 
+                    'application/vnd.arduino.arduinoconnections.v1+json', 
                     'application/vnd.goa.error+json'
                 ]
             )

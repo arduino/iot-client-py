@@ -344,6 +344,7 @@ class DevicesV2PassApi:
     def devices_v2_pass_delete(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -363,6 +364,8 @@ class DevicesV2PassApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -387,6 +390,7 @@ class DevicesV2PassApi:
 
         _param = self._devices_v2_pass_delete_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -414,6 +418,7 @@ class DevicesV2PassApi:
     def devices_v2_pass_delete_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -433,6 +438,8 @@ class DevicesV2PassApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -457,6 +464,7 @@ class DevicesV2PassApi:
 
         _param = self._devices_v2_pass_delete_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -484,6 +492,7 @@ class DevicesV2PassApi:
     def devices_v2_pass_delete_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -503,6 +512,8 @@ class DevicesV2PassApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -527,6 +538,7 @@ class DevicesV2PassApi:
 
         _param = self._devices_v2_pass_delete_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -549,6 +561,7 @@ class DevicesV2PassApi:
     def _devices_v2_pass_delete_serialize(
         self,
         id,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -574,6 +587,8 @@ class DevicesV2PassApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
 
@@ -616,6 +631,7 @@ class DevicesV2PassApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         suggested_password: Annotated[Optional[StrictBool], Field(description="If true, return a suggested password")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -637,6 +653,8 @@ class DevicesV2PassApi:
         :type id: str
         :param suggested_password: If true, return a suggested password
         :type suggested_password: bool
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -662,6 +680,7 @@ class DevicesV2PassApi:
         _param = self._devices_v2_pass_get_serialize(
             id=id,
             suggested_password=suggested_password,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -690,6 +709,7 @@ class DevicesV2PassApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         suggested_password: Annotated[Optional[StrictBool], Field(description="If true, return a suggested password")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -711,6 +731,8 @@ class DevicesV2PassApi:
         :type id: str
         :param suggested_password: If true, return a suggested password
         :type suggested_password: bool
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -736,6 +758,7 @@ class DevicesV2PassApi:
         _param = self._devices_v2_pass_get_serialize(
             id=id,
             suggested_password=suggested_password,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -764,6 +787,7 @@ class DevicesV2PassApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         suggested_password: Annotated[Optional[StrictBool], Field(description="If true, return a suggested password")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -785,6 +809,8 @@ class DevicesV2PassApi:
         :type id: str
         :param suggested_password: If true, return a suggested password
         :type suggested_password: bool
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -810,6 +836,7 @@ class DevicesV2PassApi:
         _param = self._devices_v2_pass_get_serialize(
             id=id,
             suggested_password=suggested_password,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -833,6 +860,7 @@ class DevicesV2PassApi:
         self,
         id,
         suggested_password,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -862,6 +890,8 @@ class DevicesV2PassApi:
             _query_params.append(('suggested_password', suggested_password))
             
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
 
@@ -904,6 +934,7 @@ class DevicesV2PassApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_pass: Devicev2Pass,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -925,6 +956,8 @@ class DevicesV2PassApi:
         :type id: str
         :param devicev2_pass: (required)
         :type devicev2_pass: Devicev2Pass
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -950,6 +983,7 @@ class DevicesV2PassApi:
         _param = self._devices_v2_pass_set_serialize(
             id=id,
             devicev2_pass=devicev2_pass,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -979,6 +1013,7 @@ class DevicesV2PassApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_pass: Devicev2Pass,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1000,6 +1035,8 @@ class DevicesV2PassApi:
         :type id: str
         :param devicev2_pass: (required)
         :type devicev2_pass: Devicev2Pass
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1025,6 +1062,7 @@ class DevicesV2PassApi:
         _param = self._devices_v2_pass_set_serialize(
             id=id,
             devicev2_pass=devicev2_pass,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1054,6 +1092,7 @@ class DevicesV2PassApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_pass: Devicev2Pass,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1075,6 +1114,8 @@ class DevicesV2PassApi:
         :type id: str
         :param devicev2_pass: (required)
         :type devicev2_pass: Devicev2Pass
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1100,6 +1141,7 @@ class DevicesV2PassApi:
         _param = self._devices_v2_pass_set_serialize(
             id=id,
             devicev2_pass=devicev2_pass,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1124,6 +1166,7 @@ class DevicesV2PassApi:
         self,
         id,
         devicev2_pass,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -1149,6 +1192,8 @@ class DevicesV2PassApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
         if devicev2_pass is not None:

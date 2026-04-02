@@ -26,7 +26,7 @@ from typing_extensions import Self
 
 class Dashboardv2(BaseModel):
     """
-    Describes a dashboard
+    DashboardV2Payload describes a dashboard
     """ # noqa: E501
     cover_image: Optional[Annotated[str, Field(strict=True, max_length=1024)]] = Field(default=None, description="The cover image of the dashboard")
     name: Optional[Annotated[str, Field(strict=True, max_length=64)]] = Field(default=None, description="The friendly name of the dashboard")
