@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import List
+from typing import List, Optional
 from typing_extensions import Annotated
 from iot_api_client.models.arduino_devicev2_cert import ArduinoDevicev2Cert
 from iot_api_client.models.create_devices_v2_certs_payload import CreateDevicesV2CertsPayload
@@ -46,6 +46,7 @@ class DevicesV2CertsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         create_devices_v2_certs_payload: CreateDevicesV2CertsPayload,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -67,6 +68,8 @@ class DevicesV2CertsApi:
         :type id: str
         :param create_devices_v2_certs_payload: (required)
         :type create_devices_v2_certs_payload: CreateDevicesV2CertsPayload
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,6 +95,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_create_serialize(
             id=id,
             create_devices_v2_certs_payload=create_devices_v2_certs_payload,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -121,6 +125,7 @@ class DevicesV2CertsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         create_devices_v2_certs_payload: CreateDevicesV2CertsPayload,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -142,6 +147,8 @@ class DevicesV2CertsApi:
         :type id: str
         :param create_devices_v2_certs_payload: (required)
         :type create_devices_v2_certs_payload: CreateDevicesV2CertsPayload
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -167,6 +174,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_create_serialize(
             id=id,
             create_devices_v2_certs_payload=create_devices_v2_certs_payload,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -196,6 +204,7 @@ class DevicesV2CertsApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         create_devices_v2_certs_payload: CreateDevicesV2CertsPayload,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -217,6 +226,8 @@ class DevicesV2CertsApi:
         :type id: str
         :param create_devices_v2_certs_payload: (required)
         :type create_devices_v2_certs_payload: CreateDevicesV2CertsPayload
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -242,6 +253,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_create_serialize(
             id=id,
             create_devices_v2_certs_payload=create_devices_v2_certs_payload,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -266,6 +278,7 @@ class DevicesV2CertsApi:
         self,
         id,
         create_devices_v2_certs_payload,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -291,6 +304,8 @@ class DevicesV2CertsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
         if create_devices_v2_certs_payload is not None:
@@ -348,6 +363,7 @@ class DevicesV2CertsApi:
         self,
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -369,6 +385,8 @@ class DevicesV2CertsApi:
         :type cid: str
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -394,6 +412,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_delete_serialize(
             cid=cid,
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -422,6 +441,7 @@ class DevicesV2CertsApi:
         self,
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -443,6 +463,8 @@ class DevicesV2CertsApi:
         :type cid: str
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -468,6 +490,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_delete_serialize(
             cid=cid,
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -496,6 +519,7 @@ class DevicesV2CertsApi:
         self,
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -517,6 +541,8 @@ class DevicesV2CertsApi:
         :type cid: str
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -542,6 +568,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_delete_serialize(
             cid=cid,
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -565,6 +592,7 @@ class DevicesV2CertsApi:
         self,
         cid,
         id,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -592,6 +620,8 @@ class DevicesV2CertsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
 
@@ -633,6 +663,7 @@ class DevicesV2CertsApi:
     def devices_v2_certs_list(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -652,6 +683,8 @@ class DevicesV2CertsApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -676,6 +709,7 @@ class DevicesV2CertsApi:
 
         _param = self._devices_v2_certs_list_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -703,6 +737,7 @@ class DevicesV2CertsApi:
     def devices_v2_certs_list_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -722,6 +757,8 @@ class DevicesV2CertsApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -746,6 +783,7 @@ class DevicesV2CertsApi:
 
         _param = self._devices_v2_certs_list_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -773,6 +811,7 @@ class DevicesV2CertsApi:
     def devices_v2_certs_list_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -792,6 +831,8 @@ class DevicesV2CertsApi:
 
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -816,6 +857,7 @@ class DevicesV2CertsApi:
 
         _param = self._devices_v2_certs_list_serialize(
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -838,6 +880,7 @@ class DevicesV2CertsApi:
     def _devices_v2_certs_list_serialize(
         self,
         id,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -863,6 +906,8 @@ class DevicesV2CertsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
 
@@ -905,6 +950,7 @@ class DevicesV2CertsApi:
         self,
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -926,6 +972,8 @@ class DevicesV2CertsApi:
         :type cid: str
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -951,6 +999,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_show_serialize(
             cid=cid,
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -979,6 +1028,7 @@ class DevicesV2CertsApi:
         self,
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1000,6 +1050,8 @@ class DevicesV2CertsApi:
         :type cid: str
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1025,6 +1077,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_show_serialize(
             cid=cid,
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1053,6 +1106,7 @@ class DevicesV2CertsApi:
         self,
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1074,6 +1128,8 @@ class DevicesV2CertsApi:
         :type cid: str
         :param id: The id of the device (required)
         :type id: str
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1099,6 +1155,7 @@ class DevicesV2CertsApi:
         _param = self._devices_v2_certs_show_serialize(
             cid=cid,
             id=id,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1122,6 +1179,7 @@ class DevicesV2CertsApi:
         self,
         cid,
         id,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -1149,6 +1207,8 @@ class DevicesV2CertsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
 
@@ -1192,6 +1252,7 @@ class DevicesV2CertsApi:
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_cert: Devicev2Cert,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1215,6 +1276,8 @@ class DevicesV2CertsApi:
         :type id: str
         :param devicev2_cert: (required)
         :type devicev2_cert: Devicev2Cert
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1241,6 +1304,7 @@ class DevicesV2CertsApi:
             cid=cid,
             id=id,
             devicev2_cert=devicev2_cert,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1271,6 +1335,7 @@ class DevicesV2CertsApi:
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_cert: Devicev2Cert,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1294,6 +1359,8 @@ class DevicesV2CertsApi:
         :type id: str
         :param devicev2_cert: (required)
         :type devicev2_cert: Devicev2Cert
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1320,6 +1387,7 @@ class DevicesV2CertsApi:
             cid=cid,
             id=id,
             devicev2_cert=devicev2_cert,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1350,6 +1418,7 @@ class DevicesV2CertsApi:
         cid: Annotated[StrictStr, Field(description="The id of the cert")],
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_cert: Devicev2Cert,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1373,6 +1442,8 @@ class DevicesV2CertsApi:
         :type id: str
         :param devicev2_cert: (required)
         :type devicev2_cert: Devicev2Cert
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1399,6 +1470,7 @@ class DevicesV2CertsApi:
             cid=cid,
             id=id,
             devicev2_cert=devicev2_cert,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1424,6 +1496,7 @@ class DevicesV2CertsApi:
         cid,
         id,
         devicev2_cert,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -1451,6 +1524,8 @@ class DevicesV2CertsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
         if devicev2_cert is not None:

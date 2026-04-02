@@ -46,6 +46,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_otabinaryurl: Devicev2Otabinaryurl,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -67,6 +68,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param devicev2_otabinaryurl: (required)
         :type devicev2_otabinaryurl: Devicev2Otabinaryurl
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -92,6 +95,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_send_serialize(
             id=id,
             devicev2_otabinaryurl=devicev2_otabinaryurl,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -124,6 +128,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_otabinaryurl: Devicev2Otabinaryurl,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -145,6 +150,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param devicev2_otabinaryurl: (required)
         :type devicev2_otabinaryurl: Devicev2Otabinaryurl
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -170,6 +177,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_send_serialize(
             id=id,
             devicev2_otabinaryurl=devicev2_otabinaryurl,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -202,6 +210,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_otabinaryurl: Devicev2Otabinaryurl,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -223,6 +232,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param devicev2_otabinaryurl: (required)
         :type devicev2_otabinaryurl: Devicev2Otabinaryurl
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -248,6 +259,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_send_serialize(
             id=id,
             devicev2_otabinaryurl=devicev2_otabinaryurl,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -275,6 +287,7 @@ class DevicesV2OtaApi:
         self,
         id,
         devicev2_otabinaryurl,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -300,6 +313,8 @@ class DevicesV2OtaApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
         if devicev2_otabinaryurl is not None:
@@ -357,6 +372,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         ota_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="OTA file")],
+        x_organization: Optional[StrictStr] = None,
         var_async: Annotated[Optional[StrictBool], Field(description="If false, wait for the full OTA process, until it gets a result from the device")] = None,
         expire_in_mins: Annotated[Optional[StrictInt], Field(description="Binary expire time in minutes, default 10 mins")] = None,
         _request_timeout: Union[
@@ -380,6 +396,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param ota_file: OTA file (required)
         :type ota_file: bytearray
+        :param x_organization:
+        :type x_organization: str
         :param var_async: If false, wait for the full OTA process, until it gets a result from the device
         :type var_async: bool
         :param expire_in_mins: Binary expire time in minutes, default 10 mins
@@ -409,6 +427,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_upload_serialize(
             id=id,
             ota_file=ota_file,
+            x_organization=x_organization,
             var_async=var_async,
             expire_in_mins=expire_in_mins,
             _request_auth=_request_auth,
@@ -445,6 +464,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         ota_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="OTA file")],
+        x_organization: Optional[StrictStr] = None,
         var_async: Annotated[Optional[StrictBool], Field(description="If false, wait for the full OTA process, until it gets a result from the device")] = None,
         expire_in_mins: Annotated[Optional[StrictInt], Field(description="Binary expire time in minutes, default 10 mins")] = None,
         _request_timeout: Union[
@@ -468,6 +488,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param ota_file: OTA file (required)
         :type ota_file: bytearray
+        :param x_organization:
+        :type x_organization: str
         :param var_async: If false, wait for the full OTA process, until it gets a result from the device
         :type var_async: bool
         :param expire_in_mins: Binary expire time in minutes, default 10 mins
@@ -497,6 +519,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_upload_serialize(
             id=id,
             ota_file=ota_file,
+            x_organization=x_organization,
             var_async=var_async,
             expire_in_mins=expire_in_mins,
             _request_auth=_request_auth,
@@ -533,6 +556,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         ota_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="OTA file")],
+        x_organization: Optional[StrictStr] = None,
         var_async: Annotated[Optional[StrictBool], Field(description="If false, wait for the full OTA process, until it gets a result from the device")] = None,
         expire_in_mins: Annotated[Optional[StrictInt], Field(description="Binary expire time in minutes, default 10 mins")] = None,
         _request_timeout: Union[
@@ -556,6 +580,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param ota_file: OTA file (required)
         :type ota_file: bytearray
+        :param x_organization:
+        :type x_organization: str
         :param var_async: If false, wait for the full OTA process, until it gets a result from the device
         :type var_async: bool
         :param expire_in_mins: Binary expire time in minutes, default 10 mins
@@ -585,6 +611,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_upload_serialize(
             id=id,
             ota_file=ota_file,
+            x_organization=x_organization,
             var_async=var_async,
             expire_in_mins=expire_in_mins,
             _request_auth=_request_auth,
@@ -616,6 +643,7 @@ class DevicesV2OtaApi:
         self,
         id,
         ota_file,
+        x_organization,
         var_async,
         expire_in_mins,
         _request_auth,
@@ -643,6 +671,8 @@ class DevicesV2OtaApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         if var_async is not None:
             _form_params.append(('async', var_async))
@@ -704,6 +734,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_otaurlpyalod: Devicev2Otaurlpyalod,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -725,6 +756,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param devicev2_otaurlpyalod: (required)
         :type devicev2_otaurlpyalod: Devicev2Otaurlpyalod
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -750,6 +783,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_url_serialize(
             id=id,
             devicev2_otaurlpyalod=devicev2_otaurlpyalod,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -782,6 +816,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_otaurlpyalod: Devicev2Otaurlpyalod,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -803,6 +838,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param devicev2_otaurlpyalod: (required)
         :type devicev2_otaurlpyalod: Devicev2Otaurlpyalod
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -828,6 +865,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_url_serialize(
             id=id,
             devicev2_otaurlpyalod=devicev2_otaurlpyalod,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -860,6 +898,7 @@ class DevicesV2OtaApi:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2_otaurlpyalod: Devicev2Otaurlpyalod,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -881,6 +920,8 @@ class DevicesV2OtaApi:
         :type id: str
         :param devicev2_otaurlpyalod: (required)
         :type devicev2_otaurlpyalod: Devicev2Otaurlpyalod
+        :param x_organization:
+        :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -906,6 +947,7 @@ class DevicesV2OtaApi:
         _param = self._devices_v2_ota_url_serialize(
             id=id,
             devicev2_otaurlpyalod=devicev2_otaurlpyalod,
+            x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -933,6 +975,7 @@ class DevicesV2OtaApi:
         self,
         id,
         devicev2_otaurlpyalod,
+        x_organization,
         _request_auth,
         _content_type,
         _headers,
@@ -958,6 +1001,8 @@ class DevicesV2OtaApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
         # process the form parameters
         # process the body parameter
         if devicev2_otaurlpyalod is not None:

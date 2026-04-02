@@ -22,7 +22,9 @@ from typing_extensions import Annotated
 from iot_api_client.models.arduino_property import ArduinoProperty
 from iot_api_client.models.arduino_timeseriesmedia import ArduinoTimeseriesmedia
 from iot_api_client.models.model_property import ModelProperty
+from iot_api_client.models.property_timed_value import PropertyTimedValue
 from iot_api_client.models.property_value import PropertyValue
+from iot_api_client.models.property_values import PropertyValues
 
 from iot_api_client.api_client import ApiClient, RequestSerialized
 from iot_api_client.api_response import ApiResponse
@@ -47,7 +49,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -69,7 +71,7 @@ class PropertiesV2Api:
         :type id: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -127,7 +129,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -149,7 +151,7 @@ class PropertiesV2Api:
         :type id: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -207,7 +209,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -229,7 +231,7 @@ class PropertiesV2Api:
         :type id: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -368,7 +370,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the property")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -392,7 +394,7 @@ class PropertiesV2Api:
         :type pid: str
         :param force: If true, hard delete the property
         :type force: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -450,7 +452,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the property")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -474,7 +476,7 @@ class PropertiesV2Api:
         :type pid: str
         :param force: If true, hard delete the property
         :type force: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -532,7 +534,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the property")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -556,7 +558,7 @@ class PropertiesV2Api:
         :type pid: str
         :param force: If true, hard delete the property
         :type force: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -685,7 +687,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -707,7 +709,7 @@ class PropertiesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -763,7 +765,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -785,7 +787,7 @@ class PropertiesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -841,7 +843,7 @@ class PropertiesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -863,7 +865,7 @@ class PropertiesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -989,7 +991,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         property_value: Annotated[PropertyValue, Field(description="PropertyValuePayload describes a property value")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1013,7 +1015,7 @@ class PropertiesV2Api:
         :type pid: str
         :param property_value: PropertyValuePayload describes a property value (required)
         :type property_value: PropertyValue
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1072,7 +1074,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         property_value: Annotated[PropertyValue, Field(description="PropertyValuePayload describes a property value")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1096,7 +1098,7 @@ class PropertiesV2Api:
         :type pid: str
         :param property_value: PropertyValuePayload describes a property value (required)
         :type property_value: PropertyValue
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1155,7 +1157,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         property_value: Annotated[PropertyValue, Field(description="PropertyValuePayload describes a property value")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1179,7 +1181,7 @@ class PropertiesV2Api:
         :type pid: str
         :param property_value: PropertyValuePayload describes a property value (required)
         :type property_value: PropertyValue
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1316,12 +1318,662 @@ class PropertiesV2Api:
 
 
     @validate_call
+    def properties_v2_publish_batch(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the thing")],
+        pid: Annotated[StrictStr, Field(description="The id of the property")],
+        property_timed_value: List[PropertyTimedValue],
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """publishBatch properties_v2
+
+        Publish a property's array of values to MQTT
+
+        :param id: The id of the thing (required)
+        :type id: str
+        :param pid: The id of the property (required)
+        :type pid: str
+        :param property_timed_value: (required)
+        :type property_timed_value: List[PropertyTimedValue]
+        :param x_organization: The id of the organization
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._properties_v2_publish_batch_serialize(
+            id=id,
+            pid=pid,
+            property_timed_value=property_timed_value,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '400': "Error",
+            '401': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def properties_v2_publish_batch_with_http_info(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the thing")],
+        pid: Annotated[StrictStr, Field(description="The id of the property")],
+        property_timed_value: List[PropertyTimedValue],
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """publishBatch properties_v2
+
+        Publish a property's array of values to MQTT
+
+        :param id: The id of the thing (required)
+        :type id: str
+        :param pid: The id of the property (required)
+        :type pid: str
+        :param property_timed_value: (required)
+        :type property_timed_value: List[PropertyTimedValue]
+        :param x_organization: The id of the organization
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._properties_v2_publish_batch_serialize(
+            id=id,
+            pid=pid,
+            property_timed_value=property_timed_value,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '400': "Error",
+            '401': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def properties_v2_publish_batch_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the thing")],
+        pid: Annotated[StrictStr, Field(description="The id of the property")],
+        property_timed_value: List[PropertyTimedValue],
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """publishBatch properties_v2
+
+        Publish a property's array of values to MQTT
+
+        :param id: The id of the thing (required)
+        :type id: str
+        :param pid: The id of the property (required)
+        :type pid: str
+        :param property_timed_value: (required)
+        :type property_timed_value: List[PropertyTimedValue]
+        :param x_organization: The id of the organization
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._properties_v2_publish_batch_serialize(
+            id=id,
+            pid=pid,
+            property_timed_value=property_timed_value,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '400': "Error",
+            '401': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _properties_v2_publish_batch_serialize(
+        self,
+        id,
+        pid,
+        property_timed_value,
+        x_organization,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'PropertyTimedValue': '',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        if pid is not None:
+            _path_params['pid'] = pid
+        # process the query parameters
+        # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
+        # process the form parameters
+        # process the body parameter
+        if property_timed_value is not None:
+            _body_params = property_timed_value
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/vnd.goa.error+json', 
+                    'text/plain'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'oauth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/iot/v2/things/{id}/properties/{pid}/publish_batch',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def properties_v2_publish_multi(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the thing")],
+        property_values: PropertyValues,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """publishMulti properties_v2
+
+        Publish property values to MQTT
+
+        :param id: The id of the thing (required)
+        :type id: str
+        :param property_values: (required)
+        :type property_values: PropertyValues
+        :param x_organization: The id of the organization
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._properties_v2_publish_multi_serialize(
+            id=id,
+            property_values=property_values,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '400': "Error",
+            '401': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def properties_v2_publish_multi_with_http_info(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the thing")],
+        property_values: PropertyValues,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """publishMulti properties_v2
+
+        Publish property values to MQTT
+
+        :param id: The id of the thing (required)
+        :type id: str
+        :param property_values: (required)
+        :type property_values: PropertyValues
+        :param x_organization: The id of the organization
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._properties_v2_publish_multi_serialize(
+            id=id,
+            property_values=property_values,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '400': "Error",
+            '401': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def properties_v2_publish_multi_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the thing")],
+        property_values: PropertyValues,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """publishMulti properties_v2
+
+        Publish property values to MQTT
+
+        :param id: The id of the thing (required)
+        :type id: str
+        :param property_values: (required)
+        :type property_values: PropertyValues
+        :param x_organization: The id of the organization
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._properties_v2_publish_multi_serialize(
+            id=id,
+            property_values=property_values,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '400': "Error",
+            '401': "Error",
+            '404': None,
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _properties_v2_publish_multi_serialize(
+        self,
+        id,
+        property_values,
+        x_organization,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
+        # process the form parameters
+        # process the body parameter
+        if property_values is not None:
+            _body_params = property_values
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/vnd.goa.error+json', 
+                    'text/plain'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'oauth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/iot/v2/things/{id}/publish',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def properties_v2_show(
         self,
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1345,7 +1997,7 @@ class PropertiesV2Api:
         :type pid: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1403,7 +2055,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1427,7 +2079,7 @@ class PropertiesV2Api:
         :type pid: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1485,7 +2137,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1509,7 +2161,7 @@ class PropertiesV2Api:
         :type pid: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1643,7 +2295,7 @@ class PropertiesV2Api:
         var_from: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
         interval: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)")] = None,
         to: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1675,7 +2327,7 @@ class PropertiesV2Api:
         :type interval: int
         :param to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
         :type to: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1742,7 +2394,7 @@ class PropertiesV2Api:
         var_from: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
         interval: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)")] = None,
         to: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1774,7 +2426,7 @@ class PropertiesV2Api:
         :type interval: int
         :param to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
         :type to: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1841,7 +2493,7 @@ class PropertiesV2Api:
         var_from: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
         interval: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response)")] = None,
         to: Annotated[Optional[StrictStr], Field(description="Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1873,7 +2525,7 @@ class PropertiesV2Api:
         :type interval: int
         :param to: Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z)
         :type to: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2028,7 +2680,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2052,7 +2704,7 @@ class PropertiesV2Api:
         :type pid: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2111,7 +2763,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2135,7 +2787,7 @@ class PropertiesV2Api:
         :type pid: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2194,7 +2846,7 @@ class PropertiesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the thing")],
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         model_property: Annotated[ModelProperty, Field(description="PropertyPayload describes a property of a thing. No field is mandatory")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Annotated[Optional[StrictStr], Field(description="The id of the organization")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2218,7 +2870,7 @@ class PropertiesV2Api:
         :type pid: str
         :param model_property: PropertyPayload describes a property of a thing. No field is mandatory (required)
         :type model_property: ModelProperty
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization: The id of the organization
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
