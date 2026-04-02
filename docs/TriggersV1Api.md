@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**actions_v1_delete**](TriggersV1Api.md#actions_v1_delete) | **DELETE** /iot/v1/actions/{id} | delete actions_v1
 [**actions_v1_list**](TriggersV1Api.md#actions_v1_list) | **GET** /iot/v1/actions | list actions_v1
 [**actions_v1_show**](TriggersV1Api.md#actions_v1_show) | **GET** /iot/v1/actions/{id} | show actions_v1
+[**actions_v1_unsubscribe**](TriggersV1Api.md#actions_v1_unsubscribe) | **PUT** /iot/v1/actions/{id}/unsubscribe | Unsubscribe actions_v1
 [**actions_v1_update**](TriggersV1Api.md#actions_v1_update) | **PUT** /iot/v1/actions/{id} | update actions_v1
 [**triggers_v1_create**](TriggersV1Api.md#triggers_v1_create) | **PUT** /iot/v1/triggers | create triggers_v1
 [**triggers_v1_delete**](TriggersV1Api.md#triggers_v1_delete) | **DELETE** /iot/v1/triggers/{id} | delete triggers_v1
@@ -15,6 +16,7 @@ Method | HTTP request | Description
 [**triggers_v1_patch**](TriggersV1Api.md#triggers_v1_patch) | **PATCH** /iot/v1/triggers/{id} | patch triggers_v1
 [**triggers_v1_show**](TriggersV1Api.md#triggers_v1_show) | **GET** /iot/v1/triggers/{id} | show triggers_v1
 [**triggers_v1_template**](TriggersV1Api.md#triggers_v1_template) | **GET** /iot/v1/triggers/{id}/template | template triggers_v1
+[**triggers_v1_unsubscribe**](TriggersV1Api.md#triggers_v1_unsubscribe) | **POST** /iot/v1/triggers/{id}/unsubscribe | unsubscribe triggers_v1
 [**triggers_v1_update**](TriggersV1Api.md#triggers_v1_update) | **POST** /iot/v1/triggers/{id} | update triggers_v1
 
 
@@ -330,6 +332,90 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actions_v1_unsubscribe**
+> ArduinoAction actions_v1_unsubscribe(id, recipients_list, x_organization=x_organization)
+
+Unsubscribe actions_v1
+
+Remove selected recipients from the action
+
+### Example
+
+* OAuth Authentication (oauth2):
+
+```python
+import iot_api_client
+from iot_api_client.models.arduino_action import ArduinoAction
+from iot_api_client.models.recipients_list import RecipientsList
+from iot_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api2.arduino.cc
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = iot_api_client.TriggersV1Api(api_client)
+    id = 'id_example' # str | The id of the action
+    recipients_list = iot_api_client.RecipientsList() # RecipientsList | 
+    x_organization = 'x_organization_example' # str |  (optional)
+
+    try:
+        # Unsubscribe actions_v1
+        api_response = api_instance.actions_v1_unsubscribe(id, recipients_list, x_organization=x_organization)
+        print("The response of TriggersV1Api->actions_v1_unsubscribe:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling TriggersV1Api->actions_v1_unsubscribe: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the action | 
+ **recipients_list** | [**RecipientsList**](RecipientsList.md)|  | 
+ **x_organization** | **str**|  | [optional] 
+
+### Return type
+
+[**ArduinoAction**](ArduinoAction.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.arduino.action+json, application/vnd.goa.error+json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **404** | Not Found |  -  |
 **500** | Internal Server Error |  -  |
@@ -901,6 +987,87 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/vnd.arduino.trigger_template+json, application/vnd.goa.error+json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **triggers_v1_unsubscribe**
+> triggers_v1_unsubscribe(id, recipients_list, x_organization=x_organization)
+
+unsubscribe triggers_v1
+
+Unsubscribe the list of users from all the actions of the trigger
+
+### Example
+
+* OAuth Authentication (oauth2):
+
+```python
+import iot_api_client
+from iot_api_client.models.recipients_list import RecipientsList
+from iot_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api2.arduino.cc
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = iot_api_client.TriggersV1Api(api_client)
+    id = 'id_example' # str | The id of the trigger
+    recipients_list = iot_api_client.RecipientsList() # RecipientsList | 
+    x_organization = 'x_organization_example' # str |  (optional)
+
+    try:
+        # unsubscribe triggers_v1
+        api_instance.triggers_v1_unsubscribe(id, recipients_list, x_organization=x_organization)
+    except Exception as e:
+        print("Exception when calling TriggersV1Api->triggers_v1_unsubscribe: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the trigger | 
+ **recipients_list** | [**RecipientsList**](RecipientsList.md)|  | 
+ **x_organization** | **str**|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.goa.error+json, text/plain
 
 ### HTTP response details
 

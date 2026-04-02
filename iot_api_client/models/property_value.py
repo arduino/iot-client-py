@@ -26,7 +26,7 @@ class PropertyValue(BaseModel):
     """
     PropertyValuePayload describes a property value
     """ # noqa: E501
-    device_id: Optional[StrictStr] = Field(default=None, description="The device who send the property")
+    device_id: Optional[StrictStr] = Field(default=None, description="The device that sends the property")
     value: Optional[Any] = Field(description="The property value")
     __properties: ClassVar[List[str]] = ["device_id", "value"]
 

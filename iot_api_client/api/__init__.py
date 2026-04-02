@@ -2,6 +2,7 @@
 
 # import apis into api package
 from iot_api_client.api.dashboards_v2_api import DashboardsV2Api
+from iot_api_client.api.dashboards_v3_api import DashboardsV3Api
 from iot_api_client.api.devices_v2_api import DevicesV2Api
 from iot_api_client.api.devices_v2_certs_api import DevicesV2CertsApi
 from iot_api_client.api.devices_v2_ota_api import DevicesV2OtaApi

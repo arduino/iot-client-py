@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **devices_v2_certs_create**
-> ArduinoDevicev2Cert devices_v2_certs_create(id, create_devices_v2_certs_payload)
+> ArduinoDevicev2Cert devices_v2_certs_create(id, create_devices_v2_certs_payload, x_organization=x_organization)
 
 create devices_v2_certs
 
@@ -48,10 +48,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2CertsApi(api_client)
     id = 'id_example' # str | The id of the device
     create_devices_v2_certs_payload = iot_api_client.CreateDevicesV2CertsPayload() # CreateDevicesV2CertsPayload | 
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # create devices_v2_certs
-        api_response = api_instance.devices_v2_certs_create(id, create_devices_v2_certs_payload)
+        api_response = api_instance.devices_v2_certs_create(id, create_devices_v2_certs_payload, x_organization=x_organization)
         print("The response of DevicesV2CertsApi->devices_v2_certs_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -67,6 +68,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
  **create_devices_v2_certs_payload** | [**CreateDevicesV2CertsPayload**](CreateDevicesV2CertsPayload.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -94,7 +96,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_certs_delete**
-> devices_v2_certs_delete(cid, id)
+> devices_v2_certs_delete(cid, id, x_organization=x_organization)
 
 delete devices_v2_certs
 
@@ -128,10 +130,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2CertsApi(api_client)
     cid = 'cid_example' # str | The id of the cert
     id = 'id_example' # str | The id of the device
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # delete devices_v2_certs
-        api_instance.devices_v2_certs_delete(cid, id)
+        api_instance.devices_v2_certs_delete(cid, id, x_organization=x_organization)
     except Exception as e:
         print("Exception when calling DevicesV2CertsApi->devices_v2_certs_delete: %s\n" % e)
 ```
@@ -145,6 +148,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **str**| The id of the cert | 
  **id** | **str**| The id of the device | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -171,7 +175,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_certs_list**
-> List[ArduinoDevicev2Cert] devices_v2_certs_list(id)
+> List[ArduinoDevicev2Cert] devices_v2_certs_list(id, x_organization=x_organization)
 
 list devices_v2_certs
 
@@ -205,10 +209,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.DevicesV2CertsApi(api_client)
     id = 'id_example' # str | The id of the device
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # list devices_v2_certs
-        api_response = api_instance.devices_v2_certs_list(id)
+        api_response = api_instance.devices_v2_certs_list(id, x_organization=x_organization)
         print("The response of DevicesV2CertsApi->devices_v2_certs_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -223,6 +228,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the device | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -249,7 +255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_certs_show**
-> ArduinoDevicev2Cert devices_v2_certs_show(cid, id)
+> ArduinoDevicev2Cert devices_v2_certs_show(cid, id, x_organization=x_organization)
 
 show devices_v2_certs
 
@@ -284,10 +290,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.DevicesV2CertsApi(api_client)
     cid = 'cid_example' # str | The id of the cert
     id = 'id_example' # str | The id of the device
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # show devices_v2_certs
-        api_response = api_instance.devices_v2_certs_show(cid, id)
+        api_response = api_instance.devices_v2_certs_show(cid, id, x_organization=x_organization)
         print("The response of DevicesV2CertsApi->devices_v2_certs_show:\n")
         pprint(api_response)
     except Exception as e:
@@ -303,6 +310,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **cid** | **str**| The id of the cert | 
  **id** | **str**| The id of the device | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -329,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **devices_v2_certs_update**
-> ArduinoDevicev2Cert devices_v2_certs_update(cid, id, devicev2_cert)
+> ArduinoDevicev2Cert devices_v2_certs_update(cid, id, devicev2_cert, x_organization=x_organization)
 
 update devices_v2_certs
 
@@ -366,10 +374,11 @@ with iot_api_client.ApiClient(configuration) as api_client:
     cid = 'cid_example' # str | The id of the cert
     id = 'id_example' # str | The id of the device
     devicev2_cert = iot_api_client.Devicev2Cert() # Devicev2Cert | 
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # update devices_v2_certs
-        api_response = api_instance.devices_v2_certs_update(cid, id, devicev2_cert)
+        api_response = api_instance.devices_v2_certs_update(cid, id, devicev2_cert, x_organization=x_organization)
         print("The response of DevicesV2CertsApi->devices_v2_certs_update:\n")
         pprint(api_response)
     except Exception as e:
@@ -386,6 +395,7 @@ Name | Type | Description  | Notes
  **cid** | **str**| The id of the cert | 
  **id** | **str**| The id of the device | 
  **devicev2_cert** | [**Devicev2Cert**](Devicev2Cert.md)|  | 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
