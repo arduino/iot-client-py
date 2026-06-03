@@ -43,7 +43,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.TemplatesApi(api_client)
     template = iot_api_client.Template() # Template | TemplatePayload describes the needed attribute to apply a template
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # apply templates
@@ -62,7 +62,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **template** | [**Template**](Template.md)| TemplatePayload describes the needed attribute to apply a template | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 

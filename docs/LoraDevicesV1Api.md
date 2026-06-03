@@ -43,7 +43,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.LoraDevicesV1Api(api_client)
     create_lora_devices_v1_payload = iot_api_client.CreateLoraDevicesV1Payload() # CreateLoraDevicesV1Payload | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # create lora_devices_v1
@@ -62,7 +62,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **create_lora_devices_v1_payload** | [**CreateLoraDevicesV1Payload**](CreateLoraDevicesV1Payload.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
