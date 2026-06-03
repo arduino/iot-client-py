@@ -42,13 +42,14 @@ class ArduinoThing(BaseModel):
     properties: Optional[List[ArduinoProperty]] = Field(default=None, description="ArduinoPropertyCollection is the media type for an array of ArduinoProperty (default view)")
     properties_count: Optional[StrictInt] = Field(default=None, description="The number of properties of the thing")
     sketch_id: Optional[StrictStr] = Field(default=None, description="The id of the attached sketch")
+    source_template: Optional[StrictStr] = Field(default=None, description="The id of the template used to create the thing")
     tags: Optional[Dict[str, Any]] = Field(default=None, description="Tags of the thing")
     timezone: StrictStr = Field(description="Time zone of the thing")
     updated_at: Optional[datetime] = Field(default=None, description="Update date of the thing")
     user_id: StrictStr = Field(description="The user id of the owner")
     webhook_active: Optional[StrictBool] = Field(default=None, description="Webhook uri")
     webhook_uri: Optional[StrictStr] = Field(default=None, description="Webhook uri")
-    __properties: ClassVar[List[str]] = ["assistant", "created_at", "deleted_at", "device_fqbn", "device_id", "device_name", "device_type", "href", "id", "name", "organization_id", "properties", "properties_count", "sketch_id", "tags", "timezone", "updated_at", "user_id", "webhook_active", "webhook_uri"]
+    __properties: ClassVar[List[str]] = ["assistant", "created_at", "deleted_at", "device_fqbn", "device_id", "device_name", "device_type", "href", "id", "name", "organization_id", "properties", "properties_count", "sketch_id", "source_template", "tags", "timezone", "updated_at", "user_id", "webhook_active", "webhook_uri"]
 
     @field_validator('assistant')
     def assistant_validate_enum(cls, value):
@@ -132,6 +133,7 @@ class ArduinoThing(BaseModel):
             "properties": [ArduinoProperty.from_dict(_item) for _item in obj["properties"]] if obj.get("properties") is not None else None,
             "properties_count": obj.get("properties_count"),
             "sketch_id": obj.get("sketch_id"),
+            "source_template": obj.get("source_template"),
             "tags": obj.get("tags"),
             "timezone": obj.get("timezone"),
             "updated_at": obj.get("updated_at"),
