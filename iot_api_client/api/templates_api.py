@@ -44,7 +44,7 @@ class TemplatesApi:
     def templates_apply(
         self,
         template: Annotated[Template, Field(description="TemplatePayload describes the needed attribute to apply a template")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -64,7 +64,7 @@ class TemplatesApi:
 
         :param template: TemplatePayload describes the needed attribute to apply a template (required)
         :type template: Template
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -120,7 +120,7 @@ class TemplatesApi:
     def templates_apply_with_http_info(
         self,
         template: Annotated[Template, Field(description="TemplatePayload describes the needed attribute to apply a template")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -140,7 +140,7 @@ class TemplatesApi:
 
         :param template: TemplatePayload describes the needed attribute to apply a template (required)
         :type template: Template
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -196,7 +196,7 @@ class TemplatesApi:
     def templates_apply_without_preload_content(
         self,
         template: Annotated[Template, Field(description="TemplatePayload describes the needed attribute to apply a template")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -216,7 +216,7 @@ class TemplatesApi:
 
         :param template: TemplatePayload describes the needed attribute to apply a template (required)
         :type template: Template
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

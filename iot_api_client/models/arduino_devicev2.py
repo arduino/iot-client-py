@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from iot_api_client.models.arduino_devicev2_simple_properties import ArduinoDevicev2SimpleProperties
 from iot_api_client.models.arduino_devicev2_webhook import ArduinoDevicev2Webhook
 from iot_api_client.models.arduino_thing import ArduinoThing
@@ -30,6 +31,7 @@ class ArduinoDevicev2(BaseModel):
     """
     ArduinoDevicev2 media type (default view)
     """ # noqa: E501
+    ble_mac: Optional[Annotated[str, Field(min_length=17, strict=True, max_length=17)]] = None
     connection_type: Optional[StrictStr] = Field(default=None, description="The type of the connections selected by the user when multiple connections are available")
     created_at: Optional[datetime] = Field(default=None, description="Creation date of the device")
     deleted_at: Optional[datetime] = Field(default=None, description="Deletion date of the trigger")
@@ -38,9 +40,12 @@ class ArduinoDevicev2(BaseModel):
     fqbn: Optional[StrictStr] = Field(default=None, description="The fully qualified board name")
     href: StrictStr = Field(description="The api reference of this device")
     id: StrictStr = Field(description="The arn of the device")
+    issuer_ca: Optional[StrictStr] = None
     label: StrictStr = Field(description="The label of the device")
     last_activity_at: Optional[datetime] = Field(default=None, description="Last activity date")
     latest_wifi_fw_version: Optional[StrictStr] = Field(default=None, description="The latest version of the NINA/WIFI101 firmware available for this device")
+    lib_version: Optional[StrictStr] = None
+    locked: Optional[StrictBool] = Field(default=None, description="True if the device is locked and can't be claimed by another user")
     metadata: Optional[Dict[str, Any]] = Field(default=None, description="The metadata of the device")
     name: StrictStr = Field(description="The friendly name of the device")
     no_sketch: Optional[StrictBool] = Field(default=None, description="True if the device type can not have an associated sketch")
@@ -52,11 +57,22 @@ class ArduinoDevicev2(BaseModel):
     tags: Optional[Dict[str, Any]] = Field(default=None, description="Tags belonging to the device")
     thing: Optional[ArduinoThing] = None
     type: StrictStr = Field(description="The type of the device")
+    unique_hardware_id: Optional[Annotated[str, Field(min_length=64, strict=True, max_length=64)]] = Field(default=None, description="The unique hardware id of the device")
     updated_at: Optional[datetime] = Field(default=None, description="Update date of the trigger")
     user_id: StrictStr = Field(description="The id of the user")
     webhooks: Optional[List[ArduinoDevicev2Webhook]] = Field(default=None, description="ArduinoDevicev2WebhookCollection is the media type for an array of ArduinoDevicev2Webhook (default view)")
     wifi_fw_version: Optional[StrictStr] = Field(default=None, description="The version of the NINA/WIFI101 firmware running on the device")
-    __properties: ClassVar[List[str]] = ["connection_type", "created_at", "deleted_at", "device_status", "events", "fqbn", "href", "id", "label", "last_activity_at", "latest_wifi_fw_version", "metadata", "name", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "serial", "tags", "thing", "type", "updated_at", "user_id", "webhooks", "wifi_fw_version"]
+    __properties: ClassVar[List[str]] = ["ble_mac", "connection_type", "created_at", "deleted_at", "device_status", "events", "fqbn", "href", "id", "issuer_ca", "label", "last_activity_at", "latest_wifi_fw_version", "lib_version", "locked", "metadata", "name", "no_sketch", "organization_id", "ota_available", "ota_compatible", "required_wifi_fw_version", "serial", "tags", "thing", "type", "unique_hardware_id", "updated_at", "user_id", "webhooks", "wifi_fw_version"]
+
+    @field_validator('ble_mac')
+    def ble_mac_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if not re.match(r"^(?:[0-9A-Fa-f]{2}[:]){5}(?:[0-9A-Fa-f]{2})", value):
+            raise ValueError(r"must validate the regular expression /^(?:[0-9A-Fa-f]{2}[:]){5}(?:[0-9A-Fa-f]{2})/")
+        return value
 
     @field_validator('connection_type')
     def connection_type_validate_enum(cls, value):
@@ -146,6 +162,7 @@ class ArduinoDevicev2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "ble_mac": obj.get("ble_mac"),
             "connection_type": obj.get("connection_type"),
             "created_at": obj.get("created_at"),
             "deleted_at": obj.get("deleted_at"),
@@ -154,9 +171,12 @@ class ArduinoDevicev2(BaseModel):
             "fqbn": obj.get("fqbn"),
             "href": obj.get("href"),
             "id": obj.get("id"),
+            "issuer_ca": obj.get("issuer_ca"),
             "label": obj.get("label"),
             "last_activity_at": obj.get("last_activity_at"),
             "latest_wifi_fw_version": obj.get("latest_wifi_fw_version"),
+            "lib_version": obj.get("lib_version"),
+            "locked": obj.get("locked"),
             "metadata": obj.get("metadata"),
             "name": obj.get("name"),
             "no_sketch": obj.get("no_sketch"),
@@ -168,6 +188,7 @@ class ArduinoDevicev2(BaseModel):
             "tags": obj.get("tags"),
             "thing": ArduinoThing.from_dict(obj["thing"]) if obj.get("thing") is not None else None,
             "type": obj.get("type"),
+            "unique_hardware_id": obj.get("unique_hardware_id"),
             "updated_at": obj.get("updated_at"),
             "user_id": obj.get("user_id"),
             "webhooks": [ArduinoDevicev2Webhook.from_dict(_item) for _item in obj["webhooks"]] if obj.get("webhooks") is not None else None,
