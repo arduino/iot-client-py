@@ -6,6 +6,7 @@ ArduinoDevicev2 media type (default view)
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ble_mac** | **str** |  | [optional] 
 **connection_type** | **str** | The type of the connections selected by the user when multiple connections are available | [optional] 
 **created_at** | **datetime** | Creation date of the device | [optional] 
 **deleted_at** | **datetime** | Deletion date of the trigger | [optional] 
@@ -14,9 +15,12 @@ Name | Type | Description | Notes
 **fqbn** | **str** | The fully qualified board name | [optional] 
 **href** | **str** | The api reference of this device | 
 **id** | **str** | The arn of the device | 
+**issuer_ca** | **str** |  | [optional] 
 **label** | **str** | The label of the device | 
 **last_activity_at** | **datetime** | Last activity date | [optional] 
 **latest_wifi_fw_version** | **str** | The latest version of the NINA/WIFI101 firmware available for this device | [optional] 
+**lib_version** | **str** |  | [optional] 
+**locked** | **bool** | True if the device is locked and can&#39;t be claimed by another user | [optional] 
 **metadata** | **Dict[str, object]** | The metadata of the device | [optional] 
 **name** | **str** | The friendly name of the device | 
 **no_sketch** | **bool** | True if the device type can not have an associated sketch | [optional] 
@@ -28,6 +32,7 @@ Name | Type | Description | Notes
 **tags** | **Dict[str, object]** | Tags belonging to the device | [optional] 
 **thing** | [**ArduinoThing**](ArduinoThing.md) |  | [optional] 
 **type** | **str** | The type of the device | 
+**unique_hardware_id** | **str** | The unique hardware id of the device | [optional] 
 **updated_at** | **datetime** | Update date of the trigger | [optional] 
 **user_id** | **str** | The id of the user | 
 **webhooks** | [**List[ArduinoDevicev2Webhook]**](ArduinoDevicev2Webhook.md) | ArduinoDevicev2WebhookCollection is the media type for an array of ArduinoDevicev2Webhook (default view) | [optional] 

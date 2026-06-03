@@ -7,6 +7,7 @@ ArduinoCredentialsv1 media type (default view)
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **friendly_name** | **str** | Friendly name | 
+**max_length** | **int** | Max length of the field expressed in bytes | 
 **required** | **bool** | Tell if the parameter is required or not | 
 **secret_name** | **str** | The secret parameter name | 
 **sensitive** | **bool** | Tell if the field is sensitive | 

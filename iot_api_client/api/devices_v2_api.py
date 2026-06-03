@@ -24,6 +24,7 @@ from iot_api_client.models.arduino_devicev2_event_properties import ArduinoDevic
 from iot_api_client.models.arduino_devicev2_status_events import ArduinoDevicev2StatusEvents
 from iot_api_client.models.arduino_devicev2properties import ArduinoDevicev2properties
 from iot_api_client.models.arduino_devicev2propertyvalues import ArduinoDevicev2propertyvalues
+from iot_api_client.models.create_claimed_devices_v2_payload import CreateClaimedDevicesV2Payload
 from iot_api_client.models.create_devices_v2_payload import CreateDevicesV2Payload
 from iot_api_client.models.devicev2 import Devicev2
 from iot_api_client.models.properties_values import PropertiesValues
@@ -50,7 +51,7 @@ class DevicesV2Api:
     def devices_v2_create(
         self,
         create_devices_v2_payload: Annotated[CreateDevicesV2Payload, Field(description="DeviceV2 describes a device.")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -70,7 +71,7 @@ class DevicesV2Api:
 
         :param create_devices_v2_payload: DeviceV2 describes a device. (required)
         :type create_devices_v2_payload: CreateDevicesV2Payload
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -125,7 +126,7 @@ class DevicesV2Api:
     def devices_v2_create_with_http_info(
         self,
         create_devices_v2_payload: Annotated[CreateDevicesV2Payload, Field(description="DeviceV2 describes a device.")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -145,7 +146,7 @@ class DevicesV2Api:
 
         :param create_devices_v2_payload: DeviceV2 describes a device. (required)
         :type create_devices_v2_payload: CreateDevicesV2Payload
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -200,7 +201,7 @@ class DevicesV2Api:
     def devices_v2_create_without_preload_content(
         self,
         create_devices_v2_payload: Annotated[CreateDevicesV2Payload, Field(description="DeviceV2 describes a device.")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -220,7 +221,7 @@ class DevicesV2Api:
 
         :param create_devices_v2_payload: DeviceV2 describes a device. (required)
         :type create_devices_v2_payload: CreateDevicesV2Payload
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -349,11 +350,316 @@ class DevicesV2Api:
 
 
     @validate_call
+    def devices_v2_create_claimed(
+        self,
+        create_claimed_devices_v2_payload: Annotated[CreateClaimedDevicesV2Payload, Field(description="DeviceV2 describes a device.")],
+        x_organization: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ArduinoDevicev2:
+        """createClaimed devices_v2
+
+        Creates a new device associated to the user.
+
+        :param create_claimed_devices_v2_payload: DeviceV2 describes a device. (required)
+        :type create_claimed_devices_v2_payload: CreateClaimedDevicesV2Payload
+        :param x_organization:
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._devices_v2_create_claimed_serialize(
+            create_claimed_devices_v2_payload=create_claimed_devices_v2_payload,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "ArduinoDevicev2",
+            '401': "Error",
+            '403': "Error",
+            '409': "Error",
+            '412': "Error",
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def devices_v2_create_claimed_with_http_info(
+        self,
+        create_claimed_devices_v2_payload: Annotated[CreateClaimedDevicesV2Payload, Field(description="DeviceV2 describes a device.")],
+        x_organization: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ArduinoDevicev2]:
+        """createClaimed devices_v2
+
+        Creates a new device associated to the user.
+
+        :param create_claimed_devices_v2_payload: DeviceV2 describes a device. (required)
+        :type create_claimed_devices_v2_payload: CreateClaimedDevicesV2Payload
+        :param x_organization:
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._devices_v2_create_claimed_serialize(
+            create_claimed_devices_v2_payload=create_claimed_devices_v2_payload,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "ArduinoDevicev2",
+            '401': "Error",
+            '403': "Error",
+            '409': "Error",
+            '412': "Error",
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def devices_v2_create_claimed_without_preload_content(
+        self,
+        create_claimed_devices_v2_payload: Annotated[CreateClaimedDevicesV2Payload, Field(description="DeviceV2 describes a device.")],
+        x_organization: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """createClaimed devices_v2
+
+        Creates a new device associated to the user.
+
+        :param create_claimed_devices_v2_payload: DeviceV2 describes a device. (required)
+        :type create_claimed_devices_v2_payload: CreateClaimedDevicesV2Payload
+        :param x_organization:
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._devices_v2_create_claimed_serialize(
+            create_claimed_devices_v2_payload=create_claimed_devices_v2_payload,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "ArduinoDevicev2",
+            '401': "Error",
+            '403': "Error",
+            '409': "Error",
+            '412': "Error",
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _devices_v2_create_claimed_serialize(
+        self,
+        create_claimed_devices_v2_payload,
+        x_organization,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
+        # process the form parameters
+        # process the body parameter
+        if create_claimed_devices_v2_payload is not None:
+            _body_params = create_claimed_devices_v2_payload
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/vnd.arduino.devicev2+json', 
+                    'application/vnd.goa.error+json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'oauth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/iot/v2/devices/claim',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def devices_v2_delete(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the device")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -375,7 +681,7 @@ class DevicesV2Api:
         :type id: str
         :param force: If true, hard delete the device
         :type force: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -432,7 +738,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the device")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -454,7 +760,7 @@ class DevicesV2Api:
         :type id: str
         :param force: If true, hard delete the device
         :type force: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -511,7 +817,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         force: Annotated[Optional[StrictBool], Field(description="If true, hard delete the device")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -533,7 +839,7 @@ class DevicesV2Api:
         :type id: str
         :param force: If true, hard delete the device
         :type force: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -660,7 +966,7 @@ class DevicesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the device")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of events to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting events")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -684,7 +990,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting events
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -744,7 +1050,7 @@ class DevicesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the device")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of events to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting events")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -768,7 +1074,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting events
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -828,7 +1134,7 @@ class DevicesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the device")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of events to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting events")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -852,7 +1158,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting events
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -985,7 +1291,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1007,7 +1313,7 @@ class DevicesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1064,7 +1370,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1086,7 +1392,7 @@ class DevicesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1143,7 +1449,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1165,7 +1471,7 @@ class DevicesV2Api:
         :type id: str
         :param show_deleted: If true, shows the soft deleted properties
         :type show_deleted: bool
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1292,7 +1598,7 @@ class DevicesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the device")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of events to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting events")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1316,7 +1622,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting events
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1377,7 +1683,7 @@ class DevicesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the device")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of events to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting events")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1401,7 +1707,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting events
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1462,7 +1768,7 @@ class DevicesV2Api:
         id: Annotated[StrictStr, Field(description="The id of the device")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of events to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting events")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1486,7 +1792,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting events
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1622,7 +1928,8 @@ class DevicesV2Api:
         serial: Annotated[Optional[StrictStr], Field(description="Filter by device serial number")] = None,
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted devices")] = None,
         tags: Annotated[Optional[List[Annotated[str, Field(strict=True, max_length=129)]]], Field(description="Filter by tags")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        unique_hardware_id: Annotated[Optional[StrictStr], Field(description="Filter by device unique hardware id")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1648,7 +1955,9 @@ class DevicesV2Api:
         :type show_deleted: bool
         :param tags: Filter by tags
         :type tags: List[str]
-        :param x_organization: Organization space identifer (optional)
+        :param unique_hardware_id: Filter by device unique hardware id
+        :type unique_hardware_id: str
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1677,6 +1986,7 @@ class DevicesV2Api:
             serial=serial,
             show_deleted=show_deleted,
             tags=tags,
+            unique_hardware_id=unique_hardware_id,
             x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1709,7 +2019,8 @@ class DevicesV2Api:
         serial: Annotated[Optional[StrictStr], Field(description="Filter by device serial number")] = None,
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted devices")] = None,
         tags: Annotated[Optional[List[Annotated[str, Field(strict=True, max_length=129)]]], Field(description="Filter by tags")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        unique_hardware_id: Annotated[Optional[StrictStr], Field(description="Filter by device unique hardware id")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1735,7 +2046,9 @@ class DevicesV2Api:
         :type show_deleted: bool
         :param tags: Filter by tags
         :type tags: List[str]
-        :param x_organization: Organization space identifer (optional)
+        :param unique_hardware_id: Filter by device unique hardware id
+        :type unique_hardware_id: str
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1764,6 +2077,7 @@ class DevicesV2Api:
             serial=serial,
             show_deleted=show_deleted,
             tags=tags,
+            unique_hardware_id=unique_hardware_id,
             x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1796,7 +2110,8 @@ class DevicesV2Api:
         serial: Annotated[Optional[StrictStr], Field(description="Filter by device serial number")] = None,
         show_deleted: Annotated[Optional[StrictBool], Field(description="If true, shows the soft deleted devices")] = None,
         tags: Annotated[Optional[List[Annotated[str, Field(strict=True, max_length=129)]]], Field(description="Filter by tags")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        unique_hardware_id: Annotated[Optional[StrictStr], Field(description="Filter by device unique hardware id")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1822,7 +2137,9 @@ class DevicesV2Api:
         :type show_deleted: bool
         :param tags: Filter by tags
         :type tags: List[str]
-        :param x_organization: Organization space identifer (optional)
+        :param unique_hardware_id: Filter by device unique hardware id
+        :type unique_hardware_id: str
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1851,6 +2168,7 @@ class DevicesV2Api:
             serial=serial,
             show_deleted=show_deleted,
             tags=tags,
+            unique_hardware_id=unique_hardware_id,
             x_organization=x_organization,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1878,6 +2196,7 @@ class DevicesV2Api:
         serial,
         show_deleted,
         tags,
+        unique_hardware_id,
         x_organization,
         _request_auth,
         _content_type,
@@ -1917,6 +2236,10 @@ class DevicesV2Api:
         if tags is not None:
             
             _query_params.append(('tags', tags))
+            
+        if unique_hardware_id is not None:
+            
+            _query_params.append(('unique_hardware_id', unique_hardware_id))
             
         # process the header parameters
         if x_organization is not None:
@@ -1959,10 +2282,302 @@ class DevicesV2Api:
 
 
     @validate_call
+    def devices_v2_remove_hardware_id(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ArduinoDevicev2:
+        """removeHardwareID devices_v2
+
+        Removes the unique hardware id from the device
+
+        :param id: The id of the device (required)
+        :type id: str
+        :param x_organization:
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._devices_v2_remove_hardware_id_serialize(
+            id=id,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ArduinoDevicev2",
+            '401': "Error",
+            '403': "Error",
+            '404': None,
+            '412': "Error",
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def devices_v2_remove_hardware_id_with_http_info(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ArduinoDevicev2]:
+        """removeHardwareID devices_v2
+
+        Removes the unique hardware id from the device
+
+        :param id: The id of the device (required)
+        :type id: str
+        :param x_organization:
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._devices_v2_remove_hardware_id_serialize(
+            id=id,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ArduinoDevicev2",
+            '401': "Error",
+            '403': "Error",
+            '404': None,
+            '412': "Error",
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def devices_v2_remove_hardware_id_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="The id of the device")],
+        x_organization: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """removeHardwareID devices_v2
+
+        Removes the unique hardware id from the device
+
+        :param id: The id of the device (required)
+        :type id: str
+        :param x_organization:
+        :type x_organization: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._devices_v2_remove_hardware_id_serialize(
+            id=id,
+            x_organization=x_organization,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ArduinoDevicev2",
+            '401': "Error",
+            '403': "Error",
+            '404': None,
+            '412': "Error",
+            '500': "Error",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _devices_v2_remove_hardware_id_serialize(
+        self,
+        id,
+        x_organization,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        if x_organization is not None:
+            _header_params['X-Organization'] = x_organization
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/vnd.arduino.devicev2+json', 
+                    'application/vnd.goa.error+json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'oauth2'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/iot/v2/devices/{id}/remove-uhwid',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     def devices_v2_show(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1982,7 +2597,7 @@ class DevicesV2Api:
 
         :param id: The id of the device (required)
         :type id: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2037,7 +2652,7 @@ class DevicesV2Api:
     def devices_v2_show_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2057,7 +2672,7 @@ class DevicesV2Api:
 
         :param id: The id of the device (required)
         :type id: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2112,7 +2727,7 @@ class DevicesV2Api:
     def devices_v2_show_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2132,7 +2747,7 @@ class DevicesV2Api:
 
         :param id: The id of the device (required)
         :type id: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2254,7 +2869,7 @@ class DevicesV2Api:
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of properties to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2280,7 +2895,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting properties
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2342,7 +2957,7 @@ class DevicesV2Api:
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of properties to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2368,7 +2983,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting properties
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2430,7 +3045,7 @@ class DevicesV2Api:
         pid: Annotated[StrictStr, Field(description="The id of the property")],
         limit: Annotated[Optional[StrictInt], Field(description="The number of properties to select")] = None,
         start: Annotated[Optional[StrictStr], Field(description="The time at which to start selecting properties")] = None,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2456,7 +3071,7 @@ class DevicesV2Api:
         :type limit: int
         :param start: The time at which to start selecting properties
         :type start: str
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2593,7 +3208,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2: Annotated[Devicev2, Field(description="DeviceV2 describes a device.")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2615,7 +3230,7 @@ class DevicesV2Api:
         :type id: str
         :param devicev2: DeviceV2 describes a device. (required)
         :type devicev2: Devicev2
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2673,7 +3288,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2: Annotated[Devicev2, Field(description="DeviceV2 describes a device.")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2695,7 +3310,7 @@ class DevicesV2Api:
         :type id: str
         :param devicev2: DeviceV2 describes a device. (required)
         :type devicev2: Devicev2
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2753,7 +3368,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         devicev2: Annotated[Devicev2, Field(description="DeviceV2 describes a device.")],
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2775,7 +3390,7 @@ class DevicesV2Api:
         :type id: str
         :param devicev2: DeviceV2 describes a device. (required)
         :type devicev2: Devicev2
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2913,7 +3528,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         properties_values: PropertiesValues,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2935,7 +3550,7 @@ class DevicesV2Api:
         :type id: str
         :param properties_values: (required)
         :type properties_values: PropertiesValues
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -2992,7 +3607,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         properties_values: PropertiesValues,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3014,7 +3629,7 @@ class DevicesV2Api:
         :type id: str
         :param properties_values: (required)
         :type properties_values: PropertiesValues
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -3071,7 +3686,7 @@ class DevicesV2Api:
         self,
         id: Annotated[StrictStr, Field(description="The id of the device")],
         properties_values: PropertiesValues,
-        x_organization: Annotated[Optional[StrictStr], Field(description="Organization space identifer (optional)")] = None,
+        x_organization: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3093,7 +3708,7 @@ class DevicesV2Api:
         :type id: str
         :param properties_values: (required)
         :type properties_values: PropertiesValues
-        :param x_organization: Organization space identifer (optional)
+        :param x_organization:
         :type x_organization: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

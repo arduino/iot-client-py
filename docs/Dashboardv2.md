@@ -1,6 +1,6 @@
 # Dashboardv2
 
-Describes a dashboard
+DashboardV2Payload describes a dashboard
 
 ## Properties
 

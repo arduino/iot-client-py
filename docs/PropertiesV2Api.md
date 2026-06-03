@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**properties_v2_delete**](PropertiesV2Api.md#properties_v2_delete) | **DELETE** /iot/v2/things/{id}/properties/{pid} | delete properties_v2
 [**properties_v2_list**](PropertiesV2Api.md#properties_v2_list) | **GET** /iot/v2/things/{id}/properties | list properties_v2
 [**properties_v2_publish**](PropertiesV2Api.md#properties_v2_publish) | **PUT** /iot/v2/things/{id}/properties/{pid}/publish | publish properties_v2
+[**properties_v2_publish_batch**](PropertiesV2Api.md#properties_v2_publish_batch) | **PUT** /iot/v2/things/{id}/properties/{pid}/publish_batch | publishBatch properties_v2
+[**properties_v2_publish_multi**](PropertiesV2Api.md#properties_v2_publish_multi) | **PUT** /iot/v2/things/{id}/publish | publishMulti properties_v2
 [**properties_v2_show**](PropertiesV2Api.md#properties_v2_show) | **GET** /iot/v2/things/{id}/properties/{pid} | show properties_v2
 [**properties_v2_timeseries**](PropertiesV2Api.md#properties_v2_timeseries) | **GET** /iot/v2/things/{id}/properties/{pid}/timeseries | timeseries properties_v2
 [**properties_v2_update**](PropertiesV2Api.md#properties_v2_update) | **POST** /iot/v2/things/{id}/properties/{pid} | update properties_v2
@@ -50,7 +52,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.PropertiesV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     model_property = iot_api_client.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
 
     try:
         # create properties_v2
@@ -70,7 +72,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **model_property** | [**ModelProperty**](ModelProperty.md)| PropertyPayload describes a property of a thing. No field is mandatory | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -134,7 +136,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     force = False # bool | If true, hard delete the property (optional) (default to False)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
 
     try:
         # delete properties_v2
@@ -153,7 +155,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **force** | **bool**| If true, hard delete the property | [optional] [default to False]
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -215,7 +217,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     api_instance = iot_api_client.PropertiesV2Api(api_client)
     id = 'id_example' # str | The id of the thing
     show_deleted = False # bool | If true, shows the soft deleted properties (optional) (default to False)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
 
     try:
         # list properties_v2
@@ -235,7 +237,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| The id of the thing | 
  **show_deleted** | **bool**| If true, shows the soft deleted properties | [optional] [default to False]
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -298,7 +300,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     property_value = iot_api_client.PropertyValue() # PropertyValue | PropertyValuePayload describes a property value
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
 
     try:
         # publish properties_v2
@@ -317,7 +319,171 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **property_value** | [**PropertyValue**](PropertyValue.md)| PropertyValuePayload describes a property value | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**| The id of the organization | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.goa.error+json, text/plain
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **properties_v2_publish_batch**
+> properties_v2_publish_batch(id, pid, property_timed_value, x_organization=x_organization)
+
+publishBatch properties_v2
+
+Publish a property's array of values to MQTT
+
+### Example
+
+* OAuth Authentication (oauth2):
+
+```python
+import iot_api_client
+from iot_api_client.models.property_timed_value import PropertyTimedValue
+from iot_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api2.arduino.cc
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = iot_api_client.PropertiesV2Api(api_client)
+    id = 'id_example' # str | The id of the thing
+    pid = 'pid_example' # str | The id of the property
+    property_timed_value = [iot_api_client.PropertyTimedValue()] # List[PropertyTimedValue] | 
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+
+    try:
+        # publishBatch properties_v2
+        api_instance.properties_v2_publish_batch(id, pid, property_timed_value, x_organization=x_organization)
+    except Exception as e:
+        print("Exception when calling PropertiesV2Api->properties_v2_publish_batch: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the thing | 
+ **pid** | **str**| The id of the property | 
+ **property_timed_value** | [**List[PropertyTimedValue]**](PropertyTimedValue.md)|  | 
+ **x_organization** | **str**| The id of the organization | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.goa.error+json, text/plain
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Bad Request |  -  |
+**401** | Unauthorized |  -  |
+**404** | Not Found |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **properties_v2_publish_multi**
+> properties_v2_publish_multi(id, property_values, x_organization=x_organization)
+
+publishMulti properties_v2
+
+Publish property values to MQTT
+
+### Example
+
+* OAuth Authentication (oauth2):
+
+```python
+import iot_api_client
+from iot_api_client.models.property_values import PropertyValues
+from iot_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api2.arduino.cc
+# See configuration.py for a list of all supported configuration parameters.
+configuration = iot_api_client.Configuration(
+    host = "https://api2.arduino.cc"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with iot_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = iot_api_client.PropertiesV2Api(api_client)
+    id = 'id_example' # str | The id of the thing
+    property_values = iot_api_client.PropertyValues() # PropertyValues | 
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
+
+    try:
+        # publishMulti properties_v2
+        api_instance.properties_v2_publish_multi(id, property_values, x_organization=x_organization)
+    except Exception as e:
+        print("Exception when calling PropertiesV2Api->properties_v2_publish_multi: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| The id of the thing | 
+ **property_values** | [**PropertyValues**](PropertyValues.md)|  | 
+ **x_organization** | **str**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -381,7 +547,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     show_deleted = False # bool | If true, shows the soft deleted properties (optional) (default to False)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
 
     try:
         # show properties_v2
@@ -402,7 +568,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **show_deleted** | **bool**| If true, shows the soft deleted properties | [optional] [default to False]
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -469,7 +635,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     var_from = 'var_from_example' # str | Get data with a timestamp >= to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) (optional)
     interval = 56 # int | Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response) (optional)
     to = 'to_example' # str | Get data with a timestamp < to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) (optional)
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
 
     try:
         # timeseries properties_v2
@@ -494,7 +660,7 @@ Name | Type | Description  | Notes
  **var_from** | **str**| Get data with a timestamp &gt;&#x3D; to this date (default: 2 weeks ago, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) | [optional] 
  **interval** | **int**| Binning interval in seconds (defaut: the smallest possible value compatibly with the limit of 1000 data points in the response) | [optional] 
  **to** | **str**| Get data with a timestamp &lt; to this date (default: now, min: 1842-01-01T00:00:00Z, max: 2242-01-01T00:00:00Z) | [optional] 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**| The id of the organization | [optional] 
 
 ### Return type
 
@@ -559,7 +725,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | The id of the thing
     pid = 'pid_example' # str | The id of the property
     model_property = iot_api_client.ModelProperty() # ModelProperty | PropertyPayload describes a property of a thing. No field is mandatory
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str | The id of the organization (optional)
 
     try:
         # update properties_v2
@@ -580,7 +746,7 @@ Name | Type | Description  | Notes
  **id** | **str**| The id of the thing | 
  **pid** | **str**| The id of the property | 
  **model_property** | [**ModelProperty**](ModelProperty.md)| PropertyPayload describes a property of a thing. No field is mandatory | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**| The id of the organization | [optional] 
 
 ### Return type
 

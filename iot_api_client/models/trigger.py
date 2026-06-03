@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from iot_api_client.models.create_action import CreateAction
 from iot_api_client.models.device_status_source import DeviceStatusSource
 from typing import Optional, Set
@@ -33,7 +34,7 @@ class Trigger(BaseModel):
     description: Optional[StrictStr] = Field(default=None, description="The description of the trigger")
     device_status_source: Optional[DeviceStatusSource] = None
     id: Optional[StrictStr] = Field(default=None, description="The id of the trigger")
-    name: Optional[StrictStr] = Field(default=None, description="The name of the trigger")
+    name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=256)]] = Field(default=None, description="The name of the trigger")
     property_id: Optional[StrictStr] = Field(default=None, description="Id of the property the trigger is associated to (mutually exclusive with 'device_status_source')")
     soft_deleted: Optional[StrictBool] = Field(default=False, description="If false, restore the thing from the soft deletion")
     __properties: ClassVar[List[str]] = ["actions", "active", "description", "device_status_source", "id", "name", "property_id", "soft_deleted"]

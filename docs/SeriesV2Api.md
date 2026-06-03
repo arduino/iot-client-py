@@ -47,7 +47,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_query_requests_media_v1 = iot_api_client.BatchQueryRequestsMediaV1() # BatchQueryRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # batch_query series_v2
@@ -66,7 +66,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_query_requests_media_v1** | [**BatchQueryRequestsMediaV1**](BatchQueryRequestsMediaV1.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -131,7 +131,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_query_raw_requests_media_v1 = iot_api_client.BatchQueryRawRequestsMediaV1() # BatchQueryRawRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # batch_query_raw series_v2
@@ -150,7 +150,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_query_raw_requests_media_v1** | [**BatchQueryRawRequestsMediaV1**](BatchQueryRawRequestsMediaV1.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -215,7 +215,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_last_value_requests_media_v1 = iot_api_client.BatchLastValueRequestsMediaV1() # BatchLastValueRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # batch_query_raw_last_value series_v2
@@ -234,7 +234,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_last_value_requests_media_v1** | [**BatchLastValueRequestsMediaV1**](BatchLastValueRequestsMediaV1.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -298,7 +298,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     batch_query_sampled_requests_media_v1 = iot_api_client.BatchQuerySampledRequestsMediaV1() # BatchQuerySampledRequestsMediaV1 | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # batch_query_sampling series_v2
@@ -317,7 +317,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **batch_query_sampled_requests_media_v1** | [**BatchQuerySampledRequestsMediaV1**](BatchQuerySampledRequestsMediaV1.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
@@ -381,7 +381,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = iot_api_client.SeriesV2Api(api_client)
     historic_data_request = iot_api_client.HistoricDataRequest() # HistoricDataRequest | 
-    x_organization = 'x_organization_example' # str | Organization space identifer (optional) (optional)
+    x_organization = 'x_organization_example' # str |  (optional)
 
     try:
         # historic_data series_v2
@@ -398,7 +398,7 @@ with iot_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **historic_data_request** | [**HistoricDataRequest**](HistoricDataRequest.md)|  | 
- **x_organization** | **str**| Organization space identifer (optional) | [optional] 
+ **x_organization** | **str**|  | [optional] 
 
 ### Return type
 
